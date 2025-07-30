@@ -20,19 +20,19 @@ const VolunteerCard: React.FC<{
         className="w-32 h-32 rounded-full mx-auto mb-4"
       />
       <h3 className="text-xl font-bold text-neutral-800">{name}</h3>
-      <p className="text-primary-600 font-semibold mb-2">{title}</p>
+      <p className="text-indigo-600 font-semibold mb-2">{title}</p>
       <p className="text-neutral-600 text-sm mb-4">{description}</p>
       <div className="flex justify-center space-x-3">
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href="#" className="text-indigo-600 hover:text-indigo-700">
           <FaFacebookF />
         </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href="#" className="text-indigo-600 hover:text-indigo-700">
           <FaTwitter />
         </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href="#" className="text-indigo-600 hover:text-indigo-700">
           <FaInstagram />
         </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href="#" className="text-indigo-600 hover:text-indigo-700">
           <FaLinkedinIn />
         </a>
       </div>

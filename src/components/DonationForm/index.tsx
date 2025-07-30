@@ -111,7 +111,7 @@ const DonationForm: React.FC = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
+          className="w-full bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
         >
           Donate Now
         </button>

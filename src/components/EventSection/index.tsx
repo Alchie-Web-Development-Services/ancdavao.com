@@ -27,15 +27,14 @@ const EventSection: React.FC = () => {
             <div>
               <div className="flex items-center text-neutral-600 space-x-6 mb-4">
                 <span className="flex items-center">
-                  <FaCalendarAlt className="mr-2 text-primary-600" /> 12 Oct
-                  2018
+                  <FaCalendarAlt className="mr-2 text-indigo-600" /> 12 Oct 2018
                 </span>
                 <span className="flex items-center">
-                  <FaMapMarkerAlt className="mr-2 text-primary-600" /> King
+                  <FaMapMarkerAlt className="mr-2 text-indigo-600" /> King
                   Street, Melbourne
                 </span>
                 <span className="flex items-center">
-                  <FaClock className="mr-2 text-primary-600" /> 9:00 - 16:00
+                  <FaClock className="mr-2 text-indigo-600" /> 9:00 - 16:00
                 </span>
               </div>
               <h3 className="text-3xl font-bold text-neutral-800 mb-4">
@@ -50,7 +49,7 @@ const EventSection: React.FC = () => {
               </p>
               <Link
                 to="/events"
-                className="bg-primary-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
+                className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
               >
                 Learn More
               </Link>

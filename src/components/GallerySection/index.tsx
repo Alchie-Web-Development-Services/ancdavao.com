@@ -56,8 +56,8 @@ const GallerySection: React.FC = () => {
               onClick={() => setFilter(category)}
               className={`px-6 py-2 rounded-full font-semibold transition-colors duration-300 ${
                 filter === category
-                  ? "bg-primary-600 text-white"
-                  : "bg-white text-neutral-700 hover:bg-primary-50"
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white text-neutral-700 hover:bg-indigo-50"
               }`}
             >
               {category}

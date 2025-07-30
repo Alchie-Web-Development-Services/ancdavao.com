@@ -55,7 +55,7 @@ const MissionSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-8">
               {missions.map((mission, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <div className="text-primary-600 bg-primary-50 p-4 rounded-full">
+                  <div className="text-indigo-600 bg-indigo-50 p-4 rounded-full">
                     {mission.icon}
                   </div>
                   <div>
