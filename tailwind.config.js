@@ -43,10 +43,6 @@ export default {
           900: "#111827",
         },
       },
-      fontFamily: {
-        sans: ["Inter var", "sans-serif"],
-        display: ["Calistoga", "serif"],
-      },
       container: {
         center: true,
         padding: "1rem",
@@ -73,7 +69,7 @@ export default {
   corePlugins: {
     preflight: true,
   },
-  important: false,
+  important: true,
   darkMode: "class",
   variants: {
     extend: {
