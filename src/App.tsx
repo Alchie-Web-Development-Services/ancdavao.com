@@ -12,6 +12,9 @@ import NewsEvents from "./pages/NewsEvents";
 import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
 import FAQ from "./pages/FAQ";
+import Event from "./pages/Event";
+import Causes from "./pages/Causes";
+import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 
@@ -33,6 +36,9 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/donate" element={<Donate />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/events" element={<Event />} />
+              <Route path="/causes" element={<Causes />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
