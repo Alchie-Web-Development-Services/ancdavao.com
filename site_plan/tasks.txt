@@ -1,0 +1,99 @@
+✅ ANC Website Redesign – Task Breakdown
+
+⸻
+
+🧠 Phase 1: Strategy & Planning
+
+Owner: Project Manager / ANC Core Team
+Duration: 1 week
+	•	Define core goals (awareness, donations, volunteers, transparency)
+	•	Finalize sitemap and page structure
+	•	Assign roles (content writer, designer, dev, reviewer)
+	•	Create project timeline with milestones
+	•	Confirm branding assets (logo, color palette, photos)
+	•	Prepare platform decision (e.g. WordPress vs custom Next.js)
+
+⸻
+
+✍️ Phase 2: Content Development
+
+Owner: Content Team / ANC Staff
+Duration: 2 weeks
+	•	Write About ANC page (history, vision, structure)
+	•	Draft descriptions for each program (feeding, education, etc.)
+	•	Gather real-life stories/testimonials with photos
+	•	List board of trustees, partners, and centers
+	•	Write calls-to-action for homepage and Get Involved pages
+	•	Compile FAQ content
+	•	Write clear donation instructions and contact info
+	•	Review and finalize all text for approval
+
+⸻
+
+🎨 Phase 3: Design
+
+Owner: Designer / UI Specialist
+Duration: 1.5–2 weeks
+	•	Create wireframes for key pages (home, programs, donate, about, etc.)
+	•	Design responsive layouts (mobile + desktop)
+	•	Integrate logo, fonts, and official ANC colors (teal + maroon)
+	•	Prepare image assets (optimized, branded, compressed)
+	•	Design buttons, icons, sections for CTA, impact stats
+	•	Review with stakeholders and revise
+
+⸻
+
+💻 Phase 4: Development
+
+Owner: Web Developer / Frontend + Backend
+Duration: 2–3 weeks
+	•	Set up environment (domain, hosting, CMS or codebase)
+	•	Build responsive frontend based on designs
+	•	Implement page structure and navigation
+	•	Integrate donation functionality (e.g. GCash, bank info, PayPal)
+	•	Add blog or update section for events/news
+	•	Set up contact form with email notifications
+	•	Connect social media links + Facebook Pixel
+	•	Optimize for SEO and performance
+	•	Add Google Analytics
+	•	Basic CMS training for ANC staff (if applicable)
+
+⸻
+
+🧪 Phase 5: Testing & QA
+
+Owner: QA Tester / Developer
+Duration: 1 week
+	•	Check responsiveness on mobile, tablet, desktop
+	•	Test donation and contact forms
+	•	Verify link structure, page titles, alt text
+	•	Check loading speed and image optimization
+	•	Ensure accessibility (screen reader friendly, contrast, etc.)
+	•	Verify content for typos or incorrect info
+	•	Collect feedback from ANC team
+	•	Final fixes and polish
+
+⸻
+
+🚀 Phase 6: Launch
+
+Owner: Project Manager + Dev
+Duration: 2 days
+	•	Point domain to new host
+	•	Announce launch via Facebook and email
+	•	Monitor for errors post-launch
+	•	Submit site to Google Search Console
+	•	Back up full site
+
+⸻
+
+🛠️ Phase 7: Post-Launch Support
+
+Owner: Dev + ANC Admin
+Ongoing
+	•	Monthly updates to stories and gallery
+	•	Add events and fundraising updates
+	•	Monitor analytics for engagement
+	•	Respond to inquiries via contact form
+	•	Update FAQs and program pages as needed
+	•	Train more ANC staff to use CMS if needed

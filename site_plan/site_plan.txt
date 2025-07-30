@@ -1,0 +1,118 @@
+ANC Website Redesign — Detailed Site Plan
+
+🎯 Objectives
+	•	Showcase ANC’s mission, impact, and programs clearly
+	•	Make it easy to donate, volunteer, and get involved
+	•	Build trust through transparency and up-to-date content
+	•	Be mobile-friendly, fast-loading, and accessible
+	•	Support storytelling with images, video, and community voices
+
+⸻
+
+🧭 Site Structure
+
+1. Homepage
+
+Purpose: Introduce ANC at a glance and drive key actions
+Sections:
+	•	Hero banner (image or video with tagline + CTA: Donate / Volunteer)
+	•	Mission & motto: Caritas Christi Urget Nos
+	•	Overview of programs (feeding, health, education, spiritual formation)
+	•	Recent news/events
+	•	Featured story/testimonial
+	•	Call to action: Donate | Join Us | Learn More
+
+⸻
+
+2. About ANC
+
+Subpages:
+	•	Our Story – History, founding date, inspiration from Pope Francis
+	•	Mission & Vision – Clear guiding statements
+	•	Impressum – Legal info + Board of Trustees
+	•	Partners – BLD, PWC, Rizal Memorial College, etc.
+
+⸻
+
+3. Programs
+
+Purpose: Present key services in detail
+Subpages:
+	•	Feeding Centers – Locations (Fatima, Dumpsite, PME, etc.), monthly meal stats
+	•	Medical & Dental Services – Clinic schedules, partner orgs
+	•	Education Support – Scholarship list, success stories, tutorial programs
+	•	Spiritual & Family Formation – Chapel, parenting seminars, Lamdag sessions
+	•	Livelihood & Community – Parent workshops, skills training
+
+⸻
+
+4. Get Involved
+
+Purpose: Encourage engagement
+Subpages:
+	•	Volunteer – Opportunities, form, requirements
+	•	Donate – One-time or recurring, GCash/bank/paypal details
+	•	Fundraising & Events – Past and upcoming campaigns (e.g. concerts, dinners)
+	•	Corporate/School Partnerships – For MOAs and co-sponsored drives
+
+⸻
+
+5. Stories & Impact
+
+Subpages:
+	•	Featured Beneficiaries – Individual child/family journeys
+	•	Photo Gallery – Feeding sessions, events, community days
+	•	Videos – Testimonials, event highlights, partner features
+	•	Reports & Metrics – Monthly/annual stats, donor transparency
+
+⸻
+
+6. News & Events
+	•	Blog-style updates
+	•	Community outreach recaps
+	•	Upcoming events and campaigns
+
+⸻
+
+7. Contact
+	•	Embedded contact form
+	•	Address (with map), phone, email
+	•	Social media links
+	•	Office hours
+
+⸻
+
+8. FAQs
+	•	How to donate?
+	•	Who qualifies for support?
+	•	Can I visit a center?
+	•	Are donations tax deductible?
+
+⸻
+
+🧱 Foundation / Technical Plan
+	•	Tech Stack: WordPress (easy for staff updates) OR Next.js (if you’re managing dev in-house)
+	•	Hosting: Secure, reliable provider (e.g. SiteGround, Vercel)
+	•	Mobile-First Design: Prioritize performance on phones
+	•	Accessibility: WCAG 2.1 AA compliance
+	•	SEO: Meta tags, schema, Open Graph data
+	•	Analytics: Google Analytics + Facebook Pixel
+	•	Security: SSL, reCAPTCHA, anti-spam for forms
+
+⸻
+
+🖌️ Design Notes
+	•	Color scheme: Teal + Maroon (from logo)
+	•	Fonts: Clear sans-serif + soft serif for titles
+	•	Style: Hopeful, grounded, compassionate
+	•	Use imagery showing real ANC work, not just stock photos
+	•	Include quotes from volunteers, partners, and beneficiaries
+
+⸻
+
+📌 Optional Add-ons
+	•	Newsletter Signup – Email campaigns for donors/volunteers
+	•	Prayer Wall – Share prayers or intentions (faith engagement)
+	•	Volunteer Dashboard – For active volunteers to log hours or check events
+	•	Resource Downloads – Forms, brochures, media kit
+	•	Chatbot / Messenger Integration – For instant inquiries

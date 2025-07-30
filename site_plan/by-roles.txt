@@ -1,0 +1,108 @@
+👥 ROLE-BASED TASK BREAKDOWN
+
+⸻
+
+🧠 1. Project Manager / ANC Core Team
+
+Primary Responsibilities:
+	•	Set direction, timelines, and priorities
+	•	Coordinate between teams (design, dev, content)
+	•	Approve final content and designs
+	•	Represent ANC leadership and vision
+
+Tasks:
+	•	Finalize goals and sitemap
+	•	Approve branding assets and logo
+	•	Review and approve content
+	•	Sign off on design mockups and staging site
+	•	Provide internal updates to the ANC board
+	•	Help gather stories, photos, and staff bios
+	•	Monitor launch readiness and coordinate launch day
+
+⸻
+
+✍️ 2. Content Writer / Communications Officer
+
+Primary Responsibilities:
+	•	Draft and polish all written content on the site
+	•	Ensure tone matches ANC’s values (hopeful, Catholic, community-based)
+
+Tasks:
+	•	Write Home page copy (headline, intro, CTAs)
+	•	Create detailed descriptions for each program
+	•	Write About page: history, mission, motto, structure
+	•	Draft and update FAQ content
+	•	Collect real testimonials and quotes from scholars, families
+	•	Write bios or brief intros for board of trustees
+	•	Create compelling donation and volunteer CTAs
+	•	Edit content for clarity, grammar, and consistency
+
+⸻
+
+🖌️ 3. Designer / UI-UX Specialist
+
+Primary Responsibilities:
+	•	Design a visually compelling, accessible layout
+	•	Create a cohesive design system around ANC’s colors and values
+
+Tasks:
+	•	Build wireframes for each page (Home, Programs, Get Involved, etc.)
+	•	Create hi-fi mockups (desktop and mobile)
+	•	Apply ANC brand: teal + maroon, logo placement, fonts
+	•	Design custom icons or use faith-aligned visuals
+	•	Style sections for impact metrics, story features, CTAs
+	•	Export image assets (optimized for web)
+	•	Collaborate with dev to clarify design logic
+	•	Test for visual accessibility (contrast, spacing)
+
+⸻
+
+💻 4. Web Developer / Frontend + Backend
+
+Primary Responsibilities:
+	•	Build and deploy the website with clean, scalable code or CMS
+	•	Implement forms, responsive layouts, donation flow, and blog
+
+Tasks:
+	•	Choose and set up stack (WordPress, Next.js, or similar)
+	•	Create navigation and route/page structure
+	•	Implement homepage sections with animations/transitions (if any)
+	•	Build donation options (links to GCash, PayPal, bank info)
+	•	Add Contact form with validation and email routing
+	•	Create a reusable layout for programs and stories
+	•	Connect analytics (GA4, FB Pixel)
+	•	Optimize performance and image loading (LCP, lazy load)
+	•	Set up CMS (if applicable) for team to update content
+	•	Configure SEO metadata and Open Graph sharing tags
+	•	QA all functionality before launch
+
+⸻
+
+🔍 5. QA Tester / Tech Support Volunteer
+
+Primary Responsibilities:
+	•	Ensure everything works smoothly across devices and platforms
+	•	Identify and report bugs, issues, or content errors
+
+Tasks:
+	•	Test layout on Chrome, Safari, Firefox, mobile devices
+	•	Verify contact and donation forms work
+	•	Check all links, page loads, and image quality
+	•	Review text for typos or display issues
+	•	Report any inconsistencies between design and implementation
+	•	Confirm accessibility tags and alt text are in place
+
+⸻
+
+📸 6. Media & Social Team (Optional but Recommended)
+
+Primary Responsibilities:
+	•	Provide real photos, videos, and media content
+	•	Help align website launch with social media campaign
+
+Tasks:
+	•	Submit high-quality photos of centers, kids, events
+	•	Record or compile short video testimonials
+	•	Provide captions and names (with consent) for images
+	•	Coordinate launch post for Facebook and Instagram
+	•	Assist in updating gallery post-launch
