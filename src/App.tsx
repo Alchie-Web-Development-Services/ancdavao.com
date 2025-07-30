@@ -13,7 +13,7 @@ import Contact from "./pages/Contact";
 import Donate from "./pages/Donate";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
-import "./styles/global.css";
+import "./App.css";
 
 function App() {
   return (
