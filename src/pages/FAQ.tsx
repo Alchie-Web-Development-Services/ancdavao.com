@@ -20,9 +20,9 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
       >
         <span className="font-medium text-gray-900">{question}</span>
         {isOpen ? (
-          <FaChevronUp className="text-teal-600" />
+          <FaChevronUp className="text-indigo-600" />
         ) : (
-          <FaChevronDown className="text-teal-600" />
+          <FaChevronDown className="text-indigo-600" />
         )}
       </button>
       <div
@@ -192,7 +192,7 @@ const FAQ: React.FC = () => {
                       onClick={() => setActiveCategory(category.id)}
                       className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
                         activeCategory === category.id
-                          ? "bg-teal-100 text-teal-700 font-medium"
+                          ? "bg-indigo-100 text-indigo-700 font-medium"
                           : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
@@ -201,7 +201,7 @@ const FAQ: React.FC = () => {
                   ))}
                 </nav>
 
-                <div className="mt-8 p-6 bg-teal-50 rounded-lg">
+                <div className="mt-8 p-6 bg-indigo-50 rounded-lg">
                   <h3 className="font-semibold mb-3">Still have questions?</h3>
                   <p className="text-sm text-gray-600 mb-4">
                     Can't find the answer you're looking for? Our team is here
@@ -209,7 +209,7 @@ const FAQ: React.FC = () => {
                   </p>
                   <a
                     href="/contact"
-                    className="inline-block w-full text-center bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 transition-colors"
+                    className="inline-block w-full text-center bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors"
                   >
                     Contact Us
                   </a>
@@ -245,7 +245,7 @@ const FAQ: React.FC = () => {
                 </p>
                 <a
                   href="/contact"
-                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium"
+                  className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium"
                 >
                   Contact Support
                   <svg

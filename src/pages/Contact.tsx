@@ -69,17 +69,17 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     {
-      icon: <FaMapMarkerAlt className="text-2xl text-teal-600" />,
+      icon: <FaMapMarkerAlt className="text-2xl text-indigo-600" />,
       title: "Our Location",
       description: "1234 Street Name, Barangay 76-A, Davao City, Philippines",
     },
     {
-      icon: <FaPhone className="text-2xl text-teal-600" />,
+      icon: <FaPhone className="text-2xl text-indigo-600" />,
       title: "Phone Number",
       description: "+63 82 123 4567",
     },
     {
-      icon: <FaEnvelope className="text-2xl text-teal-600" />,
+      icon: <FaEnvelope className="text-2xl text-indigo-600" />,
       title: "Email Address",
       description: "info@ancdavao.org",
     },

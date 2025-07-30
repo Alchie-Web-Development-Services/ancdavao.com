@@ -1,18 +1,23 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./index";
 
 describe("Header", () => {
   it("renders the header with navigation links and a donate button", () => {
-    render(<Header />);
+    render(
+      <Router>
+        <Header />
+      </Router>,
+    );
 
-    expect(screen.getByText("ANC Davao")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "ANC DAVAO" })).toBeInTheDocument();
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("About")).toBeInTheDocument();
-    expect(screen.getByText("Programs")).toBeInTheDocument();
-    expect(screen.getByText("Get Involved")).toBeInTheDocument();
-    expect(screen.getByText("Stories & Impact")).toBeInTheDocument();
-    expect(screen.getByText("News & Events")).toBeInTheDocument();
+    expect(screen.getByText("Event")).toBeInTheDocument();
+    expect(screen.getByText("Causes")).toBeInTheDocument();
+    expect(screen.getByText("Blog")).toBeInTheDocument();
+    expect(screen.getByText("Pages")).toBeInTheDocument();
     expect(screen.getByText("Contact")).toBeInTheDocument();
-    expect(screen.getByText("Donate")).toBeInTheDocument();
+    expect(screen.getByText("Donate Now")).toBeInTheDocument();
   });
 });

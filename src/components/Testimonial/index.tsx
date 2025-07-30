@@ -17,7 +17,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
     <div className="bg-white p-8 rounded-lg shadow-md">
       <div className="mb-6">
         <svg
-          className="h-12 w-12 text-teal-400"
+          className="h-12 w-12 text-indigo-400"
           fill="currentColor"
           viewBox="0 0 32 32"
           aria-hidden="true"

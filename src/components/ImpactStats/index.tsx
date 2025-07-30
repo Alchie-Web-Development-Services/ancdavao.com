@@ -12,7 +12,7 @@ interface ImpactStatsProps {
 
 const ImpactStats: React.FC<ImpactStatsProps> = ({ stats, className = "" }) => {
   return (
-    <section className={`py-16 bg-teal-700 text-white ${className}`}>
+    <section className={`py-16 bg-indigo-700 text-white ${className}`}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {stats.map((stat, index) => (

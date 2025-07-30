@@ -59,14 +59,14 @@ const Donate: React.FC = () => {
               <div className="flex bg-gray-100 rounded-lg p-1 max-w-md">
                 <button
                   type="button"
-                  className={`flex-1 py-3 px-4 rounded-md ${donationType === "one-time" ? "bg-white shadow-sm text-teal-700" : "text-gray-600"}`}
+                  className={`flex-1 py-3 px-4 rounded-md ${donationType === "one-time" ? "bg-white shadow-sm text-indigo-700" : "text-gray-600"}`}
                   onClick={() => setDonationType("one-time")}
                 >
                   One-time
                 </button>
                 <button
                   type="button"
-                  className={`flex-1 py-3 px-4 rounded-md ${donationType === "monthly" ? "bg-white shadow-sm text-teal-700" : "text-gray-600"}`}
+                  className={`flex-1 py-3 px-4 rounded-md ${donationType === "monthly" ? "bg-white shadow-sm text-indigo-700" : "text-gray-600"}`}
                   onClick={() => setDonationType("monthly")}
                 >
                   Monthly
@@ -83,7 +83,7 @@ const Donate: React.FC = () => {
                     key={preset}
                     type="button"
                     onClick={() => setAmount(preset)}
-                    className={`py-3 px-4 border rounded-md ${amount === preset ? "border-teal-600 bg-teal-50" : "border-gray-300"}`}
+                    className={`py-3 px-4 border rounded-md ${amount === preset ? "border-indigo-600 bg-indigo-50" : "border-gray-300"}`}
                   >
                     ₱{preset.toLocaleString()}
                   </button>
@@ -110,10 +110,10 @@ const Donate: React.FC = () => {
                         method.id as "credit-card" | "gcash" | "bank-transfer",
                       )
                     }
-                    className={`p-4 border rounded-lg cursor-pointer ${paymentMethod === method.id ? "border-teal-500 bg-teal-50" : "border-gray-200"}`}
+                    className={`p-4 border rounded-lg cursor-pointer ${paymentMethod === method.id ? "border-indigo-500 bg-indigo-50" : "border-gray-200"}`}
                   >
                     <div className="flex items-center">
-                      <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 mr-3">
+                      <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
                         {method.icon}
                       </div>
                       <span>{method.name}</span>
@@ -156,7 +156,7 @@ const Donate: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full bg-teal-600 text-white py-3 px-6 rounded-md hover:bg-teal-700"
+              className="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700"
             >
               Donate Now
             </button>
