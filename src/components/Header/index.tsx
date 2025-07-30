@@ -60,9 +60,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <nav
-        className={`bg-white transition-all duration-300 ${isScrolled ? "bg-opacity-90 backdrop-blur-lg" : "bg-opacity-100"}`}
-      >
+      <nav className="bg-white transition-all duration-300">
         <div className="container mx-auto px-4 flex justify-between items-center h-20">
           <Logo />
           <div className="hidden lg:flex items-center space-x-8">
