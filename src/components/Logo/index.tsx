@@ -5,7 +5,7 @@ const Logo: React.FC = () => {
   return (
     <Link to="/" className="flex items-center space-x-2">
       <img src="/logo.png" alt="ANC Davao Logo" className="h-10 w-auto" />
-      <span className="text-2xl font-bold text-primary-700">ANC DAVAO</span>
+      <span className="text-2xl font-bold text-neutral-800">ANC DAVAO</span>
     </Link>
   );
 };
