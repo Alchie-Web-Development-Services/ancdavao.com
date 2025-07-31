@@ -29,11 +29,6 @@ const TeamMember: React.FC<TeamMemberProps> = ({
           width={400}
           height={300}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            // Fallback to a placeholder if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.src = "https://via.placeholder.com/400x300?text=Team+Member";
-          }}
         />
       </div>
       <div className="p-6">

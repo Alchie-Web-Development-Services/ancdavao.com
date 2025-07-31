@@ -6,8 +6,7 @@ const CTASection: React.FC = () => {
     <section
       className="relative bg-cover bg-center text-white py-24 px-4"
       style={{
-        backgroundImage:
-          "url('https://source.unsplash.com/random/1600x900/?community,hands')",
+        backgroundImage: "url('https://picsum.photos/1600/900?random')",
       }}
     >
       <div className="absolute inset-0 bg-black opacity-60"></div>

@@ -5,85 +5,84 @@ import TeamMember from "@/components/TeamMember";
 import Testimonial from "@/components/Testimonial";
 import { FaUsers, FaHandsHelping, FaHeart, FaChild } from "react-icons/fa";
 
+const teamMembers = [
+  {
+    id: 1,
+    name: "John Doe",
+    role: "Founder & Executive Director",
+    bio: "Passionate about making a difference in the lives of underprivileged children.",
+    image: "/images/team/john-doe.jpg",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    role: "Program Director",
+    bio: "Dedicated to creating sustainable programs for community development.",
+    image: "/images/team/jane-smith.jpg",
+  },
+  {
+    id: 3,
+    name: "Michael Johnson",
+    role: "Operations Manager",
+    bio: "Ensuring smooth operations and efficient resource allocation.",
+    image: "/images/team/michael-johnson.jpg",
+  },
+  {
+    id: 4,
+    name: "Sarah Williams",
+    role: "Volunteer Coordinator",
+    bio: "Connecting passionate volunteers with meaningful opportunities.",
+    image: "/images/team/sarah-williams.jpg",
+  },
+];
+
+const values = [
+  {
+    icon: <FaUsers className="w-8 h-8 text-teal-600 mb-4" />,
+    title: "Community",
+    description:
+      "We believe in the power of community and collective action to create lasting change.",
+  },
+  {
+    icon: <FaHandsHelping className="w-8 h-8 text-teal-600 mb-4" />,
+    title: "Empowerment",
+    description:
+      "We empower individuals and communities to become self-sufficient and resilient.",
+  },
+  {
+    icon: <FaHeart className="w-8 h-8 text-teal-600 mb-4" />,
+    title: "Compassion",
+    description:
+      "We approach our work with empathy, kindness, and respect for all individuals.",
+  },
+  {
+    icon: <FaChild className="w-8 h-8 text-teal-600 mb-4" />,
+    title: "Inclusivity",
+    description:
+      "We serve all members of our community regardless of background or circumstance.",
+  },
+];
+
+const testimonials = [
+  {
+    id: 1,
+    quote:
+      "ANC Davao has been instrumental in transforming our community. Their programs have brought hope to many families.",
+    author: "Maria Santos",
+    role: "Community Leader",
+    avatar: "/images/testimonials/maria-santos.jpg",
+  },
+  {
+    id: 2,
+    quote:
+      "As a volunteer, I've seen firsthand the positive impact of ANC Davao's work. It's truly inspiring to be part of this organization.",
+    author: "Carlos Reyes",
+    role: "Volunteer",
+    avatar: "/images/testimonials/carlos-reyes.jpg",
+  },
+];
+
 const About: React.FC = () => {
-  // Sample data - replace with actual data
-  const teamMembers = [
-    {
-      id: 1,
-      name: "John Doe",
-      role: "Founder & Executive Director",
-      bio: "Passionate about making a difference in the lives of underprivileged children.",
-      image: "/images/team/john-doe.jpg",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      role: "Program Director",
-      bio: "Dedicated to creating sustainable programs for community development.",
-      image: "/images/team/jane-smith.jpg",
-    },
-    {
-      id: 3,
-      name: "Michael Johnson",
-      role: "Operations Manager",
-      bio: "Ensuring smooth operations and efficient resource allocation.",
-      image: "/images/team/michael-johnson.jpg",
-    },
-    {
-      id: 4,
-      name: "Sarah Williams",
-      role: "Volunteer Coordinator",
-      bio: "Connecting passionate volunteers with meaningful opportunities.",
-      image: "/images/team/sarah-williams.jpg",
-    },
-  ];
-
-  const values = [
-    {
-      icon: <FaUsers className="w-8 h-8 text-teal-600 mb-4" />,
-      title: "Community",
-      description:
-        "We believe in the power of community and collective action to create lasting change.",
-    },
-    {
-      icon: <FaHandsHelping className="w-8 h-8 text-teal-600 mb-4" />,
-      title: "Empowerment",
-      description:
-        "We empower individuals and communities to become self-sufficient and resilient.",
-    },
-    {
-      icon: <FaHeart className="w-8 h-8 text-teal-600 mb-4" />,
-      title: "Compassion",
-      description:
-        "We approach our work with empathy, kindness, and respect for all individuals.",
-    },
-    {
-      icon: <FaChild className="w-8 h-8 text-teal-600 mb-4" />,
-      title: "Inclusivity",
-      description:
-        "We serve all members of our community regardless of background or circumstance.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      id: 1,
-      quote:
-        "ANC Davao has been instrumental in transforming our community. Their programs have brought hope to many families.",
-      author: "Maria Santos",
-      role: "Community Leader",
-      avatar: "/images/testimonials/maria-santos.jpg",
-    },
-    {
-      id: 2,
-      quote:
-        "As a volunteer, I've seen firsthand the positive impact of ANC Davao's work. It's truly inspiring to be part of this organization.",
-      author: "Carlos Reyes",
-      role: "Volunteer",
-      avatar: "/images/testimonials/carlos-reyes.jpg",
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Page Header */}

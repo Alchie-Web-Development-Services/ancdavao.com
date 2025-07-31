@@ -21,7 +21,7 @@ const EventSection: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <Image
-                src="https://source.unsplash.com/random/800x600/?community,event"
+                src="https://picsum.photos/800/600?random"
                 alt="Community event"
                 width={800}
                 height={600}

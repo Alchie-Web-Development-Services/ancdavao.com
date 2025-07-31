@@ -12,8 +12,7 @@ const Blog: React.FC = () => {
         "Explore how access to quality education shapes the future of children in underserved communities.",
       date: "July 25, 2025",
       author: "Jane Doe",
-      image:
-        "https://source.unsplash.com/random/800x600/?education,children,study",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 2,
@@ -22,8 +21,7 @@ const Blog: React.FC = () => {
         "Discover the rewarding experiences of our volunteers and how they contribute to our mission.",
       date: "July 20, 2025",
       author: "John Smith",
-      image:
-        "https://source.unsplash.com/random/800x600/?volunteer,community,help",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 3,
@@ -32,7 +30,7 @@ const Blog: React.FC = () => {
         "Learn about our initiatives to provide clean and safe drinking water to remote villages.",
       date: "July 15, 2025",
       author: "Emily White",
-      image: "https://source.unsplash.com/random/800x600/?water,village,clean",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 4,
@@ -41,8 +39,7 @@ const Blog: React.FC = () => {
         "Highlighting stories of women who have transformed their lives through our livelihood training.",
       date: "July 10, 2025",
       author: "Sarah Brown",
-      image:
-        "https://source.unsplash.com/random/800x600/?women,empowerment,livelihood",
+      image: "https://picsum.photos/800/600?random",
     },
   ];
 
@@ -51,7 +48,7 @@ const Blog: React.FC = () => {
       <PageHeader
         title="Our Blog"
         subtitle="Stay updated with our latest news, stories, and insights."
-        backgroundImage="https://source.unsplash.com/random/1600x900/?blog,news,writing"
+        backgroundImage="https://picsum.photos/1600/900?random"
       />
 
       <section className="py-16 bg-white">

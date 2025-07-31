@@ -12,7 +12,7 @@ const Causes: React.FC = () => {
         "Providing access to quality education for underprivileged children.",
       raised: 75000,
       goal: 100000,
-      image: "https://source.unsplash.com/random/800x600/?education,children",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const Causes: React.FC = () => {
       description: "Ensuring basic healthcare services are available to all.",
       raised: 50000,
       goal: 80000,
-      image: "https://source.unsplash.com/random/800x600/?healthcare,community",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Causes: React.FC = () => {
       description: "Working towards a future where no one goes hungry.",
       raised: 90000,
       goal: 120000,
-      image: "https://source.unsplash.com/random/800x600/?food,hunger",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const Causes: React.FC = () => {
         "Providing clean and safe drinking water to rural communities.",
       raised: 60000,
       goal: 75000,
-      image: "https://source.unsplash.com/random/800x600/?water,clean",
+      image: "https://picsum.photos/800/600?random",
     },
   ];
 
@@ -46,7 +46,7 @@ const Causes: React.FC = () => {
       <PageHeader
         title="Our Causes"
         subtitle="Support a cause that matters to you and make a lasting impact."
-        backgroundImage="https://source.unsplash.com/random/1600x900/?charity,hands"
+        backgroundImage="https://picsum.photos/1600/900?random"
       />
 
       <section className="py-16 bg-white">

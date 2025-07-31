@@ -74,7 +74,7 @@ const ImpactSection: React.FC = () => {
           </div>
           <div>
             <Image
-              src="https://source.unsplash.com/random/800x600/?charity,donation"
+              src="https://picsum.photos/800/600?random"
               alt="Happy recipients"
               width={800}
               height={600}

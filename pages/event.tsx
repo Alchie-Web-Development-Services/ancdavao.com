@@ -14,7 +14,7 @@ const Event: React.FC = () => {
       location: "Grand Ballroom, City Convention Center",
       description:
         "Join us for an evening of elegance and philanthropy to support our various programs.",
-      image: "https://source.unsplash.com/random/800x600/?gala,charity",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const Event: React.FC = () => {
       location: "Barangay 76-A Covered Court",
       description:
         "Volunteer with us to provide nutritious meals to underprivileged children.",
-      image: "https://source.unsplash.com/random/800x600/?feeding,community",
+      image: "https://picsum.photos/800/600?random",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const Event: React.FC = () => {
       location: "Davao City Health Center",
       description:
         "Free medical check-ups and consultations for the community.",
-      image: "https://source.unsplash.com/random/800x600/?medical,mission",
+      image: "https://picsum.photos/800/600?random",
     },
   ];
 
@@ -43,7 +43,7 @@ const Event: React.FC = () => {
       <PageHeader
         title="Our Events"
         subtitle="Join us in our upcoming events and make a difference!"
-        backgroundImage="https://source.unsplash.com/random/1600x900/?event,crowd"
+        backgroundImage="https://picsum.photos/1600/900?random"
       />
 
       <section className="py-16 bg-white">

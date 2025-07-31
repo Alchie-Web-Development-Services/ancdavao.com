@@ -36,7 +36,7 @@ const MissionSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Image
-              src="https://source.unsplash.com/random/800x600/?volunteer,community"
+              src="https://picsum.photos/800/600?random"
               alt="Volunteers working"
               width={800}
               height={600}

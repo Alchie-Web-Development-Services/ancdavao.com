@@ -3,27 +3,27 @@ import Image from "next/image";
 
 const galleryItems = [
   {
-    src: "https://source.unsplash.com/random/800x600/?charity,group",
+    src: "https://picsum.photos/800/600?random",
     category: "Food",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?child,sad",
+    src: "https://picsum.photos/800/600?random",
     category: "Income",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?child,happy",
+    src: "https://picsum.photos/800/600?random",
     category: "Education",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?child,water",
+    src: "https://picsum.photos/800/600?random",
     category: "Blood",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?community,gathering",
+    src: "https://picsum.photos/800/600?random",
     category: "Water",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?homeless,man",
+    src: "https://picsum.photos/800/600?random",
     category: "Food",
   },
 ];
