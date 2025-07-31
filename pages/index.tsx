@@ -9,10 +9,16 @@ import CTASection from "@/components/CTASection";
 import DonationFAQSection from "@/components/DonationFAQSection";
 import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
+import SEO from "@/components/SEO";
 
 const Home: React.FC = () => {
   return (
     <div className="bg-white">
+      <SEO
+        title="Home"
+        description="Advancing the Kingdom of God through discipleship, community, and service in Davao City and beyond. Join us in making a difference."
+        keywords="ANC Davao, church, Davao, Christian, discipleship, community, service, kingdom of God, home, main page"
+      />
       <main>
         <Hero />
         <MissionSection />

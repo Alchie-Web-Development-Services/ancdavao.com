@@ -7,6 +7,7 @@ import {
   FaUserFriends,
   FaBullhorn,
 } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const GetInvolved: React.FC = () => {
   const involvementOptions = [
@@ -98,6 +99,11 @@ const GetInvolved: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Get Involved"
+        description="Discover various ways to get involved with ANC Davao, including volunteering, donating, partnering, and spreading awareness. Make a difference today!"
+        keywords="get involved, volunteer, donate, partner, spread the word, ANC Davao, community service, humanitarian, Philippines"
+      />
       {/* Page Header */}
       <PageHeader
         title="Get Involved"

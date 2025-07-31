@@ -4,6 +4,7 @@ import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Testimonial from "@/components/Testimonial";
 import ImpactStats from "@/components/ImpactStats";
+import SEO from "@/components/SEO";
 
 const StoriesImpact: React.FC = () => {
   const featuredStories = [
@@ -46,6 +47,11 @@ const StoriesImpact: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Stories & Impact"
+        description="Read inspiring stories and see the measurable impact of ANC Davao's programs on children, families, and communities in Davao."
+        keywords="ANC Davao stories, impact, testimonials, success stories, community impact, education, nutrition, healthcare"
+      />
       <PageHeader
         title="Stories & Impact"
         subtitle="Discover the difference we're making in Davao"

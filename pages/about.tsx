@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import TeamMember from "@/components/TeamMember";
 import Testimonial from "@/components/Testimonial";
 import { FaUsers, FaHandsHelping, FaHeart, FaChild } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const teamMembers = [
   {
@@ -85,6 +86,11 @@ const testimonials = [
 const About: React.FC = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="About Us"
+        description="Learn about ANC Davao's mission, vision, values, and the dedicated team working to empower underprivileged children and communities in Davao."
+        keywords="ANC Davao, about us, mission, vision, values, team, history, community development, Davao"
+      />
       {/* Page Header */}
       <PageHeader
         title="About ANC Davao"

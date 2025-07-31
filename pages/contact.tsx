@@ -9,6 +9,7 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -106,6 +107,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with ANC Davao. Find our contact information, office hours, location, and send us a message. Connect with us on social media."
+        keywords="ANC Davao contact, contact information, email, phone, address, social media, message, get in touch"
+      />
       {/* Page Header */}
       <PageHeader
         title="Contact Us"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { FaCreditCard, FaMobileAlt, FaLandmark } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const Donate: React.FC = () => {
   const [donationType, setDonationType] = useState<"one-time" | "monthly">(
@@ -40,6 +41,11 @@ const Donate: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Donate"
+        description="Support ANC Davao's mission to empower underprivileged children and communities. Make a one-time or monthly donation securely online."
+        keywords="donate, ANC Davao, charity, support, make a difference, online donation, humanitarian, Philippines"
+      />
       <PageHeader
         title="Donate"
         subtitle="Support our mission to transform lives in Davao"

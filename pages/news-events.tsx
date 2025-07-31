@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
+import SEO from "@/components/SEO";
 
 const NewsEvents: React.FC = () => {
   // Sample news and events data - replace with actual data from your backend
@@ -63,6 +64,11 @@ const NewsEvents: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="News & Events"
+        description="Stay updated with the latest news, announcements, and upcoming events from ANC Davao. Learn about our impact and how to participate."
+        keywords="ANC Davao news, events, announcements, updates, community events, latest news, upcoming events"
+      />
       {/* Page Header */}
       <PageHeader
         title="News & Events"

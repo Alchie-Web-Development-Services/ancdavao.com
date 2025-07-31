@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Link from "next/link";
+import SEO from "@/components/SEO";
 
 interface FAQItemProps {
   question: string;
@@ -163,6 +164,11 @@ const FAQ: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="FAQ"
+        description="Find answers to frequently asked questions about ANC Davao, our programs, donations, volunteering, and partnerships."
+        keywords="FAQ, frequently asked questions, ANC Davao, general questions, donations, volunteering, programs, partnerships"
+      />
       <PageHeader
         title="Frequently Asked Questions"
         subtitle="Find answers to common questions about ANC Davao"

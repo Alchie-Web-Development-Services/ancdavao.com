@@ -4,6 +4,7 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const mockEvents = [
   {
@@ -107,6 +108,11 @@ const EventDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title={event.title}
+        description={event.description}
+        keywords={`${event.title.toLowerCase()}, ${event.location.toLowerCase()}, ${new Date(event.date).getFullYear()}, ANC Davao event, charity, ${event.title.toLowerCase().includes("gala") ? "gala, fundraising" : ""}${event.title.toLowerCase().includes("feeding") ? "feeding program, malnutrition" : ""}${event.title.toLowerCase().includes("medical") ? "medical mission, healthcare" : ""}`}
+      />
       <PageHeader
         title={event.title}
         subtitle="Learn more about this event and how you can participate."

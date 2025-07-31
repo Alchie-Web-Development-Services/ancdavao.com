@@ -9,6 +9,7 @@ import {
   FaHome,
   FaHandsHelping,
 } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const Programs: React.FC = () => {
   // Sample programs data - replace with actual data from your backend
@@ -95,6 +96,11 @@ const Programs: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Programs"
+        description="Explore ANC Davao's impactful programs, including feeding, education, youth development, healthcare, and community development initiatives. Learn how we make a difference."
+        keywords="ANC Davao programs, feeding program, education support, youth development, healthcare initiative, community development, volunteer program, social impact"
+      />
       {/* Page Header */}
       <PageHeader
         title="Our Programs"

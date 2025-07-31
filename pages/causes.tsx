@@ -2,6 +2,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 import Image from "next/image";
+import SEO from "@/components/SEO";
 
 const Causes: React.FC = () => {
   const mockCauses = [
@@ -43,6 +44,11 @@ const Causes: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Causes"
+        description="Explore the various causes ANC Davao supports, including education, healthcare, food security, and clean water initiatives. Find a cause to support and make a difference."
+        keywords="ANC Davao causes, education, healthcare, food security, clean water, initiatives, support, donate"
+      />
       <PageHeader
         title="Our Causes"
         subtitle="Support a cause that matters to you and make a lasting impact."

@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import SEO from "@/components/SEO";
 
 const Event: React.FC = () => {
   const mockEvents = [
@@ -40,6 +41,11 @@ const Event: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Events"
+        description="Discover upcoming events hosted by ANC Davao, including charity galas, community drives, and medical missions. Join us and make a difference!"
+        keywords="ANC Davao events, charity, community, medical mission, volunteer, upcoming events, Davao"
+      />
       <PageHeader
         title="Our Events"
         subtitle="Join us in our upcoming events and make a difference!"

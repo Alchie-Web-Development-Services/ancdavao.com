@@ -2,6 +2,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 import Image from "next/image";
+import SEO from "@/components/SEO";
 
 const Blog: React.FC = () => {
   const mockPosts = [
@@ -45,6 +46,11 @@ const Blog: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Blog"
+        description="Stay updated with the latest news, stories, and insights from ANC Davao. Read about our projects, impact, and community initiatives."
+        keywords="ANC Davao blog, news, stories, articles, insights, community, impact, projects"
+      />
       <PageHeader
         title="Our Blog"
         subtitle="Stay updated with our latest news, stories, and insights."
