@@ -39,25 +39,25 @@ const teamMembers = [
 
 const values = [
   {
-    icon: <FaUsers className="w-8 h-8 text-teal-600 mb-4" />,
+    icon: <FaUsers className="w-8 h-8 text-primary-600 mb-4" />,
     title: "Community",
     description:
       "We believe in the power of community and collective action to create lasting change.",
   },
   {
-    icon: <FaHandsHelping className="w-8 h-8 text-teal-600 mb-4" />,
+    icon: <FaHandsHelping className="w-8 h-8 text-primary-600 mb-4" />,
     title: "Empowerment",
     description:
       "We empower individuals and communities to become self-sufficient and resilient.",
   },
   {
-    icon: <FaHeart className="w-8 h-8 text-teal-600 mb-4" />,
+    icon: <FaHeart className="w-8 h-8 text-primary-600 mb-4" />,
     title: "Compassion",
     description:
       "We approach our work with empathy, kindness, and respect for all individuals.",
   },
   {
-    icon: <FaChild className="w-8 h-8 text-teal-600 mb-4" />,
+    icon: <FaChild className="w-8 h-8 text-primary-600 mb-4" />,
     title: "Inclusivity",
     description:
       "We serve all members of our community regardless of background or circumstance.",
@@ -105,21 +105,41 @@ const About: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <div className="prose prose-lg text-gray-600 max-w-none">
               <p className="mb-6">
-                Founded in 2010, ANC Davao (Association of the Needy and the
-                Children of Davao) began as a small community initiative to
-                address the needs of underprivileged children in Davao City.
-                What started as a feeding program for 20 children has grown into
-                a comprehensive community development organization serving
-                thousands of beneficiaries across multiple programs.
+                The Archdiocesan Nourishment Center (ANC) was established in
+                2015 as a response to the growing hunger and poverty in Davao
+                City. As a project of ACLAIM of The Roman Catholic Bishop of
+                Davao, Inc., ANC began with a simple mission: to provide daily
+                meals to undernourished children in the city’s most vulnerable
+                communities.
               </p>
               <p className="mb-6">
-                Our journey has been marked by the unwavering support of our
-                donors, volunteers, and community partners who share our vision
-                of a better future for every child in Davao.
+                From a humble feeding program, ANC has evolved into a holistic,
+                faith-rooted initiative addressing not just physical hunger, but
+                also education, health, and spiritual needs. With the guidance
+                of the ANC Board of Trustees, and the generous support of
+                volunteers, donors, and partner organizations, we continue to
+                serve with compassion and integrity.
               </p>
-              <p>
-                Today, we continue to expand our reach and impact, guided by our
-                core values and commitment to sustainable development.
+              <p className="mb-6">
+                Today, ANC remains committed to its mission—nourishing lives,
+                restoring dignity, and walking with the poor toward a future of
+                hope.
+              </p>
+              <p className="text-center mt-8">
+                <Link
+                  href="/about/history"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+                >
+                  Read More About Our History
+                </Link>
+              </p>
+              <p className="text-center mt-4">
+                <Link
+                  href="/our-centers"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+                >
+                  Discover Our Centers
+                </Link>
               </p>
             </div>
           </div>
@@ -129,26 +149,78 @@ const About: React.FC = () => {
       {/* Mission & Vision */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-1 gap-12 items-center max-w-4xl mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-teal-700 mb-4">
+              <h3 className="text-2xl font-bold text-primary-700 mb-4">
                 Our Mission
               </h3>
-              <p className="text-gray-600">
-                To empower underprivileged children and communities in Davao
-                through education, nutrition, and sustainable development
-                programs that create lasting positive change.
-              </p>
+              <p className="text-gray-600 mb-4">We commit ourselves: </p>
+              <ul className="list-disc list-inside pl-6 text-gray-600">
+                <li className="mb-2">
+                  To provide a well-integrated program of psycho-spiritual and
+                  physical nourishment for the children in need
+                </li>
+                <li className="mb-2">
+                  To organize the volunteers from different sectors and create
+                  networks and linkages of existing institutions with similar
+                  thrusts
+                </li>
+                <li className="mb-2">
+                  To foster collaboration among parents of the beneficiaries at
+                  their communities
+                </li>
+                <li className="mb-2">
+                  To conduct an on-going fundraising projects and activities in
+                  order to sustain its program.
+                </li>
+              </ul>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-teal-700 mb-4">
-                Our Vision
-              </h3>
-              <p className="text-gray-600">
-                We envision a Davao where every child has access to quality
-                education, proper nutrition, and opportunities to reach their
-                full potential, regardless of their socioeconomic background.
-              </p>
+            <div className="flex flex-col gap-12">
+              <div className="bg-white p-8 rounded-lg shadow-md mb-auto">
+                <h3 className="text-2xl font-bold text-primary-700 mb-4">
+                  Our Vision
+                </h3>
+                <p className="text-gray-600 mb-2">
+                  We envision a nourishment center of children from the
+                  peripheries that is God-centered, service oriented and
+                  community based.
+                </p>
+                <p className="text-gray-600">
+                  We also envision the children/beneficiaries of the
+                  Archdiocesan Nourishment Center to become successful members
+                  of society, actively contributing to nation-building.
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-lg shadow-md mb-auto">
+                <h3 className="text-2xl font-bold text-primary-700 mb-4">
+                  Our Goal
+                </h3>
+                <ul className="list-disc list-inside pl-6 text-gray-600">
+                  <li className="mb-2">
+                    Feed malnourished and children in need.
+                  </li>
+                  <li className="mb-2">
+                    Restore malnourished children to maximum physical health.
+                  </li>
+                  <li className="mb-2">Give medical and dental assistance.</li>
+                  <li className="mb-2">
+                    Provide regular human and spiritual formation to children,
+                    parents and other collaborators.
+                  </li>
+                  <li className="mb-2">
+                    Establish feeding centers in key areas of Davao City.
+                  </li>
+                  <li className="mb-2">
+                    Partnership with schools and other institutions that could
+                    support the center.
+                  </li>
+                  <li className="mb-2">
+                    Offer Educational assistance to the beneficiaries up to
+                    college.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -233,7 +305,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-teal-700 text-white">
+      <section className="py-16 bg-primary-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Join Our Mission</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">

@@ -1,3 +1,5 @@
+import useFetchJson from "@/hooks/useFetchJson";
+import { Faqs } from "@/types/faq";
 import React, { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
@@ -22,35 +24,22 @@ const AccordionItem: React.FC<{ title: string; content: string }> = ({
 };
 
 const FAQ: React.FC = () => {
-  const faqs = [
-    {
-      title: "Do I need a business plan?",
-      content:
-        "She wholly fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense do we. Uncommonly no questions. Letters do hastily futureBRANCH branch. ",
-    },
-    {
-      title: "How long should a business plan be?",
-      content:
-        "She wholly fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense do we. Uncommonly no questions. Letters do hastily futureBRANCH branch. ",
-    },
-    {
-      title: "What goes into a business plan?",
-      content:
-        "She wholly fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense do we. Uncommonly no questions. Letters do hastily futureBRANCH branch. ",
-    },
-    {
-      title: "Where do I start?",
-      content:
-        "She wholly fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense do we. Uncommonly no questions. Letters do hastily futureBRANCH branch. ",
-    },
-  ];
+  const { data, loading } = useFetchJson<Faqs>("/data/faqs.json");
+
+  if (loading) return null;
+
+  const currentCategory = [...data["Donations"], ...data["General Questions"]];
 
   return (
     <div className="bg-white p-8 rounded-lg">
       <h3 className="text-2xl font-bold text-neutral-800 mb-6">FAQ</h3>
       <div>
-        {faqs.map((faq, index) => (
-          <AccordionItem key={index} title={faq.title} content={faq.content} />
+        {currentCategory.map((faq, index) => (
+          <AccordionItem
+            key={index}
+            title={faq.question}
+            content={faq.answer}
+          />
         ))}
       </div>
     </div>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../Logo";
 
 const navLinks = [
@@ -11,31 +11,22 @@ const navLinks = [
   { name: "Events", href: "/events" },
   { name: "Causes", href: "/causes" },
   { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/contact-us" },
 ];
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header
-      className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
+      className={`w-full sticky top-0 z-50 transition-all duration-300 shadow-lg`}
     >
       <div className="bg-primary-700 text-white">
         <div className="container mx-auto px-4 h-12 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
             <a href="#" className="hover:text-primary-200">
-              California, TX 70240
+              Pag-asa St, Brgy. 24-C, Fatima, Davao City
             </a>
             <a
               href="mailto:info@ancdavao.com"
@@ -44,18 +35,23 @@ const Header: React.FC = () => {
               info@ancdavao.com
             </a>
             <a href="tel:+1234567890" className="hover:text-primary-200">
-              +123 456 7890
+              +63 (82) 285-1524
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-primary-200">
+            <a
+              href="https://www.facebook.com/archdiocesannourishmentcenter/"
+              className="hover:text-primary-200"
+              target="_blank"
+            >
               <FaFacebook />
             </a>
-            <a href="#" className="hover:text-primary-200">
-              <FaTwitter />
-            </a>
-            <a href="#" className="hover:text-primary-200">
-              <FaInstagram />
+            <a
+              href="https://www.linkedin.com/company/archdiocesan-nourishment-center/"
+              className="hover:text-primary-200"
+              target="_blank"
+            >
+              <FaLinkedinIn />
             </a>
           </div>
         </div>

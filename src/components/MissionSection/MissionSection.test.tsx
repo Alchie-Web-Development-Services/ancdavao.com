@@ -9,6 +9,6 @@ describe("MissionSection", () => {
     expect(screen.getByText("Education")).toBeInTheDocument();
     expect(screen.getByText("Rice for Life")).toBeInTheDocument();
     expect(screen.getByText("Health")).toBeInTheDocument();
-    expect(screen.getByText("Water")).toBeInTheDocument();
+    expect(screen.getByText("Spiritual")).toBeInTheDocument();
   });
 });

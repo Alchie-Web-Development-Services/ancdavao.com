@@ -19,8 +19,8 @@ const Programs: React.FC = () => {
       title: "Feeding Program",
       description:
         "Providing nutritious meals to underprivileged children in Davao City to combat malnutrition and hunger.",
-      icon: <FaUtensils className="text-4xl text-teal-600 mb-4" />,
-      link: "/programs/feeding-program",
+      icon: <FaUtensils className="text-4xl text-primary-600 mb-4" />,
+      link: "/programs-and-services/feeding-program",
       stats: [
         { value: "500+", label: "Children Fed Monthly" },
         { value: "12", label: "Communities Served" },
@@ -32,8 +32,8 @@ const Programs: React.FC = () => {
       title: "Education Support",
       description:
         "Scholarships, school supplies, and educational resources for children in need to ensure access to quality education.",
-      icon: <FaBook className="text-4xl text-teal-600 mb-4" />,
-      link: "/programs/education-support",
+      icon: <FaBook className="text-4xl text-primary-600 mb-4" />,
+      link: "/programs-and-services/education-support",
       stats: [
         { value: "100+", label: "Scholars" },
         { value: "10", label: "Partner Schools" },
@@ -45,8 +45,8 @@ const Programs: React.FC = () => {
       title: "Youth Development",
       description:
         "Programs focused on leadership, skills training, and character development for young people.",
-      icon: <FaUserGraduate className="text-4xl text-teal-600 mb-4" />,
-      link: "/programs/youth-development",
+      icon: <FaUserGraduate className="text-4xl text-primary-600 mb-4" />,
+      link: "/programs-and-services/youth-development",
       stats: [
         { value: "200+", label: "Youth Served" },
         { value: "15", label: "Workshops" },
@@ -58,8 +58,8 @@ const Programs: React.FC = () => {
       title: "Healthcare Initiative",
       description:
         "Medical missions, health education, and access to healthcare services for underserved communities.",
-      icon: <FaHeartbeat className="text-4xl text-teal-600 mb-4" />,
-      link: "/programs/healthcare-initiative",
+      icon: <FaHeartbeat className="text-4xl text-primary-600 mb-4" />,
+      link: "/programs-and-services/healthcare-initiative",
       stats: [
         { value: "1000+", label: "Patients Treated" },
         { value: "20", label: "Medical Missions" },
@@ -71,8 +71,8 @@ const Programs: React.FC = () => {
       title: "Community Development",
       description:
         "Projects focused on sustainable community development, infrastructure, and livelihood programs.",
-      icon: <FaHome className="text-4xl text-teal-600 mb-4" />,
-      link: "/programs/community-development",
+      icon: <FaHome className="text-4xl text-primary-600 mb-4" />,
+      link: "/programs-and-services/community-development",
       stats: [
         { value: "15", label: "Communities" },
         { value: "30", label: "Projects" },
@@ -84,8 +84,8 @@ const Programs: React.FC = () => {
       title: "Volunteer Program",
       description:
         "Opportunities for individuals and groups to contribute their time and skills to support our mission.",
-      icon: <FaHandsHelping className="text-4xl text-teal-600 mb-4" />,
-      link: "/programs/volunteer-program",
+      icon: <FaHandsHelping className="text-4xl text-primary-600 mb-4" />,
+      link: "/programs-and-services/volunteer-program",
       stats: [
         { value: "500+", label: "Volunteers" },
         { value: "1000+", label: "Volunteer Hours" },
@@ -138,7 +138,7 @@ const Programs: React.FC = () => {
                     <div className="grid grid-cols-3 gap-2 text-center">
                       {program.stats.map((stat, index) => (
                         <div key={index} className="p-2">
-                          <div className="text-lg font-bold text-teal-600">
+                          <div className="text-lg font-bold text-primary-600">
                             {stat.value}
                           </div>
                           <div className="text-xs text-gray-500">
@@ -151,8 +151,8 @@ const Programs: React.FC = () => {
 
                   <div className="mt-6 text-center">
                     <Link
-                      href={program.link}
-                      className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium transition-colors"
+                      href={`/programs-and-services/${program.id}`}
+                      className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors"
                     >
                       Learn more
                       <svg
@@ -179,7 +179,7 @@ const Programs: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-teal-700 text-white">
+      <section className="py-16 bg-primary-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Want to Support Our Programs?
@@ -191,13 +191,13 @@ const Programs: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/donate"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-700 bg-white hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-gray-100 transition-colors"
             >
               Donate Now
             </Link>
             <Link
               href="/get-involved"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-teal-800 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-primary-800 transition-colors"
             >
               Volunteer
             </Link>

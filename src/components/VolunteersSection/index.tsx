@@ -76,10 +76,16 @@ const VolunteersSection: React.FC = () => {
             Meet Our Volunteers
           </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-            Slide an hope of body. Any nay shyness article matters own removal
-            nothing his forming. Gay own additions education satisfied the
-            perpetual. If he cause manor happy. Without farther she exposed saw
-            man led. Along on happy could cease green oh.
+            Behind every warm meal, shared prayer, and smiling child is a
+            passionate volunteer who said yes to serving others. Our volunteers
+            are teachers, students, professionals, and everyday people with a
+            heart for the poor.
+          </p>
+          <p>
+            <strong>
+              Their time, love, and effort bring hope to the communities we
+              serve.
+            </strong>
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

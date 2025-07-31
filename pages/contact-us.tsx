@@ -6,8 +6,7 @@ import {
   FaPhone,
   FaEnvelope,
   FaFacebook,
-  FaTwitter,
-  FaInstagram,
+  FaLinkedinIn,
 } from "react-icons/fa";
 import SEO from "@/components/SEO";
 
@@ -73,17 +72,17 @@ const Contact: React.FC = () => {
     {
       icon: <FaMapMarkerAlt className="text-2xl text-primary-600" />,
       title: "Our Location",
-      description: "1234 Street Name, Barangay 76-A, Davao City, Philippines",
+      description: "Pag-asa St, Brgy. 24-C, Fatima, Davao City",
     },
     {
       icon: <FaPhone className="text-2xl text-primary-600" />,
       title: "Phone Number",
-      description: "+63 82 123 4567",
+      description: "+63 (82) 285-1524 / +63 922 453 7331",
     },
     {
       icon: <FaEnvelope className="text-2xl text-primary-600" />,
       title: "Email Address",
-      description: "info@ancdavao.org",
+      description: "info@ancdavao.com",
     },
   ];
 
@@ -91,17 +90,12 @@ const Contact: React.FC = () => {
     {
       icon: <FaFacebook className="text-2xl" />,
       name: "Facebook",
-      url: "https://facebook.com/ancdavao",
+      url: "https://www.facebook.com/archdiocesannourishmentcenter/",
     },
     {
-      icon: <FaTwitter className="text-2xl" />,
-      name: "Twitter",
-      url: "https://twitter.com/ancdavao",
-    },
-    {
-      icon: <FaInstagram className="text-2xl" />,
-      name: "Instagram",
-      url: "https://instagram.com/ancdavao",
+      icon: <FaLinkedinIn className="text-2xl" />,
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/company/archdiocesan-nourishment-center/",
     },
   ];
 
@@ -138,7 +132,7 @@ const Contact: React.FC = () => {
                 key={index}
                 className="bg-white rounded-lg shadow-md p-8 text-center"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-teal-50 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-50 flex items-center justify-center">
                   {item.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
@@ -177,7 +171,7 @@ const Contact: React.FC = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                       required
                     />
                   </div>
@@ -195,7 +189,7 @@ const Contact: React.FC = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                       required
                     />
                   </div>
@@ -212,7 +206,7 @@ const Contact: React.FC = () => {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 bg-white"
                       required
                     >
                       <option value="">Select a subject</option>
@@ -237,7 +231,7 @@ const Contact: React.FC = () => {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                       required
                     ></textarea>
                   </div>
@@ -245,7 +239,7 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={formStatus.status === "submitting"}
-                    className="w-full bg-teal-600 text-white py-3 px-6 rounded-md hover:bg-teal-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-primary-600 text-white py-3 px-6 rounded-md hover:bg-primary-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {formStatus.status === "submitting"
                       ? "Sending..."
@@ -260,7 +254,7 @@ const Contact: React.FC = () => {
                 <div className="bg-gray-100 rounded-lg overflow-hidden mb-8 h-64">
                   <iframe
                     title="ANC Davao Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.460350054543!2d125.6088!3d7.0646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDMnNTIuNiJOIDEyNcKwMzYnMzEuNyJF!5e0!3m2!1sen!2sph!4v1620000000000!5m2!1sen!2sph"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6671.311127231876!2d125.6154992768213!3d7.070227392932443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f96d9a4b3d294b%3A0x81fbbf260f1a4095!2sArchdiocesan%20Nourishment%20Center!5e1!3m2!1sen!2sph!4v1753951980805!5m2!1sen!2sph"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -298,7 +292,7 @@ const Contact: React.FC = () => {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-12 h-12 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center hover:bg-teal-200 transition-colors"
+                        className="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center hover:bg-primary-200 transition-colors"
                         aria-label={social.name}
                       >
                         {social.icon}
@@ -324,7 +318,7 @@ const Contact: React.FC = () => {
           </p>
           <Link
             href="/faq"
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
           >
             Visit FAQ Page
           </Link>

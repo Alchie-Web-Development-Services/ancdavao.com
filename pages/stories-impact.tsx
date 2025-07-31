@@ -82,7 +82,7 @@ const StoriesImpact: React.FC = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <span className="text-sm font-medium text-teal-600">
+                  <span className="text-sm font-medium text-primary-600">
                     {story.category}
                   </span>
                   <h3 className="text-xl font-semibold mt-2 mb-2">

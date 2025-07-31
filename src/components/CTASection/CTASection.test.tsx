@@ -7,7 +7,7 @@ describe("CTASection", () => {
 
     expect(
       screen.getByText(
-        "We've funded 120,00 charity projects for 20M people around the world.",
+        "We’ve Nourished Thousands—And We’re Just Getting Started",
       ),
     ).toBeInTheDocument();
     expect(

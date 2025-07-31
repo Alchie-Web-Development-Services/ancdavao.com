@@ -1,11 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../Logo";
 
 const Footer: React.FC = () => {
@@ -21,29 +16,39 @@ const Footer: React.FC = () => {
               place.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-white hover:text-primary-500">
+              <a
+                href="https://www.facebook.com/archdiocesannourishmentcenter/"
+                className="text-white hover:text-primary-500"
+                target="_blank"
+              >
                 <FaFacebookF />
               </a>
-              <a href="#" className="text-white hover:text-primary-500">
-                <FaTwitter />
-              </a>
-              <a href="#" className="text-white hover:text-primary-500">
-                <FaInstagram />
-              </a>
-              <a href="#" className="text-white hover:text-primary-500">
+              <a
+                href="https://www.linkedin.com/company/archdiocesan-nourishment-center/"
+                className="text-white hover:text-primary-500"
+                target="_blank"
+              >
                 <FaLinkedinIn />
               </a>
             </div>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm grid grid-cols-2">
               <li>
                 <Link
                   href="/about"
                   className="text-neutral-400 hover:text-white"
                 >
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/programs-and-services"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Programs
                 </Link>
               </li>
               <li>
@@ -72,10 +77,15 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="text-neutral-400 hover:text-white"
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-neutral-400 hover:text-white">
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -83,9 +93,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li>California, TX 70240</li>
+              <li>Pag-asa St, Brgy. 24-C, Fatima, Davao City</li>
               <li>info@ancdavao.com</li>
-              <li>+123 456 7890</li>
+              <li>+63 (82) 285-1524</li>
             </ul>
           </div>
           <div>

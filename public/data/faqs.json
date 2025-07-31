@@ -1,0 +1,76 @@
+{
+  "General Questions": [
+    {
+      "question": "What is ANC Davao?",
+      "answer": "ANC (Archdiocesan Nourishment Center) is a faith-driven initiative under ACLAIM of The Roman Catholic Bishop of Davao, Inc., dedicated to fighting hunger and uplifting lives through feeding, education, health, and spiritual programs."
+    },
+    {
+      "question": "Is ANC a government agency?",
+      "answer": "No, ANC is a church-based nonprofit initiative under the Archdiocese of Davao. It operates independently from government programs but works in partnership with public and private institutions."
+    },
+    {
+      "question": "Where is ANC located?",
+      "answer": "ANC is based in Davao City, Philippines, operating under the Archdiocese of Davao with community reach throughout various barangays."
+    }
+  ],
+  "Donations": [
+    {
+      "question": "How can I donate?",
+      "answer": "Donations can be made via bank transfer, in-kind giving, or through our official donation channels. Visit our Donate page for full details."
+    },
+    {
+      "question": "Where do donations go?",
+      "answer": "All donations directly support our feeding programs, scholarship grants, health services, and spiritual outreach efforts."
+    },
+    {
+      "question": "Are donations tax-deductible?",
+      "answer": "ANC is a registered charitable organization. We can issue official receipts upon request. Please consult your accountant or local tax laws for deductibility."
+    },
+    {
+      "question": "Can I give in-kind donations?",
+      "answer": "Yes! We accept food supplies, hygiene kits, school materials, and more. Please contact our team to coordinate drop-offs."
+    }
+  ],
+  "Volunteering": [
+    {
+      "question": "How can I volunteer?",
+      "answer": "You can join our mission by signing up through our website or messaging us on Facebook. Roles include cooking, distribution, education, and community work."
+    },
+    {
+      "question": "Do I need experience to volunteer?",
+      "answer": "Not at all. We welcome volunteers from all walks of life. Training and orientation are provided."
+    },
+    {
+      "question": "Can groups or organizations volunteer together?",
+      "answer": "Absolutely! We encourage group volunteering from schools, parishes, and offices. Just let us know in advance to coordinate."
+    }
+  ],
+  "Programs": [
+    {
+      "question": "What programs does ANC offer?",
+      "answer": "ANC operates core programs focused on nourishment (feeding), education (scholarships), health (medical missions), and spiritual formation (pastoral care)."
+    },
+    {
+      "question": "Who are the beneficiaries?",
+      "answer": "Our beneficiaries include undernourished children, low-income families, out-of-school youth, and communities facing poverty."
+    },
+    {
+      "question": "Can I sponsor a child or program?",
+      "answer": "Yes, you can sponsor a child, feeding program, or scholarship. Please contact us to learn more about available sponsorship opportunities."
+    }
+  ],
+  "Partnerships": [
+    {
+      "question": "How can my organization partner with ANC?",
+      "answer": "We welcome partnerships with schools, parishes, businesses, and civic groups. Reach out through our contact page to start a conversation."
+    },
+    {
+      "question": "What kinds of partnerships are available?",
+      "answer": "You can partner with ANC through funding, joint outreach activities, corporate volunteering, in-kind donations, or educational collaboration."
+    },
+    {
+      "question": "Can we collaborate on long-term projects?",
+      "answer": "Yes. ANC seeks sustainable partnerships that can expand the impact of our programs. Let’s explore long-term collaboration opportunities together."
+    }
+  ]
+}

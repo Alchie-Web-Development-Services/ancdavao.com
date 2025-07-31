@@ -42,12 +42,14 @@ const GallerySection: React.FC = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-neutral-800">Best Gallery</h2>
+          <h2 className="text-4xl font-bold text-neutral-800">
+            Moments of Hope
+          </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-            Slide an hope of body. Any nay shyness article matters own removal
-            nothing his forming. Gay own additions education satisfied the
-            perpetual. If he cause manor happy. Without farther she exposed saw
-            man led. Along on happy could cease green oh.
+            Explore the impact of our work through heartfelt images — from
+            joyful feeding programs and community outreach to uplifting
+            spiritual gatherings. Every photo tells a story of compassion,
+            service, and shared humanity at ANC Davao.
           </p>
         </div>
         <div className="flex justify-center space-x-2 mb-12">

@@ -8,4 +8,9 @@ export default defineConfig({
     setupFiles: ["./src/test/setup.ts"],
     globals: true,
   },
+  resolve: {
+    alias: {
+      "@": "/Users/chesteralan/Alchie/AlchieWebDevelopmentServices/ancdavao.com/src",
+    },
+  },
 });

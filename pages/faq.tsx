@@ -3,8 +3,9 @@ import PageHeader from "@/components/PageHeader";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Link from "next/link";
 import SEO from "@/components/SEO";
+import useFetchJson from "@/hooks/useFetchJson";
 
-interface FAQItemProps {
+export interface FAQItemProps {
   question: string;
   answer: string | React.ReactNode;
 }
@@ -38,130 +39,15 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 };
 
 const FAQ: React.FC = () => {
-  const faqCategories = [
-    {
-      id: "general",
-      title: "General Questions",
-      faqs: [
-        {
-          question: "What does ANC Davao do?",
-          answer:
-            "ANC Davao is a non-profit organization dedicated to improving the lives of children and communities in Davao through education, healthcare, and community development programs.",
-        },
-        {
-          question: "Where does ANC Davao operate?",
-          answer:
-            "We primarily operate in Davao City and surrounding areas, focusing on underserved communities where our programs can make the most impact.",
-        },
-        {
-          question: "How can I contact ANC Davao?",
-          answer: (
-            <p>
-              You can reach us through the following channels:
-              <ul className="list-disc pl-5 mt-2 space-y-1">
-                <li>Email: info@ancdavao.org</li>
-                <li>Phone: +63 82 123 4567</li>
-                <li>
-                  Visit our office at 1234 Street Name, Barangay 76-A, Davao
-                  City
-                </li>
-              </ul>
-            </p>
-          ),
-        },
-      ],
-    },
-    {
-      id: "donations",
-      title: "Donations",
-      faqs: [
-        {
-          question: "How can I donate to ANC Davao?",
-          answer:
-            "You can donate through our website using a credit/debit card, GCash, or bank transfer. Visit our Donate page for more details.",
-        },
-        {
-          question: "Is my donation tax-deductible?",
-          answer:
-            "Yes, ANC Davao is a registered non-profit organization, and all donations are tax-deductible. You will receive an official receipt for your donation.",
-        },
-        {
-          question: "Can I donate in-kind?",
-          answer:
-            "Yes, we accept in-kind donations such as school supplies, books, and other items. Please contact us to coordinate your in-kind donation.",
-        },
-        {
-          question: "How will my donation be used?",
-          answer:
-            "Your donation will be used to support our various programs, including education, healthcare, and community development initiatives. We ensure that the majority of funds go directly to program services.",
-        },
-      ],
-    },
-    {
-      id: "volunteering",
-      title: "Volunteering",
-      faqs: [
-        {
-          question: "How can I volunteer with ANC Davao?",
-          answer:
-            "You can apply to be a volunteer by filling out the volunteer application form on our website. We have various volunteer opportunities available.",
-        },
-        {
-          question: "What are the requirements to volunteer?",
-          answer:
-            "Requirements vary depending on the volunteer role. Generally, we look for individuals who are passionate about our cause and willing to commit their time and skills.",
-        },
-        {
-          question: "Do I need special skills to volunteer?",
-          answer:
-            "While some roles may require specific skills, many of our volunteer opportunities are open to anyone with a willingness to help. We provide training for all volunteers.",
-        },
-      ],
-    },
-    {
-      id: "programs",
-      title: "Programs",
-      faqs: [
-        {
-          question: "What programs does ANC Davao offer?",
-          answer:
-            "We offer various programs including educational support, healthcare services, feeding programs, and community development initiatives.",
-        },
-        {
-          question: "How can I enroll my child in your programs?",
-          answer:
-            "Please visit our Programs page for information on eligibility and the application process for each of our programs.",
-        },
-        {
-          question: "Do you offer scholarships?",
-          answer:
-            "Yes, we offer scholarships to qualified students. Please check our Education Program page for more details and application requirements.",
-        },
-      ],
-    },
-    {
-      id: "partnerships",
-      title: "Partnerships",
-      faqs: [
-        {
-          question: "Can my company partner with ANC Davao?",
-          answer:
-            "Yes, we welcome corporate partnerships. Please contact our Partnerships team to discuss potential collaboration opportunities.",
-        },
-        {
-          question: "What are the benefits of becoming a corporate partner?",
-          answer:
-            "Corporate partners receive various benefits including employee engagement opportunities, brand visibility, and the satisfaction of making a positive social impact.",
-        },
-      ],
-    },
-  ];
+  const { data, loading } = useFetchJson<FAQItemProps[]>("/data/faqs.json");
 
-  const [activeCategory, setActiveCategory] = useState("general");
+  const [activeCategory, setActiveCategory] = useState("General Questions");
 
-  const currentCategory =
-    faqCategories.find((cat) => cat.id === activeCategory) || faqCategories[0];
+  if (loading) return null;
 
+  const currentCategory = data[activeCategory];
+  console.log(currentCategory, data);
+  const categories = Object.keys(data);
   return (
     <div className="min-h-screen">
       <SEO
@@ -193,17 +79,17 @@ const FAQ: React.FC = () => {
               <div className="sticky top-24">
                 <h3 className="text-lg font-semibold mb-4">Categories</h3>
                 <nav className="space-y-1">
-                  {faqCategories.map((category) => (
+                  {categories.map((category) => (
                     <button
-                      key={category.id}
-                      onClick={() => setActiveCategory(category.id)}
+                      key={category}
+                      onClick={() => setActiveCategory(category)}
                       className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                        activeCategory === category.id
+                        activeCategory === category
                           ? "bg-primary-100 text-primary-700 font-medium"
                           : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
-                      {category.title}
+                      {category}
                     </button>
                   ))}
                 </nav>
@@ -215,7 +101,7 @@ const FAQ: React.FC = () => {
                     is here to help.
                   </p>
                   <Link
-                    href="/contact"
+                    href="/contact-us"
                     className="inline-block w-full text-center bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 transition-colors"
                   >
                     Contact Us
@@ -233,7 +119,7 @@ const FAQ: React.FC = () => {
                   </h3>
                 </div>
                 <div className="divide-y divide-gray-200">
-                  {currentCategory.faqs.map((faq, index) => (
+                  {currentCategory.map((faq, index) => (
                     <FAQItem
                       key={index}
                       question={faq.question}
@@ -251,7 +137,7 @@ const FAQ: React.FC = () => {
                   free to reach out to our support team.
                 </p>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium"
                 >
                   Contact Support

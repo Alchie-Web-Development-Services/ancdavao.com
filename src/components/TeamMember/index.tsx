@@ -33,7 +33,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900 mb-1">{name}</h3>
-        <p className="text-teal-600 font-medium mb-4">{role}</p>
+        <p className="text-primary-600 font-medium mb-4">{role}</p>
         <p className="text-gray-600 mb-4">{bio}</p>
 
         {(socialLinks.twitter || socialLinks.linkedin || socialLinks.email) && (
@@ -43,7 +43,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-teal-600 transition-colors"
+                className="text-gray-500 hover:text-primary-600 transition-colors"
                 aria-label={`${name}'s Twitter`}
               >
                 <span className="sr-only">Twitter</span>
@@ -61,7 +61,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-teal-600 transition-colors"
+                className="text-gray-500 hover:text-primary-600 transition-colors"
                 aria-label={`${name}'s LinkedIn`}
               >
                 <span className="sr-only">LinkedIn</span>
@@ -77,7 +77,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
             {socialLinks.email && (
               <a
                 href={`mailto:${socialLinks.email}`}
-                className="text-gray-500 hover:text-teal-600 transition-colors"
+                className="text-gray-500 hover:text-primary-600 transition-colors"
                 aria-label={`Email ${name}`}
               >
                 <span className="sr-only">Email</span>

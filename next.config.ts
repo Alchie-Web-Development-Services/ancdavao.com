@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/history",
+        destination: "/about/history",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

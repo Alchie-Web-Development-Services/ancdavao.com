@@ -6,9 +6,8 @@ describe("Hero", () => {
     render(<Hero />);
 
     expect(
-      screen.getByText(/Give a Helping Hand\s+and Help Unfortunates/i),
+      screen.getByText(/Nourishing Hope,\s*One Child at a Time/i),
     ).toBeInTheDocument();
-    expect(screen.getByText(/and Help Unfortunates/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "Learn More" }),
     ).toBeInTheDocument();

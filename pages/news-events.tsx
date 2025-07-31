@@ -231,7 +231,7 @@ const NewsEvents: React.FC = () => {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-900"
+                className="flex-grow px-4 py-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary-500 text-gray-900"
                 required
               />
               <button

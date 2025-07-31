@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { FaBook, FaHandsHelping, FaHeartbeat, FaTint } from "react-icons/fa";
+import { FaBook, FaHeartbeat, FaChurch, FaChild } from "react-icons/fa";
 
 const MissionSection: React.FC = () => {
   const missions = [
@@ -8,25 +8,25 @@ const MissionSection: React.FC = () => {
       icon: <FaBook size={40} />,
       title: "Education",
       description:
-        "Continual say suspicion provision you neglected sir curiously smiling simplicity and therefore increasing led day sympathy yet.",
+        "We believe that education is a powerful path out of poverty. ANC supports children and families through values-based learning, skills development, and access to school resources—empowering them to build a brighter, self-sustaining future.",
     },
     {
-      icon: <FaHandsHelping size={40} />,
+      icon: <FaChild size={40} />,
       title: "Rice for Life",
       description:
-        "Preference imprudence connected to remarkably in on. Taken now you him trees tears any. Her object giving and sister except oppose.",
+        "Through our flagship feeding program, we provide regular nutritious meals to undernourished children and vulnerable communities. Every meal is a step toward health, stability, and a chance to grow with dignity.",
     },
     {
       icon: <FaHeartbeat size={40} />,
       title: "Health",
       description:
-        "Common indeed garden you his ladies out yet. Preference imprudence connected to on. Taken now you him trees tears any.",
+        "Health is foundational to human dignity. We promote wellness by offering basic medical care, hygiene support, and health education, especially for children and families in underserved communities.",
     },
     {
-      icon: <FaTint size={40} />,
-      title: "Water",
+      icon: <FaChurch size={40} />,
+      title: "Spiritual",
       description:
-        "Pianoforte to reasonably is on. Taken now you him trees tears any. Her object giving.",
+        "More than meeting physical needs, we care for the soul. Through faith-based formation, prayer, and spiritual guidance, we walk with individuals and families toward deeper purpose, healing, and a stronger relationship with God.",
     },
   ];
 
@@ -48,12 +48,11 @@ const MissionSection: React.FC = () => {
               What We Are Doing
             </h2>
             <p className="text-neutral-600 mb-8">
-              Continual say suspicion provision you neglected sir curiously
-              smiling simplicity and therefore increasing led day sympathies
-              yet. General windows effects not are drawing man garrets. Common
-              indeed garden you his ladies out yet. Preference imprudence
-              contrasted to remarkably in on. Taken now you him trees tears any.
-              Her object giving and sister except oppose.
+              At the Archdiocesan Nourishment Center, we are committed to ending
+              the cycle of poverty in Davao City through holistic, faith-driven
+              initiatives. Grounded in love and guided by compassion, our
+              programs serve the body, mind, and spirit—nurturing dignity and
+              hope in every life we touch.
             </p>
             <div className="grid grid-cols-2 gap-8">
               {missions.map((mission, index) => (

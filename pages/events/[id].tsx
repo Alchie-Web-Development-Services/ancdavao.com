@@ -43,7 +43,7 @@ const mockEvents = [
         <li>Gourmet dinner and open bar.</li>
         <li>Networking opportunities with like-minded individuals.</li>
       </ul>
-      <p>For more information on how to get involved or to purchase tickets, please visit our <a href="/contact" class="text-primary-600 hover:underline">Contact Us</a> page.</p>
+      <p>For more information on how to get involved or to purchase tickets, please visit our <a href="/contact-us" class="text-primary-600 hover:underline">Contact Us</a> page.</p>
     `,
   },
   {
@@ -99,7 +99,7 @@ const mockEvents = [
         <li>Bring any existing medical records if available.</li>
         <li>Volunteers are always welcome, especially medical professionals.</li>
       </ul>
-      <p>For more details or to volunteer, please contact us through our <a href="/contact" class="text-primary-600 hover:underline">Contact Us</a> page.</p>
+      <p>For more details or to volunteer, please contact us through our <a href="/contact-us" class="text-primary-600 hover:underline">Contact Us</a> page.</p>
     `,
   },
 ];

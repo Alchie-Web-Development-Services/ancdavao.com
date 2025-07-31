@@ -6,12 +6,10 @@ describe("ImpactSection", () => {
     render(<ImpactSection />);
 
     expect(
-      screen.getByText(
-        "We've funded 120,00 charity projects for 20M people around the world.",
-      ),
+      screen.getByText("Together, We Are Changing Lives in Davao City"),
     ).toBeInTheDocument();
-    expect(screen.getByText("Make Donation")).toBeInTheDocument();
+    expect(screen.getByText("Make a Donation")).toBeInTheDocument();
     expect(screen.getByText("Become a Volunteer")).toBeInTheDocument();
-    expect(screen.getByText("Give Scholarship")).toBeInTheDocument();
+    expect(screen.getByText("Give a Scholarship")).toBeInTheDocument();
   });
 });
