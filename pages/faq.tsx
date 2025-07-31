@@ -177,7 +177,7 @@ const FAQ: React.FC = () => {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Browse through our frequently asked questions or contact us if you
-              can't find what you're looking for.
+              can&apos;t find what you&apos;re looking for.
             </p>
           </div>
 
@@ -205,8 +205,8 @@ const FAQ: React.FC = () => {
                 <div className="mt-8 p-6 bg-indigo-50 rounded-lg">
                   <h3 className="font-semibold mb-3">Still have questions?</h3>
                   <p className="text-sm text-gray-600 mb-4">
-                    Can't find the answer you're looking for? Our team is here
-                    to help.
+                    Can&apos;t find the answer you&apos;re looking for? Our team
+                    is here to help.
                   </p>
                   <Link
                     href="/contact"
@@ -241,8 +241,8 @@ const FAQ: React.FC = () => {
               <div className="mt-8 p-6 bg-blue-50 rounded-lg">
                 <h3 className="text-lg font-semibold mb-2">Need more help?</h3>
                 <p className="text-gray-600 mb-4">
-                  If you couldn't find the answer to your question, feel free to
-                  reach out to our support team.
+                  If you couldn&apos;t find the answer to your question, feel
+                  free to reach out to our support team.
                 </p>
                 <Link
                   href="/contact"

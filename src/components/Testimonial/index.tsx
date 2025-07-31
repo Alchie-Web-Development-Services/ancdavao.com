@@ -26,7 +26,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
         </svg>
       </div>
       <blockquote className="mb-6">
-        <p className="text-lg text-gray-700">"{quote}"</p>
+        <p className="text-lg text-gray-700">&quot;{quote}&quot;</p>
       </blockquote>
       <div className="flex items-center">
         {avatar && (

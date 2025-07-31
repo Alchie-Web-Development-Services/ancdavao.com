@@ -33,8 +33,8 @@ const ImpactSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold text-neutral-800 mb-4">
-              We've funded 120,00 charity projects for 20M people around the
-              world.
+              We&apos;ve funded 120,00 charity projects for 20M people around
+              the world.
             </h2>
             <p className="text-neutral-600 mb-8">
               Continual say suspicion provision you neglected sir curiously

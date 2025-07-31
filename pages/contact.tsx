@@ -312,8 +312,8 @@ const Contact: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Can't find what you're looking for? Check out our FAQ page for more
-            information.
+            Can&apos;t find what you&apos;re looking for? Check out our FAQ page
+            for more information.
           </p>
           <a
             href="/faq"
