@@ -102,7 +102,7 @@ const GetInvolved: React.FC = () => {
       <PageHeader
         title="Get Involved"
         subtitle="Join us in making a difference in the lives of children and communities in Davao"
-        backgroundImage="/images/get-involved-header.jpg"
+        backgroundImage="https://picsum.photos/1920/1080?random"
       />
 
       {/* Ways to Get Involved */}

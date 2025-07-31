@@ -11,28 +11,28 @@ const teamMembers = [
     name: "John Doe",
     role: "Founder & Executive Director",
     bio: "Passionate about making a difference in the lives of underprivileged children.",
-    image: "/images/team/john-doe.jpg",
+    image: "https://picsum.photos/1920/1080?random",
   },
   {
     id: 2,
     name: "Jane Smith",
     role: "Program Director",
     bio: "Dedicated to creating sustainable programs for community development.",
-    image: "/images/team/jane-smith.jpg",
+    image: "https://picsum.photos/1920/1080?random",
   },
   {
     id: 3,
     name: "Michael Johnson",
     role: "Operations Manager",
     bio: "Ensuring smooth operations and efficient resource allocation.",
-    image: "/images/team/michael-johnson.jpg",
+    image: "https://picsum.photos/1920/1080?random",
   },
   {
     id: 4,
     name: "Sarah Williams",
     role: "Volunteer Coordinator",
     bio: "Connecting passionate volunteers with meaningful opportunities.",
-    image: "/images/team/sarah-williams.jpg",
+    image: "https://picsum.photos/1920/1080?random",
   },
 ];
 
@@ -70,7 +70,7 @@ const testimonials = [
       "ANC Davao has been instrumental in transforming our community. Their programs have brought hope to many families.",
     author: "Maria Santos",
     role: "Community Leader",
-    avatar: "/images/testimonials/maria-santos.jpg",
+    avatar: "https://picsum.photos/1920/1080?random",
   },
   {
     id: 2,
@@ -78,7 +78,7 @@ const testimonials = [
       "As a volunteer, I've seen firsthand the positive impact of ANC Davao's work. It's truly inspiring to be part of this organization.",
     author: "Carlos Reyes",
     role: "Volunteer",
-    avatar: "/images/testimonials/carlos-reyes.jpg",
+    avatar: "https://picsum.photos/1920/1080?random",
   },
 ];
 
@@ -89,7 +89,7 @@ const About: React.FC = () => {
       <PageHeader
         title="About ANC Davao"
         subtitle="Learn about our mission, vision, and the team behind our organization"
-        backgroundImage="/images/about-header.jpg"
+        backgroundImage="https://picsum.photos/1920/1080?random"
       />
 
       {/* Our Story */}

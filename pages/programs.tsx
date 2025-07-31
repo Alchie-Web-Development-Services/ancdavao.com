@@ -99,7 +99,7 @@ const Programs: React.FC = () => {
       <PageHeader
         title="Our Programs"
         subtitle="Discover how we're making a difference in the lives of children and communities in Davao"
-        backgroundImage="/images/programs-header.jpg"
+        backgroundImage="https://picsum.photos/1920/1080?random"
       />
 
       {/* Programs Grid */}

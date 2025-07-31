@@ -6,13 +6,15 @@ const Logo: React.FC = () => {
   return (
     <Link href="/" className="flex items-center space-x-2">
       <Image
-        src="/logo.png"
+        src="/images/logo.png"
         alt="ANC Davao Logo"
-        width={40}
-        height={40}
+        width={332}
+        height={53}
         className="h-10 w-auto"
       />
-      <span className="text-2xl font-bold text-neutral-800">ANC DAVAO</span>
+      <span className="text-2xl font-bold text-neutral-800 sr-only">
+        Archdiocesan Nourishment Center
+      </span>
     </Link>
   );
 };

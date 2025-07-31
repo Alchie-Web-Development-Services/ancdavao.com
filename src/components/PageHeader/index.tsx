@@ -11,7 +11,7 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   subtitle,
-  backgroundImage = "/images/page-header-bg.jpg",
+  backgroundImage = "https://picsum.photos/1920/1080?random",
   overlayOpacity = 0.3,
   className = "",
 }) => {

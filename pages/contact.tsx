@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
       <PageHeader
         title="Contact Us"
         subtitle="We'd love to hear from you. Get in touch with us today!"
-        backgroundImage="/images/contact-header.jpg"
+        backgroundImage="https://picsum.photos/1920/1080?random"
       />
 
       {/* Contact Information */}

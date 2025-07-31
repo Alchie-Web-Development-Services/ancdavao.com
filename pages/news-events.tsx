@@ -13,7 +13,7 @@ const NewsEvents: React.FC = () => {
         "A new program aimed at improving digital literacy among underprivileged children in Davao City.",
       date: "May 20, 2024",
       category: "News",
-      image: "/images/news/education-initiative.jpg",
+      image: "https://picsum.photos/1920/1080?random",
       link: "/news/education-initiative-launch",
     },
     {
@@ -23,7 +23,7 @@ const NewsEvents: React.FC = () => {
         "Read about our achievements and impact over the past year in our newly released annual report.",
       date: "April 15, 2024",
       category: "Announcement",
-      image: "/images/news/annual-report.jpg",
+      image: "https://picsum.photos/1920/1080?random",
       link: "/news/annual-report-2023",
     },
   ];
@@ -67,7 +67,7 @@ const NewsEvents: React.FC = () => {
       <PageHeader
         title="News & Events"
         subtitle="Stay updated with the latest news and upcoming events from ANC Davao"
-        backgroundImage="/images/news-events-header.jpg"
+        backgroundImage="https://picsum.photos/1920/1080?random"
       />
 
       {/* Latest News */}
