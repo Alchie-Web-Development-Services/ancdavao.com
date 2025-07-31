@@ -1,29 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 import { FaDonate, FaUsers, FaAward } from "react-icons/fa";
 
 const ImpactSection: React.FC = () => {
   const impacts = [
     {
       icon: <FaDonate size={32} />,
-      title: "Make Donation",
+      title: "Make a Donation",
       description:
-        "Shall there whose those stand she end. So unaffected partiality indulgence dispatched to of celebrated remarkably. Unfeeling are had allowance own perceived abilities.",
+        "Your generosity fuels our feeding programs, medical outreach, and spiritual formation. A single gift can fill a plate, send a child to school, or keep a center running.",
+      tagline: "Be the reason someone eats today.",
       link: "/donate",
     },
     {
       icon: <FaUsers size={32} />,
       title: "Become a Volunteer",
       description:
-        "Shall there whose those stand she end. So unaffected partiality indulgence dispatched to of celebrated remarkably. Unfeeling are had allowance own perceived abilities.",
+        "Whether you serve meals, assist at medical clinics, or help teach children, your time can transform lives. Volunteers are the heart of ANC’s mission—and we always have room for more. ",
+      tagline: "Serve with purpose.",
       link: "/get-involved",
     },
     {
       icon: <FaAward size={32} />,
-      title: "Give Scholarship",
+      title: "Give a Scholarship",
       description:
-        "Shall there whose those stand she end. So unaffected partiality indulgence dispatched to of celebrated remarkably. Unfeeling are had allowance own perceived abilities.",
-      link: "/programs/education",
+        "Education breaks the cycle of poverty. By sponsoring a student, you provide more than tuition—you give them hope, dignity, and the chance to dream.",
+      tagline: "Empower the next generation.",
+      link: "/programs-and-services/education",
     },
   ];
 
@@ -33,16 +37,14 @@ const ImpactSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold text-neutral-800 mb-4">
-              We've funded 120,00 charity projects for 20M people around the
-              world.
+              Together, We Are Changing Lives in Davao City
             </h2>
             <p className="text-neutral-600 mb-8">
-              Continual say suspicion provision you neglected sir curiously
-              smiling simplicity and therefore increasing led day sympathies
-              yet. General windows effects not are drawing man garrets. Common
-              indeed garden you his ladies out yet. Preference imprudence
-              contrasted to remarkably in on. Taken now you him trees tears any.
-              Her object giving and sister except oppose.
+              Since 2015, ANC has provided over 10,000 meals each month, offered
+              free healthcare, supported dozens of scholars, and brought
+              spiritual and emotional healing to thousands of families across
+              Davao. Every act of kindness—big or small—nourishes lives with
+              love and dignity.
             </p>
             <div className="space-y-6">
               {impacts.map((impact, index) => (
@@ -50,7 +52,7 @@ const ImpactSection: React.FC = () => {
                   key={index}
                   className="flex items-start p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
-                  <div className="text-indigo-600 bg-indigo-50 p-4 rounded-full mr-6">
+                  <div className="text-primary-600 bg-primary-50 p-4 rounded-full mr-6">
                     {impact.icon}
                   </div>
                   <div>
@@ -59,10 +61,12 @@ const ImpactSection: React.FC = () => {
                     </h3>
                     <p className="text-neutral-600 text-sm mb-3">
                       {impact.description}
+                      <br />
+                      <strong>{impact.tagline}</strong>
                     </p>
                     <Link
-                      to={impact.link}
-                      className="text-indigo-600 font-semibold hover:underline"
+                      href={impact.link}
+                      className="text-primary-600 font-semibold hover:underline"
                     >
                       Read More
                     </Link>
@@ -72,9 +76,11 @@ const ImpactSection: React.FC = () => {
             </div>
           </div>
           <div>
-            <img
-              src="https://source.unsplash.com/random/800x600/?charity,donation"
+            <Image
+              src="https://cdn.ancdavao.com/placeholder1.jpg"
               alt="Happy recipients"
+              width={800}
+              height={600}
               className="rounded-lg shadow-lg"
             />
           </div>

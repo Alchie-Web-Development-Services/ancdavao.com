@@ -1,18 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
 const CauseCard: React.FC<{
+  id: number;
   imgSrc: string;
   title: string;
   description: string;
   raised: number;
   goal: number;
-}> = ({ imgSrc, title, description, raised, goal }) => {
+}> = ({ id, imgSrc, title, description, raised, goal }) => {
   const progress = (raised / goal) * 100;
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <img src={imgSrc} alt={title} className="w-full h-56 object-cover" />
+      <Image
+        src={imgSrc}
+        alt={title}
+        width={800}
+        height={600}
+        className="w-full h-56 object-cover"
+      />
       <div className="p-6">
         <h3 className="text-xl font-bold text-neutral-800 mb-2">{title}</h3>
         <p className="text-neutral-600 text-sm mb-4">{description}</p>
@@ -23,14 +31,14 @@ const CauseCard: React.FC<{
           </div>
           <div className="w-full bg-neutral-200 rounded-full h-2.5">
             <div
-              className="bg-indigo-600 h-2.5 rounded-full"
+              className="bg-primary-600 h-2.5 rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
         <Link
-          to="/donate"
-          className="w-full block text-center bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
+          href={`/causes/${id}`}
+          className="w-full block text-center bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
         >
           Donate Now
         </Link>
@@ -42,7 +50,8 @@ const CauseCard: React.FC<{
 const CausesSection: React.FC = () => {
   const causes = [
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?children,poor",
+      id: 1,
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Support for Children",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -50,7 +59,8 @@ const CausesSection: React.FC = () => {
       goal: 50000,
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?syria,children",
+      id: 2,
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Food for Syrian",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -58,7 +68,8 @@ const CausesSection: React.FC = () => {
       goal: 60000,
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?uganda,education",
+      id: 3,
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Uganda Education",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -66,7 +77,8 @@ const CausesSection: React.FC = () => {
       goal: 70000,
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?capetown,orphanage",
+      id: 4,
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Capetown Orphanage",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -74,7 +86,8 @@ const CausesSection: React.FC = () => {
       goal: 30000,
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?kids,playground",
+      id: 5,
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Kids Playground",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -82,7 +95,8 @@ const CausesSection: React.FC = () => {
       goal: 90000,
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?homeless",
+      id: 6,
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Home for Homeless",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -106,8 +120,8 @@ const CausesSection: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {causes.map((cause, index) => (
-            <CauseCard key={index} {...cause} />
+          {causes.map((cause) => (
+            <CauseCard key={cause.id} id={cause.id} {...cause} />
           ))}
         </div>
       </div>

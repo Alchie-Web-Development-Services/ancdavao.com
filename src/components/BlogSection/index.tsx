@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
 const BlogCard: React.FC<{
   imgSrc: string;
@@ -8,13 +9,19 @@ const BlogCard: React.FC<{
 }> = ({ imgSrc, title, description }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <img src={imgSrc} alt={title} className="w-full h-56 object-cover" />
+      <Image
+        src={imgSrc}
+        alt={title}
+        width={800}
+        height={600}
+        className="w-full h-56 object-cover"
+      />
       <div className="p-6">
         <h3 className="text-xl font-bold text-neutral-800 mb-2">{title}</h3>
         <p className="text-neutral-600 text-sm mb-4">{description}</p>
         <Link
-          to="/blog"
-          className="text-indigo-600 font-semibold hover:underline"
+          href="/blog"
+          className="text-primary-600 font-semibold hover:underline"
         >
           Read More
         </Link>
@@ -26,19 +33,19 @@ const BlogCard: React.FC<{
 const BlogSection: React.FC = () => {
   const posts = [
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?community,children",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "A Day in the Life of a Volunteer",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?donation,food",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "How Your Donations Make a Difference",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
     },
     {
-      imgSrc: "https://source.unsplash.com/random/800x600/?education,africa",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Building a Brighter Future Through Education",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",

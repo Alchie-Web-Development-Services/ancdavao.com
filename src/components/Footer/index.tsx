@@ -1,11 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import Link from "next/link";
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../Logo";
 
 const Footer: React.FC = () => {
@@ -14,38 +9,51 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <Logo />
+            <Logo version="v2" />
             <p className="text-neutral-400 mt-4 text-sm">
               We are a non-profit organization dedicated to helping the less
               fortunate. Join us in our mission to make the world a better
               place.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-white hover:text-indigo-500">
+              <a
+                href="https://www.facebook.com/archdiocesannourishmentcenter/"
+                className="text-white hover:text-primary-500"
+                target="_blank"
+              >
                 <FaFacebookF />
               </a>
-              <a href="#" className="text-white hover:text-indigo-500">
-                <FaTwitter />
-              </a>
-              <a href="#" className="text-white hover:text-indigo-500">
-                <FaInstagram />
-              </a>
-              <a href="#" className="text-white hover:text-indigo-500">
+              <a
+                href="https://www.linkedin.com/company/archdiocesan-nourishment-center/"
+                className="text-white hover:text-primary-500"
+                target="_blank"
+              >
                 <FaLinkedinIn />
               </a>
             </div>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-sm grid grid-cols-2">
               <li>
-                <Link to="/about" className="text-neutral-400 hover:text-white">
+                <Link
+                  href="/about"
+                  className="text-neutral-400 hover:text-white"
+                >
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/causes"
+                  href="/programs-and-services"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Programs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/causes"
                   className="text-neutral-400 hover:text-white"
                 >
                   Causes
@@ -53,23 +61,47 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/events"
+                  href="/events"
                   className="text-neutral-400 hover:text-white"
                 >
                   Events
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-neutral-400 hover:text-white">
+                <Link
+                  href="/blog"
+                  className="text-neutral-400 hover:text-white"
+                >
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  href="/contact-us"
                   className="text-neutral-400 hover:text-white"
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-neutral-400 hover:text-white">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms-conditions"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Terms & Conditions
                 </Link>
               </li>
             </ul>
@@ -77,9 +109,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li>California, TX 70240</li>
+              <li>Pag-asa St, Brgy. 24-C, Fatima, Davao City</li>
               <li>info@ancdavao.com</li>
-              <li>+123 456 7890</li>
+              <li>+63 (82) 285-1524</li>
             </ul>
           </div>
           <div>
@@ -95,7 +127,7 @@ const Footer: React.FC = () => {
               />
               <button
                 type="submit"
-                className="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700"
+                className="bg-primary-600 text-white px-4 py-2 rounded-r-md hover:bg-primary-700"
               >
                 Subscribe
               </button>
@@ -107,6 +139,16 @@ const Footer: React.FC = () => {
         <div className="container mx-auto px-4 text-center text-sm text-neutral-500">
           <p>
             &copy; {new Date().getFullYear()} ANC Davao. All Rights Reserved.
+            Developed and Maintained by{" "}
+            <a
+              href="https://alchie.cc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-600 hover:text-primary-700 transition-colors"
+            >
+              Alchie Web Development Services
+            </a>
+            .
           </p>
         </div>
       </div>

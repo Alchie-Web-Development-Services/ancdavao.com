@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const EventSection: React.FC = () => {
+  const event = { id: 1 }; // Mock event object for static display
   return (
     <section className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
@@ -18,23 +20,26 @@ const EventSection: React.FC = () => {
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img
-                src="https://source.unsplash.com/random/800x600/?community,event"
+              <Image
+                src="https://cdn.ancdavao.com/placeholder1.jpg"
                 alt="Community event"
+                width={800}
+                height={600}
                 className="rounded-lg shadow-md"
               />
             </div>
             <div>
               <div className="flex items-center text-neutral-600 space-x-6 mb-4">
                 <span className="flex items-center">
-                  <FaCalendarAlt className="mr-2 text-indigo-600" /> 12 Oct 2018
+                  <FaCalendarAlt className="mr-2 text-primary-600" /> 12 Oct
+                  2018
                 </span>
                 <span className="flex items-center">
-                  <FaMapMarkerAlt className="mr-2 text-indigo-600" /> King
+                  <FaMapMarkerAlt className="mr-2 text-primary-600" /> King
                   Street, Melbourne
                 </span>
                 <span className="flex items-center">
-                  <FaClock className="mr-2 text-indigo-600" /> 9:00 - 16:00
+                  <FaClock className="mr-2 text-primary-600" /> 9:00 - 16:00
                 </span>
               </div>
               <h3 className="text-3xl font-bold text-neutral-800 mb-4">
@@ -48,8 +53,8 @@ const EventSection: React.FC = () => {
                 all she mistaken indulged believed provided declared.
               </p>
               <Link
-                to="/events"
-                className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
+                href={`/events/${event.id}`}
+                className="bg-primary-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
               >
                 Learn More
               </Link>

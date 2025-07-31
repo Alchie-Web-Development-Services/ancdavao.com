@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface TeamMemberProps {
   name: string;
@@ -22,20 +23,17 @@ const TeamMember: React.FC<TeamMemberProps> = ({
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="h-48 overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={name}
+          width={400}
+          height={300}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            // Fallback to a placeholder if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.src = "https://via.placeholder.com/400x300?text=Team+Member";
-          }}
         />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900 mb-1">{name}</h3>
-        <p className="text-teal-600 font-medium mb-4">{role}</p>
+        <p className="text-primary-600 font-medium mb-4">{role}</p>
         <p className="text-gray-600 mb-4">{bio}</p>
 
         {(socialLinks.twitter || socialLinks.linkedin || socialLinks.email) && (
@@ -45,7 +43,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 href={socialLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-teal-600 transition-colors"
+                className="text-gray-500 hover:text-primary-600 transition-colors"
                 aria-label={`${name}'s Twitter`}
               >
                 <span className="sr-only">Twitter</span>
@@ -63,7 +61,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-teal-600 transition-colors"
+                className="text-gray-500 hover:text-primary-600 transition-colors"
                 aria-label={`${name}'s LinkedIn`}
               >
                 <span className="sr-only">LinkedIn</span>
@@ -79,7 +77,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
             {socialLinks.email && (
               <a
                 href={`mailto:${socialLinks.email}`}
-                className="text-gray-500 hover:text-teal-600 transition-colors"
+                className="text-gray-500 hover:text-primary-600 transition-colors"
                 aria-label={`Email ${name}`}
               >
                 <span className="sr-only">Email</span>

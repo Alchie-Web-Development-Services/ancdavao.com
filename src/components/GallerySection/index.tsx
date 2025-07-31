@@ -1,28 +1,29 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 const galleryItems = [
   {
-    src: "https://source.unsplash.com/random/800x600/?charity,group",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Food",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?child,sad",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Income",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?child,happy",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Education",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?child,water",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Blood",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?community,gathering",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Water",
   },
   {
-    src: "https://source.unsplash.com/random/800x600/?homeless,man",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Food",
   },
 ];
@@ -41,12 +42,14 @@ const GallerySection: React.FC = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-neutral-800">Best Gallery</h2>
+          <h2 className="text-4xl font-bold text-neutral-800">
+            Moments of Hope
+          </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-            Slide an hope of body. Any nay shyness article matters own removal
-            nothing his forming. Gay own additions education satisfied the
-            perpetual. If he cause manor happy. Without farther she exposed saw
-            man led. Along on happy could cease green oh.
+            Explore the impact of our work through heartfelt images — from
+            joyful feeding programs and community outreach to uplifting
+            spiritual gatherings. Every photo tells a story of compassion,
+            service, and shared humanity at ANC Davao.
           </p>
         </div>
         <div className="flex justify-center space-x-2 mb-12">
@@ -56,8 +59,8 @@ const GallerySection: React.FC = () => {
               onClick={() => setFilter(category)}
               className={`px-6 py-2 rounded-full font-semibold transition-colors duration-300 ${
                 filter === category
-                  ? "bg-indigo-600 text-white"
-                  : "bg-white text-neutral-700 hover:bg-indigo-50"
+                  ? "bg-primary-600 text-white"
+                  : "bg-white text-neutral-700 hover:bg-primary-50"
               }`}
             >
               {category}
@@ -67,9 +70,11 @@ const GallerySection: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {filteredItems.map((item, index) => (
             <div key={index} className="overflow-hidden rounded-lg shadow-md">
-              <img
+              <Image
                 src={item.src}
                 alt={`Gallery item ${index + 1}`}
+                width={800}
+                height={600}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
