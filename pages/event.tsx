@@ -1,6 +1,6 @@
 import React from "react";
-import PageHeader from "../components/PageHeader";
-import { Link } from "react-router-dom";
+import PageHeader from "@/components/PageHeader";
+import Link from "next/link";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const Event: React.FC = () => {
@@ -84,7 +84,7 @@ const Event: React.FC = () => {
                     {event.location}
                   </div>
                   <Link
-                    to={`/events/${event.id}`}
+                    href={`/events/${event.id}`}
                     className="text-indigo-600 font-semibold hover:underline"
                   >
                     Learn More

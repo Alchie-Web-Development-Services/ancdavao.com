@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
@@ -39,13 +39,16 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/about" className="text-neutral-400 hover:text-white">
+                <Link
+                  href="/about"
+                  className="text-neutral-400 hover:text-white"
+                >
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/causes"
+                  href="/causes"
                   className="text-neutral-400 hover:text-white"
                 >
                   Causes
@@ -53,20 +56,23 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/events"
+                  href="/events"
                   className="text-neutral-400 hover:text-white"
                 >
                   Events
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-neutral-400 hover:text-white">
+                <Link
+                  href="/blog"
+                  className="text-neutral-400 hover:text-white"
+                >
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="text-neutral-400 hover:text-white"
                 >
                   Contact

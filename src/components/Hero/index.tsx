@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
   return (
@@ -22,13 +22,13 @@ const Hero: React.FC = () => {
         </p>
         <div className="flex justify-center space-x-4">
           <Link
-            to="/about"
+            href="/about"
             className="bg-white text-indigo-600 px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition-colors duration-300"
           >
             Learn More
           </Link>
           <Link
-            to="/donate"
+            href="/donate"
             className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
           >
             Donate Now

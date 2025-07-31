@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const BlogCard: React.FC<{
   imgSrc: string;
@@ -13,7 +13,7 @@ const BlogCard: React.FC<{
         <h3 className="text-xl font-bold text-neutral-800 mb-2">{title}</h3>
         <p className="text-neutral-600 text-sm mb-4">{description}</p>
         <Link
-          to="/blog"
+          href="/blog"
           className="text-indigo-600 font-semibold hover:underline"
         >
           Read More

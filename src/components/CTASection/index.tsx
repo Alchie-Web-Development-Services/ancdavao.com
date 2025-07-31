@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const CTASection: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const CTASection: React.FC = () => {
           We've funded 120,00 charity projects for 20M people around the world.
         </h2>
         <Link
-          to="/get-involved"
+          href="/get-involved"
           className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300 text-lg"
         >
           Join With Us

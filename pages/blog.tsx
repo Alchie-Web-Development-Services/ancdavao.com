@@ -1,6 +1,6 @@
 import React from "react";
-import PageHeader from "../components/PageHeader";
-import { Link } from "react-router-dom";
+import PageHeader from "@/components/PageHeader";
+import Link from "next/link";
 
 const Blog: React.FC = () => {
   const mockPosts = [
@@ -81,7 +81,7 @@ const Blog: React.FC = () => {
                     <span>{post.date}</span>
                   </div>
                   <Link
-                    to={`/blog/${post.id}`}
+                    href={`/blog/${post.id}`}
                     className="text-indigo-600 font-semibold hover:underline"
                   >
                     Read More

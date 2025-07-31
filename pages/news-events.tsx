@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 
 const NewsEvents: React.FC = () => {
   // Sample news and events data - replace with actual data from your backend
@@ -84,7 +84,7 @@ const NewsEvents: React.FC = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
@@ -97,7 +97,7 @@ const NewsEvents: React.FC = () => {
                   <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                   <p className="text-gray-600 mb-4">{item.excerpt}</p>
                   <Link
-                    to={item.link}
+                    href={item.link}
                     className="text-indigo-600 hover:underline font-medium"
                   >
                     Read more →
@@ -109,7 +109,7 @@ const NewsEvents: React.FC = () => {
 
           <div className="text-center">
             <Link
-              to="/news"
+              href="/news"
               className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
             >
               View All News
@@ -186,7 +186,7 @@ const NewsEvents: React.FC = () => {
                     </div>
                     <p className="text-gray-600 mb-4">{event.description}</p>
                     <Link
-                      to={event.link}
+                      href={event.link}
                       className="text-indigo-600 hover:underline font-medium"
                     >
                       Learn more →
@@ -199,7 +199,7 @@ const NewsEvents: React.FC = () => {
 
           <div className="text-center">
             <Link
-              to="/events"
+              href="/events"
               className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
             >
               View All Events

@@ -1,14 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./index";
 
 describe("Header", () => {
   it("renders the header with navigation links and a donate button", () => {
-    render(
-      <Router>
-        <Header />
-      </Router>,
-    );
+    render(<Header />);
 
     expect(screen.getByRole("link", { name: "ANC DAVAO" })).toBeInTheDocument();
     expect(screen.getByText("Home")).toBeInTheDocument();

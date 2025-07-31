@@ -1,13 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const CauseCard: React.FC<{
+  id: number;
   imgSrc: string;
   title: string;
   description: string;
   raised: number;
   goal: number;
-}> = ({ imgSrc, title, description, raised, goal }) => {
+}> = ({ id, imgSrc, title, description, raised, goal }) => {
   const progress = (raised / goal) * 100;
 
   return (
@@ -29,7 +30,7 @@ const CauseCard: React.FC<{
           </div>
         </div>
         <Link
-          to="/donate"
+          href={`/causes/${id}`}
           className="w-full block text-center bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
         >
           Donate Now
@@ -42,6 +43,7 @@ const CauseCard: React.FC<{
 const CausesSection: React.FC = () => {
   const causes = [
     {
+      id: 1,
       imgSrc: "https://source.unsplash.com/random/800x600/?children,poor",
       title: "Support for Children",
       description:
@@ -50,6 +52,7 @@ const CausesSection: React.FC = () => {
       goal: 50000,
     },
     {
+      id: 2,
       imgSrc: "https://source.unsplash.com/random/800x600/?syria,children",
       title: "Food for Syrian",
       description:
@@ -58,6 +61,7 @@ const CausesSection: React.FC = () => {
       goal: 60000,
     },
     {
+      id: 3,
       imgSrc: "https://source.unsplash.com/random/800x600/?uganda,education",
       title: "Uganda Education",
       description:
@@ -66,6 +70,7 @@ const CausesSection: React.FC = () => {
       goal: 70000,
     },
     {
+      id: 4,
       imgSrc: "https://source.unsplash.com/random/800x600/?capetown,orphanage",
       title: "Capetown Orphanage",
       description:
@@ -74,6 +79,7 @@ const CausesSection: React.FC = () => {
       goal: 30000,
     },
     {
+      id: 5,
       imgSrc: "https://source.unsplash.com/random/800x600/?kids,playground",
       title: "Kids Playground",
       description:
@@ -82,6 +88,7 @@ const CausesSection: React.FC = () => {
       goal: 90000,
     },
     {
+      id: 6,
       imgSrc: "https://source.unsplash.com/random/800x600/?homeless",
       title: "Home for Homeless",
       description:
@@ -106,8 +113,8 @@ const CausesSection: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {causes.map((cause, index) => (
-            <CauseCard key={index} {...cause} />
+          {causes.map((cause) => (
+            <CauseCard key={cause.id} id={cause.id} {...cause} />
           ))}
         </div>
       </div>

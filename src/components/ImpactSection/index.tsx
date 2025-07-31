@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { FaDonate, FaUsers, FaAward } from "react-icons/fa";
 
 const ImpactSection: React.FC = () => {
@@ -61,7 +61,7 @@ const ImpactSection: React.FC = () => {
                       {impact.description}
                     </p>
                     <Link
-                      to={impact.link}
+                      href="/stories-impact"
                       className="text-indigo-600 font-semibold hover:underline"
                     >
                       Read More

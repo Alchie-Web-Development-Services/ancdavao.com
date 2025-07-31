@@ -1,6 +1,6 @@
 import React from "react";
-import PageHeader from "../components/PageHeader";
-import { Link } from "react-router-dom";
+import PageHeader from "@/components/PageHeader";
+import Link from "next/link";
 
 const Causes: React.FC = () => {
   const mockCauses = [
@@ -86,7 +86,7 @@ const Causes: React.FC = () => {
                     </div>
                   </div>
                   <Link
-                    to={`/causes/${cause.id}`}
+                    href={`/causes/${cause.id}`}
                     className="w-full block text-center bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
                   >
                     Donate Now

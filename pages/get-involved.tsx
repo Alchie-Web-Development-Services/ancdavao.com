@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import {
   FaHandsHelping,
   FaHandHoldingHeart,
@@ -155,7 +155,7 @@ const GetInvolved: React.FC = () => {
 
                 <div className="text-center mt-auto">
                   <Link
-                    to={option.link}
+                    href={option.link}
                     className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors w-full"
                   >
                     {option.linkText}
@@ -191,7 +191,7 @@ const GetInvolved: React.FC = () => {
                   </p>
                   <p className="text-gray-600 mb-4">{role.description}</p>
                   <Link
-                    to="/volunteer/apply"
+                    href="/volunteer/apply"
                     className="text-indigo-600 hover:text-indigo-800 font-medium text-sm inline-flex items-center"
                   >
                     Learn more
@@ -215,7 +215,7 @@ const GetInvolved: React.FC = () => {
 
             <div className="text-center">
               <Link
-                to="/volunteer/apply"
+                href="/volunteer/apply"
                 className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
               >
                 Apply to Volunteer
@@ -265,7 +265,7 @@ const GetInvolved: React.FC = () => {
             </div>
 
             <Link
-              to="/partnerships"
+              href="/partnerships"
               className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
             >
               Learn About Partnership Opportunities
@@ -286,13 +286,13 @@ const GetInvolved: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-100 transition-colors"
             >
               Contact Us
             </Link>
             <Link
-              to="/donate"
+              href="/donate"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-indigo-800 transition-colors"
             >
               Donate Now

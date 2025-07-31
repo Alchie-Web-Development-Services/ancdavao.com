@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import {
   FaUtensils,
   FaBook,
@@ -145,7 +145,7 @@ const Programs: React.FC = () => {
 
                   <div className="mt-6 text-center">
                     <Link
-                      to={program.link}
+                      href={program.link}
                       className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium transition-colors"
                     >
                       Learn more
@@ -184,13 +184,13 @@ const Programs: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              to="/donate"
+              href="/donate"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-700 bg-white hover:bg-gray-100 transition-colors"
             >
               Donate Now
             </Link>
             <Link
-              to="/get-involved"
+              href="/get-involved"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-teal-800 transition-colors"
             >
               Volunteer

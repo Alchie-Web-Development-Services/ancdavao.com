@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const EventSection: React.FC = () => {
+  const event = { id: 1 }; // Mock event object for static display
   return (
     <section className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
@@ -48,7 +49,7 @@ const EventSection: React.FC = () => {
                 all she mistaken indulged believed provided declared.
               </p>
               <Link
-                to="/events"
+                href={`/events/${event.id}`}
                 className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
               >
                 Learn More

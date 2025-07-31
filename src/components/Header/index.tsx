@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import Logo from "../Logo";
@@ -7,6 +8,7 @@ import Logo from "../Logo";
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,20 +67,22 @@ const Header: React.FC = () => {
           <Logo />
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <NavLink
+              <Link
                 key={link.href}
-                to={link.href}
-                className={({ isActive }) =>
-                  `text-base font-medium transition-colors duration-300 ${isActive ? "text-indigo-600" : "text-neutral-700 hover:text-indigo-600"}`
-                }
+                href={link.href}
+                className={`text-base font-medium transition-colors duration-300 ${
+                  router.pathname === link.href
+                    ? "text-indigo-600"
+                    : "text-neutral-700 hover:text-indigo-600"
+                }`}
               >
                 {link.name}
-              </NavLink>
+              </Link>
             ))}
           </div>
           <div className="hidden lg:block">
             <Link
-              to="/donate"
+              href="/donate"
               className="bg-indigo-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-800 transition-colors duration-300"
             >
               Donate Now
@@ -100,19 +104,21 @@ const Header: React.FC = () => {
         <div className="lg:hidden bg-white shadow-xl absolute w-full">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
-              <NavLink
+              <Link
                 key={link.href}
-                to={link.href}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={({ isActive }) =>
-                  `text-lg font-medium text-center py-2 ${isActive ? "text-indigo-600 bg-indigo-50 rounded-lg" : "text-neutral-700 hover:text-indigo-600"}`
-                }
+                className={`text-lg font-medium text-center py-2 ${
+                  router.pathname === link.href
+                    ? "text-indigo-600 bg-indigo-50 rounded-lg"
+                    : "text-neutral-700 hover:text-indigo-600"
+                }`}
               >
                 {link.name}
-              </NavLink>
+              </Link>
             ))}
             <Link
-              to="/donate"
+              href="/donate"
               onClick={() => setIsMenuOpen(false)}
               className="bg-indigo-700 text-white text-center px-6 py-3 rounded-md font-semibold hover:bg-indigo-800 transition-colors duration-300 mt-4"
             >

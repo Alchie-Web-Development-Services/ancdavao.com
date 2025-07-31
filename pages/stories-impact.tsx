@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
-import Testimonial from "../components/Testimonial";
-import ImpactStats from "../components/ImpactStats";
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
+import Testimonial from "@/components/Testimonial";
+import ImpactStats from "@/components/ImpactStats";
 
 const StoriesImpact: React.FC = () => {
   const featuredStories = [
@@ -81,7 +81,7 @@ const StoriesImpact: React.FC = () => {
                   </h3>
                   <p className="text-gray-600 mb-4">{story.excerpt}</p>
                   <Link
-                    to={story.link}
+                    href={story.link}
                     className="text-indigo-600 hover:underline"
                   >
                     Read more →

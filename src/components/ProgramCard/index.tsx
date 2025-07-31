@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
 interface ProgramCardProps {
@@ -31,7 +31,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
       </div>
       <div className="px-8 pb-8 pt-2 border-t border-gray-100">
         <Link
-          to={link}
+          href={link}
           className="inline-flex items-center font-medium text-indigo-600 hover:text-indigo-700 group-hover:translate-x-1 transition-transform duration-200"
         >
           Learn more

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import PageHeader from "../components/PageHeader";
+import PageHeader from "@/components/PageHeader";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import Link from "next/link";
 
 interface FAQItemProps {
   question: string;
@@ -207,12 +208,12 @@ const FAQ: React.FC = () => {
                     Can't find the answer you're looking for? Our team is here
                     to help.
                   </p>
-                  <a
+                  <Link
                     href="/contact"
                     className="inline-block w-full text-center bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -243,7 +244,7 @@ const FAQ: React.FC = () => {
                   If you couldn't find the answer to your question, feel free to
                   reach out to our support team.
                 </p>
-                <a
+                <Link
                   href="/contact"
                   className="inline-flex items-center text-indigo-600 hover:text-indigo-800 font-medium"
                 >
@@ -261,7 +262,7 @@ const FAQ: React.FC = () => {
                       d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

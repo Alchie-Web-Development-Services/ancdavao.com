@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
-import TeamMember from "../components/TeamMember";
-import Testimonial from "../components/Testimonial";
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
+import TeamMember from "@/components/TeamMember";
+import Testimonial from "@/components/Testimonial";
 import { FaUsers, FaHandsHelping, FaHeart, FaChild } from "react-icons/fa";
 
 const About: React.FC = () => {
@@ -237,13 +237,13 @@ const About: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              to="/donate"
+              href="/donate"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-100 transition-colors"
             >
               Donate Now
             </Link>
             <Link
-              to="/get-involved"
+              href="/get-involved"
               className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-indigo-800 transition-colors"
             >
               Volunteer With Us
