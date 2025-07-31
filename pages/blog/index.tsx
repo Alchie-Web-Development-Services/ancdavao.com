@@ -88,7 +88,7 @@ const Blog: React.FC = () => {
                   </div>
                   <Link
                     href={`/blog/${post.id}`}
-                    className="text-indigo-600 font-semibold hover:underline"
+                    className="text-primary-600 font-semibold hover:underline"
                   >
                     Read More
                   </Link>

@@ -155,21 +155,21 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
               </div>
               <div className="w-full bg-neutral-200 rounded-full h-2.5">
                 <div
-                  className="bg-indigo-600 h-2.5 rounded-full"
+                  className="bg-primary-600 h-2.5 rounded-full"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
             </div>
 
             <div
-              className="prose prose-indigo max-w-none text-gray-700"
+              className="prose prose-primary max-w-none text-gray-700"
               dangerouslySetInnerHTML={{ __html: cause.fullDescription }}
             />
 
             <div className="mt-8 text-center">
               <Link
                 href="/causes"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
               >
                 Back to All Causes
               </Link>

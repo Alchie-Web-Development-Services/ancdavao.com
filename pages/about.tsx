@@ -243,13 +243,13 @@ const About: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/donate"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-gray-100 transition-colors"
             >
               Donate Now
             </Link>
             <Link
               href="/get-involved"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-indigo-800 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-primary-800 transition-colors"
             >
               Volunteer With Us
             </Link>

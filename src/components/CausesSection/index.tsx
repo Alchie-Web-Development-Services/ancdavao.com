@@ -31,14 +31,14 @@ const CauseCard: React.FC<{
           </div>
           <div className="w-full bg-neutral-200 rounded-full h-2.5">
             <div
-              className="bg-indigo-600 h-2.5 rounded-full"
+              className="bg-primary-600 h-2.5 rounded-full"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
         <Link
           href={`/causes/${id}`}
-          className="w-full block text-center bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
+          className="w-full block text-center bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
         >
           Donate Now
         </Link>

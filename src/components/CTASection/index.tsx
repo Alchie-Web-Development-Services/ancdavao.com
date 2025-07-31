@@ -17,7 +17,7 @@ const CTASection: React.FC = () => {
         </h2>
         <Link
           href="/get-involved"
-          className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300 text-lg"
+          className="bg-primary-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300 text-lg"
         >
           Join With Us
         </Link>

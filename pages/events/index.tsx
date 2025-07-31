@@ -78,7 +78,7 @@ const Event: React.FC = () => {
                     {event.description}
                   </p>
                   <div className="flex items-center text-neutral-600 text-sm mb-2">
-                    <FaCalendarAlt className="mr-2 text-indigo-600" />{" "}
+                    <FaCalendarAlt className="mr-2 text-primary-600" />{" "}
                     {new Date(event.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -86,15 +86,15 @@ const Event: React.FC = () => {
                     })}
                   </div>
                   <div className="flex items-center text-neutral-600 text-sm mb-2">
-                    <FaClock className="mr-2 text-indigo-600" /> {event.time}
+                    <FaClock className="mr-2 text-primary-600" /> {event.time}
                   </div>
                   <div className="flex items-center text-neutral-600 text-sm mb-4">
-                    <FaMapMarkerAlt className="mr-2 text-indigo-600" />{" "}
+                    <FaMapMarkerAlt className="mr-2 text-primary-600" />{" "}
                     {event.location}
                   </div>
                   <Link
                     href={`/events/${event.id}`}
-                    className="text-indigo-600 font-semibold hover:underline"
+                    className="text-primary-600 font-semibold hover:underline"
                   >
                     Learn More
                   </Link>

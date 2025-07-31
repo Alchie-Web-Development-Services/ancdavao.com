@@ -22,13 +22,13 @@ const Hero: React.FC = () => {
         <div className="flex justify-center space-x-4">
           <Link
             href="/about"
-            className="bg-white text-indigo-600 px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition-colors duration-300"
+            className="bg-white text-primary-600 px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition-colors duration-300"
           >
             Learn More
           </Link>
           <Link
             href="/donate"
-            className="bg-indigo-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-indigo-700 transition-colors duration-300"
+            className="bg-primary-600 text-white px-8 py-4 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
           >
             Donate Now
           </Link>

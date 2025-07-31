@@ -43,7 +43,7 @@ const mockEvents = [
         <li>Gourmet dinner and open bar.</li>
         <li>Networking opportunities with like-minded individuals.</li>
       </ul>
-      <p>For more information on how to get involved or to purchase tickets, please visit our <a href="/contact" class="text-indigo-600 hover:underline">Contact Us</a> page.</p>
+      <p>For more information on how to get involved or to purchase tickets, please visit our <a href="/contact" class="text-primary-600 hover:underline">Contact Us</a> page.</p>
     `,
   },
   {
@@ -70,7 +70,7 @@ const mockEvents = [
         <li>Briefing and orientation will be provided on-site.</li>
         <li>Wear comfortable clothing and closed-toe shoes.</li>
       </ul>
-      <p>To sign up as a volunteer, please visit our <a href="/get-involved" class="text-indigo-600 hover:underline">Get Involved</a> page.</p>
+      <p>To sign up as a volunteer, please visit our <a href="/get-involved" class="text-primary-600 hover:underline">Get Involved</a> page.</p>
     `,
   },
   {
@@ -99,7 +99,7 @@ const mockEvents = [
         <li>Bring any existing medical records if available.</li>
         <li>Volunteers are always welcome, especially medical professionals.</li>
       </ul>
-      <p>For more details or to volunteer, please contact us through our <a href="/contact" class="text-indigo-600 hover:underline">Contact Us</a> page.</p>
+      <p>For more details or to volunteer, please contact us through our <a href="/contact" class="text-primary-600 hover:underline">Contact Us</a> page.</p>
     `,
   },
 ];
@@ -143,7 +143,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
 
             <div className="flex items-center text-gray-600 text-sm mb-4 space-x-4">
               <span className="flex items-center">
-                <FaCalendarAlt className="mr-2 text-indigo-600" />
+                <FaCalendarAlt className="mr-2 text-primary-600" />
                 {new Date(event.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -151,10 +151,10 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
                 })}
               </span>
               <span className="flex items-center">
-                <FaClock className="mr-2 text-indigo-600" /> {event.time}
+                <FaClock className="mr-2 text-primary-600" /> {event.time}
               </span>
               <span className="flex items-center">
-                <FaMapMarkerAlt className="mr-2 text-indigo-600" />
+                <FaMapMarkerAlt className="mr-2 text-primary-600" />
                 {event.location}
               </span>
             </div>
@@ -163,14 +163,14 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
               {event.title}
             </h2>
             <div
-              className="prose prose-indigo max-w-none text-gray-700"
+              className="prose prose-primary max-w-none text-gray-700"
               dangerouslySetInnerHTML={{ __html: event.fullDescription }}
             />
 
             <div className="mt-8 text-center">
               <Link
                 href="/events"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
               >
                 Back to All Events
               </Link>

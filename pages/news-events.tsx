@@ -98,7 +98,7 @@ const NewsEvents: React.FC = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium text-indigo-600">
+                    <span className="text-sm font-medium text-primary-600">
                       {item.category}
                     </span>
                     <span className="text-sm text-gray-500">{item.date}</span>
@@ -107,7 +107,7 @@ const NewsEvents: React.FC = () => {
                   <p className="text-gray-600 mb-4">{item.excerpt}</p>
                   <Link
                     href={item.link}
-                    className="text-indigo-600 hover:underline font-medium"
+                    className="text-primary-600 hover:underline font-medium"
                   >
                     Read more →
                   </Link>
@@ -119,7 +119,7 @@ const NewsEvents: React.FC = () => {
           <div className="text-center">
             <Link
               href="/news"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
             >
               View All News
             </Link>
@@ -141,7 +141,7 @@ const NewsEvents: React.FC = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <div className="md:flex">
-                  <div className="md:w-1/3 bg-indigo-700 text-white p-6 flex flex-col justify-center items-center text-center">
+                  <div className="md:w-1/3 bg-primary-700 text-white p-6 flex flex-col justify-center items-center text-center">
                     <div className="text-3xl font-bold">
                       {new Date(event.date).getDate()}
                     </div>
@@ -196,7 +196,7 @@ const NewsEvents: React.FC = () => {
                     <p className="text-gray-600 mb-4">{event.description}</p>
                     <Link
                       href={event.link}
-                      className="text-indigo-600 hover:underline font-medium"
+                      className="text-primary-600 hover:underline font-medium"
                     >
                       Learn more →
                     </Link>
@@ -209,7 +209,7 @@ const NewsEvents: React.FC = () => {
           <div className="text-center">
             <Link
               href="/events"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
             >
               View All Events
             </Link>
@@ -218,7 +218,7 @@ const NewsEvents: React.FC = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-indigo-700 text-white">
+      <section className="py-16 bg-primary-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Stay Updated</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -236,7 +236,7 @@ const NewsEvents: React.FC = () => {
               />
               <button
                 type="submit"
-                className="bg-indigo-900 hover:bg-indigo-800 text-white px-6 py-3 rounded-r-md transition-colors"
+                className="bg-primary-900 hover:bg-primary-800 text-white px-6 py-3 rounded-r-md transition-colors"
               >
                 Subscribe
               </button>

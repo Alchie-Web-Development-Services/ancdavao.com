@@ -14,7 +14,7 @@ const GetInvolved: React.FC = () => {
     {
       id: 1,
       title: "Volunteer",
-      icon: <FaHandsHelping className="w-12 h-12 text-indigo-600 mb-4" />,
+      icon: <FaHandsHelping className="w-12 h-12 text-primary-600 mb-4" />,
       description:
         "Join our team of dedicated volunteers and make a direct impact in the community.",
       link: "/volunteer",
@@ -28,7 +28,7 @@ const GetInvolved: React.FC = () => {
     {
       id: 2,
       title: "Donate",
-      icon: <FaHandHoldingHeart className="w-12 h-12 text-indigo-600 mb-4" />,
+      icon: <FaHandHoldingHeart className="w-12 h-12 text-primary-600 mb-4" />,
       description:
         "Your financial support helps us continue and expand our programs.",
       link: "/donate",
@@ -42,7 +42,7 @@ const GetInvolved: React.FC = () => {
     {
       id: 3,
       title: "Partner With Us",
-      icon: <FaUserFriends className="w-12 h-12 text-indigo-600 mb-4" />,
+      icon: <FaUserFriends className="w-12 h-12 text-primary-600 mb-4" />,
       description:
         "Businesses and organizations can partner with us for greater impact.",
       link: "/partnerships",
@@ -56,7 +56,7 @@ const GetInvolved: React.FC = () => {
     {
       id: 4,
       title: "Spread the Word",
-      icon: <FaBullhorn className="w-12 h-12 text-indigo-600 mb-4" />,
+      icon: <FaBullhorn className="w-12 h-12 text-primary-600 mb-4" />,
       description: "Help us raise awareness about our cause and programs.",
       link: "/share",
       linkText: "Learn How to Help",
@@ -142,7 +142,7 @@ const GetInvolved: React.FC = () => {
                   {option.highlights.map((highlight, index) => (
                     <li key={index} className="flex items-start">
                       <svg
-                        className="h-5 w-5 text-indigo-500 mr-2 mt-0.5 flex-shrink-0"
+                        className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -162,7 +162,7 @@ const GetInvolved: React.FC = () => {
                 <div className="text-center mt-auto">
                   <Link
                     href={option.link}
-                    className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors w-full"
+                    className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors w-full"
                   >
                     {option.linkText}
                   </Link>
@@ -172,7 +172,7 @@ const GetInvolved: React.FC = () => {
           </div>
 
           {/* Volunteer Opportunities */}
-          <div className="bg-indigo-50 rounded-lg p-8">
+          <div className="bg-primary-50 rounded-lg p-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-2">
                 Volunteer Opportunities
@@ -189,16 +189,16 @@ const GetInvolved: React.FC = () => {
                   key={role.id}
                   className="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
                 >
-                  <h3 className="text-xl font-semibold text-indigo-700 mb-2">
+                  <h3 className="text-xl font-semibold text-primary-700 mb-2">
                     {role.title}
                   </h3>
-                  <p className="text-sm text-indigo-600 font-medium mb-3">
+                  <p className="text-sm text-primary-600 font-medium mb-3">
                     {role.timeCommitment}
                   </p>
                   <p className="text-gray-600 mb-4">{role.description}</p>
                   <Link
                     href="/volunteer/apply"
-                    className="text-indigo-600 hover:text-indigo-800 font-medium text-sm inline-flex items-center"
+                    className="text-primary-600 hover:text-primary-800 font-medium text-sm inline-flex items-center"
                   >
                     Learn more
                     <svg
@@ -222,7 +222,7 @@ const GetInvolved: React.FC = () => {
             <div className="text-center">
               <Link
                 href="/volunteer/apply"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
               >
                 Apply to Volunteer
               </Link>
@@ -262,7 +262,7 @@ const GetInvolved: React.FC = () => {
                 },
               ].map((item, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-xl font-semibold text-indigo-700 mb-3">
+                  <h3 className="text-xl font-semibold text-primary-700 mb-3">
                     {item.title}
                   </h3>
                   <p className="text-gray-600">{item.description}</p>
@@ -272,7 +272,7 @@ const GetInvolved: React.FC = () => {
 
             <Link
               href="/partnerships"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
             >
               Learn About Partnership Opportunities
             </Link>
@@ -281,7 +281,7 @@ const GetInvolved: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-indigo-700 text-white">
+      <section className="py-16 bg-primary-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Ready to Make a Difference?
@@ -293,13 +293,13 @@ const GetInvolved: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-gray-100 transition-colors"
             >
               Contact Us
             </Link>
             <Link
               href="/donate"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-indigo-800 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white border-white hover:bg-primary-800 transition-colors"
             >
               Donate Now
             </Link>

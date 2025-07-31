@@ -21,16 +21,16 @@ const Footer: React.FC = () => {
               place.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-white hover:text-indigo-500">
+              <a href="#" className="text-white hover:text-primary-500">
                 <FaFacebookF />
               </a>
-              <a href="#" className="text-white hover:text-indigo-500">
+              <a href="#" className="text-white hover:text-primary-500">
                 <FaTwitter />
               </a>
-              <a href="#" className="text-white hover:text-indigo-500">
+              <a href="#" className="text-white hover:text-primary-500">
                 <FaInstagram />
               </a>
-              <a href="#" className="text-white hover:text-indigo-500">
+              <a href="#" className="text-white hover:text-primary-500">
                 <FaLinkedinIn />
               </a>
             </div>
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
               />
               <button
                 type="submit"
-                className="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700"
+                className="bg-primary-600 text-white px-4 py-2 rounded-r-md hover:bg-primary-700"
               >
                 Subscribe
               </button>

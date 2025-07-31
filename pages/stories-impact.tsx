@@ -58,7 +58,7 @@ const StoriesImpact: React.FC = () => {
         backgroundImage="https://picsum.photos/1920/1080?random"
       />
 
-      <ImpactStats stats={impactStats} className="bg-indigo-700 text-white" />
+      <ImpactStats stats={impactStats} className="bg-primary-700 text-white" />
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -91,7 +91,7 @@ const StoriesImpact: React.FC = () => {
                   <p className="text-gray-600 mb-4">{story.excerpt}</p>
                   <Link
                     href={story.link}
-                    className="text-indigo-600 hover:underline"
+                    className="text-primary-600 hover:underline"
                   >
                     Read more →
                   </Link>

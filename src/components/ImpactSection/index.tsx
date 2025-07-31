@@ -51,7 +51,7 @@ const ImpactSection: React.FC = () => {
                   key={index}
                   className="flex items-start p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
                 >
-                  <div className="text-indigo-600 bg-indigo-50 p-4 rounded-full mr-6">
+                  <div className="text-primary-600 bg-primary-50 p-4 rounded-full mr-6">
                     {impact.icon}
                   </div>
                   <div>
@@ -63,7 +63,7 @@ const ImpactSection: React.FC = () => {
                     </p>
                     <Link
                       href="/stories-impact"
-                      className="text-indigo-600 font-semibold hover:underline"
+                      className="text-primary-600 font-semibold hover:underline"
                     >
                       Read More
                     </Link>

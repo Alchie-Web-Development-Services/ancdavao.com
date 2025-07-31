@@ -134,11 +134,11 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
 
             <div className="flex items-center text-gray-600 text-sm mb-4 space-x-4">
               <span className="flex items-center">
-                <FaUser className="mr-2 text-indigo-600" />
+                <FaUser className="mr-2 text-primary-600" />
                 {post.author}
               </span>
               <span className="flex items-center">
-                <FaCalendarAlt className="mr-2 text-indigo-600" />
+                <FaCalendarAlt className="mr-2 text-primary-600" />
                 {post.date}
               </span>
             </div>
@@ -147,14 +147,14 @@ const BlogPostDetail: React.FC<BlogPostDetailProps> = ({ post }) => {
               {post.title}
             </h2>
             <div
-              className="prose prose-indigo max-w-none text-gray-700"
+              className="prose prose-primary max-w-none text-gray-700"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
             <div className="mt-8 text-center">
               <Link
                 href="/blog"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
               >
                 Back to All Blog Posts
               </Link>

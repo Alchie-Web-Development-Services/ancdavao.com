@@ -21,7 +21,7 @@ const BlogCard: React.FC<{
         <p className="text-neutral-600 text-sm mb-4">{description}</p>
         <Link
           href="/blog"
-          className="text-indigo-600 font-semibold hover:underline"
+          className="text-primary-600 font-semibold hover:underline"
         >
           Read More
         </Link>

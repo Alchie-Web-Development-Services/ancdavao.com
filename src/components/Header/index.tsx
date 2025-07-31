@@ -31,30 +31,30 @@ const Header: React.FC = () => {
     <header
       className={`w-full sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
     >
-      <div className="bg-indigo-700 text-white">
+      <div className="bg-primary-700 text-white">
         <div className="container mx-auto px-4 h-12 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
-            <a href="#" className="hover:text-indigo-200">
+            <a href="#" className="hover:text-primary-200">
               California, TX 70240
             </a>
             <a
               href="mailto:info@ancdavao.com"
-              className="hover:text-indigo-200"
+              className="hover:text-primary-200"
             >
               info@ancdavao.com
             </a>
-            <a href="tel:+1234567890" className="hover:text-indigo-200">
+            <a href="tel:+1234567890" className="hover:text-primary-200">
               +123 456 7890
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-indigo-200">
+            <a href="#" className="hover:text-primary-200">
               <FaFacebook />
             </a>
-            <a href="#" className="hover:text-indigo-200">
+            <a href="#" className="hover:text-primary-200">
               <FaTwitter />
             </a>
-            <a href="#" className="hover:text-indigo-200">
+            <a href="#" className="hover:text-primary-200">
               <FaInstagram />
             </a>
           </div>
@@ -71,8 +71,8 @@ const Header: React.FC = () => {
                 href={link.href}
                 className={`text-base font-medium transition-colors duration-300 ${
                   router.pathname === link.href
-                    ? "text-indigo-600"
-                    : "text-neutral-700 hover:text-indigo-600"
+                    ? "text-primary-600"
+                    : "text-neutral-700 hover:text-primary-600"
                 }`}
               >
                 {link.name}
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
           <div className="hidden lg:block">
             <Link
               href="/donate"
-              className="bg-indigo-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-800 transition-colors duration-300"
+              className="bg-primary-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-800 transition-colors duration-300"
             >
               Donate Now
             </Link>
@@ -109,8 +109,8 @@ const Header: React.FC = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`text-lg font-medium text-center py-2 ${
                   router.pathname === link.href
-                    ? "text-indigo-600 bg-indigo-50 rounded-lg"
-                    : "text-neutral-700 hover:text-indigo-600"
+                    ? "text-primary-600 bg-primary-50 rounded-lg"
+                    : "text-neutral-700 hover:text-primary-600"
                 }`}
               >
                 {link.name}
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
             <Link
               href="/donate"
               onClick={() => setIsMenuOpen(false)}
-              className="bg-indigo-700 text-white text-center px-6 py-3 rounded-md font-semibold hover:bg-indigo-800 transition-colors duration-300 mt-4"
+              className="bg-primary-700 text-white text-center px-6 py-3 rounded-md font-semibold hover:bg-primary-800 transition-colors duration-300 mt-4"
             >
               Donate Now
             </Link>
