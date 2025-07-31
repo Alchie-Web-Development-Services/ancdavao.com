@@ -49,7 +49,7 @@ const Donate: React.FC = () => {
       <PageHeader
         title="Donate"
         subtitle="Support our mission to transform lives in Davao"
-        backgroundImage="https://picsum.photos/1920/1080?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <div className="container mx-auto px-4 py-16">

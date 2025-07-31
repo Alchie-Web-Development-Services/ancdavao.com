@@ -3,27 +3,27 @@ import Image from "next/image";
 
 const galleryItems = [
   {
-    src: "https://picsum.photos/800/600?random",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Food",
   },
   {
-    src: "https://picsum.photos/800/600?random",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Income",
   },
   {
-    src: "https://picsum.photos/800/600?random",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Education",
   },
   {
-    src: "https://picsum.photos/800/600?random",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Blood",
   },
   {
-    src: "https://picsum.photos/800/600?random",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Water",
   },
   {
-    src: "https://picsum.photos/800/600?random",
+    src: "https://cdn.ancdavao.com/placeholder1.jpg",
     category: "Food",
   },
 ];

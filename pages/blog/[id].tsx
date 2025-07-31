@@ -23,7 +23,7 @@ const mockBlogPosts: BlogPost[] = [
     title: "The Impact of Education on Child Development",
     author: "Jane Doe",
     date: "July 25, 2025",
-    image: "https://picsum.photos/1200/800?random=1",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=1",
     excerpt:
       "Explore how access to quality education shapes the future of children in underserved communities.",
     content: `
@@ -45,7 +45,7 @@ const mockBlogPosts: BlogPost[] = [
     title: "Volunteering: A Path to Personal Growth and Community Impact",
     author: "John Smith",
     date: "July 20, 2025",
-    image: "https://picsum.photos/1200/800?random=2",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=2",
     excerpt:
       "Discover the rewarding experiences of our volunteers and how they contribute to our mission.",
     content: `
@@ -67,7 +67,7 @@ const mockBlogPosts: BlogPost[] = [
     title: "Sustainable Solutions for Clean Water Access",
     author: "Emily White",
     date: "July 15, 2025",
-    image: "https://picsum.photos/1200/800?random=3",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=3",
     excerpt:
       "Learn about our initiatives to provide clean and safe drinking water to remote villages.",
     content: `

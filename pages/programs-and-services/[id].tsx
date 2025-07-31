@@ -23,7 +23,7 @@ const mockPrograms: Program[] = [
     title: "Feeding Program",
     description:
       "Providing nutritious meals to underprivileged children in Davao City to combat malnutrition and hunger.",
-    image: "https://picsum.photos/1200/800?random=feeding",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=feeding",
     fullDescription: `
       <p class="mb-4">Our Feeding Program is at the heart of our mission to combat malnutrition among underprivileged children in Davao City. We believe that proper nutrition is fundamental for a child's physical and cognitive development, enabling them to learn, play, and grow.</p>
       <p class="mb-4">Through this program, we provide daily nutritious meals to hundreds of children in various communities and schools. Our meals are carefully planned to ensure they meet the dietary needs of growing children, providing essential vitamins and minerals.</p>
@@ -47,7 +47,7 @@ const mockPrograms: Program[] = [
     title: "Education Support",
     description:
       "Scholarships, school supplies, and educational resources for children in need to ensure access to quality education.",
-    image: "https://picsum.photos/1200/800?random=education",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=education",
     fullDescription: `
       <p class="mb-4">Our Education Support program is designed to break down barriers to learning for children from low-income families. We understand that education is a powerful catalyst for change, offering a pathway out of poverty and into a future filled with opportunities.</p>
       <p class="mb-4">We provide comprehensive support that includes scholarships to cover tuition fees, provision of essential school supplies, and access to learning resources. We also facilitate tutoring and mentorship programs to ensure academic success.</p>
@@ -71,7 +71,7 @@ const mockPrograms: Program[] = [
     title: "Youth Development",
     description:
       "Programs focused on leadership, skills training, and character development for young people.",
-    image: "https://picsum.photos/1200/800?random=youth",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=youth",
     fullDescription: `
       <p class="mb-4">The Youth Development program focuses on nurturing the next generation of leaders and responsible citizens. We provide a safe and supportive environment where young people can develop essential life skills, explore their talents, and build strong character.</p>
       <p class="mb-4">Our initiatives include leadership workshops, vocational skills training, sports and arts programs, and community service opportunities. We aim to equip youth with the tools they need to make positive choices, overcome challenges, and contribute meaningfully to society.</p>
@@ -95,7 +95,7 @@ const mockPrograms: Program[] = [
     title: "Healthcare Initiative",
     description:
       "Medical missions, health education, and access to healthcare services for underserved communities.",
-    image: "https://picsum.photos/1200/800?random=healthcare",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=healthcare",
     fullDescription: `
       <p class="mb-4">Our Healthcare Initiative is dedicated to providing essential medical services and health education to underserved communities. Many individuals in these areas lack access to basic healthcare, leading to preventable illnesses and complications.</p>
       <p class="mb-4">We organize regular medical missions, bringing volunteer doctors, nurses, and medical professionals directly to communities in need. Services include free medical check-ups, dental services, eye care, and distribution of essential medicines.</p>
@@ -119,7 +119,7 @@ const mockPrograms: Program[] = [
     title: "Community Development",
     description:
       "Projects focused on sustainable community development, infrastructure, and livelihood programs.",
-    image: "https://picsum.photos/1200/800?random=community",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=community",
     fullDescription: `
       <p class="mb-4">Our Community Development program aims to empower communities to become self-sufficient and resilient. We work hand-in-hand with local residents to identify their needs and implement sustainable projects that improve their quality of life.</p>
       <p class="mb-4">This includes infrastructure development such as water systems and community centers, as well as livelihood programs that provide training and resources for income-generating activities. We believe in fostering local ownership and capacity-building to ensure long-term impact.</p>

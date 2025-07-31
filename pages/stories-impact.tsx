@@ -13,7 +13,7 @@ const StoriesImpact: React.FC = () => {
       title: "From Student to Scholar",
       excerpt:
         "How ANC Davao helped Maria pursue her dream of becoming a teacher.",
-      image: "https://picsum.photos/1920/1080?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
       category: "Education",
       link: "/stories/from-student-to-scholar",
     },
@@ -22,7 +22,7 @@ const StoriesImpact: React.FC = () => {
       title: "Feeding Program Success",
       excerpt:
         "Reducing malnutrition rates in Barangay 76-A through our feeding program.",
-      image: "https://picsum.photos/1920/1080?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
       category: "Nutrition",
       link: "/stories/feeding-program-success",
     },
@@ -55,7 +55,7 @@ const StoriesImpact: React.FC = () => {
       <PageHeader
         title="Stories & Impact"
         subtitle="Discover the difference we're making in Davao"
-        backgroundImage="https://picsum.photos/1920/1080?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <ImpactStats stats={impactStats} className="bg-primary-700 text-white" />

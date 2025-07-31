@@ -13,7 +13,7 @@ const History: React.FC = () => {
       <PageHeader
         title="Our History"
         subtitle="The journey of ANC Davao, from its humble beginnings to today."
-        backgroundImage="https://picsum.photos/1920/1080?random=history"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg=history"
       />
 
       <section className="py-16 bg-white">

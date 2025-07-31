@@ -51,7 +51,7 @@ const CausesSection: React.FC = () => {
   const causes = [
     {
       id: 1,
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Support for Children",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -60,7 +60,7 @@ const CausesSection: React.FC = () => {
     },
     {
       id: 2,
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Food for Syrian",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -69,7 +69,7 @@ const CausesSection: React.FC = () => {
     },
     {
       id: 3,
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Uganda Education",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -78,7 +78,7 @@ const CausesSection: React.FC = () => {
     },
     {
       id: 4,
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Capetown Orphanage",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -87,7 +87,7 @@ const CausesSection: React.FC = () => {
     },
     {
       id: 5,
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Kids Playground",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
@@ -96,7 +96,7 @@ const CausesSection: React.FC = () => {
     },
     {
       id: 6,
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Home for Homeless",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",

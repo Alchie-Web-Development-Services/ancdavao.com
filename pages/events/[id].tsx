@@ -26,7 +26,7 @@ const mockEvents = [
     location: "Grand Ballroom, City Convention Center",
     description:
       "Join us for an evening of elegance and philanthropy to support our various programs. This gala aims to raise funds for our education and healthcare initiatives, providing vital resources to underprivileged communities. Expect a night of fine dining, live entertainment, and inspiring stories from those whose lives have been touched by your generosity.",
-    image: "https://picsum.photos/800/600?random",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
     fullDescription: `
       <p class="mb-4">The Annual Charity Gala is our premier fundraising event, bringing together philanthropists, community leaders, and supporters for a memorable evening. This year, we aim to surpass our previous fundraising records to expand our reach and impact even more lives.</p>
       <p class="mb-4">Your participation directly contributes to:</p>
@@ -54,7 +54,7 @@ const mockEvents = [
     location: "Barangay 76-A Covered Court",
     description:
       "Volunteer with us to provide nutritious meals to underprivileged children. This initiative aims to combat malnutrition and ensure that every child has access to healthy food, which is crucial for their development and well-being.",
-    image: "https://picsum.photos/800/600?random",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
     fullDescription: `
       <p class="mb-4">Our Community Feeding Drive is a regular program designed to address food insecurity in vulnerable communities. We rely heavily on volunteers to help prepare, pack, and distribute meals to hundreds of children.</p>
       <p class="mb-4">How you can help:</p>
@@ -81,7 +81,7 @@ const mockEvents = [
     location: "Davao City Health Center",
     description:
       "Free medical check-ups and consultations for the community. Our medical missions provide essential healthcare services to those who have limited access, including basic check-ups, dental services, and distribution of free medicines.",
-    image: "https://picsum.photos/800/600?random",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
     fullDescription: `
       <p class="mb-4">Our annual Medical Mission aims to provide accessible healthcare to underserved populations. We bring together volunteer doctors, nurses, and healthcare professionals to offer free services and health education.</p>
       <p class="mb-4">Services offered include:</p>

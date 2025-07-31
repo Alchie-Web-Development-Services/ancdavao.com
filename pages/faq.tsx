@@ -58,7 +58,7 @@ const FAQ: React.FC = () => {
       <PageHeader
         title="Frequently Asked Questions"
         subtitle="Find answers to common questions about ANC Davao"
-        backgroundImage="https://picsum.photos/1920/1080?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <div className="container mx-auto px-4 py-16">

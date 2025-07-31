@@ -24,7 +24,7 @@ const mockCenters: Center[] = [
     location: "Pag-asa St., Fatima, Davao City",
     description:
       "Our main hub for operations, daily feeding programs, and administrative services. This center also houses our chapel and clinic.",
-    image: "https://picsum.photos/1200/800?random=center1",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
     contact: {
       phone: "+63 82 123 4567",
       email: "info@ancdavao.com",
@@ -41,7 +41,7 @@ const mockCenters: Center[] = [
     location: "Agdao Public Market Area, Davao City",
     description:
       "A satellite center focused on community outreach, health education, and distribution of relief goods in the Agdao district.",
-    image: "https://picsum.photos/1200/800?random=center2",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
     contact: {
       phone: "+63 82 987 6543",
       email: "agdao@ancdavao.com",
@@ -65,7 +65,7 @@ const OurCenters: React.FC = () => {
       <PageHeader
         title="Our Centers"
         subtitle="Find out where we operate and how we serve the community."
-        backgroundImage="https://picsum.photos/1920/1080?random=centers"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">

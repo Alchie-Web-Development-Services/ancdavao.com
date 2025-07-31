@@ -15,7 +15,7 @@ const Event: React.FC = () => {
       location: "Grand Ballroom, City Convention Center",
       description:
         "Join us for an evening of elegance and philanthropy to support our various programs.",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Event: React.FC = () => {
       location: "Barangay 76-A Covered Court",
       description:
         "Volunteer with us to provide nutritious meals to underprivileged children.",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ const Event: React.FC = () => {
       location: "Davao City Health Center",
       description:
         "Free medical check-ups and consultations for the community.",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
   ];
 
@@ -49,7 +49,7 @@ const Event: React.FC = () => {
       <PageHeader
         title="Our Events"
         subtitle="Join us in our upcoming events and make a difference!"
-        backgroundImage="https://picsum.photos/1600/900?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg?random"
       />
 
       <section className="py-16 bg-white">

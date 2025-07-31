@@ -24,7 +24,7 @@ const mockCauses: Cause[] = [
       "Providing access to quality education for underprivileged children.",
     raised: 75000,
     goal: 100000,
-    image: "https://picsum.photos/1200/800?random=1",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=1",
     fullDescription: `
       <p class="mb-4">Education is a powerful tool that can break the cycle of poverty and empower individuals to build a better future. Our 'Education for All' program focuses on providing underprivileged children with access to quality education, from early childhood to higher learning.</p>
       <p class="mb-4">We believe that every child deserves the opportunity to learn and grow, regardless of their socioeconomic background. Our initiatives include:</p>
@@ -43,7 +43,7 @@ const mockCauses: Cause[] = [
     description: "Ensuring basic healthcare services are available to all.",
     raised: 50000,
     goal: 80000,
-    image: "https://picsum.photos/1200/800?random=2",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=2",
     fullDescription: `
       <p class="mb-4">Access to basic healthcare is a fundamental human right. Our 'Healthcare Access' program aims to provide essential medical services to underserved communities, where healthcare facilities are often scarce or inaccessible.</p>
       <p class="mb-4">We organize regular medical missions, health awareness campaigns, and provide support for medical treatments. Our services include:</p>
@@ -62,7 +62,7 @@ const mockCauses: Cause[] = [
     description: "Working towards a future where no one goes hungry.",
     raised: 90000,
     goal: 120000,
-    image: "https://picsum.photos/1200/800?random=3",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=3",
     fullDescription: `
       <p class="mb-4">Food insecurity is a pressing issue in many communities, affecting the most vulnerable populations, especially children. Our 'Food Security' program is dedicated to ensuring that no one in our target communities goes hungry.</p>
       <p class="mb-4">We implement various initiatives to achieve this, including:</p>
@@ -82,7 +82,7 @@ const mockCauses: Cause[] = [
       "Providing clean and safe drinking water to rural communities.",
     raised: 60000,
     goal: 75000,
-    image: "https://picsum.photos/1200/800?random=4",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg?random=4",
     fullDescription: `
       <p class="mb-4">Access to clean and safe drinking water is crucial for public health and community development. In many rural areas, communities rely on unsafe water sources, leading to waterborne diseases and other health complications.</p>
       <p class="mb-4">Our 'Clean Water Initiative' focuses on providing sustainable access to potable water. Our projects include:</p>

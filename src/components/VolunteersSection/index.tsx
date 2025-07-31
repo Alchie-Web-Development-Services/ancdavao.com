@@ -46,21 +46,21 @@ const VolunteerCard: React.FC<{
 const VolunteersSection: React.FC = () => {
   const volunteers = [
     {
-      imgSrc: "https://picsum.photos/400/400?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       name: "Dunald Minia",
       title: "The Organizer",
       description:
         "Committed amending smallness in sir an smiling. Turned favour man two but lovers. Suffer should if waited common person little oh. He in just mr door body held john down he. So journey greatly or garrets. ",
     },
     {
-      imgSrc: "https://picsum.photos/400/400?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       name: "John Doe",
       title: "Lead Volunteer",
       description:
         "Committed amending smallness in sir an smiling. Turned favour man two but lovers. Suffer should if waited common person little oh. He in just mr door body held john down he. So journey greatly or garrets. ",
     },
     {
-      imgSrc: "https://picsum.photos/400/400?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       name: "Jane Smith",
       title: "Event Coordinator",
       description:

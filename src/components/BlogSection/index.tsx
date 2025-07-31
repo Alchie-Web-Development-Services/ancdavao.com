@@ -33,19 +33,19 @@ const BlogCard: React.FC<{
 const BlogSection: React.FC = () => {
   const posts = [
     {
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "A Day in the Life of a Volunteer",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
     },
     {
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "How Your Donations Make a Difference",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
     },
     {
-      imgSrc: "https://picsum.photos/800/600?random",
+      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
       title: "Building a Brighter Future Through Education",
       description:
         "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",

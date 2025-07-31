@@ -13,7 +13,7 @@ const Blog: React.FC = () => {
         "Explore how access to quality education shapes the future of children in underserved communities.",
       date: "July 25, 2025",
       author: "Jane Doe",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const Blog: React.FC = () => {
         "Discover the rewarding experiences of our volunteers and how they contribute to our mission.",
       date: "July 20, 2025",
       author: "John Smith",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ const Blog: React.FC = () => {
         "Learn about our initiatives to provide clean and safe drinking water to remote villages.",
       date: "July 15, 2025",
       author: "Emily White",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
     {
       id: 4,
@@ -40,7 +40,7 @@ const Blog: React.FC = () => {
         "Highlighting stories of women who have transformed their lives through our livelihood training.",
       date: "July 10, 2025",
       author: "Sarah Brown",
-      image: "https://picsum.photos/800/600?random",
+      image: "https://cdn.ancdavao.com/placeholder1.jpg",
     },
   ];
 
@@ -54,7 +54,7 @@ const Blog: React.FC = () => {
       <PageHeader
         title="Our Blog"
         subtitle="Stay updated with our latest news, stories, and insights."
-        backgroundImage="https://picsum.photos/1600/900?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg?random"
       />
 
       <section className="py-16 bg-white">
