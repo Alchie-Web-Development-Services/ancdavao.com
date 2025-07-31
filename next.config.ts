@@ -17,18 +17,6 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: "/history",
-        destination: "/about/history",
-      },
-      {
-        source: "/how-to-help",
-        destination: "/get-involved",
-      },
-    ];
-  },
 };
 
 export default nextConfig;
