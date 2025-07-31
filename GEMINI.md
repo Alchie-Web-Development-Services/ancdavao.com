@@ -5,6 +5,8 @@ This file contains specific instructions and context for the Gemini CLI agent wh
 ## General Guidelines:
 - Adhere to existing code style and conventions.
 - Use `yarn` for package management.
+- do not use 'git' commands
+- do not use 'npm' commands
 
 ## Project Structure:
 - The main frontend application is located in `apps/frontend`.
