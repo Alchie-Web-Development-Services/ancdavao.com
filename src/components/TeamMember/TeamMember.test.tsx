@@ -14,6 +14,11 @@ describe("TeamMember", () => {
     },
   };
 
+  const mockMemberWithoutSocialLinks = {
+    ...mockMember,
+    socialLinks: undefined,
+  };
+
   it("renders team member information", () => {
     render(<TeamMember {...mockMember} />);
 
@@ -39,8 +44,7 @@ describe("TeamMember", () => {
   });
 
   it("does not render social media links if not provided", () => {
-    const { socialLinks, ...memberWithoutSocials } = mockMember;
-    render(<TeamMember {...memberWithoutSocials} />);
+    render(<TeamMember {...mockMemberWithoutSocialLinks} />);
 
     expect(screen.queryByLabelText(/twitter/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/linkedin/i)).not.toBeInTheDocument();

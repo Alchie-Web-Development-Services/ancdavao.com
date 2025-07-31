@@ -1,3 +1,4 @@
+import React from "react";
 import { render } from "@testing-library/react";
 import SEO from "./index";
 import { useRouter } from "next/router";
