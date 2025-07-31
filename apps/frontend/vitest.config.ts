@@ -10,7 +10,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": "/Users/chesteralan/Alchie/AlchieWebDevelopmentServices/ancdavao.com/src",
+      "@": "/Users/chesteralan/Alchie/AlchieWebDevelopmentServices/ancdavao-monorepo/apps/frontend/src",
     },
   },
 });
