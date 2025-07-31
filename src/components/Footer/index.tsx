@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <Logo />
+            <Logo version="v2" />
             <p className="text-neutral-400 mt-4 text-sm">
               We are a non-profit organization dedicated to helping the less
               fortunate. Join us in our mission to make the world a better

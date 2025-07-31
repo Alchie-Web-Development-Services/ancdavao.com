@@ -5,6 +5,15 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import Logo from "../Logo";
 
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Events", href: "/events" },
+  { name: "Causes", href: "/causes" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+];
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,15 +26,6 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Events", href: "/events" },
-    { name: "Causes", href: "/causes" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
-  ];
 
   return (
     <header
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
 
       <nav className="bg-white transition-all duration-300">
         <div className="container mx-auto px-4 flex justify-between items-center h-20">
-          <Logo />
+          <Logo version="v1" />
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
