@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 const galleryItems = [
   {
@@ -67,9 +68,11 @@ const GallerySection: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {filteredItems.map((item, index) => (
             <div key={index} className="overflow-hidden rounded-lg shadow-md">
-              <img
+              <Image
                 src={item.src}
                 alt={`Gallery item ${index + 1}`}
+                width={800}
+                height={600}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>

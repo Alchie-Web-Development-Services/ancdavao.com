@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface TeamMemberProps {
   name: string;
@@ -22,9 +23,11 @@ const TeamMember: React.FC<TeamMemberProps> = ({
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="h-48 overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={name}
+          width={400}
+          height={300}
           className="w-full h-full object-cover"
           onError={(e) => {
             // Fallback to a placeholder if image fails to load

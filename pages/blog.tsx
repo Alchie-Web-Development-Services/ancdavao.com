@@ -1,6 +1,7 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
+import Image from "next/image";
 
 const Blog: React.FC = () => {
   const mockPosts = [
@@ -64,9 +65,11 @@ const Blog: React.FC = () => {
                 key={post.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
+                  width={800}
+                  height={600}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">

@@ -1,6 +1,7 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
+import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const Event: React.FC = () => {
@@ -56,9 +57,11 @@ const Event: React.FC = () => {
                 key={event.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
-                <img
+                <Image
                   src={event.image}
                   alt={event.title}
+                  width={800}
+                  height={600}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">

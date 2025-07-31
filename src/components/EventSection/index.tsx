@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
 const EventSection: React.FC = () => {
@@ -19,9 +20,11 @@ const EventSection: React.FC = () => {
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img
+              <Image
                 src="https://source.unsplash.com/random/800x600/?community,event"
                 alt="Community event"
+                width={800}
+                height={600}
                 className="rounded-lg shadow-md"
               />
             </div>

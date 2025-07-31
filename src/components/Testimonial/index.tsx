@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface TestimonialProps {
   quote: string;
@@ -31,7 +32,13 @@ const Testimonial: React.FC<TestimonialProps> = ({
       <div className="flex items-center">
         {avatar && (
           <div className="mr-4">
-            <img className="h-12 w-12 rounded-full" src={avatar} alt={author} />
+            <Image
+              className="h-12 w-12 rounded-full"
+              src={avatar}
+              alt={author}
+              width={100}
+              height={100}
+            />
           </div>
         )}
         <div>

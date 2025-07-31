@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Testimonial from "@/components/Testimonial";
 import ImpactStats from "@/components/ImpactStats";
@@ -66,9 +67,11 @@ const StoriesImpact: React.FC = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <div className="h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={story.image}
                     alt={story.title}
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover"
                   />
                 </div>

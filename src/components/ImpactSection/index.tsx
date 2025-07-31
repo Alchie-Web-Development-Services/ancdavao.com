@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FaDonate, FaUsers, FaAward } from "react-icons/fa";
 
 const ImpactSection: React.FC = () => {
@@ -72,9 +73,11 @@ const ImpactSection: React.FC = () => {
             </div>
           </div>
           <div>
-            <img
+            <Image
               src="https://source.unsplash.com/random/800x600/?charity,donation"
               alt="Happy recipients"
+              width={800}
+              height={600}
               className="rounded-lg shadow-lg"
             />
           </div>

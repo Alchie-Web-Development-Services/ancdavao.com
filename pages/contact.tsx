@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PageHeader from "@/components/PageHeader";
+import Link from "next/link";
 import {
   FaMapMarkerAlt,
   FaPhone,
@@ -315,12 +316,12 @@ const Contact: React.FC = () => {
             Can&apos;t find what you&apos;re looking for? Check out our FAQ page
             for more information.
           </p>
-          <a
+          <Link
             href="/faq"
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 transition-colors"
           >
             Visit FAQ Page
-          </a>
+          </Link>
         </div>
       </section>
     </div>

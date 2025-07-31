@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 
 const NewsEvents: React.FC = () => {
@@ -81,9 +82,11 @@ const NewsEvents: React.FC = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden"
               >
                 <div className="h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
+                    width={800}
+                    height={600}
                     className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>

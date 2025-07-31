@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { FaBook, FaHandsHelping, FaHeartbeat, FaTint } from "react-icons/fa";
 
 const MissionSection: React.FC = () => {
@@ -34,9 +35,11 @@ const MissionSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <img
+            <Image
               src="https://source.unsplash.com/random/800x600/?volunteer,community"
               alt="Volunteers working"
+              width={800}
+              height={600}
               className="rounded-lg shadow-lg"
             />
           </div>
