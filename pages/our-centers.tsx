@@ -27,7 +27,7 @@ const mockCenters: Center[] = [
     image: "https://picsum.photos/1200/800?random=center1",
     contact: {
       phone: "+63 82 123 4567",
-      email: "info@ancdavao.org",
+      email: "info@ancdavao.com",
     },
     hours: [
       "Monday - Friday: 8:00 AM - 5:00 PM",
@@ -44,7 +44,7 @@ const mockCenters: Center[] = [
     image: "https://picsum.photos/1200/800?random=center2",
     contact: {
       phone: "+63 82 987 6543",
-      email: "agdao@ancdavao.org",
+      email: "agdao@ancdavao.com",
     },
     hours: [
       "Monday, Wednesday, Friday: 9:00 AM - 4:00 PM",

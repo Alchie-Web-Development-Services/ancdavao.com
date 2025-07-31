@@ -88,6 +88,22 @@ const Footer: React.FC = () => {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms-conditions"
+                  className="text-neutral-400 hover:text-white"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
