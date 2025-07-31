@@ -123,6 +123,16 @@ const Footer: React.FC = () => {
         <div className="container mx-auto px-4 text-center text-sm text-neutral-500">
           <p>
             &copy; {new Date().getFullYear()} ANC Davao. All Rights Reserved.
+            Developed and Maintained by{" "}
+            <a
+              href="https://alchie.cc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-600 hover:text-primary-700 transition-colors"
+            >
+              Alchie Web Development Services
+            </a>
+            .
           </p>
         </div>
       </div>
