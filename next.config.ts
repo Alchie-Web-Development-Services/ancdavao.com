@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
         source: "/history",
         destination: "/about/history",
       },
+      {
+        source: "/how-to-help",
+        destination: "/get-involved",
+      },
     ];
   },
 };
