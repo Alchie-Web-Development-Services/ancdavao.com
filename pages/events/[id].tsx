@@ -1,10 +1,21 @@
 import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import SEO from "@/components/SEO";
+import { GetStaticPaths, GetStaticProps } from "next";
+
+interface Event {
+  id: number;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  image: string;
+  fullDescription: string;
+}
 
 const mockEvents = [
   {
@@ -93,11 +104,11 @@ const mockEvents = [
   },
 ];
 
-const EventDetail: React.FC = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const event = mockEvents.find((e) => e.id === Number(id));
+interface EventDetailProps {
+  event: Event;
+}
 
+const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
   if (!event) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -169,6 +180,30 @@ const EventDetail: React.FC = () => {
       </section>
     </div>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = mockEvents.map((post) => ({
+    params: { id: post.id.toString() },
+  }));
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps<EventDetailProps> = async ({
+  params,
+}) => {
+  const event = mockEvents.find((p) => p.id.toString() === params?.id);
+
+  if (!event) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { event },
+  };
 };
 
 export default EventDetail;
