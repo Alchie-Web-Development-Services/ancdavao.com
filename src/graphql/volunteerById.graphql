@@ -1,0 +1,9 @@
+query VolunteerById($id: ID!) {
+  Volunteer(id: $id) {
+    _id
+    _type
+    name
+    email
+    phone
+  }
+}

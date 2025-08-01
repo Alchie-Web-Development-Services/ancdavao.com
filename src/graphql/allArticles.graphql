@@ -1,0 +1,16 @@
+query AllArticles {
+  allArticle {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    publishedAt
+    abstract
+    author {
+      firstName
+      lastName
+    }
+  }
+}

@@ -1,0 +1,11 @@
+query AllPartners {
+  allPartner {
+    _id
+    _type
+    name
+    website
+    contactPerson
+    contactEmail
+    contactPhone
+  }
+}

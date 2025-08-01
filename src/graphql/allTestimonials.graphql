@@ -1,0 +1,8 @@
+query AllTestimonials {
+  allTestimonial {
+    _id
+    _type
+    author
+    date
+  }
+}

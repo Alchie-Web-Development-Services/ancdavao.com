@@ -1,0 +1,8 @@
+query TestimonialById($id: ID!) {
+  Testimonial(id: $id) {
+    _id
+    _type
+    author
+    date
+  }
+}

@@ -1,0 +1,16 @@
+query ArticleById($id: ID!) {
+  Article(id: $id) {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    publishedAt
+    abstract
+    author {
+      firstName
+      lastName
+    }
+  }
+}

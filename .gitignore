@@ -27,4 +27,3 @@ dist-ssr
 .next/
 out/
 coverage/
-src/generated/graphql.ts

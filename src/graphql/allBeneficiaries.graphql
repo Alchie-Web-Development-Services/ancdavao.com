@@ -1,0 +1,10 @@
+query AllBeneficiaries {
+  allBeneficiary {
+    _id
+    _type
+    firstName
+    lastName
+    nickname
+    pseudoName
+  }
+}

@@ -1,0 +1,6 @@
+query AllDocuments {
+  allDocument {
+    _id
+    _type
+  }
+}

@@ -1,0 +1,10 @@
+query AllCenters {
+  allCenter {
+    _id
+    _type
+    name
+    address
+    email
+    phone
+  }
+}

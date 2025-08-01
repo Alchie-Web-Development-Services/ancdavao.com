@@ -1,0 +1,13 @@
+query AllProgramServices {
+  allProgramService {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    category
+    startDate
+    endDate
+  }
+}

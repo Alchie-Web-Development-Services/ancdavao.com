@@ -1,0 +1,10 @@
+query CenterById($id: ID!) {
+  Center(id: $id) {
+    _id
+    _type
+    name
+    address
+    email
+    phone
+  }
+}

@@ -1,0 +1,9 @@
+query AllParents {
+  allParent {
+    _id
+    _type
+    firstName
+    lastName
+    email
+  }
+}

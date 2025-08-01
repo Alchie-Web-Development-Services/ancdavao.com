@@ -1,0 +1,11 @@
+query PartnerById($id: ID!) {
+  Partner(id: $id) {
+    _id
+    _type
+    name
+    website
+    contactPerson
+    contactEmail
+    contactPhone
+  }
+}

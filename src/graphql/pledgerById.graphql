@@ -1,0 +1,9 @@
+query PledgerById($id: ID!) {
+  Pledger(id: $id) {
+    _id
+    _type
+    firstName
+    lastName
+    email
+  }
+}

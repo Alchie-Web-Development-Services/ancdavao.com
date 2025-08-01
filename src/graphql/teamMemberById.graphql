@@ -1,0 +1,9 @@
+query TeamMemberById($id: ID!) {
+  TeamMember(id: $id) {
+    _id
+    _type
+    name
+    role
+    email
+  }
+}

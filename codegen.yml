@@ -1,9 +1,13 @@
 overwrite: true
 schema:
   - "https://tuggecli.api.sanity.io/v1/graphql/production/default"
+documents: "./src/**/*.graphql"
 generates:
   ./src/generated/graphql.ts:
     plugins:
       - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
     config:
+      rawRequest: true
       skipTypename: true

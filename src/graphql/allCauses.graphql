@@ -1,0 +1,13 @@
+query AllCauses {
+  allCause {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    startDate
+    endDate
+    goalAmount
+  }
+}

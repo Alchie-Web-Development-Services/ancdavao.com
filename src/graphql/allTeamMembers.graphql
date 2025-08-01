@@ -1,0 +1,9 @@
+query AllTeamMembers {
+  allTeamMember {
+    _id
+    _type
+    name
+    role
+    email
+  }
+}
