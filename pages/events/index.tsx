@@ -4,41 +4,80 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import SEO from "@/components/SEO";
+import { client } from "../../src/lib/sanity";
+import { AllEventsDocument, AllEventsQuery } from "../../src/generated/graphql";
+import imageUrlBuilder from '@sanity/image-url';
 
-const Event: React.FC = () => {
-  const mockEvents = [
-    {
-      id: 1,
-      title: "Annual Charity Gala",
-      date: "2025-09-15",
-      time: "7:00 PM - 11:00 PM",
-      location: "Grand Ballroom, City Convention Center",
-      description:
-        "Join us for an evening of elegance and philanthropy to support our various programs.",
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-    {
-      id: 2,
-      title: "Community Feeding Drive",
-      date: "2025-10-01",
-      time: "9:00 AM - 1:00 PM",
-      location: "Barangay 76-A Covered Court",
-      description:
-        "Volunteer with us to provide nutritious meals to underprivileged children.",
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-    {
-      id: 3,
-      title: "Medical Mission",
-      date: "2025-11-10",
-      time: "8:00 AM - 4:00 PM",
-      location: "Davao City Health Center",
-      description:
-        "Free medical check-ups and consultations for the community.",
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-  ];
+// Initialize the image URL builder
+const builder = imageUrlBuilder({
+  projectId: 'tuggecli',
+  dataset: 'production',
+});
 
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+interface EventCardProps {
+  event: AllEventsQuery['allEvent'][number];
+}
+
+const EventCard: React.FC<EventCardProps> = ({ event }) => {
+  const imgSrc = event.mainImage ? urlFor(event.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
+  const startDate = event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }) : "";
+  const endDate = event.endDate ? new Date(event.endDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }) : "";
+
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <Image
+        src={imgSrc || ""}
+        alt={event.title || "Event Image"}
+        width={800}
+        height={600}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-neutral-800 mb-2">
+          {event.title}
+        </h3>
+        <p className="text-neutral-600 text-sm mb-4">
+          {/* Assuming descriptionRaw is a portable text field, you might need a component to render it */}
+          {event.descriptionRaw ? "Description available" : "No description provided."}
+        </p>
+        <div className="flex items-center text-neutral-600 text-sm mb-2">
+          <FaCalendarAlt className="mr-2 text-primary-600" />{" "}
+          {startDate} {endDate && `- ${endDate}`}
+        </div>
+        {event.location && (
+          <div className="flex items-center text-neutral-600 text-sm mb-4">
+            <FaMapMarkerAlt className="mr-2 text-primary-600" />{" "}
+            {event.location}
+          </div>
+        )}
+        <Link
+          href={`/events/${event.slug?.current}`}
+          className="text-primary-600 font-semibold hover:underline"
+        >
+          Learn More
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+interface EventsProps {
+  events: AllEventsQuery['allEvent'];
+}
+
+const Events: React.FC<EventsProps> = ({ events }) => {
   return (
     <div className="min-h-screen">
       <SEO
@@ -58,48 +97,8 @@ const Event: React.FC = () => {
             Upcoming Events
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockEvents.map((event) => (
-              <div
-                key={event.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  width={800}
-                  height={600}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-neutral-800 mb-2">
-                    {event.title}
-                  </h3>
-                  <p className="text-neutral-600 text-sm mb-4">
-                    {event.description}
-                  </p>
-                  <div className="flex items-center text-neutral-600 text-sm mb-2">
-                    <FaCalendarAlt className="mr-2 text-primary-600" />{" "}
-                    {new Date(event.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </div>
-                  <div className="flex items-center text-neutral-600 text-sm mb-2">
-                    <FaClock className="mr-2 text-primary-600" /> {event.time}
-                  </div>
-                  <div className="flex items-center text-neutral-600 text-sm mb-4">
-                    <FaMapMarkerAlt className="mr-2 text-primary-600" />{" "}
-                    {event.location}
-                  </div>
-                  <Link
-                    href={`/events/${event.id}`}
-                    className="text-primary-600 font-semibold hover:underline"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
+            {events.map((event) => (
+              <EventCard key={event._id} event={event} />
             ))}
           </div>
         </div>
@@ -108,4 +107,15 @@ const Event: React.FC = () => {
   );
 };
 
-export default Event;
+export async function getStaticProps() {
+  const result = await client.request<AllEventsQuery>(AllEventsDocument.loc!.source.body);
+
+  return {
+    props: {
+      events: result.allEvent,
+    },
+    revalidate: 60, // Revalidate every 60 seconds
+  };
+}
+
+export default Events;

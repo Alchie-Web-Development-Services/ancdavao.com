@@ -10,8 +10,14 @@ import DonationFAQSection from "@/components/DonationFAQSection";
 import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
+import { client } from "../src/lib/sanity";
+import { AllArticlesDocument, AllArticlesQuery } from "../src/generated/graphql";
 
-const Home: React.FC = () => {
+interface HomeProps {
+  articles: AllArticlesQuery['allArticle'];
+}
+
+const Home: React.FC<HomeProps> = ({ articles }) => {
   return (
     <div className="bg-white">
       <SEO
@@ -29,10 +35,21 @@ const Home: React.FC = () => {
         <CTASection />
         <DonationFAQSection />
         <VolunteersSection />
-        <BlogSection />
+        <BlogSection articles={articles} />
       </main>
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const result = await client.request<AllArticlesQuery>(AllArticlesDocument.loc!.source.body);
+
+  return {
+    props: {
+      articles: result.allArticle,
+    },
+    revalidate: 60, // Revalidate every 60 seconds
+  };
+}
 
 export default Home;

@@ -1,26 +1,41 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import imageUrlBuilder from '@sanity/image-url';
+import { AllArticlesQuery } from "../../generated/graphql";
+import { client } from "../../lib/sanity"; // Import the Sanity client
 
-const BlogCard: React.FC<{
-  imgSrc: string;
-  title: string;
-  description: string;
-}> = ({ imgSrc, title, description }) => {
+// Initialize the image URL builder
+const builder = imageUrlBuilder({
+  projectId: 'tuggecli',
+  dataset: 'production',
+});
+
+function urlFor(source: any) {
+  return builder.image(source);
+}
+
+interface BlogCardProps {
+  article: AllArticlesQuery['allArticle'][number];
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
+  const imgSrc = article.mainImage ? urlFor(article.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <Image
-        src={imgSrc}
-        alt={title}
+        src={imgSrc || ""}
+        alt={article.title || "Blog Post Image"}
         width={800}
         height={600}
         className="w-full h-56 object-cover"
       />
       <div className="p-6">
-        <h3 className="text-xl font-bold text-neutral-800 mb-2">{title}</h3>
-        <p className="text-neutral-600 text-sm mb-4">{description}</p>
+        <h3 className="text-xl font-bold text-neutral-800 mb-2">{article.title}</h3>
+        <p className="text-neutral-600 text-sm mb-4">{article.abstract}</p>
         <Link
-          href="/blog"
+          href={`/blog/${article.slug?.current}`}
           className="text-primary-600 font-semibold hover:underline"
         >
           Read More
@@ -30,28 +45,11 @@ const BlogCard: React.FC<{
   );
 };
 
-const BlogSection: React.FC = () => {
-  const posts = [
-    {
-      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
-      title: "A Day in the Life of a Volunteer",
-      description:
-        "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
-    },
-    {
-      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
-      title: "How Your Donations Make a Difference",
-      description:
-        "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
-    },
-    {
-      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
-      title: "Building a Brighter Future Through Education",
-      description:
-        "Her engrossed deficient northward and neglected favourite newspaper. But use peculiar produced concerns ten.",
-    },
-  ];
+interface BlogSectionProps {
+  articles: AllArticlesQuery['allArticle'];
+}
 
+const BlogSection: React.FC<BlogSectionProps> = ({ articles }) => {
   return (
     <section className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
@@ -65,8 +63,8 @@ const BlogSection: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
-            <BlogCard key={index} {...post} />
+          {articles.map((article) => (
+            <BlogCard key={article._id} article={article} />
           ))}
         </div>
       </div>
