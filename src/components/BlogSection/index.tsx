@@ -1,9 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { AllArticlesQuery } from "../../src/generated/graphql";
 import imageUrlBuilder from '@sanity/image-url';
-import { AllArticlesQuery } from "../../generated/graphql";
-import { client } from "../../lib/sanity"; // Import the Sanity client
 
 // Initialize the image URL builder
 const builder = imageUrlBuilder({

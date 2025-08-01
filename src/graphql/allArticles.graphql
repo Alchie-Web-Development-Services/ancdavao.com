@@ -12,5 +12,11 @@ query AllArticles {
       firstName
       lastName
     }
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }

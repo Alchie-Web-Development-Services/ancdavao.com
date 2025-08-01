@@ -9,5 +9,12 @@ query AllCauses {
     startDate
     endDate
     goalAmount
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }

@@ -9,5 +9,12 @@ query AllEvents {
     startDate
     endDate
     location
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }

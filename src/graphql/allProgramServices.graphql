@@ -9,5 +9,12 @@ query AllProgramServices {
     category
     startDate
     endDate
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }

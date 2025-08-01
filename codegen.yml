@@ -5,6 +5,7 @@ documents: "./src/**/*.graphql"
 generates:
   ./src/generated/graphql.ts:
     plugins:
+      - add: { content: "/* eslint-disable */\n// @ts-nocheck" }
       - "typescript"
       - "typescript-operations"
       - "typescript-graphql-request"

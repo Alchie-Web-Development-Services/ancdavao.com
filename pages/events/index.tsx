@@ -2,7 +2,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 import Image from "next/image";
-import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import SEO from "@/components/SEO";
 import { client } from "../../src/lib/sanity";
 import { AllEventsDocument, AllEventsQuery } from "../../src/generated/graphql";

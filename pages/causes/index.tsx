@@ -23,7 +23,6 @@ interface CauseCardProps {
 
 const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
   const imgSrc = cause.mainImage ? urlFor(cause.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
-  const progress = cause.goalAmount ? ((cause.raised || 0) / cause.goalAmount) * 100 : 0;
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -45,14 +44,13 @@ const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
         </p>
         <div className="mb-4">
           <div className="flex justify-between text-sm font-medium text-neutral-700 mb-1">
-            <span>Raised: ${cause.raised?.toLocaleString() || 0}</span>
             <span>Goal: ${cause.goalAmount?.toLocaleString() || 0}</span>
           </div>
           <div className="w-full bg-neutral-200 rounded-full h-2.5">
             <div
               className="bg-primary-600 h-2.5 rounded-full"
               style={{
-                width: `${progress}%`,
+                width: `0%`,
               }}
             ></div>
           </div>

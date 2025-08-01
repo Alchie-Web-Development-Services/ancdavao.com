@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import { GraphQLClient, RequestOptions } from 'graphql-request';
 import { GraphQLError, print } from 'graphql'
 import gql from 'graphql-tag';
@@ -1763,7 +1765,7 @@ export type VolunteerSorting = {
 export type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllArticlesQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null }> };
+export type AllArticlesQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AllAuthorsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1778,7 +1780,7 @@ export type AllBeneficiariesQuery = { allBeneficiary: Array<{ _id?: string | nul
 export type AllCausesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllCausesQuery = { allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, slug?: { current?: string | null } | null }> };
+export type AllCausesQuery = { allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AllCentersQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1793,7 +1795,7 @@ export type AllDocumentsQuery = { allDocument: Array<{ _id?: string | null, _typ
 export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllEventsQuery = { allEvent: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, slug?: { current?: string | null } | null }> };
+export type AllEventsQuery = { allEvent: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AllMomentsOfHopeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1818,7 +1820,7 @@ export type AllPledgersQuery = { allPledger: Array<{ _id?: string | null, _type?
 export type AllProgramServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllProgramServicesQuery = { allProgramService: Array<{ _id?: string | null, _type?: string | null, title?: string | null, category?: string | null, startDate?: any | null, endDate?: any | null, slug?: { current?: string | null } | null }> };
+export type AllProgramServicesQuery = { allProgramService: Array<{ _id?: string | null, _type?: string | null, title?: string | null, category?: string | null, startDate?: any | null, endDate?: any | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AllSanityFileAssetsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1980,6 +1982,12 @@ export const AllArticlesDocument = gql`
       firstName
       lastName
     }
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }
     `;
@@ -2018,6 +2026,13 @@ export const AllCausesDocument = gql`
     startDate
     endDate
     goalAmount
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }
     `;
@@ -2053,6 +2068,13 @@ export const AllEventsDocument = gql`
     startDate
     endDate
     location
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }
     `;
@@ -2114,6 +2136,13 @@ export const AllProgramServicesDocument = gql`
     category
     startDate
     endDate
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }
     `;
