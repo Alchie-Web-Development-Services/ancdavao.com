@@ -113,10 +113,7 @@ const CausesSection: React.FC = () => {
             Popular Causes
           </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-            Slide an hope of body. Any nay shyness article matters own removal
-            nothing his forming. Gay own additions education satisfied the
-            perpetual. If he cause manor happy. Without farther she exposed saw
-            man led. Along on happy could cease green oh.
+          Support the heart of our mission through our most impactful causes—feeding hungry children, providing access to education, ensuring healthcare for the underserved, and nurturing spiritual growth. Your help brings dignity, hope, and lasting change.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
