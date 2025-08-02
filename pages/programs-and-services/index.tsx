@@ -188,7 +188,6 @@ export async function getStaticProps() {
     props: {
       programs: result.allProgramService,
     },
-    revalidate: 60, // Revalidate every 60 seconds
   };
 }
 

@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 import { client } from "../../src/lib/sanity";
 import { AllCausesDocument, AllCausesQuery } from "../../src/generated/graphql";
 import imageUrlBuilder from '@sanity/image-url';
+import { PortableText } from '@portabletext/react'
 
 // Initialize the image URL builder
 const builder = imageUrlBuilder({
@@ -22,25 +23,25 @@ interface CauseCardProps {
 }
 
 const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
-  const imgSrc = cause.mainImage ? urlFor(cause.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <Image
-        src={imgSrc || ""}
-        alt={cause.title || "Cause Image"}
-        width={800}
-        height={600}
-        className="w-full h-48 object-cover"
-      />
+      {cause.mainImage && (
+              <Image
+                src={urlFor(cause.mainImage).url()}
+                alt={cause.title}
+                width={800}
+                height={600}
+                className="w-full h-48 object-cover"
+              />
+            )}
+
       <div className="p-6">
         <h3 className="text-xl font-semibold text-neutral-800 mb-2">
           {cause.title}
         </h3>
         <p className="text-neutral-600 text-sm mb-4">
-          {/* Assuming descriptionRaw is a portable text field, you might need a component to render it */}
-          {/* For now, just show a placeholder or first block text if available */}
-          {cause.descriptionRaw ? "Description available" : "No description provided."}
+          {cause.descriptionRaw ? <PortableText value={cause.descriptionRaw} /> : "No description provided."}
         </p>
         <div className="mb-4">
           <div className="flex justify-between text-sm font-medium text-neutral-700 mb-1">
@@ -108,7 +109,6 @@ export async function getStaticProps() {
     props: {
       causes: result.allCause,
     },
-    revalidate: 60, // Revalidate every 60 seconds
   };
 }
 

@@ -114,7 +114,6 @@ export async function getStaticProps() {
     props: {
       events: result.allEvent,
     },
-    revalidate: 60, // Revalidate every 60 seconds
   };
 }
 

@@ -5,17 +5,16 @@ import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import Link from "next/link";
 import SEO from "@/components/SEO";
-
 import { PortableText } from "@portabletext/react";
-import { GraphQLClient } from "graphql-request";
-import { urlFor } from "../../lib/sanity";
+import { client, urlFor } from "../../src/lib/sanity";
+
 import {
-  Cause,
-  CauseByIdDocument,
-  CauseByIdQuery,
-  AllCausesDocument,
   AllCausesQuery,
+  Cause,
+  CauseByIdQuery,
 } from "../../src/generated/graphql";
+import AllCausesDocument from "@/src/graphql/AllCausesQuery.graphql";
+import CauseByIdDocument from "@/src/graphql/CauseByIdQuery.graphql";
 
 interface CauseDetailProps {
   cause: Cause;
@@ -44,18 +43,18 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
         title={cause.title || ""}
         description={cause.descriptionRaw ? cause.descriptionRaw[0].children[0].text : ""}
         keywords={`${cause.title?.toLowerCase() || ""}, ${cause.descriptionRaw ? cause.descriptionRaw[0].children[0].text.toLowerCase().split(" ").slice(0, 5).join(", ") : ""}, ANC Davao cause, donation, charity`}
-        ogImage={cause.mainImage?.asset?.url || ""}
+        ogImage={cause.mainImage ? urlFor(cause.mainImage).url() : ""}
       />
       <PageHeader
         title={cause.title || ""}
         subtitle="Learn more about this cause and how you can help."
-        backgroundImage={cause.mainImage?.asset?.url || ""}
+        backgroundImage={cause.mainImage ? urlFor(cause.mainImage).url() : ""}
       />
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {cause.mainImage?.asset?.url && (
+            {cause.mainImage && (
               <Image
                 src={urlFor(cause.mainImage).url()}
                 alt={cause.title || ""}
@@ -103,7 +102,7 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = new GraphQLClient(process.env.NEXT_PUBLIC_SANITY_GRAPHQL_URL || "");
+
   const result = await client.request<AllCausesQuery>(AllCausesDocument.loc!.source.body);
   const paths = result.allCause.map((cause) => ({
     params: { id: cause.slug?.current || "" },
@@ -115,7 +114,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<CauseDetailProps> = async ({
   params,
 }) => {
-  const client = new GraphQLClient(process.env.NEXT_PUBLIC_SANITY_GRAPHQL_URL || "");
+
   const result = await client.request<CauseByIdQuery>(CauseByIdDocument.loc!.source.body, {
     id: params?.id,
   });
@@ -130,7 +129,6 @@ export const getStaticProps: GetStaticProps<CauseDetailProps> = async ({
 
   return {
     props: { cause },
-    revalidate: 60,
   };
 };
 
