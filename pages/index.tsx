@@ -11,10 +11,10 @@ import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
 import { client } from "../src/lib/sanity";
-import { AllArticlesDocument, AllArticlesQuery } from "../src/generated/graphql";
-
+import allArticles from "../src/graphql/homePage.graphql";
+import { HomePageQuery } from "@/types/homepage";
 interface HomeProps {
-  articles: AllArticlesQuery['allArticle'];
+  articles: HomePageQuery['allArticle'];
 }
 
 const Home: React.FC<HomeProps> = ({ articles }) => {
@@ -42,13 +42,12 @@ const Home: React.FC<HomeProps> = ({ articles }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllArticlesQuery>(AllArticlesDocument.loc!.source.body);
+  const allArticlesResult = await client.request<HomePageQuery>(allArticles);
 
   return {
     props: {
-      articles: result.allArticle,
+      articles: allArticlesResult.allArticle,
     },
-    revalidate: 60, // Revalidate every 60 seconds
   };
 }
 

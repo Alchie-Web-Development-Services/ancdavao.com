@@ -1,0 +1,22 @@
+query HomePageQuery {
+  allArticle {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    publishedAt
+    abstract
+    author {
+      firstName
+      lastName
+    }
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
+  }
+}
