@@ -249,6 +249,7 @@ export type Cause = Document & {
   endDate?: Maybe<Scalars['DateTime']['output']>;
   goalAmount?: Maybe<Scalars['Float']['output']>;
   mainImage?: Maybe<Image>;
+  raised?: Maybe<Scalars['Float']['output']>;
   slug?: Maybe<Slug>;
   startDate?: Maybe<Scalars['DateTime']['output']>;
   title?: Maybe<Scalars['String']['output']>;
@@ -266,6 +267,7 @@ export type CauseFilter = {
   endDate?: InputMaybe<DatetimeFilter>;
   goalAmount?: InputMaybe<FloatFilter>;
   mainImage?: InputMaybe<ImageFilter>;
+  raised?: InputMaybe<FloatFilter>;
   slug?: InputMaybe<SlugFilter>;
   startDate?: InputMaybe<DatetimeFilter>;
   title?: InputMaybe<StringFilter>;
@@ -281,6 +283,7 @@ export type CauseSorting = {
   endDate?: InputMaybe<SortOrder>;
   goalAmount?: InputMaybe<SortOrder>;
   mainImage?: InputMaybe<ImageSorting>;
+  raised?: InputMaybe<SortOrder>;
   slug?: InputMaybe<SlugSorting>;
   startDate?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;

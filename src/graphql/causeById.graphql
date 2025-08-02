@@ -9,5 +9,13 @@ query CauseById($id: ID!) {
     startDate
     endDate
     goalAmount
+    raised
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }

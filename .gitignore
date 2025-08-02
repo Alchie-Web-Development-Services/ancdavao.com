@@ -27,3 +27,6 @@ dist-ssr
 .next/
 out/
 coverage/
+
+.env
+.env.*

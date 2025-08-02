@@ -38,4 +38,23 @@ query HomePageQuery {
       linkedin
     }
   }
+  allCause {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    startDate
+    endDate
+    raised
+    goalAmount
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
+  }
 }

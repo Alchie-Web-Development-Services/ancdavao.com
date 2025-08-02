@@ -44,13 +44,14 @@ const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
         </p>
         <div className="mb-4">
           <div className="flex justify-between text-sm font-medium text-neutral-700 mb-1">
+            <span>Raised: ${cause.raised?.toLocaleString() || 0}</span>
             <span>Goal: ${cause.goalAmount?.toLocaleString() || 0}</span>
           </div>
           <div className="w-full bg-neutral-200 rounded-full h-2.5">
             <div
               className="bg-primary-600 h-2.5 rounded-full"
               style={{
-                width: `0%`,
+                width: `${((cause.raised || 0) / (cause.goalAmount || 1)) * 100}%`,
               }}
             ></div>
           </div>

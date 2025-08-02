@@ -9,6 +9,7 @@ query AllCauses {
     startDate
     endDate
     goalAmount
+    raised
     descriptionRaw
     mainImage {
       asset {

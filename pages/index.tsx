@@ -17,9 +17,10 @@ import { HomePageCompiledResults } from "@/types/homepage";
 interface HomeProps {
   articles: HomePageCompiledResults['allArticle'];
   volunteers: HomePageCompiledResults['allVolunteer'];
+  causes: HomePageCompiledResults['allCause'];
 }
 
-const Home: React.FC<HomeProps> = ({ articles, volunteers }) => {
+const Home: React.FC<HomeProps> = ({ articles, volunteers, causes }) => {
   return (
     <div className="bg-white">
       <SEO
@@ -31,7 +32,7 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers }) => {
         <Hero />
         <MissionSection />
         <ImpactSection />
-        <CausesSection />
+        <CausesSection causes={causes} />
         <EventSection />
         <GallerySection />
         <CTASection />
@@ -50,6 +51,7 @@ export async function getStaticProps() {
     props: {
       articles: homePageData.allArticle,
       volunteers: homePageData.allVolunteer,
+      causes: homePageData.allCause,
     },
   };
 }

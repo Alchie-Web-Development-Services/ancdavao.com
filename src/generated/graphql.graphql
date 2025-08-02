@@ -264,6 +264,7 @@ type Cause implements Document {
   endDate: DateTime
   goalAmount: Float
   mainImage: Image
+  raised: Float
   slug: Slug
   startDate: DateTime
   title: String
@@ -281,6 +282,7 @@ input CauseFilter {
   endDate: DatetimeFilter
   goalAmount: FloatFilter
   mainImage: ImageFilter
+  raised: FloatFilter
   slug: SlugFilter
   startDate: DatetimeFilter
   title: StringFilter
@@ -296,6 +298,7 @@ input CauseSorting {
   endDate: SortOrder
   goalAmount: SortOrder
   mainImage: ImageSorting
+  raised: SortOrder
   slug: SlugSorting
   startDate: SortOrder
   title: SortOrder

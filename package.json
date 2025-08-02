@@ -10,7 +10,7 @@
     "lint": "next lint",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
-    "generate-types": "graphql-codegen --config codegen.ts"
+    "generate-types": "dotenv -e .env cross-env graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.13.9",
@@ -51,6 +51,8 @@
     "@vitest/coverage-v8": "3.2.4",
     "@vitest/ui": "^3.2.4",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^10.0.0",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9.32.0",
     "eslint-config-next": "^15.4.5",
     "eslint-config-prettier": "^10.1.8",
