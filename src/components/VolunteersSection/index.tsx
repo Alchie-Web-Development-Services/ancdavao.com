@@ -27,16 +27,16 @@ const VolunteerCard: React.FC<{
         <PortableText value={volunteer.bioRaw} />
       </div>
       <div className="flex justify-center space-x-3">
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href={volunteer.socialMedia?.facebook} className="text-primary-600 hover:text-primary-700">
           <FaFacebookF />
         </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href={volunteer.socialMedia?.twitter} className="text-primary-600 hover:text-primary-700">
           <FaTwitter />
         </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href={volunteer.socialMedia?.instagram} className="text-primary-600 hover:text-primary-700">
           <FaInstagram />
         </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
+        <a href={volunteer.socialMedia?.linkedin} className="text-primary-600 hover:text-primary-700">
           <FaLinkedinIn />
         </a>
       </div>

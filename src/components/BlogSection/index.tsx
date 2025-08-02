@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AllArticlesQuery } from "../../src/generated/graphql";
 import imageUrlBuilder from '@sanity/image-url';
+import { Article } from "@/generated/graphql";
 
 // Initialize the image URL builder
 const builder = imageUrlBuilder({
@@ -15,7 +15,7 @@ function urlFor(source: any) {
 }
 
 interface BlogCardProps {
-  article: AllArticlesQuery['allArticle'][number];
+  article: Article;
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
@@ -45,7 +45,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
 };
 
 interface BlogSectionProps {
-  articles: AllArticlesQuery['allArticle'];
+  articles: Article[];
 }
 
 const BlogSection: React.FC<BlogSectionProps> = ({ articles }) => {
@@ -55,10 +55,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ articles }) => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-neutral-800">Recent Blog</h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-            Slide an hope of body. Any nay shyness article matters own removal
-            nothing his forming. Gay own additions education satisfied the
-            perpetual. If he cause manor happy. Without farther she exposed saw
-            man led. Along on happy could cease green oh.
+          Discover stories of hope, transformation, and compassion from the heart of Davao. Stay updated with our latest community programs, volunteer experiences, and insights on how ANC continues to nourish lives—physically, emotionally, and spiritually.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
