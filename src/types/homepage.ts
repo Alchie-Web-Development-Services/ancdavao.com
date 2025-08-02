@@ -1,5 +1,6 @@
-import { Article } from "@/generated/graphql";
+import { Article, Volunteer } from "@/generated/graphql";
 
-export type HomePageQuery = {
+export type HomePageCompiledResults = {
     allArticle: Array<Article>;
+    allVolunteer: Array<Volunteer>;
 }

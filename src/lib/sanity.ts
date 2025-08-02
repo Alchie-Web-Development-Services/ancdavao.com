@@ -5,7 +5,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || "v2023-08-01";
 
 const SANITY_GRAPHQL_URL = `https://${projectId}.api.sanity.io/${apiVersion}/graphql/${dataset}/default`;
-
+console.log(SANITY_GRAPHQL_URL)
 export const client = new GraphQLClient(SANITY_GRAPHQL_URL,{
     headers: {
       Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,

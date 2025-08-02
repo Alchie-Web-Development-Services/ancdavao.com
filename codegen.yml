@@ -1,7 +1,7 @@
 overwrite: true
 schema:
   - "https://tuggecli.api.sanity.io/v1/graphql/production/default"
-documents: "./src/**/*.graphql"
+
 generates:
   ./src/generated/graphql.ts:
     plugins:
@@ -12,3 +12,6 @@ generates:
     config:
       rawRequest: true
       skipTypename: true
+  ./src/generated/graphql.graphql:
+    plugins:
+      - "schema-ast"

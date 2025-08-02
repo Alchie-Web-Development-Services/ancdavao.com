@@ -11,19 +11,21 @@ import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
 import { client } from "../src/lib/sanity";
-import allArticles from "../src/graphql/homePage.graphql";
-import { HomePageQuery } from "@/types/homepage";
+import HomePageQuery from "../src/graphql/homePage.graphql";
+import { HomePageCompiledResults } from "@/types/homepage";
+
 interface HomeProps {
-  articles: HomePageQuery['allArticle'];
+  articles: HomePageCompiledResults['allArticle'];
+  volunteers: HomePageCompiledResults['allVolunteer'];
 }
 
-const Home: React.FC<HomeProps> = ({ articles }) => {
+const Home: React.FC<HomeProps> = ({ articles, volunteers }) => {
   return (
     <div className="bg-white">
       <SEO
         title="Home"
-        description="Advancing the Kingdom of God through discipleship, community, and service in Davao City and beyond. Join us in making a difference."
-        keywords="ANC Davao, church, Davao, Christian, discipleship, community, service, kingdom of God, home, main page"
+        description="Compassion in action—ANC Davao nourishes vulnerable communities through feeding programs, education, health services, and spiritual care. Join us in building a more hopeful, dignified future for children and families in Davao City."
+        keywords="ANC Davao, Archdiocesan Nourishment Center, feeding program Davao, Catholic charity Philippines, child nutrition Davao, faith-based nonprofit, volunteer in Davao, community development Davao, educational support for children, spiritual care outreach, donate to Davao charity, Catholic social mission Philippines"
       />
       <main>
         <Hero />
@@ -34,7 +36,7 @@ const Home: React.FC<HomeProps> = ({ articles }) => {
         <GallerySection />
         <CTASection />
         <DonationFAQSection />
-        <VolunteersSection />
+        <VolunteersSection volunteers={volunteers} />
         <BlogSection articles={articles} />
       </main>
     </div>
@@ -42,11 +44,12 @@ const Home: React.FC<HomeProps> = ({ articles }) => {
 };
 
 export async function getStaticProps() {
-  const allArticlesResult = await client.request<HomePageQuery>(allArticles);
+  const homePageData = await client.request<HomePageCompiledResults>(HomePageQuery);
 
   return {
     props: {
-      articles: allArticlesResult.allArticle,
+      articles: homePageData.allArticle,
+      volunteers: homePageData.allVolunteer,
     },
   };
 }

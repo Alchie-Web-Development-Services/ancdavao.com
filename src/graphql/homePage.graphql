@@ -19,4 +19,23 @@ query HomePageQuery {
       }
     }
   }
+  allVolunteer {
+    _id
+    _type
+    name
+    position
+    bioRaw
+    photo {
+      asset {
+        _id
+        url
+      }
+    }
+    social {
+      facebook
+      twitter
+      instagram
+      linkedin
+    }
+  }
 }
