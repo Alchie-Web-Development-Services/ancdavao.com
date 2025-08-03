@@ -13,14 +13,16 @@ import SEO from "@/components/SEO";
 import { client } from "../src/lib/sanity";
 import HomePageQuery from "../src/graphql/homePage.graphql";
 import { HomePageCompiledResults } from "@/types/homepage";
+import { Event } from "@/generated/graphql";
 
 interface HomeProps {
   articles: HomePageCompiledResults['allArticle'];
   volunteers: HomePageCompiledResults['allVolunteer'];
   causes: HomePageCompiledResults['allCause'];
+  events: HomePageCompiledResults['allEvent'];
 }
 
-const Home: React.FC<HomeProps> = ({ articles, volunteers, causes }) => {
+const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events }) => {
   return (
     <div className="bg-white">
       <SEO
@@ -33,7 +35,7 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, causes }) => {
         <MissionSection />
         <ImpactSection />
         <CausesSection causes={causes} />
-        <EventSection />
+        <EventSection event={events[0] as Event} />
         <GallerySection />
         <CTASection />
         <DonationFAQSection />
@@ -52,6 +54,7 @@ export async function getStaticProps() {
       articles: homePageData.allArticle,
       volunteers: homePageData.allVolunteer,
       causes: homePageData.allCause,
+      events: homePageData.allEvent,
     },
   };
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { client } from "../../src/lib/sanity";
-import { Article, AllArticlesQuery } from "../../src/generated/graphql";
+import { AllArticlesQuery, Article } from "../../src/generated/graphql";
 import imageUrlBuilder from '@sanity/image-url';
 import Image from "next/image";
 import { PortableText } from '@portabletext/react'
