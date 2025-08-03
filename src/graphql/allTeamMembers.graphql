@@ -5,5 +5,16 @@ query AllTeamMembers {
     name
     role
     email
+    bioRaw
+    photo {
+      asset {
+        _id
+        url
+      }
+    }
+    facebook
+    twitter
+    instagram
+    linkedin
   }
 }

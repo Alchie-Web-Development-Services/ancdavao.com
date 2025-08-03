@@ -3,6 +3,13 @@ query AllTestimonials {
     _id
     _type
     author
-    date
+    authorRole
+    contentRaw
+    authorImage {
+      asset {
+        _id
+        url
+      }
+    }
   }
 }

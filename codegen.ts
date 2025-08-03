@@ -20,7 +20,6 @@ const config: CodegenConfig = {
         },
         "typescript",
         "typescript-operations",
-        "typescript-graphql-request",
       ],
       config: {
         rawRequest: true,
