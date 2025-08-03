@@ -4,8 +4,9 @@ import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import SEO from "@/components/SEO";
 import { client } from "../../src/lib/sanity";
-import { AllProgramServicesDocument, AllProgramServicesQuery } from "../../src/generated/graphql";
+import { AllProgramServicesQuery, ProgramService } from "../../src/generated/graphql";
 import imageUrlBuilder from '@sanity/image-url';
+import AllProgramServices from "../../src/graphql/allProgramServices.graphql";
 
 // Initialize the image URL builder
 const builder = imageUrlBuilder({
@@ -18,7 +19,7 @@ function urlFor(source: any) {
 }
 
 interface ProgramCardProps {
-  program: AllProgramServicesQuery['allProgramService'][number];
+  program: ProgramService;
 }
 
 const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
@@ -182,7 +183,7 @@ const Programs: React.FC<ProgramsProps> = ({ programs }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllProgramServicesQuery>(AllProgramServicesDocument.loc!.source.body);
+  const result = await client.request<AllProgramServicesQuery>(AllProgramServices);
 
   return {
     props: {

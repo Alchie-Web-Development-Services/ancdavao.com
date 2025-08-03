@@ -1,8 +1,5 @@
 /* eslint-disable */
 // @ts-nocheck
-import { GraphQLClient, RequestOptions } from 'graphql-request';
-import { GraphQLError, print } from 'graphql'
-import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -10,7 +7,6 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
-type GraphQLClientRequestHeaders = RequestOptions['requestHeaders'];
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -1682,6 +1678,7 @@ export type Testimonial = Document & {
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
   author?: Maybe<Scalars['String']['output']>;
   authorImage?: Maybe<Image>;
+  authorRole?: Maybe<Scalars['String']['output']>;
   contentRaw?: Maybe<Scalars['JSON']['output']>;
   date?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -1697,6 +1694,7 @@ export type TestimonialFilter = {
   _updatedAt?: InputMaybe<DatetimeFilter>;
   author?: InputMaybe<StringFilter>;
   authorImage?: InputMaybe<ImageFilter>;
+  authorRole?: InputMaybe<StringFilter>;
   date?: InputMaybe<DatetimeFilter>;
 };
 
@@ -1709,6 +1707,7 @@ export type TestimonialSorting = {
   _updatedAt?: InputMaybe<SortOrder>;
   author?: InputMaybe<SortOrder>;
   authorImage?: InputMaybe<ImageSorting>;
+  authorRole?: InputMaybe<SortOrder>;
   date?: InputMaybe<SortOrder>;
 };
 
@@ -1841,12 +1840,12 @@ export type AllSanityImageAssetsQuery = { allSanityImageAsset: Array<{ _id?: str
 export type AllTeamMembersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllTeamMembersQuery = { allTeamMember: Array<{ _id?: string | null, _type?: string | null, name?: string | null, role?: string | null, email?: string | null }> };
+export type AllTeamMembersQuery = { allTeamMember: Array<{ _id?: string | null, _type?: string | null, name?: string | null, role?: string | null, email?: string | null, bioRaw?: any | null, facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AllTestimonialsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllTestimonialsQuery = { allTestimonial: Array<{ _id?: string | null, _type?: string | null, author?: string | null, date?: any | null }> };
+export type AllTestimonialsQuery = { allTestimonial: Array<{ _id?: string | null, _type?: string | null, author?: string | null, authorRole?: string | null, contentRaw?: any | null, authorImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AllVolunteersQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1859,6 +1858,13 @@ export type ArticleByIdQueryVariables = Exact<{
 
 
 export type ArticleByIdQuery = { Article?: { _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null } | null };
+
+export type ArticleBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type ArticleBySlugQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, bodyRaw?: any | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type AuthorByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -1881,6 +1887,13 @@ export type CauseByIdQueryVariables = Exact<{
 
 export type CauseByIdQuery = { Cause?: { _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, raised?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null } | null };
 
+export type CauseBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type CauseBySlugQuery = { allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, raised?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
+
 export type CenterByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
 }>;
@@ -1902,10 +1915,17 @@ export type EventByIdQueryVariables = Exact<{
 
 export type EventByIdQuery = { Event?: { _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, slug?: { current?: string | null } | null } | null };
 
+export type EventBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type EventBySlugQuery = { allEvent: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
+
 export type HomePageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageQueryQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allVolunteer: Array<{ _id?: string | null, _type?: string | null, name?: string | null, position?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null }>, allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, raised?: number | null, goalAmount?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
+export type HomePageQueryQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allVolunteer: Array<{ _id?: string | null, _type?: string | null, name?: string | null, position?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null }>, allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, raised?: number | null, goalAmount?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allEvent: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
 export type MomentsOfHopeByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -1976,665 +1996,3 @@ export type VolunteerByIdQueryVariables = Exact<{
 
 
 export type VolunteerByIdQuery = { Volunteer?: { _id?: string | null, _type?: string | null, name?: string | null, email?: string | null, phone?: string | null } | null };
-
-
-export const AllArticlesDocument = gql`
-    query AllArticles {
-  allArticle {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    publishedAt
-    abstract
-    author {
-      firstName
-      lastName
-    }
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-}
-    `;
-export const AllAuthorsDocument = gql`
-    query AllAuthors {
-  allAuthor {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}
-    `;
-export const AllBeneficiariesDocument = gql`
-    query AllBeneficiaries {
-  allBeneficiary {
-    _id
-    _type
-    firstName
-    lastName
-    nickname
-    pseudoName
-  }
-}
-    `;
-export const AllCausesDocument = gql`
-    query AllCauses {
-  allCause {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    startDate
-    endDate
-    goalAmount
-    raised
-    descriptionRaw
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-}
-    `;
-export const AllCentersDocument = gql`
-    query AllCenters {
-  allCenter {
-    _id
-    _type
-    name
-    address
-    email
-    phone
-  }
-}
-    `;
-export const AllDocumentsDocument = gql`
-    query AllDocuments {
-  allDocument {
-    _id
-    _type
-  }
-}
-    `;
-export const AllEventsDocument = gql`
-    query AllEvents {
-  allEvent {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    startDate
-    endDate
-    location
-    descriptionRaw
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-}
-    `;
-export const AllMomentsOfHopeDocument = gql`
-    query AllMomentsOfHope {
-  allMomentsOfHope {
-    _id
-    _type
-    title
-    date
-    link
-  }
-}
-    `;
-export const AllParentsDocument = gql`
-    query AllParents {
-  allParent {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}
-    `;
-export const AllPartnersDocument = gql`
-    query AllPartners {
-  allPartner {
-    _id
-    _type
-    name
-    website
-    contactPerson
-    contactEmail
-    contactPhone
-  }
-}
-    `;
-export const AllPledgersDocument = gql`
-    query AllPledgers {
-  allPledger {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}
-    `;
-export const AllProgramServicesDocument = gql`
-    query AllProgramServices {
-  allProgramService {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    category
-    startDate
-    endDate
-    descriptionRaw
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-}
-    `;
-export const AllSanityFileAssetsDocument = gql`
-    query AllSanityFileAssets {
-  allSanityFileAsset {
-    _id
-    _type
-    originalFilename
-    url
-    mimeType
-  }
-}
-    `;
-export const AllSanityImageAssetsDocument = gql`
-    query AllSanityImageAssets {
-  allSanityImageAsset {
-    _id
-    _type
-    originalFilename
-    url
-    mimeType
-  }
-}
-    `;
-export const AllTeamMembersDocument = gql`
-    query AllTeamMembers {
-  allTeamMember {
-    _id
-    _type
-    name
-    role
-    email
-  }
-}
-    `;
-export const AllTestimonialsDocument = gql`
-    query AllTestimonials {
-  allTestimonial {
-    _id
-    _type
-    author
-    date
-  }
-}
-    `;
-export const AllVolunteersDocument = gql`
-    query AllVolunteers {
-  allVolunteer {
-    _id
-    _type
-    name
-    email
-    phone
-  }
-}
-    `;
-export const ArticleByIdDocument = gql`
-    query ArticleById($id: ID!) {
-  Article(id: $id) {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    publishedAt
-    abstract
-    author {
-      firstName
-      lastName
-    }
-  }
-}
-    `;
-export const AuthorByIdDocument = gql`
-    query AuthorById($id: ID!) {
-  Author(id: $id) {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}
-    `;
-export const BeneficiaryByIdDocument = gql`
-    query BeneficiaryById($id: ID!) {
-  Beneficiary(id: $id) {
-    _id
-    _type
-    firstName
-    lastName
-    nickname
-    pseudoName
-  }
-}
-    `;
-export const CauseByIdDocument = gql`
-    query CauseById($id: ID!) {
-  Cause(id: $id) {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    startDate
-    endDate
-    goalAmount
-    raised
-    descriptionRaw
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-}
-    `;
-export const CenterByIdDocument = gql`
-    query CenterById($id: ID!) {
-  Center(id: $id) {
-    _id
-    _type
-    name
-    address
-    email
-    phone
-  }
-}
-    `;
-export const DocumentByIdDocument = gql`
-    query DocumentById($id: ID!) {
-  Document(id: $id) {
-    _id
-    _type
-  }
-}
-    `;
-export const EventByIdDocument = gql`
-    query EventById($id: ID!) {
-  Event(id: $id) {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    startDate
-    endDate
-    location
-  }
-}
-    `;
-export const HomePageQueryDocument = gql`
-    query HomePageQuery {
-  allArticle {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    publishedAt
-    abstract
-    author {
-      firstName
-      lastName
-    }
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-  allVolunteer {
-    _id
-    _type
-    name
-    position
-    bioRaw
-    photo {
-      asset {
-        _id
-        url
-      }
-    }
-    socialMedia {
-      facebook
-      twitter
-      instagram
-      linkedin
-    }
-  }
-  allCause {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    startDate
-    endDate
-    raised
-    goalAmount
-    descriptionRaw
-    mainImage {
-      asset {
-        _id
-        url
-      }
-    }
-  }
-}
-    `;
-export const MomentsOfHopeByIdDocument = gql`
-    query MomentsOfHopeById($id: ID!) {
-  MomentsOfHope(id: $id) {
-    _id
-    _type
-    title
-    date
-    link
-  }
-}
-    `;
-export const ParentByIdDocument = gql`
-    query ParentById($id: ID!) {
-  Parent(id: $id) {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}
-    `;
-export const PartnerByIdDocument = gql`
-    query PartnerById($id: ID!) {
-  Partner(id: $id) {
-    _id
-    _type
-    name
-    website
-    contactPerson
-    contactEmail
-    contactPhone
-  }
-}
-    `;
-export const PledgerByIdDocument = gql`
-    query PledgerById($id: ID!) {
-  Pledger(id: $id) {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}
-    `;
-export const ProgramServiceByIdDocument = gql`
-    query ProgramServiceById($id: ID!) {
-  ProgramService(id: $id) {
-    _id
-    _type
-    title
-    slug {
-      current
-    }
-    category
-    startDate
-    endDate
-  }
-}
-    `;
-export const SanityFileAssetByIdDocument = gql`
-    query SanityFileAssetById($id: ID!) {
-  SanityFileAsset(id: $id) {
-    _id
-    _type
-    originalFilename
-    url
-    mimeType
-  }
-}
-    `;
-export const SanityImageAssetByIdDocument = gql`
-    query SanityImageAssetById($id: ID!) {
-  SanityImageAsset(id: $id) {
-    _id
-    _type
-    originalFilename
-    url
-    mimeType
-  }
-}
-    `;
-export const TeamMemberByIdDocument = gql`
-    query TeamMemberById($id: ID!) {
-  TeamMember(id: $id) {
-    _id
-    _type
-    name
-    role
-    email
-  }
-}
-    `;
-export const TestimonialByIdDocument = gql`
-    query TestimonialById($id: ID!) {
-  Testimonial(id: $id) {
-    _id
-    _type
-    author
-    date
-  }
-}
-    `;
-export const VolunteerByIdDocument = gql`
-    query VolunteerById($id: ID!) {
-  Volunteer(id: $id) {
-    _id
-    _type
-    name
-    email
-    phone
-  }
-}
-    `;
-
-export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string, variables?: any) => Promise<T>;
-
-
-const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationType, _variables) => action();
-const AllArticlesDocumentString = print(AllArticlesDocument);
-const AllAuthorsDocumentString = print(AllAuthorsDocument);
-const AllBeneficiariesDocumentString = print(AllBeneficiariesDocument);
-const AllCausesDocumentString = print(AllCausesDocument);
-const AllCentersDocumentString = print(AllCentersDocument);
-const AllDocumentsDocumentString = print(AllDocumentsDocument);
-const AllEventsDocumentString = print(AllEventsDocument);
-const AllMomentsOfHopeDocumentString = print(AllMomentsOfHopeDocument);
-const AllParentsDocumentString = print(AllParentsDocument);
-const AllPartnersDocumentString = print(AllPartnersDocument);
-const AllPledgersDocumentString = print(AllPledgersDocument);
-const AllProgramServicesDocumentString = print(AllProgramServicesDocument);
-const AllSanityFileAssetsDocumentString = print(AllSanityFileAssetsDocument);
-const AllSanityImageAssetsDocumentString = print(AllSanityImageAssetsDocument);
-const AllTeamMembersDocumentString = print(AllTeamMembersDocument);
-const AllTestimonialsDocumentString = print(AllTestimonialsDocument);
-const AllVolunteersDocumentString = print(AllVolunteersDocument);
-const ArticleByIdDocumentString = print(ArticleByIdDocument);
-const AuthorByIdDocumentString = print(AuthorByIdDocument);
-const BeneficiaryByIdDocumentString = print(BeneficiaryByIdDocument);
-const CauseByIdDocumentString = print(CauseByIdDocument);
-const CenterByIdDocumentString = print(CenterByIdDocument);
-const DocumentByIdDocumentString = print(DocumentByIdDocument);
-const EventByIdDocumentString = print(EventByIdDocument);
-const HomePageQueryDocumentString = print(HomePageQueryDocument);
-const MomentsOfHopeByIdDocumentString = print(MomentsOfHopeByIdDocument);
-const ParentByIdDocumentString = print(ParentByIdDocument);
-const PartnerByIdDocumentString = print(PartnerByIdDocument);
-const PledgerByIdDocumentString = print(PledgerByIdDocument);
-const ProgramServiceByIdDocumentString = print(ProgramServiceByIdDocument);
-const SanityFileAssetByIdDocumentString = print(SanityFileAssetByIdDocument);
-const SanityImageAssetByIdDocumentString = print(SanityImageAssetByIdDocument);
-const TeamMemberByIdDocumentString = print(TeamMemberByIdDocument);
-const TestimonialByIdDocumentString = print(TestimonialByIdDocument);
-const VolunteerByIdDocumentString = print(VolunteerByIdDocument);
-export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
-  return {
-    AllArticles(variables?: AllArticlesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllArticlesQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllArticlesQuery>(AllArticlesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllArticles', 'query', variables);
-    },
-    AllAuthors(variables?: AllAuthorsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllAuthorsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllAuthorsQuery>(AllAuthorsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllAuthors', 'query', variables);
-    },
-    AllBeneficiaries(variables?: AllBeneficiariesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllBeneficiariesQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllBeneficiariesQuery>(AllBeneficiariesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllBeneficiaries', 'query', variables);
-    },
-    AllCauses(variables?: AllCausesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllCausesQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllCausesQuery>(AllCausesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllCauses', 'query', variables);
-    },
-    AllCenters(variables?: AllCentersQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllCentersQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllCentersQuery>(AllCentersDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllCenters', 'query', variables);
-    },
-    AllDocuments(variables?: AllDocumentsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllDocumentsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllDocumentsQuery>(AllDocumentsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllDocuments', 'query', variables);
-    },
-    AllEvents(variables?: AllEventsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllEventsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllEventsQuery>(AllEventsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllEvents', 'query', variables);
-    },
-    AllMomentsOfHope(variables?: AllMomentsOfHopeQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllMomentsOfHopeQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllMomentsOfHopeQuery>(AllMomentsOfHopeDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllMomentsOfHope', 'query', variables);
-    },
-    AllParents(variables?: AllParentsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllParentsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllParentsQuery>(AllParentsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllParents', 'query', variables);
-    },
-    AllPartners(variables?: AllPartnersQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllPartnersQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllPartnersQuery>(AllPartnersDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllPartners', 'query', variables);
-    },
-    AllPledgers(variables?: AllPledgersQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllPledgersQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllPledgersQuery>(AllPledgersDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllPledgers', 'query', variables);
-    },
-    AllProgramServices(variables?: AllProgramServicesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllProgramServicesQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllProgramServicesQuery>(AllProgramServicesDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllProgramServices', 'query', variables);
-    },
-    AllSanityFileAssets(variables?: AllSanityFileAssetsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllSanityFileAssetsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllSanityFileAssetsQuery>(AllSanityFileAssetsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllSanityFileAssets', 'query', variables);
-    },
-    AllSanityImageAssets(variables?: AllSanityImageAssetsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllSanityImageAssetsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllSanityImageAssetsQuery>(AllSanityImageAssetsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllSanityImageAssets', 'query', variables);
-    },
-    AllTeamMembers(variables?: AllTeamMembersQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllTeamMembersQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllTeamMembersQuery>(AllTeamMembersDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllTeamMembers', 'query', variables);
-    },
-    AllTestimonials(variables?: AllTestimonialsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllTestimonialsQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllTestimonialsQuery>(AllTestimonialsDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllTestimonials', 'query', variables);
-    },
-    AllVolunteers(variables?: AllVolunteersQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AllVolunteersQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AllVolunteersQuery>(AllVolunteersDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AllVolunteers', 'query', variables);
-    },
-    ArticleById(variables: ArticleByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ArticleByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<ArticleByIdQuery>(ArticleByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'ArticleById', 'query', variables);
-    },
-    AuthorById(variables: AuthorByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: AuthorByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<AuthorByIdQuery>(AuthorByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'AuthorById', 'query', variables);
-    },
-    BeneficiaryById(variables: BeneficiaryByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: BeneficiaryByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<BeneficiaryByIdQuery>(BeneficiaryByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'BeneficiaryById', 'query', variables);
-    },
-    CauseById(variables: CauseByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: CauseByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<CauseByIdQuery>(CauseByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CauseById', 'query', variables);
-    },
-    CenterById(variables: CenterByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: CenterByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<CenterByIdQuery>(CenterByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CenterById', 'query', variables);
-    },
-    DocumentById(variables: DocumentByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: DocumentByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<DocumentByIdQuery>(DocumentByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'DocumentById', 'query', variables);
-    },
-    EventById(variables: EventByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: EventByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<EventByIdQuery>(EventByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'EventById', 'query', variables);
-    },
-    HomePageQuery(variables?: HomePageQueryQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: HomePageQueryQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<HomePageQueryQuery>(HomePageQueryDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'HomePageQuery', 'query', variables);
-    },
-    MomentsOfHopeById(variables: MomentsOfHopeByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: MomentsOfHopeByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<MomentsOfHopeByIdQuery>(MomentsOfHopeByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'MomentsOfHopeById', 'query', variables);
-    },
-    ParentById(variables: ParentByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ParentByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<ParentByIdQuery>(ParentByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'ParentById', 'query', variables);
-    },
-    PartnerById(variables: PartnerByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: PartnerByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<PartnerByIdQuery>(PartnerByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PartnerById', 'query', variables);
-    },
-    PledgerById(variables: PledgerByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: PledgerByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<PledgerByIdQuery>(PledgerByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PledgerById', 'query', variables);
-    },
-    ProgramServiceById(variables: ProgramServiceByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: ProgramServiceByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<ProgramServiceByIdQuery>(ProgramServiceByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'ProgramServiceById', 'query', variables);
-    },
-    SanityFileAssetById(variables: SanityFileAssetByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: SanityFileAssetByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<SanityFileAssetByIdQuery>(SanityFileAssetByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'SanityFileAssetById', 'query', variables);
-    },
-    SanityImageAssetById(variables: SanityImageAssetByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: SanityImageAssetByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<SanityImageAssetByIdQuery>(SanityImageAssetByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'SanityImageAssetById', 'query', variables);
-    },
-    TeamMemberById(variables: TeamMemberByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: TeamMemberByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<TeamMemberByIdQuery>(TeamMemberByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'TeamMemberById', 'query', variables);
-    },
-    TestimonialById(variables: TestimonialByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: TestimonialByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<TestimonialByIdQuery>(TestimonialByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'TestimonialById', 'query', variables);
-    },
-    VolunteerById(variables: VolunteerByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<{ data: VolunteerByIdQuery; errors?: GraphQLError[]; extensions?: any; headers: Headers; status: number; }> {
-        return withWrapper((wrappedRequestHeaders) => client.rawRequest<VolunteerByIdQuery>(VolunteerByIdDocumentString, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'VolunteerById', 'query', variables);
-    }
-  };
-}
-export type Sdk = ReturnType<typeof getSdk>;

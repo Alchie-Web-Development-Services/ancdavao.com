@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import SEO from "@/components/SEO";
 import { client } from "../../src/lib/sanity";
-import { AllCausesDocument, AllCausesQuery } from "../../src/generated/graphql";
+import { AllCausesQuery, Cause } from "../../src/generated/graphql";
 import imageUrlBuilder from '@sanity/image-url';
 import { PortableText } from '@portabletext/react'
+import AllCauses from "../../src/graphql/allCauses.graphql";
 
 // Initialize the image URL builder
 const builder = imageUrlBuilder({
@@ -19,7 +20,7 @@ function urlFor(source: any) {
 }
 
 interface CauseCardProps {
-  cause: AllCausesQuery['allCause'][number];
+  cause: Cause;
 }
 
 const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
@@ -103,7 +104,7 @@ const Causes: React.FC<CausesProps> = ({ causes }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllCausesQuery>(AllCausesDocument.loc!.source.body);
+  const result = await client.request<AllCausesQuery>(AllCauses);
 
   return {
     props: {

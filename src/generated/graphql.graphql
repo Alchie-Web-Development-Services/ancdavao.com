@@ -1764,6 +1764,7 @@ type Testimonial implements Document {
   _updatedAt: DateTime
   author: String
   authorImage: Image
+  authorRole: String
   contentRaw: JSON
   date: DateTime
 }
@@ -1779,6 +1780,7 @@ input TestimonialFilter {
   _updatedAt: DatetimeFilter
   author: StringFilter
   authorImage: ImageFilter
+  authorRole: StringFilter
   date: DatetimeFilter
 }
 
@@ -1791,6 +1793,7 @@ input TestimonialSorting {
   _updatedAt: SortOrder
   author: SortOrder
   authorImage: ImageSorting
+  authorRole: SortOrder
   date: SortOrder
 }
 

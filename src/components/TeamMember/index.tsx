@@ -1,50 +1,42 @@
 import React from "react";
 import Image from "next/image";
+import { TeamMember as TeamMemberType } from "@/generated/graphql";
+import { urlFor } from "@/lib/sanity";
 
 interface TeamMemberProps {
-  name: string;
-  role: string;
-  bio: string;
-  image: string;
-  socialLinks?: {
-    twitter?: string;
-    linkedin?: string;
-    email?: string;
-  };
+  member: TeamMemberType;
 }
 
 const TeamMember: React.FC<TeamMemberProps> = ({
-  name,
-  role,
-  bio,
-  image,
-  socialLinks = {},
+  member,
 }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="h-48 overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          width={400}
-          height={300}
-          className="w-full h-full object-cover"
-        />
+        {member.photo && (
+          <Image
+            src={urlFor(member.photo).url()}
+            alt={member.name}
+            width={400}
+            height={300}
+            className="w-full h-full object-cover"
+          />
+        )}
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-1">{name}</h3>
-        <p className="text-primary-600 font-medium mb-4">{role}</p>
-        <p className="text-gray-600 mb-4">{bio}</p>
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+        <p className="text-primary-600 font-medium mb-4">{member.role}</p>
+        <p className="text-gray-600 mb-4">{member.bioRaw ? (member.bioRaw[0] as any)?.children[0]?.text : ""}</p>
 
-        {(socialLinks.twitter || socialLinks.linkedin || socialLinks.email) && (
+        {(member.twitter || member.linkedin || member.email) && (
           <div className="flex space-x-4">
-            {socialLinks.twitter && (
+            {member.twitter && (
               <a
-                href={socialLinks.twitter}
+                href={member.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-primary-600 transition-colors"
-                aria-label={`${name}'s Twitter`}
+                aria-label={`${member.name}'s Twitter`}
               >
                 <span className="sr-only">Twitter</span>
                 <svg
@@ -56,13 +48,13 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 </svg>
               </a>
             )}
-            {socialLinks.linkedin && (
+            {member.linkedin && (
               <a
-                href={socialLinks.linkedin}
+                href={member.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-primary-600 transition-colors"
-                aria-label={`${name}'s LinkedIn`}
+                aria-label={`${member.name}'s LinkedIn`}
               >
                 <span className="sr-only">LinkedIn</span>
                 <svg
@@ -74,11 +66,11 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 </svg>
               </a>
             )}
-            {socialLinks.email && (
+            {member.email && (
               <a
-                href={`mailto:${socialLinks.email}`}
+                href={`mailto:${member.email}`}
                 className="text-gray-500 hover:text-primary-600 transition-colors"
-                aria-label={`Email ${name}`}
+                aria-label={`Email ${member.name}`}
               >
                 <span className="sr-only">Email</span>
                 <svg
