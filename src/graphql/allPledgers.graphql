@@ -1,9 +1,0 @@
-query AllPledgers {
-  allPledger {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}

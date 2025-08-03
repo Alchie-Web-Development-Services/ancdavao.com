@@ -23,7 +23,7 @@ describe("EventCard", () => {
       mainImage: {
         _type: "image",
         asset: {
-          _ref: "image-test-image-id",
+          _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-800x600-jpg",
           _type: "reference",
           url: "https://cdn.sanity.io/images/tuggecli/production/test-image.jpg",
         },

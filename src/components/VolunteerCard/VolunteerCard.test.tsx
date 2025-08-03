@@ -4,7 +4,9 @@ import { vi } from "vitest";
 
 // Mock urlFor from sanity.ts
 vi.mock("../../lib/sanity", () => ({
-  urlFor: vi.fn((source) => source.asset.url),
+  urlFor: vi.fn((source) => ({
+    url: () => source.asset.url,
+  })),
 }));
 
 describe("VolunteerCard", () => {
@@ -33,7 +35,7 @@ describe("VolunteerCard", () => {
       photo: {
         _type: "image",
         asset: {
-          _ref: "image-test-image-id",
+          _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-128x128-jpg",
           _type: "reference",
           url: "https://cdn.sanity.io/images/tuggecli/production/test-image.jpg",
         },
@@ -52,19 +54,19 @@ describe("VolunteerCard", () => {
     expect(screen.getByText(mockVolunteer.position)).toBeInTheDocument();
     expect(screen.getByText("This is a test bio.")).toBeInTheDocument();
     expect(screen.getByAltText(mockVolunteer.name)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /facebook/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Facebook" })).toHaveAttribute(
       "href",
       mockVolunteer.socialMedia.facebook,
     );
-    expect(screen.getByRole("link", { name: /twitter/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Twitter" })).toHaveAttribute(
       "href",
       mockVolunteer.socialMedia.twitter,
     );
-    expect(screen.getByRole("link", { name: /instagram/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Instagram" })).toHaveAttribute(
       "href",
       mockVolunteer.socialMedia.instagram,
     );
-    expect(screen.getByRole("link", { name: /linkedin/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
       "href",
       mockVolunteer.socialMedia.linkedin,
     );

@@ -12,9 +12,11 @@ query AllTeamMembers {
         url
       }
     }
-    facebook
-    twitter
-    instagram
-    linkedin
+    socialMedia {
+      facebook
+      twitter
+      instagram
+      linkedin
+    }
   }
 }

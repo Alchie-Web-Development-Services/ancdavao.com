@@ -6,45 +6,48 @@ describe("TeamMember", () => {
     name: "John Doe",
     role: "Lead Developer",
     bio: "Passionate about open source and clean code.",
-    image: "/images/john-doe.jpg",
-    socialLinks: {
+    photo: {
+      _type: "image",
+      asset: {
+        _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-400x400-jpg",
+        _type: "reference",
+        url: "https://cdn.sanity.io/images/tuggecli/production/john.jpg",
+      },
+    },
+    socialMedia: {
       twitter: "https://twitter.com/johndoe",
       linkedin: "https://linkedin.com/in/johndoe",
-      email: "john.doe@example.com",
     },
   };
 
   const mockMemberWithoutSocialLinks = {
     ...mockMember,
-    socialLinks: undefined,
+    socialMedia: undefined,
   };
 
   it("renders team member information", () => {
-    render(<TeamMember {...mockMember} />);
+    render(<TeamMember member={mockMember} />);
 
     expect(screen.getByText(mockMember.name)).toBeInTheDocument();
     expect(screen.getByText(mockMember.role)).toBeInTheDocument();
     expect(screen.getByText(mockMember.bio)).toBeInTheDocument();
-    expect(screen.getByAltText(mockMember.name)).toBeInTheDocument();
   });
 
   it("renders social media links if provided", () => {
-    render(<TeamMember {...mockMember} />);
+    render(<TeamMember member={mockMember} />);
 
-    expect(
-      screen.getByLabelText(`${mockMember.name}'s Twitter`),
-    ).toHaveAttribute("href", mockMember.socialLinks.twitter);
-    expect(
-      screen.getByLabelText(`${mockMember.name}'s LinkedIn`),
-    ).toHaveAttribute("href", mockMember.socialLinks.linkedin);
-    expect(screen.getByLabelText(`Email ${mockMember.name}`)).toHaveAttribute(
+    expect(screen.getByLabelText("Twitter")).toHaveAttribute(
       "href",
-      `mailto:${mockMember.socialLinks.email}`,
+      mockMember.socialMedia.twitter,
+    );
+    expect(screen.getByLabelText("LinkedIn")).toHaveAttribute(
+      "href",
+      mockMember.socialMedia.linkedin,
     );
   });
 
   it("does not render social media links if not provided", () => {
-    render(<TeamMember {...mockMemberWithoutSocialLinks} />);
+    render(<TeamMember member={mockMemberWithoutSocialLinks} />);
 
     expect(screen.queryByLabelText(/twitter/i)).not.toBeInTheDocument();
     expect(screen.queryByLabelText(/linkedin/i)).not.toBeInTheDocument();

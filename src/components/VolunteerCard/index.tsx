@@ -30,18 +30,42 @@ const VolunteerCard: React.FC<{
         <PortableText value={volunteer.bioRaw} />
       </div>
       <div className="flex justify-center space-x-3">
-        <a href={volunteer.socialMedia?.facebook} className="text-primary-600 hover:text-primary-700">
-          <FaFacebookF />
-        </a>
-        <a href={volunteer.socialMedia?.twitter} className="text-primary-600 hover:text-primary-700">
-          <FaTwitter />
-        </a>
-        <a href={volunteer.socialMedia?.instagram} className="text-primary-600 hover:text-primary-700">
-          <FaInstagram />
-        </a>
-        <a href={volunteer.socialMedia?.linkedin} className="text-primary-600 hover:text-primary-700">
-          <FaLinkedinIn />
-        </a>
+        {volunteer.socialMedia?.facebook && (
+          <a 
+            href={volunteer.socialMedia.facebook} 
+            className="text-primary-600 hover:text-primary-700"
+            aria-label="Facebook"
+          >
+            <FaFacebookF />
+          </a>
+        )}
+        {volunteer.socialMedia?.twitter && (
+          <a 
+            href={volunteer.socialMedia.twitter} 
+            className="text-primary-600 hover:text-primary-700"
+            aria-label="Twitter"
+          >
+            <FaTwitter />
+          </a>
+        )}
+        {volunteer.socialMedia?.instagram && (
+          <a 
+            href={volunteer.socialMedia.instagram} 
+            className="text-primary-600 hover:text-primary-700"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
+          </a>
+        )}
+        {volunteer.socialMedia?.linkedin && (
+          <a 
+            href={volunteer.socialMedia.linkedin} 
+            className="text-primary-600 hover:text-primary-700"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn />
+          </a>
+        )}
       </div>
     </div>
   );

@@ -2,18 +2,35 @@ import { render, screen } from "@testing-library/react";
 import TeamSection from "./index";
 import { vi } from "vitest";
 
+// Mock urlFor from sanity.ts
+vi.mock("../../lib/sanity", () => ({
+  urlFor: vi.fn((source) => ({
+    url: () => source.asset.url,
+  })),
+}));
+
+// Mock next/image
+vi.mock("next/image", () => ({
+  __esModule: true,
+  default: (props: any) => {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img {...props} alt={props.alt || "Test image"} />;
+  },
+}));
+
 // Mock the TeamMember component as it's a dependency
 vi.mock("../TeamMember", () => ({
   __esModule: true,
-  default: ({ name, role, bio, image, socialLinks }: any) => (
+  default: ({ member }: any) => (
     <div data-testid="team-member">
-      <h3>{name}</h3>
-      <p>{role}</p>
-      <p>{bio}</p>
-      <img src={image} alt={name} />
-      {socialLinks?.twitter && <a href={socialLinks.twitter}>Twitter</a>}
-      {socialLinks?.linkedin && <a href={socialLinks.linkedin}>LinkedIn</a>}
-      {socialLinks?.email && <a href={`mailto:${socialLinks.email}`}>Email</a>}
+      <h3>{member.name}</h3>
+      <p>{member.role}</p>
+      <p>{member.bioRaw?.[0]?.children?.[0]?.text || ""}</p>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={member.photo?.asset?.url} alt={member.name || "Team member"} />
+      {member.socialMedia?.twitter && <a href={member.socialMedia.twitter}>Twitter</a>}
+      {member.socialMedia?.linkedin && <a href={member.socialMedia.linkedin}>LinkedIn</a>}
+      {member.email && <a href={`mailto:${member.email}`}>Email</a>}
     </div>
   ),
 }));
@@ -26,7 +43,7 @@ describe("TeamSection", () => {
         _type: "teamMember",
         name: "John Doe",
         role: "Founder",
-        bioRaw: [
+                bioRaw: [
           {
             _key: "abc",
             _type: "block",
@@ -42,16 +59,18 @@ describe("TeamSection", () => {
             style: "normal",
           },
         ],
-        image: {
+        photo: {
           _type: "image",
           asset: {
-            _ref: "image-test-image-id-1",
+            _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-400x400-jpg",
             _type: "reference",
             url: "https://cdn.sanity.io/images/tuggecli/production/john.jpg",
           },
         },
-        twitterUrl: "https://twitter.com/johndoe",
-        linkedinUrl: "https://linkedin.com/in/johndoe",
+        socialMedia: {
+          twitter: "https://twitter.com/johndoe",
+          linkedin: "https://linkedin.com/in/johndoe",
+        },
         email: "john@example.com",
       },
       {
@@ -75,10 +94,10 @@ describe("TeamSection", () => {
             style: "normal",
           },
         ],
-        image: {
+        photo: {
           _type: "image",
           asset: {
-            _ref: "image-test-image-id-2",
+            _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-400x400-jpg",
             _type: "reference",
             url: "https://cdn.sanity.io/images/tuggecli/production/jane.jpg",
           },

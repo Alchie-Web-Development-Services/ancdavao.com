@@ -788,71 +788,6 @@ export type PartnerSorting = {
   website?: InputMaybe<SortOrder>;
 };
 
-export type Pledger = Document & {
-  /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']['output']>;
-  /** Document ID */
-  _id?: Maybe<Scalars['ID']['output']>;
-  _key?: Maybe<Scalars['String']['output']>;
-  /** Current document revision */
-  _rev?: Maybe<Scalars['String']['output']>;
-  /** Document type */
-  _type?: Maybe<Scalars['String']['output']>;
-  /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']['output']>;
-  address?: Maybe<Scalars['String']['output']>;
-  bioRaw?: Maybe<Scalars['JSON']['output']>;
-  birthdate?: Maybe<Scalars['Date']['output']>;
-  email?: Maybe<Scalars['String']['output']>;
-  firstName?: Maybe<Scalars['String']['output']>;
-  gender?: Maybe<Scalars['String']['output']>;
-  lastName?: Maybe<Scalars['String']['output']>;
-  occupation?: Maybe<Scalars['String']['output']>;
-  phone?: Maybe<Scalars['String']['output']>;
-  photo?: Maybe<Image>;
-  socialMedia?: Maybe<SocialMedia>;
-};
-
-export type PledgerFilter = {
-  /** Apply filters on document level */
-  _?: InputMaybe<Sanity_DocumentFilter>;
-  _createdAt?: InputMaybe<DatetimeFilter>;
-  _id?: InputMaybe<IdFilter>;
-  _key?: InputMaybe<StringFilter>;
-  _rev?: InputMaybe<StringFilter>;
-  _type?: InputMaybe<StringFilter>;
-  _updatedAt?: InputMaybe<DatetimeFilter>;
-  address?: InputMaybe<StringFilter>;
-  birthdate?: InputMaybe<DateFilter>;
-  email?: InputMaybe<StringFilter>;
-  firstName?: InputMaybe<StringFilter>;
-  gender?: InputMaybe<StringFilter>;
-  lastName?: InputMaybe<StringFilter>;
-  occupation?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  photo?: InputMaybe<ImageFilter>;
-  socialMedia?: InputMaybe<SocialMediaFilter>;
-};
-
-export type PledgerSorting = {
-  _createdAt?: InputMaybe<SortOrder>;
-  _id?: InputMaybe<SortOrder>;
-  _key?: InputMaybe<SortOrder>;
-  _rev?: InputMaybe<SortOrder>;
-  _type?: InputMaybe<SortOrder>;
-  _updatedAt?: InputMaybe<SortOrder>;
-  address?: InputMaybe<SortOrder>;
-  birthdate?: InputMaybe<SortOrder>;
-  email?: InputMaybe<SortOrder>;
-  firstName?: InputMaybe<SortOrder>;
-  gender?: InputMaybe<SortOrder>;
-  lastName?: InputMaybe<SortOrder>;
-  occupation?: InputMaybe<SortOrder>;
-  phone?: InputMaybe<SortOrder>;
-  photo?: InputMaybe<ImageSorting>;
-  socialMedia?: InputMaybe<SocialMediaSorting>;
-};
-
 export type ProgramService = Document & {
   /** Date the document was created */
   _createdAt?: Maybe<Scalars['DateTime']['output']>;
@@ -917,7 +852,6 @@ export type RootQuery = {
   MomentsOfHope?: Maybe<MomentsOfHope>;
   Parent?: Maybe<Parent>;
   Partner?: Maybe<Partner>;
-  Pledger?: Maybe<Pledger>;
   ProgramService?: Maybe<ProgramService>;
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
@@ -934,7 +868,6 @@ export type RootQuery = {
   allMomentsOfHope: Array<MomentsOfHope>;
   allParent: Array<Parent>;
   allPartner: Array<Partner>;
-  allPledger: Array<Pledger>;
   allProgramService: Array<ProgramService>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
@@ -990,11 +923,6 @@ export type RootQueryParentArgs = {
 
 
 export type RootQueryPartnerArgs = {
-  id: Scalars['ID']['input'];
-};
-
-
-export type RootQueryPledgerArgs = {
   id: Scalars['ID']['input'];
 };
 
@@ -1106,14 +1034,6 @@ export type RootQueryAllPartnerArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
   sort?: InputMaybe<Array<PartnerSorting>>;
   where?: InputMaybe<PartnerFilter>;
-};
-
-
-export type RootQueryAllPledgerArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  sort?: InputMaybe<Array<PledgerSorting>>;
-  where?: InputMaybe<PledgerFilter>;
 };
 
 
@@ -1619,13 +1539,10 @@ export type TeamMember = Document & {
   _updatedAt?: Maybe<Scalars['DateTime']['output']>;
   bioRaw?: Maybe<Scalars['JSON']['output']>;
   email?: Maybe<Scalars['String']['output']>;
-  facebook?: Maybe<Scalars['String']['output']>;
-  instagram?: Maybe<Scalars['String']['output']>;
-  linkedin?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   photo?: Maybe<Image>;
   role?: Maybe<Scalars['String']['output']>;
-  twitter?: Maybe<Scalars['String']['output']>;
+  socialMedia?: Maybe<SocialMedia>;
 };
 
 export type TeamMemberFilter = {
@@ -1638,13 +1555,10 @@ export type TeamMemberFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   email?: InputMaybe<StringFilter>;
-  facebook?: InputMaybe<StringFilter>;
-  instagram?: InputMaybe<StringFilter>;
-  linkedin?: InputMaybe<StringFilter>;
   name?: InputMaybe<StringFilter>;
   photo?: InputMaybe<ImageFilter>;
   role?: InputMaybe<StringFilter>;
-  twitter?: InputMaybe<StringFilter>;
+  socialMedia?: InputMaybe<SocialMediaFilter>;
 };
 
 export type TeamMemberSorting = {
@@ -1655,13 +1569,10 @@ export type TeamMemberSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   email?: InputMaybe<SortOrder>;
-  facebook?: InputMaybe<SortOrder>;
-  instagram?: InputMaybe<SortOrder>;
-  linkedin?: InputMaybe<SortOrder>;
   name?: InputMaybe<SortOrder>;
   photo?: InputMaybe<ImageSorting>;
   role?: InputMaybe<SortOrder>;
-  twitter?: InputMaybe<SortOrder>;
+  socialMedia?: InputMaybe<SocialMediaSorting>;
 };
 
 export type Testimonial = Document & {
@@ -1795,7 +1706,7 @@ export type AllCentersQuery = { allCenter: Array<{ _id?: string | null, _type?: 
 export type AllDocumentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllDocumentsQuery = { allDocument: Array<{ _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null }> };
+export type AllDocumentsQuery = { allDocument: Array<{ _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null }> };
 
 export type AllEventsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1817,11 +1728,6 @@ export type AllPartnersQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllPartnersQuery = { allPartner: Array<{ _id?: string | null, _type?: string | null, name?: string | null, website?: string | null, contactPerson?: string | null, contactEmail?: string | null, contactPhone?: string | null }> };
 
-export type AllPledgersQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type AllPledgersQuery = { allPledger: Array<{ _id?: string | null, _type?: string | null, firstName?: string | null, lastName?: string | null, email?: string | null }> };
-
 export type AllProgramServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1840,7 +1746,7 @@ export type AllSanityImageAssetsQuery = { allSanityImageAsset: Array<{ _id?: str
 export type AllTeamMembersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AllTeamMembersQuery = { allTeamMember: Array<{ _id?: string | null, _type?: string | null, name?: string | null, role?: string | null, email?: string | null, bioRaw?: any | null, facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
+export type AllTeamMembersQuery = { allTeamMember: Array<{ _id?: string | null, _type?: string | null, name?: string | null, role?: string | null, email?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null }> };
 
 export type AllTestimonialsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1906,7 +1812,7 @@ export type DocumentByIdQueryVariables = Exact<{
 }>;
 
 
-export type DocumentByIdQuery = { Document?: { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | null };
+export type DocumentByIdQuery = { Document?: { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | { _id?: string | null, _type?: string | null } | null };
 
 export type EventByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
@@ -1947,13 +1853,6 @@ export type PartnerByIdQueryVariables = Exact<{
 
 
 export type PartnerByIdQuery = { Partner?: { _id?: string | null, _type?: string | null, name?: string | null, website?: string | null, contactPerson?: string | null, contactEmail?: string | null, contactPhone?: string | null } | null };
-
-export type PledgerByIdQueryVariables = Exact<{
-  id: Scalars['ID']['input'];
-}>;
-
-
-export type PledgerByIdQuery = { Pledger?: { _id?: string | null, _type?: string | null, firstName?: string | null, lastName?: string | null, email?: string | null } | null };
 
 export type ProgramServiceByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];
