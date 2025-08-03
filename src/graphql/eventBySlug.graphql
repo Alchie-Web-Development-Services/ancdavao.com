@@ -1,0 +1,20 @@
+query EventBySlug($slug: String!) {
+  allEvent(where: {slug: {current: {eq: $slug}}}) {
+    _id
+    _type
+    title
+    slug {
+      current
+    }
+    startDate
+    endDate
+    location
+    descriptionRaw
+    mainImage {
+      asset {
+        _id
+        url
+      }
+    }
+  }
+}

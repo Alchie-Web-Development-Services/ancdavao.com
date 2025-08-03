@@ -4,26 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import SEO from "@/components/SEO";
-import { client } from "../../src/lib/sanity";
-import { AllEventsDocument, AllEventsQuery } from "../../src/generated/graphql";
-import imageUrlBuilder from '@sanity/image-url';
-
-// Initialize the image URL builder
-const builder = imageUrlBuilder({
-  projectId: 'tuggecli',
-  dataset: 'production',
-});
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
+import { client, urlFor } from "../../src/lib/sanity";
+import { AllEventsQuery } from "../../src/generated/graphql";
+import AllEvents from "../../src/graphql/allEvents.graphql";
 
 interface EventCardProps {
   event: AllEventsQuery['allEvent'][number];
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
-  const imgSrc = event.mainImage ? urlFor(event.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
   const startDate = event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -37,13 +26,16 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <Image
-        src={imgSrc || ""}
-        alt={event.title || "Event Image"}
-        width={800}
-        height={600}
-        className="w-full h-48 object-cover"
-      />
+      {event.mainImage && (
+        <Image
+          src={urlFor(event.mainImage).url() || ""}
+          alt={event.title || "Event Image"}
+          width={800}
+          height={600}
+          className="w-full h-48 object-cover"
+        />
+      )}
+      
       <div className="p-6">
         <h3 className="text-xl font-semibold text-neutral-800 mb-2">
           {event.title}
@@ -108,7 +100,7 @@ const Events: React.FC<EventsProps> = ({ events }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllEventsQuery>(AllEventsDocument.loc!.source.body);
+  const result = await client.request<AllEventsQuery>(AllEvents);
 
   return {
     props: {
