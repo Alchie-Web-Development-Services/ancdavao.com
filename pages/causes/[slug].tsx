@@ -11,10 +11,9 @@ import { client, urlFor } from "../../src/lib/sanity";
 import {
   AllCausesQuery,
   Cause,
-  CauseByIdQuery,
 } from "../../src/generated/graphql";
-import AllCausesDocument from "@/src/graphql/AllCausesQuery.graphql";
-import CauseByIdDocument from "@/src/graphql/CauseByIdQuery.graphql";
+import AllCauses from "../../src/graphql/allCauses.graphql";
+import CauseBySlug from "../../src/graphql/causeBySlug.graphql";
 
 interface CauseDetailProps {
   cause: Cause;
@@ -103,23 +102,23 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-  const result = await client.request<AllCausesQuery>(AllCausesDocument.loc!.source.body);
+  const result = await client.request<AllCausesQuery>(AllCauses);
   const paths = result.allCause.map((cause) => ({
-    params: { id: cause.slug?.current || "" },
+    params: { slug: cause.slug?.current || "" },
   }));
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps<CauseDetailProps> = async ({
   params,
 }) => {
 
-  const result = await client.request<CauseByIdQuery>(CauseByIdDocument.loc!.source.body, {
-    id: params?.id,
+  const result = await client.request<AllCausesQuery>(CauseBySlug, {
+    slug: params?.slug,
   });
 
-  const cause = result.Cause;
+  const cause = result.allCause[0];
 
   if (!cause) {
     return {
