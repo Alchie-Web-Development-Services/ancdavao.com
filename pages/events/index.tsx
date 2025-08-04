@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import { client } from "../../src/lib/sanity";
 import { AllEventsQuery } from "../../src/generated/graphql";
-import AllEvents from "../../src/graphql/allEvents.graphql";
+import { ALL_EVENTS_QUERY } from "../../src/graphql/allEvents";
 import EventCard from "@/components/EventCard";
 
 interface EventsProps {
@@ -41,7 +41,7 @@ const Events: React.FC<EventsProps> = ({ events }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllEventsQuery>(AllEvents);
+  const result = await client.request<AllEventsQuery>(ALL_EVENTS_QUERY);
 
   return {
     props: {

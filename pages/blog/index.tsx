@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import { client } from "../../src/lib/sanity";
 import { AllArticlesQuery } from "../../src/generated/graphql";
-import AllArticles from "../../src/graphql/allArticles.graphql";
+import { ALL_ARTICLES_QUERY } from "../../src/graphql/allArticles";
 import BlogCard from "@/components/BlogCard";
 
 interface BlogProps {
@@ -41,7 +41,7 @@ const Blog: React.FC<BlogProps> = ({ articles }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllArticlesQuery>(AllArticles);
+  const result = await client.request<AllArticlesQuery>(ALL_ARTICLES_QUERY);
 
   return {
     props: {

@@ -1,9 +1,0 @@
-query AllMomentsOfHope {
-  allMomentsOfHope {
-    _id
-    _type
-    title
-    date
-    link
-  }
-}

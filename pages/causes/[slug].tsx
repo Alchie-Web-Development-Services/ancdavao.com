@@ -12,8 +12,8 @@ import {
   AllCausesQuery,
   Cause,
 } from "../../src/generated/graphql";
-import AllCauses from "../../src/graphql/allCauses.graphql";
-import CauseBySlug from "../../src/graphql/causeBySlug.graphql";
+import { ALL_CAUSES_QUERY } from "../../src/graphql/allCauses";
+import { CAUSE_BY_SLUG_QUERY } from "../../src/graphql/causeBySlug";
 
 interface CauseDetailProps {
   cause: Cause;
@@ -102,7 +102,7 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-  const result = await client.request<AllCausesQuery>(AllCauses);
+  const result = await client.request<AllCausesQuery>(ALL_CAUSES_QUERY);
   const paths = result.allCause.map((cause) => ({
     params: { slug: cause.slug?.current || "" },
   }));
@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps<CauseDetailProps> = async ({
   params,
 }) => {
 
-  const result = await client.request<AllCausesQuery>(CauseBySlug, {
+  const result = await client.request<AllCausesQuery>(CAUSE_BY_SLUG_QUERY, {
     slug: params?.slug,
   });
 

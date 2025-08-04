@@ -1,9 +1,0 @@
-query AllAuthors {
-  allAuthor {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}

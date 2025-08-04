@@ -1,9 +1,0 @@
-query AllSanityImageAssets {
-  allSanityImageAsset {
-    _id
-    _type
-    originalFilename
-    url
-    mimeType
-  }
-}

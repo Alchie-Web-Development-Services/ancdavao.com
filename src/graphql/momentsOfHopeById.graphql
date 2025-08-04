@@ -1,9 +1,0 @@
-query MomentsOfHopeById($id: ID!) {
-  MomentsOfHope(id: $id) {
-    _id
-    _type
-    title
-    date
-    link
-  }
-}

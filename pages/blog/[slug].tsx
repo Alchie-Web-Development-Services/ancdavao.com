@@ -2,22 +2,12 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { client } from "../../src/lib/sanity";
 import { AllArticlesQuery, Article } from "../../src/generated/graphql";
-import imageUrlBuilder from '@sanity/image-url';
 import Image from "next/image";
 import { PortableText } from '@portabletext/react'
 import SEO from "@/components/SEO";
-import ArticleBySlug from "../../src/graphql/articleBySlug.graphql";
-import AllArticles from "../../src/graphql/allArticles.graphql";
-
-// Initialize the image URL builder
-const builder = imageUrlBuilder({
-  projectId: 'tuggecli',
-  dataset: 'production',
-});
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
+import { ALL_ARTICLES_QUERY } from "../../src/graphql/allArticles";
+import { ARTICLE_BY_SLUG_QUERY } from "../../src/graphql/articleBySlug";
+import { urlFor } from "../../src/lib/sanity";
 
 interface ArticleDetailProps {
   article: Article;
@@ -76,7 +66,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const result = await client.request<AllArticlesQuery>(AllArticles);
+  const result = await client.request<AllArticlesQuery>(ALL_ARTICLES_QUERY);
   const paths = result.allArticle.map((article) => ({
     params: { slug: article.slug?.current || '' },
   }));
@@ -89,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<ArticleDetailProps> = async ({ params }) => {
   const slug = params?.slug as string;
-  const result = await client.request<AllArticlesQuery>(ArticleBySlug, { slug });
+  const result = await client.request<AllArticlesQuery>(ARTICLE_BY_SLUG_QUERY, { slug });
 
   return {
     props: {

@@ -1,6 +1,0 @@
-query DocumentById($id: ID!) {
-  Document(id: $id) {
-    _id
-    _type
-  }
-}

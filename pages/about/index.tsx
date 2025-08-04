@@ -10,8 +10,8 @@ import CallToActionSection from "@/components/CallToActionSection";
 import { GetStaticProps } from "next";
 import { client } from "../../src/lib/sanity";
 import { AllTeamMembersQuery, AllTestimonialsQuery } from "../../src/generated/graphql";
-import AllTeamMembers from "../../src/graphql/allTeamMembers.graphql";
-import AllTestimonials from "../../src/graphql/allTestimonials.graphql";
+import { ALL_TEAM_MEMBERS_QUERY } from "../../src/graphql/allTeamMembers";
+import { ALL_TESTIMONIALS_QUERY } from "../../src/graphql/allTestimonials";
 
 interface AboutProps {
   teamMembers: AllTeamMembersQuery['allTeamMember'];
@@ -43,8 +43,8 @@ const About: React.FC<AboutProps> = ({ teamMembers, testimonials }) => {
 };
 
 export const getStaticProps: GetStaticProps<AboutProps> = async () => {
-  const teamMembersResult = await client.request<AllTeamMembersQuery>(AllTeamMembers);
-  const testimonialsResult = await client.request<AllTestimonialsQuery>(AllTestimonials);
+  const teamMembersResult = await client.request<AllTeamMembersQuery>(ALL_TEAM_MEMBERS_QUERY);
+  const testimonialsResult = await client.request<AllTestimonialsQuery>(ALL_TESTIMONIALS_QUERY);
 
   return {
     props: {

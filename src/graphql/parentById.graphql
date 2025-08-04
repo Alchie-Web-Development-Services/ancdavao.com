@@ -1,9 +1,0 @@
-query ParentById($id: ID!) {
-  Parent(id: $id) {
-    _id
-    _type
-    firstName
-    lastName
-    email
-  }
-}

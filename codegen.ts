@@ -9,7 +9,7 @@ const SANITY_GRAPHQL_URL = `https://${projectId}.api.sanity.io/${apiVersion}/gra
 const config: CodegenConfig = {
   overwrite: true,
   schema: SANITY_GRAPHQL_URL,
-  documents: "./src/graphql/**/*.graphql",
+  documents: "./src/graphql/**/*.ts",
   generates: {
     "./src/generated/graphql.ts": {
       plugins: [

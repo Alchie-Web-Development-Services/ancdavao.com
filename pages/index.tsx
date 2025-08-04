@@ -11,7 +11,7 @@ import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
 import { client } from "../src/lib/sanity";
-import HomePageQuery from "../src/graphql/homePage.graphql";
+import { HOME_PAGE_QUERY } from "../src/graphql/homePage";
 import { HomePageCompiledResults } from "@/types/homepage";
 import { Event } from "@/generated/graphql";
 
@@ -47,7 +47,7 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events }) => 
 };
 
 export async function getStaticProps() {
-  const homePageData = await client.request<HomePageCompiledResults>(HomePageQuery);
+  const homePageData = await client.request<HomePageCompiledResults>(HOME_PAGE_QUERY);
 
   return {
     props: {

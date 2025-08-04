@@ -1,9 +1,0 @@
-query SanityFileAssetById($id: ID!) {
-  SanityFileAsset(id: $id) {
-    _id
-    _type
-    originalFilename
-    url
-    mimeType
-  }
-}

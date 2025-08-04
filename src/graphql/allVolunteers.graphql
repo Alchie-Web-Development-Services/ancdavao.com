@@ -1,9 +1,0 @@
-query AllVolunteers {
-  allVolunteer {
-    _id
-    _type
-    name
-    email
-    phone
-  }
-}

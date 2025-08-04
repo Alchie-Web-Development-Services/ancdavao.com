@@ -5,8 +5,8 @@ import { AllEventsQuery, Event } from "../../src/generated/graphql";
 import Image from "next/image";
 import { PortableText } from '@portabletext/react'
 import SEO from "@/components/SEO";
-import EventBySlug from "../../src/graphql/eventBySlug.graphql";
-import AllEvents from "../../src/graphql/allEvents.graphql";
+import { ALL_EVENTS_QUERY } from "../../src/graphql/allEvents";
+import { EVENT_BY_SLUG_QUERY } from "../../src/graphql/eventBySlug";
 
 interface EventDetailProps {
   event: Event;
@@ -87,7 +87,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const result = await client.request<AllEventsQuery>(AllEvents);
+  const result = await client.request<AllEventsQuery>(ALL_EVENTS_QUERY);
   const paths = result.allEvent.map((event) => ({
     params: { slug: event.slug?.current || '' },
   }));
@@ -100,7 +100,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<EventDetailProps> = async ({ params }) => {
   const slug = params?.slug as string;
-  const result = await client.request<AllEventsQuery>(EventBySlug, { slug });
+  const result = await client.request<AllEventsQuery>(EVENT_BY_SLUG_QUERY, { slug });
 
   return {
     props: {

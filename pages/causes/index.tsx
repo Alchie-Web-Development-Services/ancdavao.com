@@ -3,21 +3,10 @@ import PageHeader from "@/components/PageHeader";
 import Link from "next/link";
 import Image from "next/image";
 import SEO from "@/components/SEO";
-import { client } from "../../src/lib/sanity";
+import { client, urlFor } from "../../src/lib/sanity";
 import { AllCausesQuery, Cause } from "../../src/generated/graphql";
-import imageUrlBuilder from '@sanity/image-url';
 import { PortableText } from '@portabletext/react'
-import AllCauses from "../../src/graphql/allCauses.graphql";
-
-// Initialize the image URL builder
-const builder = imageUrlBuilder({
-  projectId: 'tuggecli',
-  dataset: 'production',
-});
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
+import { ALL_CAUSES_QUERY } from "../../src/graphql/allCauses";
 
 interface CauseCardProps {
   cause: Cause;
@@ -104,7 +93,7 @@ const Causes: React.FC<CausesProps> = ({ causes }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllCausesQuery>(AllCauses);
+  const result = await client.request<AllCausesQuery>(ALL_CAUSES_QUERY);
 
   return {
     props: {
