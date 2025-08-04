@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
+import FacebookSignInButton from '@/components/FacebookSignInButton';
 
 const RegisterForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -64,6 +65,7 @@ const RegisterForm: React.FC = () => {
         <div className="w-full border-t border-gray-300"></div>
       </div>
       <GoogleSignInButton onError={setError} />
+      <FacebookSignInButton onError={setError} />
       <p className="text-center text-gray-600 text-sm mt-6">
         Already have an account?{" "}
         <a

@@ -9,7 +9,7 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ article }) => {
-  const imgSrc = article.mainImage ? urlFor(article.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
+  const imgSrc = article.mainImage ? urlFor(article.mainImage).url() : "https://cdn.ancdavao.com/placeholder1.jpg";
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">

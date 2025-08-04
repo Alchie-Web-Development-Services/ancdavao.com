@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import GoogleSignInButton from '@/components/GoogleSignInButton';
+import FacebookSignInButton from '@/components/FacebookSignInButton';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -79,6 +80,7 @@ const LoginForm: React.FC = () => {
         <div className="w-full border-t border-gray-300"></div>
       </div>
       <GoogleSignInButton onError={setError} />
+      <FacebookSignInButton onError={setError} />
       <p className="text-center text-gray-600 text-sm mt-6">
         Don&apos;t have an account?{" "}
         <a
