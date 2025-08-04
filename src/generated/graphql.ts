@@ -1733,6 +1733,13 @@ export type AllProgramServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type AllProgramServicesQuery = { allProgramService: Array<{ _id?: string | null, _type?: string | null, title?: string | null, category?: string | null, startDate?: any | null, endDate?: any | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
 
+export type ProgramServiceBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type ProgramServiceBySlugQuery = { allProgramService: Array<{ _id?: string | null, _type?: string | null, title?: string | null, category?: string | null, startDate?: any | null, endDate?: any | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
+
 export type AllSanityFileAssetsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1832,21 +1839,9 @@ export type ArticleFieldsFragment = { _id?: string | null, _type?: string | null
 
 export type AuthorFieldsFragment = { firstName?: string | null, lastName?: string | null };
 
-export type ImageFieldsFragment = { asset?: { _id?: string | null, url?: string | null } | null };
+export type BeneficiaryFieldsFragment = { _id?: string | null, _type?: string | null, firstName?: string | null, lastName?: string | null, nickname?: string | null, pseudoName?: string | null };
 
 export type CauseFieldsFragment = { _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, raised?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
-
-export type EventFieldsFragment = { _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
-
-export type TeamMemberFieldsFragment = { _id?: string | null, _type?: string | null, name?: string | null, role?: string | null, email?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null };
-
-export type TestimonialFieldsFragment = { _id?: string | null, _type?: string | null, author?: string | null, authorRole?: string | null, contentRaw?: any | null, authorImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
-
-export type VolunteerFieldsFragment = { _id?: string | null, _type?: string | null, name?: string | null, email?: string | null, phone?: string | null, position?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null };
-
-export type ProgramServiceFieldsFragment = { _id?: string | null, _type?: string | null, title?: string | null, category?: string | null, startDate?: any | null, endDate?: any | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
-
-export type BeneficiaryFieldsFragment = { _id?: string | null, _type?: string | null, firstName?: string | null, lastName?: string | null, nickname?: string | null, pseudoName?: string | null };
 
 export type CenterFieldsFragment = { _id?: string | null, _type?: string | null, name?: string | null, address?: string | null, email?: string | null, phone?: string | null };
 
@@ -1882,20 +1877,32 @@ type DocumentFields_Volunteer_Fragment = { _id?: string | null, _type?: string |
 
 export type DocumentFieldsFragment = DocumentFields_Article_Fragment | DocumentFields_Author_Fragment | DocumentFields_Beneficiary_Fragment | DocumentFields_Cause_Fragment | DocumentFields_Center_Fragment | DocumentFields_Event_Fragment | DocumentFields_MomentsOfHope_Fragment | DocumentFields_Parent_Fragment | DocumentFields_Partner_Fragment | DocumentFields_ProgramService_Fragment | DocumentFields_SanityFileAsset_Fragment | DocumentFields_SanityImageAsset_Fragment | DocumentFields_TeamMember_Fragment | DocumentFields_Testimonial_Fragment | DocumentFields_Volunteer_Fragment;
 
+export type EventFieldsFragment = { _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
+
+export type ImageFieldsFragment = { asset?: { _id?: string | null, url?: string | null } | null };
+
 export type MomentsOfHopeFieldsFragment = { _id?: string | null, _type?: string | null, title?: string | null, date?: any | null, link?: string | null };
 
 export type ParentFieldsFragment = { _id?: string | null, _type?: string | null, firstName?: string | null, lastName?: string | null, email?: string | null };
 
 export type PartnerFieldsFragment = { _id?: string | null, _type?: string | null, name?: string | null, website?: string | null, contactPerson?: string | null, contactEmail?: string | null, contactPhone?: string | null };
 
+export type ProgramServiceFieldsFragment = { _id?: string | null, _type?: string | null, title?: string | null, category?: string | null, startDate?: any | null, endDate?: any | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
+
 export type SanityFileAssetFieldsFragment = { _id?: string | null, _type?: string | null, originalFilename?: string | null, url?: string | null, mimeType?: string | null };
 
 export type SanityImageAssetFieldsFragment = { _id?: string | null, _type?: string | null, originalFilename?: string | null, url?: string | null, mimeType?: string | null };
 
+export type TeamMemberFieldsFragment = { _id?: string | null, _type?: string | null, name?: string | null, role?: string | null, email?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null };
+
+export type TestimonialFieldsFragment = { _id?: string | null, _type?: string | null, author?: string | null, authorRole?: string | null, contentRaw?: any | null, authorImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null };
+
+export type VolunteerFieldsFragment = { _id?: string | null, _type?: string | null, name?: string | null, email?: string | null, phone?: string | null, position?: string | null, bioRaw?: any | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null };
+
 export type HomePageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageQueryQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allVolunteer: Array<{ position?: string | null, bioRaw?: any | null, _id?: string | null, _type?: string | null, name?: string | null, email?: string | null, phone?: string | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null }>, allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, raised?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allEvent: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }> };
+export type HomePageQueryQuery = { allArticle: Array<{ _id?: string | null, _type?: string | null, title?: string | null, publishedAt?: any | null, abstract?: string | null, slug?: { current?: string | null } | null, author?: { firstName?: string | null, lastName?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allVolunteer: Array<{ position?: string | null, bioRaw?: any | null, _id?: string | null, _type?: string | null, name?: string | null, email?: string | null, phone?: string | null, photo?: { asset?: { _id?: string | null, url?: string | null } | null } | null, socialMedia?: { facebook?: string | null, twitter?: string | null, instagram?: string | null, linkedin?: string | null } | null }>, allCause: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, goalAmount?: number | null, raised?: number | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allEvent: Array<{ _id?: string | null, _type?: string | null, title?: string | null, startDate?: any | null, endDate?: any | null, location?: string | null, descriptionRaw?: any | null, slug?: { current?: string | null } | null, mainImage?: { asset?: { _id?: string | null, url?: string | null } | null } | null }>, allMomentsOfHope: Array<{ _id?: string | null, _type?: string | null, title?: string | null, date?: any | null, link?: string | null }> };
 
 export type MomentsOfHopeByIdQueryVariables = Exact<{
   id: Scalars['ID']['input'];

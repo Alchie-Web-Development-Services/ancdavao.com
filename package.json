@@ -10,7 +10,8 @@
     "lint": "next lint",
     "test": "vitest run",
     "coverage": "vitest run --coverage",
-    "generate-types": "dotenv -e .env cross-env graphql-codegen --config codegen.ts"
+    "generate-types": "dotenv -e .env cross-env graphql-codegen --config codegen.ts",
+    "run-all": "yarn generate-types && yarn lint && yarn test && yarn build"
   },
   "dependencies": {
     "@apollo/client": "^3.13.9",

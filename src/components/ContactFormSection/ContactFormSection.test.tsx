@@ -1,7 +1,19 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ContactFormSection from "./index";
+import { vi } from "vitest";
 
 describe("ContactFormSection", () => {
+  beforeEach(() => {
+    vi.spyOn(global, "fetch").mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ message: "Success" }),
+    } as Response);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it("renders the contact form and handles submission", async () => {
     render(<ContactFormSection />);
 

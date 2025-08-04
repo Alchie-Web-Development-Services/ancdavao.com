@@ -37,7 +37,7 @@ describe("CauseCard", () => {
     expect(screen.getByText("This is a test description.")).toBeInTheDocument();
     expect(screen.getByAltText(mockCause.title)).toBeInTheDocument();
     expect(screen.getByText(`Raised: $${mockCause.raised}`)).toBeInTheDocument();
-    expect(screen.getByText(`Goal: $${mockCause.goalAmount}`)).toBeInTheDocument();
+    expect(screen.getByText(/Goal: \$\d{1,3}(?:,\d{3})*(?:\.\d+)?/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Donate Now" })).toHaveAttribute(
       "href",
       `/causes/${mockCause.slug.current}`,

@@ -1,42 +1,57 @@
-import type { ReactNode } from "react";
 import React from "react";
 import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
+import Image from "next/image";
+import { urlFor } from "@/lib/sanity";
+import { ProgramService } from "@/generated/graphql";
 
 interface ProgramCardProps {
-  title: string;
-  description: string;
-  icon: ReactNode;
-  link: string;
-  className?: string;
+  program: ProgramService;
 }
 
-const ProgramCard: React.FC<ProgramCardProps> = ({
-  title,
-  description,
-  icon,
-  link,
-  className = "",
-}) => {
+const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
+  const imgSrc = program.mainImage ? urlFor(program.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
+
   return (
-    <div
-      className={`card group overflow-hidden h-full flex flex-col ${className}`}
-    >
-      <div className="p-8 flex-grow">
-        <div className="w-16 h-16 rounded-full bg-primary-50 flex items-center justify-center mb-6 text-primary-600">
-          {icon}
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+      <Image
+        src={imgSrc || ""}
+        alt={program.title || "Program Image"}
+        width={800}
+        height={600}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
+          {program.title}
+        </h3>
+        <p className="text-gray-600 mb-6">
+          {/* Assuming descriptionRaw is a portable text field, you might need a component to render it */}
+          {program.descriptionRaw ? "Description available" : "No description provided."}
+        </p>
+
+        {/* You might want to add dynamic stats here if your Sanity schema supports it */}
+        <div className="mt-6 text-center">
+          <Link
+            href={`/programs-and-services/${program.slug?.current}`}
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors"
+          >
+            Learn more
+            <svg
+              className="w-4 h-4 ml-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-        <p className="text-gray-600 mb-6">{description}</p>
-      </div>
-      <div className="px-8 pb-8 pt-2 border-t border-gray-100">
-        <Link
-          href={link}
-          className="inline-flex items-center font-medium text-primary-600 hover:text-primary-700 group-hover:translate-x-1 transition-transform duration-200"
-        >
-          Learn more
-          <FiArrowRight className="ml-2 h-4 w-4" />
-        </Link>
       </div>
     </div>
   );
