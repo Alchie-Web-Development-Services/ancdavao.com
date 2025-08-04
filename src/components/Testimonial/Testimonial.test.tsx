@@ -16,7 +16,7 @@ describe("Testimonial", () => {
       asset: {
         _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-128x128-jpg",
         _type: "reference",
-        url: "https://cdn.sanity.io/images/tuggecli/production/avatar.jpg",
+        url: "https://cdn.ancdavao.com/placeholder1.jpg",
       },
     },
   };

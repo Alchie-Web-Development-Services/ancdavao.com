@@ -49,7 +49,7 @@ const ContactFormSection: React.FC = () => {
       // Reset status after 5 seconds
       setTimeout(() => {
         setFormStatus({ status: "idle", message: "" });
-      }, 5000);
+      }, 15000);
     } catch {
       setFormStatus({
         status: "error",
