@@ -3,9 +3,9 @@ import { GetStaticProps } from "next";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import MomentsOfHopeSection from "@/components/MomentsOfHopeSection";
-import { client } from "../src/lib/sanity";
-import { ALL_MOMENTS_OF_HOPE_QUERY } from "../src/graphql/allMomentsOfHope";
-import { AllMomentsOfHopeQuery } from "../src/generated/graphql";
+import { client } from "@//lib/sanity";
+import { ALL_MOMENTS_OF_HOPE_QUERY } from "@//graphql/allMomentsOfHope";
+import { AllMomentsOfHopeQuery } from "@//generated/graphql";
 
 interface MomentsOfHopeProps {
   momentsOfHope: AllMomentsOfHopeQuery['allMomentsOfHope'];

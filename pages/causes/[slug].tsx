@@ -6,14 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import SEO from "@/components/SEO";
 import { PortableText } from "@portabletext/react";
-import { client, urlFor } from "../../src/lib/sanity";
+import { client, urlFor } from "@//lib/sanity";
 
 import {
   AllCausesQuery,
   Cause,
-} from "../../src/generated/graphql";
-import { ALL_CAUSES_QUERY } from "../../src/graphql/allCauses";
-import { CAUSE_BY_SLUG_QUERY } from "../../src/graphql/causeBySlug";
+} from "@//generated/graphql";
+import { ALL_CAUSES_QUERY } from "@//graphql/allCauses";
+import { CAUSE_BY_SLUG_QUERY } from "@//graphql/causeBySlug";
 
 interface CauseDetailProps {
   cause: Cause;

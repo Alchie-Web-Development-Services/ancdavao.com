@@ -4,9 +4,9 @@ import SEO from "@/components/SEO";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramsCallToAction from "@/components/ProgramsCallToAction";
 import ProgramFeatures from "@/components/ProgramFeatures";
-import { client } from "../../src/lib/sanity";
-import { AllProgramServicesQuery } from "../../src/generated/graphql";
-import { ALL_PROGRAM_SERVICES_QUERY } from "../../src/graphql/allProgramServices";
+import { client } from "@//lib/sanity";
+import { AllProgramServicesQuery } from "@//generated/graphql";
+import { ALL_PROGRAM_SERVICES_QUERY } from "@//graphql/allProgramServices";
 
 interface ProgramsProps {
   programs: AllProgramServicesQuery['allProgramService'];

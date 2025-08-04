@@ -1,30 +1,20 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import Link from "next/link";
 import SEO from "@/components/SEO";
 
-import { client, urlFor } from "../../src/lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from '@portabletext/react';
-import { AllProgramServicesQuery, ProgramService } from "../../src/generated/graphql";
-import { ALL_PROGRAM_SERVICES_QUERY, PROGRAM_SERVICE_BY_SLUG_QUERY } from "../../src/graphql/allProgramServices";
+import { AllProgramServicesQuery, ProgramService } from "@/generated/graphql";
+import { ALL_PROGRAM_SERVICES_QUERY, PROGRAM_SERVICE_BY_SLUG_QUERY } from "@/graphql/allProgramServices";
 
 interface ProgramDetailProps {
   program: ProgramService;
 }
 
-
-
-
-
 const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
 
   if (!program) {
     return (
@@ -84,14 +74,14 @@ const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const result = await client.request<AllProgramServicesQuery>(ALL_PROGRAM_SERVICES_QUERY);
   const paths = result.allProgramService.map((program) => ({
-    params: { id: program.slug?.current || '' },
+    params: { slug: program.slug?.current || '' },
   }));
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps<ProgramDetailProps> = async ({ params }) => {
-  const slug = params?.id as string;
+  const slug = params?.slug as string;
   const result = await client.request<AllProgramServicesQuery>(PROGRAM_SERVICE_BY_SLUG_QUERY, { slug });
   const program = result.allProgramService[0];
 

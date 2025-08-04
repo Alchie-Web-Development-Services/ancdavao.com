@@ -1,9 +1,9 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
-import { client } from "../../src/lib/sanity";
-import { AllEventsQuery } from "../../src/generated/graphql";
-import { ALL_EVENTS_QUERY } from "../../src/graphql/allEvents";
+import { client } from "@//lib/sanity";
+import { AllEventsQuery } from "@//generated/graphql";
+import { ALL_EVENTS_QUERY } from "@//graphql/allEvents";
 import EventCard from "@/components/EventCard";
 
 interface EventsProps {

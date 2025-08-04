@@ -2,9 +2,9 @@ import React from "react";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import CauseCard from "@/components/CauseCard";
-import { client } from "../../src/lib/sanity";
-import { AllCausesQuery } from "../../src/generated/graphql";
-import { ALL_CAUSES_QUERY } from "../../src/graphql/allCauses";
+import { client } from "@//lib/sanity";
+import { AllCausesQuery } from "@//generated/graphql";
+import { ALL_CAUSES_QUERY } from "@//graphql/allCauses";
 
 interface CausesProps {
   causes: AllCausesQuery['allCause'];

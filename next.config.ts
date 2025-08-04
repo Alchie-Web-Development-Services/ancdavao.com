@@ -18,17 +18,13 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "picsum.photos",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.ancdavao.com",
+      },
     ],
     unoptimized: true,
-  },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(graphql|gql)$/,
-      exclude: /node_modules/,
-      loader: 'graphql-tag/loader',
-    });
-    return config;
-  },
+  }
 };
 
 export default nextConfig;

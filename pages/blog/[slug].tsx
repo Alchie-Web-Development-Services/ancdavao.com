@@ -1,13 +1,13 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { client } from "../../src/lib/sanity";
-import { AllArticlesQuery, Article } from "../../src/generated/graphql";
+import { client } from "@//lib/sanity";
+import { AllArticlesQuery, Article } from "@//generated/graphql";
 import Image from "next/image";
 import { PortableText } from '@portabletext/react'
 import SEO from "@/components/SEO";
-import { ALL_ARTICLES_QUERY } from "../../src/graphql/allArticles";
-import { ARTICLE_BY_SLUG_QUERY } from "../../src/graphql/articleBySlug";
-import { urlFor } from "../../src/lib/sanity";
+import { ALL_ARTICLES_QUERY } from "@//graphql/allArticles";
+import { ARTICLE_BY_SLUG_QUERY } from "@//graphql/articleBySlug";
+import { urlFor } from "@//lib/sanity";
 
 interface ArticleDetailProps {
   article: Article;

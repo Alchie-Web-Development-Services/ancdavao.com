@@ -8,10 +8,10 @@ import TeamSection from "@/components/TeamSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CallToActionSection from "@/components/CallToActionSection";
 import { GetStaticProps } from "next";
-import { client } from "../../src/lib/sanity";
-import { AllTeamMembersQuery, AllTestimonialsQuery } from "../../src/generated/graphql";
-import { ALL_TEAM_MEMBERS_QUERY } from "../../src/graphql/allTeamMembers";
-import { ALL_TESTIMONIALS_QUERY } from "../../src/graphql/allTestimonials";
+import { client } from "@//lib/sanity";
+import { AllTeamMembersQuery, AllTestimonialsQuery } from "@//generated/graphql";
+import { ALL_TEAM_MEMBERS_QUERY } from "@//graphql/allTeamMembers";
+import { ALL_TESTIMONIALS_QUERY } from "@//graphql/allTestimonials";
 
 interface AboutProps {
   teamMembers: AllTeamMembersQuery['allTeamMember'];

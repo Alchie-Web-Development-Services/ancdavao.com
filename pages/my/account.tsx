@@ -31,13 +31,15 @@ const MyAccount: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white shadow-sm py-4 px-6 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">Nespola Account</h1>
+        <div className="flex items-center justify-between container mx-auto">
+        <h1 className="text-xl font-semibold">My Account</h1>
         <button
           onClick={handleLogout}
           className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium"
         >
           Sign out
         </button>
+        </div>
       </header>
 
       <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-8">

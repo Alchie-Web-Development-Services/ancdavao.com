@@ -11,8 +11,8 @@ import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
 import MomentsOfHopeSection from "@/components/MomentsOfHopeSection";
 import SEO from "@/components/SEO";
-import { client } from "../src/lib/sanity";
-import { HOME_PAGE_QUERY } from "../src/graphql/homePage";
+import { client } from "@/lib/sanity";
+import { HOME_PAGE_QUERY } from "@/graphql/homePage";
 import { HomePageCompiledResults } from "@/types/homepage";
 import { Event } from "@/generated/graphql";
 
