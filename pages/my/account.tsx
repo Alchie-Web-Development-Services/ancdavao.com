@@ -1,22 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { auth } from '@/lib/firebase';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { FaRegUserCircle, FaRegCalendarAlt, FaGlobe, FaLanguage, FaRegEnvelope } from 'react-icons/fa';
 import Loading from '@/components/Loading';
+import { getUserProfile } from '@/services/userService';
+
+interface UserProfile {
+  uid: string;
+  email: string;
+  displayName?: string;
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  address?: string;
+  city?: string;
+  country?: string;
+  postalCode?: string;
+  onboarded?: boolean;
+}
 
 const MyAccount: React.FC = () => {
-  const { user, loading } = useAuth();
+  const { user, loading, onboarded } = useAuth();
   const router = useRouter();
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
 
-  if (loading) {
+  useEffect(() => {
+    if (!loading && user) {
+      const fetchProfile = async () => {
+        const profile = await getUserProfile(user.uid);
+        setUserProfile(profile);
+        if (!onboarded) {
+          router.push('/onboarding');
+        }
+      };
+      fetchProfile();
+    } else if (!loading && !user) {
+      router.push('/auth/login');
+    }
+  }, [user, loading, onboarded, router]);
+
+  if (loading || !userProfile) {
     return <Loading />;
-  }
-
-  if (!user) {
-    router.push('/auth/login');
-    return <div className="container mx-auto px-4 py-8 text-center">Redirecting to login...</div>;
   }
 
   const handleLogout = async () => {
@@ -28,6 +54,10 @@ const MyAccount: React.FC = () => {
       alert("Failed to log out.");
     }
   };
+
+  const fullName = userProfile.firstName && userProfile.lastName 
+    ? `${userProfile.firstName} ${userProfile.lastName}` 
+    : userProfile.displayName || 'User Name';
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -51,8 +81,8 @@ const MyAccount: React.FC = () => {
               <FaRegUserCircle />
             </div>
             <div>
-              <h2 className="text-lg font-semibold text-gray-800">{user.displayName || 'User Name'}</h2>
-              <p className="text-sm text-gray-600" data-testid="sidebar-email">{user.email}</p>
+              <h2 className="text-lg font-semibold text-gray-800">{fullName}</h2>
+              <p className="text-sm text-gray-600" data-testid="sidebar-email">{userProfile.email}</p>
             </div>
           </div>
 
@@ -96,34 +126,52 @@ const MyAccount: React.FC = () => {
                 <h3 className="font-semibold text-gray-800">Name</h3>
                 <FaRegUserCircle className="text-gray-500" />
               </div>
-              <p className="text-gray-700">{user.displayName || 'User Name'}</p>
+              <p className="text-gray-700">{fullName}</p>
             </div>
 
-            {/* Date of Birth */}
+            {/* Phone Number */}
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="font-semibold text-gray-800">Date of Birth</h3>
+                <h3 className="font-semibold text-gray-800">Phone Number</h3>
                 <FaRegCalendarAlt className="text-gray-500" />
               </div>
-              <p className="text-gray-700">07 July 1993</p>
+              <p className="text-gray-700">{userProfile.phoneNumber || 'N/A'}</p>
             </div>
 
-            {/* Country Region */}
+            {/* Address */}
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="font-semibold text-gray-800">Country Region</h3>
+                <h3 className="font-semibold text-gray-800">Address</h3>
                 <FaGlobe className="text-gray-500" />
               </div>
-              <p className="text-gray-700">Philippines, Davao City</p>
+              <p className="text-gray-700">{userProfile.address || 'N/A'}</p>
             </div>
 
-            {/* Language */}
+            {/* City */}
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="font-semibold text-gray-800">Language</h3>
+                <h3 className="font-semibold text-gray-800">City</h3>
                 <FaLanguage className="text-gray-500" />
               </div>
-              <p className="text-gray-700">English (US) - English</p>
+              <p className="text-gray-700">{userProfile.city || 'N/A'}</p>
+            </div>
+
+            {/* Country */}
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="font-semibold text-gray-800">Country</h3>
+                <FaGlobe className="text-gray-500" />
+              </div>
+              <p className="text-gray-700">{userProfile.country || 'N/A'}</p>
+            </div>
+
+            {/* Postal Code */}
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="font-semibold text-gray-800">Postal Code</h3>
+                <FaRegEnvelope className="text-gray-500" />
+              </div>
+              <p className="text-gray-700">{userProfile.postalCode || 'N/A'}</p>
             </div>
 
             {/* Contactable at */}
@@ -132,7 +180,7 @@ const MyAccount: React.FC = () => {
                 <h3 className="font-semibold text-gray-800">Contactable at</h3>
                 <FaRegEnvelope className="text-gray-500" />
               </div>
-              <p className="text-gray-700">{user.email}</p>
+              <p className="text-gray-700">{userProfile.email}</p>
             </div>
           </div>
         </main>
