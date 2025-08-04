@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import DonationFAQSection from "@/components/DonationFAQSection";
 import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
+import MomentsOfHopeSection from "@/components/MomentsOfHopeSection";
 import SEO from "@/components/SEO";
 import { client } from "../src/lib/sanity";
 import { HOME_PAGE_QUERY } from "../src/graphql/homePage";
@@ -20,9 +21,10 @@ interface HomeProps {
   volunteers: HomePageCompiledResults['allVolunteer'];
   causes: HomePageCompiledResults['allCause'];
   events: HomePageCompiledResults['allEvent'];
+  momentsOfHope: HomePageCompiledResults['allMomentsOfHope'];
 }
 
-const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events }) => {
+const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events, momentsOfHope }) => {
   return (
     <div className="bg-white">
       <SEO
@@ -40,6 +42,7 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events }) => 
         <CTASection />
         <DonationFAQSection />
         <VolunteersSection volunteers={volunteers} />
+        <MomentsOfHopeSection momentsOfHope={momentsOfHope} />
         <BlogSection articles={articles} />
       </main>
     </div>
@@ -55,6 +58,7 @@ export async function getStaticProps() {
       volunteers: homePageData.allVolunteer,
       causes: homePageData.allCause,
       events: homePageData.allEvent,
+      momentsOfHope: homePageData.allMomentsOfHope,
     },
   };
 }

@@ -6,6 +6,7 @@ import {
   VOLUNTEER_FIELDS,
   CAUSE_FIELDS,
   EVENT_FIELDS,
+  MOMENTS_OF_HOPE_FIELDS,
 } from './fragments';
 
 export const HOME_PAGE_QUERY = gql`
@@ -15,6 +16,7 @@ export const HOME_PAGE_QUERY = gql`
   ${VOLUNTEER_FIELDS}
   ${CAUSE_FIELDS}
   ${EVENT_FIELDS}
+  ${MOMENTS_OF_HOPE_FIELDS}
   query HomePageQuery {
     allArticle {
       ...ArticleFields
@@ -38,6 +40,9 @@ export const HOME_PAGE_QUERY = gql`
     }
     allEvent {
       ...EventFields
+    }
+    allMomentsOfHope {
+      ...MomentsOfHopeFields
     }
   }
 `;
