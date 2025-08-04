@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FiMenu, FiX } from "react-icons/fi";
-import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+
 import Logo from "../Logo";
+import TopNav from "../TopNav";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -22,40 +23,7 @@ const Header: React.FC = () => {
     <header
       className={`w-full sticky top-0 z-50 transition-all duration-300 shadow-lg`}
     >
-      <div className="bg-primary-700 text-white">
-        <div className="container mx-auto px-4 h-12 flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <a href="#" className="hover:text-primary-200">
-              Pag-asa St, Brgy. 24-C, Fatima, Davao City
-            </a>
-            <a
-              href="mailto:info@ancdavao.com"
-              className="hover:text-primary-200"
-            >
-              info@ancdavao.com
-            </a>
-            <a href="tel:+1234567890" className="hover:text-primary-200">
-              +63 (82) 285-1524
-            </a>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a
-              href="https://www.facebook.com/archdiocesannourishmentcenter/"
-              className="hover:text-primary-200"
-              target="_blank"
-            >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/archdiocesan-nourishment-center/"
-              className="hover:text-primary-200"
-              target="_blank"
-            >
-              <FaLinkedinIn />
-            </a>
-          </div>
-        </div>
-      </div>
+      <TopNav />
 
       <nav className="bg-white transition-all duration-300">
         <div className="container mx-auto px-4 flex justify-between items-center h-20">

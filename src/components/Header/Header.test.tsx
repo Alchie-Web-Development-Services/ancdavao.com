@@ -29,6 +29,6 @@ describe("Header", () => {
     expect(screen.getByText("Causes")).toBeInTheDocument();
     expect(screen.getByText("Blog")).toBeInTheDocument();
     expect(screen.getByText("Contact")).toBeInTheDocument();
-    expect(screen.getByText("Donate Now")).toBeInTheDocument();
+    expect(screen.getByText("Join the Mission")).toBeInTheDocument();
   });
 });
