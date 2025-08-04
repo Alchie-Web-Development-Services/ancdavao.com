@@ -2,16 +2,16 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
-import { AllEventsQuery } from "@/generated/graphql";
+import { Event } from "@/generated/graphql";
 import { PortableText } from '@portabletext/react'
 import { urlFor } from "@/lib/sanity";
 
 interface EventCardProps {
-  event: AllEventsQuery['allEvent'][number];
+  event: Event;
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
-  const imgSrc = event.mainImage ? urlFor(event.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
+  const imgSrc = event.mainImage ? urlFor(event.mainImage).url() : "https://cdn.ancdavao.com/placeholder1.jpg";
   const startDate = event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",

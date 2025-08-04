@@ -30,9 +30,9 @@ const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
         <h3 className="text-xl font-semibold text-neutral-800 mb-2">
           {cause.title}
         </h3>
-        <p className="text-neutral-600 text-sm mb-4">
+        <div className="text-neutral-600 text-sm mb-4">
           {cause.descriptionRaw ? <PortableText value={cause.descriptionRaw} /> : "No description provided."}
-        </p>
+        </div>
         <div className="mb-4">
           <div className="flex justify-between text-sm font-medium text-neutral-700 mb-1">
             <span>Raised: ${cause.raised?.toLocaleString() || 0}</span>
