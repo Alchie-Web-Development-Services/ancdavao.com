@@ -64,7 +64,7 @@ describe("EventSection", () => {
 
     render(<EventSection event={mockEvent} />);
 
-    expect(screen.getByText("Our Events")).toBeInTheDocument();
+    expect(screen.getByText("Upcoming Event")).toBeInTheDocument();
     expect(screen.getByText("Paid Hill Fine Ten Now Love")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Learn More" })).toBeInTheDocument();
     expect(screen.getByText("October 12, 2018")).toBeInTheDocument();
