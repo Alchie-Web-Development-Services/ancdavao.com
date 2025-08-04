@@ -80,7 +80,7 @@ const Header: React.FC = () => {
               href="/donate"
               className="bg-primary-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-800 transition-colors duration-300"
             >
-              Donate Now
+              Join the Mission
             </Link>
           </div>
           <div className="lg:hidden">
@@ -117,7 +117,7 @@ const Header: React.FC = () => {
               onClick={() => setIsMenuOpen(false)}
               className="bg-primary-700 text-white text-center px-6 py-3 rounded-md font-semibold hover:bg-primary-800 transition-colors duration-300 mt-4"
             >
-              Donate Now
+              Join the Mission
             </Link>
           </div>
         </div>
