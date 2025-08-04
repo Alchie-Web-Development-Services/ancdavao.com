@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Inject .env.production
-        run: echo "${{ secrets.ENV }}" > .env.production
+      - name: Inject .env
+        run: echo "${{ secrets.ENV }}" > .env
 
       - name: Cache Next.js build
         uses: actions/cache@v4
