@@ -7,7 +7,7 @@ import {
   CAUSE_FIELDS,
   EVENT_FIELDS,
   MOMENTS_OF_HOPE_FIELDS,
-} from './fragments';
+} from './fragments/index';
 
 export const HOME_PAGE_QUERY = gql`
   ${ARTICLE_FIELDS}

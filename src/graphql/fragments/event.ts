@@ -1,5 +1,7 @@
-query EventBySlug($slug: String!) {
-  allEvent(where: {slug: {current: {eq: $slug}}}) {
+import { gql } from 'graphql-request';
+
+export const EVENT_FIELDS = gql`
+  fragment EventFields on Event {
     _id
     _type
     title
@@ -11,10 +13,7 @@ query EventBySlug($slug: String!) {
     location
     descriptionRaw
     mainImage {
-      asset {
-        _id
-        url
-      }
+      ...ImageFields
     }
   }
-}
+`;

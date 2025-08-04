@@ -1,5 +1,5 @@
 import { gql } from 'graphql-request';
-import { PARENT_FIELDS } from './fragments';
+import { PARENT_FIELDS } from './fragments/index';
 
 export const PARENT_BY_ID_QUERY = gql`
   ${PARENT_FIELDS}
