@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, GoogleAuthProvider, signInWithPopup } from '@/lib/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
+import GoogleSignInButton from '@/components/GoogleSignInButton';
 
-const AuthForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-
-  const handleLogin = async () => {
-    try {
-      setError(null);
-      await signInWithEmailAndPassword(auth, email, password);
-      router.push('/my/account');
-    } catch (err: any) {
-      setError(err.message);
-    }
-  };
 
   const handleSignup = async () => {
     try {
@@ -29,20 +20,11 @@ const AuthForm: React.FC = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    try {
-      setError(null);
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-      router.push('/my/account');
-    } catch (err: any) {
-      setError(err.message);
-    }
-  };
+  
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">Firebase Authentication</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
       {error && <p className="text-red-500 text-center mb-4">{error}</p>}
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -70,28 +52,23 @@ const AuthForm: React.FC = () => {
       </div>
       <div className="flex items-center justify-between">
         <button
-          onClick={handleLogin}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Login
-        </button>
-        <button
           onClick={handleSignup}
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Sign Up
+          Register
+        </button>
+        <button
+          onClick={() => router.push('/auth/login')}
+          className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Login
         </button>
       </div>
       <div className="flex items-center justify-center mt-4">
-        <button
-          onClick={handleGoogleLogin}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-        >
-          Sign in with Google
-        </button>
+        <GoogleSignInButton onError={setError} />
       </div>
     </div>
   );
 };
 
-export default AuthForm;
+export default RegisterForm;
