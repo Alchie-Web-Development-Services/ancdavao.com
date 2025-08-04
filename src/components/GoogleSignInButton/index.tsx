@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGoogle } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
@@ -24,9 +25,10 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onError }) => {
   return (
     <button
       onClick={handleGoogleLogin}
-      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline flex items-center justify-center space-x-2 transition duration-200"
     >
-      Sign in with Google
+      <FaGoogle className="text-white" />
+      <span>Sign in with Google</span>
     </button>
   );
 };
