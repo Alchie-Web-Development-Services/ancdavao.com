@@ -28,7 +28,7 @@ const EventSection: React.FC<EventSectionProps> = ({ event }) => {
     <section className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-neutral-800">Our Events</h2>
+          <h2 className="text-4xl font-bold text-neutral-800">Upcoming Event</h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
           Join us in creating meaningful impact through our upcoming events—feeding missions, health drives, educational outreach, and spiritual gatherings. Each event is an opportunity to serve, uplift, and build stronger communities with compassion and purpose.
           </p>
