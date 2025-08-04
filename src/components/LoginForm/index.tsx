@@ -24,7 +24,7 @@ const LoginForm: React.FC = () => {
   
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg">
+    <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg min-w-96">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Welcome Back!</h2>
       <p className="text-center text-gray-600 mb-8">Login to your account to continue</p>
       {error && <p className="text-red-500 text-center mb-4 text-sm">{error}</p>}

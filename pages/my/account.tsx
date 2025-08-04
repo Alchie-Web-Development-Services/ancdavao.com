@@ -4,13 +4,14 @@ import { auth } from '@/lib/firebase';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { FaRegUserCircle, FaRegCalendarAlt, FaGlobe, FaLanguage, FaRegEnvelope } from 'react-icons/fa';
+import Loading from '@/components/Loading';
 
 const MyAccount: React.FC = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
 
   if (loading) {
-    return <div className="container mx-auto px-4 py-8 text-center">Loading user data...</div>;
+    return <Loading />;
   }
 
   if (!user) {

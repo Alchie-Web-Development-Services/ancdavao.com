@@ -1,6 +1,5 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import PageHeader from "@/components/PageHeader";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,11 +19,6 @@ interface CauseDetailProps {
 }
 
 const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
 
   if (!cause) {
     return (
