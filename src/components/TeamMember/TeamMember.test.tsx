@@ -5,13 +5,25 @@ describe("TeamMember", () => {
   const mockMember = {
     name: "John Doe",
     role: "Lead Developer",
-    bio: "Passionate about open source and clean code.",
+    bioRaw: [
+      {
+        _key: "abc",
+        _type: "block",
+        children: [{
+          _key: "def",
+          _type: "span",
+          marks: [],
+          text: "Passionate about open source and clean code."
+        }],
+        markDefs: [],
+        style: "normal"
+      }
+    ],
     photo: {
       _type: "image",
       asset: {
-        _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-400x400-jpg",
+        _ref: "image-john-400x400-jpg",
         _type: "reference",
-        url: "https://cdn.sanity.io/images/tuggecli/production/john.jpg",
       },
     },
     socialMedia: {
@@ -30,17 +42,17 @@ describe("TeamMember", () => {
 
     expect(screen.getByText(mockMember.name)).toBeInTheDocument();
     expect(screen.getByText(mockMember.role)).toBeInTheDocument();
-    expect(screen.getByText(mockMember.bio)).toBeInTheDocument();
+    expect(screen.getByText(mockMember.bioRaw[0].children[0].text)).toBeInTheDocument();
   });
 
   it("renders social media links if provided", () => {
     render(<TeamMember member={mockMember} />);
 
-    expect(screen.getByLabelText("Twitter")).toHaveAttribute(
+    expect(screen.getByLabelText(/twitter/i)).toHaveAttribute(
       "href",
       mockMember.socialMedia.twitter,
     );
-    expect(screen.getByLabelText("LinkedIn")).toHaveAttribute(
+    expect(screen.getByLabelText(/linkedin/i)).toHaveAttribute(
       "href",
       mockMember.socialMedia.linkedin,
     );

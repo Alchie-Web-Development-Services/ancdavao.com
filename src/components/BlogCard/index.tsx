@@ -1,18 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import imageUrlBuilder from '@sanity/image-url';
 import { Article } from "@/generated/graphql";
-
-// Initialize the image URL builder
-const builder = imageUrlBuilder({
-  projectId: 'tuggecli',
-  dataset: 'production',
-});
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
+import { urlFor } from "@/lib/sanity";
 
 interface BlogCardProps {
   article: Article;

@@ -23,9 +23,8 @@ describe("EventCard", () => {
       mainImage: {
         _type: "image",
         asset: {
-          _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-800x600-jpg",
+          _ref: "image-test-image-800x600-jpg",
           _type: "reference",
-          url: "https://cdn.sanity.io/images/tuggecli/production/test-image.jpg",
         },
       },
       startDate: "2025-01-01T00:00:00Z",

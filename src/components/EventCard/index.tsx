@@ -2,19 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
-import imageUrlBuilder from '@sanity/image-url';
 import { AllEventsQuery } from "@/generated/graphql";
 import { PortableText } from '@portabletext/react'
-
-// Initialize the image URL builder
-const builder = imageUrlBuilder({
-  projectId: 'tuggecli',
-  dataset: 'production',
-});
-
-function urlFor(source: any) {
-  return builder.image(source);
-}
+import { urlFor } from "@/lib/sanity";
 
 interface EventCardProps {
   event: AllEventsQuery['allEvent'][number];
@@ -46,9 +36,9 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         <h3 className="text-xl font-semibold text-neutral-800 mb-2">
           {event.title}
         </h3>
-        <p className="text-neutral-600 text-sm mb-4">
+        <div className="text-neutral-600 text-sm mb-4">
           {event.descriptionRaw ? <PortableText value={event.descriptionRaw} /> : "No description provided."}
-        </p>
+        </div>
         <div className="flex items-center text-neutral-600 text-sm mb-2">
           <FaCalendarAlt className="mr-2 text-primary-600" />{" "}
           {startDate} {endDate && `- ${endDate}`}

@@ -9,14 +9,13 @@ describe("Testimonial", () => {
         children: [{ _type: "span", text: "This is a great quote." }],
       },
     ],
-    authorName: "Jane Doe",
+    author: "Jane Doe",
     authorRole: "Happy Customer",
     authorImage: {
       _type: "image",
       asset: {
-        _ref: "image-Tb9Ew8CXIwaY6R1kjMvI0uRR-128x128-jpg",
+        _ref: "image-placeholder1-128x128-jpg",
         _type: "reference",
-        url: "https://cdn.ancdavao.com/placeholder1.jpg",
       },
     },
   };
@@ -28,17 +27,17 @@ describe("Testimonial", () => {
         children: [{ _type: "span", text: "This is a great quote." }],
       },
     ],
-    authorName: "Jane Doe",
+    author: "Jane Doe",
   };
 
   it("renders testimonial with quote, author, and role", () => {
     render(<Testimonial testimonial={mockTestimonial} />);
 
     expect(screen.getByText("This is a great quote.")).toBeInTheDocument();
-    expect(screen.getByText(mockTestimonial.authorName)).toBeInTheDocument();
+    expect(screen.getByText(mockTestimonial.author)).toBeInTheDocument();
     expect(screen.getByText(mockTestimonial.authorRole)).toBeInTheDocument();
     expect(
-      screen.getByAltText(mockTestimonial.authorName),
+      screen.getByAltText(mockTestimonial.author),
     ).toBeInTheDocument();
   });
 
@@ -46,7 +45,7 @@ describe("Testimonial", () => {
     render(<Testimonial testimonial={mockTestimonialWithoutRoleAndAvatar} />);
 
     expect(screen.getByText("This is a great quote.")).toBeInTheDocument();
-    expect(screen.getByText(mockTestimonialWithoutRoleAndAvatar.authorName)).toBeInTheDocument();
+    expect(screen.getByText(mockTestimonialWithoutRoleAndAvatar.author)).toBeInTheDocument();
     expect(
       screen.queryByAltText(mockTestimonialWithoutRoleAndAvatar.authorName),
     ).not.toBeInTheDocument();
