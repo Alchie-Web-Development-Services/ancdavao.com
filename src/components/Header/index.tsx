@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Logo from "../Logo";
 import TopNav from "../TopNav";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useAuth } from "@/context/AuthContext";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -18,6 +19,10 @@ const navLinks = [
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
+  const { user } = useAuth();
+
+  const authLinkHref = user ? "/my/account" : "/auth";
+  const authLinkText = user ? "My Account" : "Join the Mission";
 
   return (
     <header
@@ -45,10 +50,10 @@ const Header: React.FC = () => {
           </div>
           <div className="hidden lg:block">
             <Link
-              href="/donate"
+              href={authLinkHref}
               className="bg-primary-700 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-800 transition-colors duration-300"
             >
-              Join the Mission
+              {authLinkText}
             </Link>
           </div>
           <div className="lg:hidden">
@@ -81,11 +86,11 @@ const Header: React.FC = () => {
               </Link>
             ))}
             <Link
-              href="/donate"
+              href={authLinkHref}
               onClick={() => setIsMenuOpen(false)}
               className="bg-primary-700 text-white text-center px-6 py-3 rounded-md font-semibold hover:bg-primary-800 transition-colors duration-300 mt-4"
             >
-              Join the Mission
+              {authLinkText}
             </Link>
           </div>
         </div>
