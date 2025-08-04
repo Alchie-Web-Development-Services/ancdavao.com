@@ -2,16 +2,33 @@ import { render, screen } from "@testing-library/react";
 import Header from "./index";
 import { vi } from "vitest";
 import { useRouter } from "next/router";
+import { useAuth } from "@/context/AuthContext";
 
 // Mock useRouter
 vi.mock("next/router", () => ({
   useRouter: vi.fn(),
 }));
 
+// Mock useAuth
+vi.mock("@/context/AuthContext", () => ({
+  useAuth: vi.fn(),
+}));
+
+// Mock firebase initialization to prevent actual Firebase calls during tests
+vi.mock("@/lib/firebase", () => ({
+  auth: {},
+  GoogleAuthProvider: vi.fn(),
+  signInWithPopup: vi.fn(),
+}));
+
 describe("Header", () => {
   beforeEach(() => {
     (useRouter as vi.Mock).mockReturnValue({
       pathname: "/",
+    });
+    (useAuth as vi.Mock).mockReturnValue({
+      user: null,
+      loading: false,
     });
   });
 

@@ -4,6 +4,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 
 interface GoogleSignInButtonProps {
+  // eslint-disable-next-line no-unused-vars
   onError: (message: string) => void;
 }
 
