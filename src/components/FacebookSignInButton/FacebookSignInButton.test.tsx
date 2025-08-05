@@ -2,12 +2,18 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import FacebookSignInButton from "./index";
 import { vi } from "vitest";
 import { signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/router";
 
 // Mock firebase auth functions
-vi.mock("firebase/auth", () => ({
-  FacebookAuthProvider: vi.fn(() => ({})),
-  signInWithPopup: vi.fn(),
-}));
+vi.mock("firebase/auth", async (importOriginal) => {
+  const actual = await importOriginal() as object;
+  return {
+    ...actual,
+    FacebookAuthProvider: vi.fn(() => ({})),
+    signInWithPopup: vi.fn(),
+    getAuth: vi.fn(() => ({})),
+  };
+});
 
 // Mock next/router
 vi.mock("next/router", () => ({
@@ -20,7 +26,7 @@ describe("FacebookSignInButton", () => {
   it("renders the button and handles successful sign-in", async () => {
     const mockOnError = vi.fn();
     const mockPush = vi.fn();
-    require("next/router").useRouter.mockReturnValue({ push: mockPush });
+    (useRouter as vi.Mock).mockReturnValue({ push: mockPush });
     (signInWithPopup as vi.Mock).mockResolvedValueOnce({});
 
     render(<FacebookSignInButton onError={mockOnError} />);
@@ -39,7 +45,7 @@ describe("FacebookSignInButton", () => {
   it("calls onError on sign-in failure", async () => {
     const mockOnError = vi.fn();
     const mockPush = vi.fn();
-    require("next/router").useRouter.mockReturnValue({ push: mockPush });
+    (useRouter as vi.Mock).mockReturnValue({ push: mockPush });
     const errorMessage = "Facebook sign-in failed";
     (signInWithPopup as vi.Mock).mockRejectedValueOnce(new Error(errorMessage));
 
