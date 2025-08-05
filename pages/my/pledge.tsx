@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import PledgeProgressBar from '@/components/PledgeProgressBar';
+import Badge from '@/components/Badge';
 
 // Mock data for demonstration
 const userPledge = {
@@ -27,20 +29,7 @@ const userPledge = {
   },
 };
 
-const PledgeProgressBar = ({ progress }: { progress: number }) => (
-  <div className="w-full bg-gray-200 rounded-full h-4 mb-2">
-    <div
-      className="bg-green-500 h-4 rounded-full transition-all"
-      style={{ width: `${Math.round(progress * 100)}%` }}
-    />
-  </div>
-);
 
-const Badge = ({ label }: { label: string }) => (
-  <span className="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded mr-2 mb-1">
-    {label}
-  </span>
-);
 
 const MyPledgePage = () => {
   const daysLeft = userPledge.timeframe - Math.floor((userPledge.progress * userPledge.timeframe));
