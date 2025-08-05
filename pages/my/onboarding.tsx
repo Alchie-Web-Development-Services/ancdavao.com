@@ -3,9 +3,13 @@ import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
 import { updateUserProfile, getUserProfile } from '@/services/userService';
 import Loading from '@/components/Loading';
+import { getPrivateLayout } from '@/components/PrivateLayout';
+import { NextPageWithLayout } from 'pages/_app';
+import { useMy } from '@/context/MyContext';
 
-const Onboarding: React.FC = () => {
+const Onboarding: NextPageWithLayout = () => {
   const { user, loading } = useAuth();
+  const { onboarded } = useMy();
   const router = useRouter();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -17,6 +21,11 @@ const Onboarding: React.FC = () => {
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
+
+    if (onboarded) {
+            router.push('/my/account');
+          }
+
     if (!loading && user) {
       const fetchUserProfile = async () => {
         const profile = await getUserProfile(user.uid);
@@ -37,7 +46,7 @@ const Onboarding: React.FC = () => {
     } else if (!loading && !user) {
       router.push('/auth/login');
     }
-  }, [user, loading, router]);
+  }, [user, loading, router, onboarded]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -190,5 +199,7 @@ const Onboarding: React.FC = () => {
     </div>
   );
 };
+
+Onboarding.getLayout = getPrivateLayout;
 
 export default Onboarding;

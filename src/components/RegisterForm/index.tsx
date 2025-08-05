@@ -16,15 +16,15 @@ const RegisterForm: React.FC = () => {
       setError(null);
       await createUserWithEmailAndPassword(auth, email, password);
       router.push('/my/account');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError((err as Error).message);
     }
   };
 
   
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg min-w-96">
+    <div className="max-w-md mx-auto p-8 bg-white rounded-xl shadow-lg min-w-96">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Create an Account</h2>
       <p className="text-center text-gray-600 mb-8">Sign up to get started</p>
       {error && <p className="text-red-500 text-center mb-4 text-sm">{error}</p>}

@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ProgramCard from "./index";
 import { vi } from "vitest";
-// eslint-disable-next-line no-unused-vars
-import { urlFor } from "@/lib/sanity";
 
 // Mock urlFor from Sanity
 vi.mock("@/lib/sanity", () => ({

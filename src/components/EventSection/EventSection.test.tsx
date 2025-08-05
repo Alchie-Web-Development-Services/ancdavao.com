@@ -12,7 +12,7 @@ vi.mock("../../lib/sanity", () => ({
 // Mock next/image
 vi.mock("next/image", () => ({
   __esModule: true,
-  default: (props: any) => {
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img {...props} alt={props.alt || "Test image"} />;
   },
@@ -20,7 +20,7 @@ vi.mock("next/image", () => ({
 
 // Mock PortableText
 vi.mock('@portabletext/react', () => ({
-  PortableText: ({ value }: { value: any }) => {
+  PortableText: ({ value }: { value: PortableTextBlock[] }) => {
     if (!value) return null;
     return value[0]?.children[0]?.text || "";
   },

@@ -5,7 +5,6 @@ import { auth } from '@/lib/firebase';
 import { FaFacebook } from 'react-icons/fa';
 
 interface FacebookSignInButtonProps {
-  // eslint-disable-next-line no-unused-vars
   onError: (_message: string) => void;
 }
 
@@ -17,8 +16,8 @@ const FacebookSignInButton: React.FC<FacebookSignInButtonProps> = ({ onError }) 
       const provider = new FacebookAuthProvider();
       await signInWithPopup(auth, provider);
       router.push('/my/account');
-    } catch (err: any) {
-      onError(err.message);
+    } catch (err: unknown) {
+      onError((err as Error).message);
     }
   };
 

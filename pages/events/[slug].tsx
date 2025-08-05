@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { client, urlFor } from "@//lib/sanity";
 import { AllEventsQuery, Event } from "@//generated/graphql";
 import Image from "next/image";
-import { PortableText } from '@portabletext/react'
+import { PortableText, PortableTextBlock } from '@portabletext/react'
 import SEO from "@/components/SEO";
 import { ALL_EVENTS_QUERY } from "@//graphql/allEvents";
 import { EVENT_BY_SLUG_QUERY } from "@//graphql/eventBySlug";
@@ -32,7 +32,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
     <div className="min-h-screen bg-neutral-100">
       <SEO
         title={event.title || "Event Detail"}
-        description={event.descriptionRaw ? (event.descriptionRaw[0] as any)?.children[0]?.text : "Details about a specific event hosted by ANC Davao."}
+        description={event.descriptionRaw ? (event.descriptionRaw[0] as PortableTextBlock)?.children[0]?.text : "Details about a specific event hosted by ANC Davao."}
         keywords={`${event.title}, ANC Davao, event, community, support`}
       />
       <div className="relative h-96 w-full">

@@ -5,8 +5,7 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 
 interface GoogleSignInButtonProps {
-  // eslint-disable-next-line no-unused-vars
-  onError: (message: string) => void;
+  onError: (_message: string) => void;
 }
 
 const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onError }) => {
@@ -17,8 +16,8 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onError }) => {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
       router.push('/my/account');
-    } catch (err: any) {
-      onError(err.message);
+    } catch (err: unknown) {
+      onError((err as Error).message);
     }
   };
 

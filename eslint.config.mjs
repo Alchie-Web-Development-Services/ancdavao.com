@@ -10,7 +10,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.config({
-    extends: ["eslint:recommended", "next"],
+    extends: ["eslint:recommended", "next", "plugin:@typescript-eslint/recommended"],
   }),
   {
     files: ["**/*.test.ts", "**/*.test.tsx"],
@@ -18,6 +18,10 @@ const eslintConfig = [
       globals: {
         ...globals.vitest,
       },
+    },
+    rules: {
+      // Allow unused function arguments if prefixed with `_`
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
 ];

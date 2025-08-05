@@ -12,7 +12,7 @@ vi.mock("../../lib/sanity", () => ({
 // Mock next/image
 vi.mock("next/image", () => ({
   __esModule: true,
-  default: (props: any) => {
+  default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img {...props} alt={props.alt || "Test image"} />;
   },
@@ -21,7 +21,7 @@ vi.mock("next/image", () => ({
 // Mock the TeamMember component as it's a dependency
 vi.mock("../TeamMember", () => ({
   __esModule: true,
-  default: ({ member }: any) => (
+  default: ({ member }: { member: TeamMemberType }) => (
     <div data-testid="team-member">
       <h3>{member.name}</h3>
       <p>{member.role}</p>

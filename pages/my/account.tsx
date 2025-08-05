@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import { FaRegUserCircle, FaRegCalendarAlt, FaGlobe, FaLanguage, FaRegEnvelope } from 'react-icons/fa';
 import Loading from '@/components/Loading';
 import { getUserProfile } from '@/services/userService';
+import { getPrivateLayout } from '@/components/PrivateLayout';
+import { NextPageWithLayout } from 'pages/_app';
 
 interface UserProfile {
   uid: string;
@@ -21,8 +23,8 @@ interface UserProfile {
   onboarded?: boolean;
 }
 
-const MyAccount: React.FC = () => {
-  const { user, loading, onboarded } = useAuth();
+const MyAccount: NextPageWithLayout = () => {
+  const { user, loading } = useAuth();
   const router = useRouter();
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
 
@@ -31,15 +33,12 @@ const MyAccount: React.FC = () => {
       const fetchProfile = async () => {
         const profile = await getUserProfile(user.uid);
         setUserProfile(profile);
-        if (!onboarded) {
-          router.push('/onboarding');
-        }
       };
       fetchProfile();
     } else if (!loading && !user) {
       router.push('/auth/login');
     }
-  }, [user, loading, onboarded, router]);
+  }, [user, loading, router]);
 
   if (loading || !userProfile) {
     return <Loading />;
@@ -94,18 +93,18 @@ const MyAccount: React.FC = () => {
                 </a>
               </li>
               <li className="mb-2">
-                <a href="#" className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50">
-                  Billing & Payments
+                <a href="/my/pledge" className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50">
+                  Pledge
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/my/history" className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50">
+                  Donation History
                 </a>
               </li>
               <li className="mb-2">
                 <a href="#" className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50">
-                  Order History
-                </a>
-              </li>
-              <li className="mb-2">
-                <a href="#" className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50">
-                  Gift Cards
+                  Sponsorships
                 </a>
               </li>
             </ul>
@@ -188,5 +187,7 @@ const MyAccount: React.FC = () => {
     </div>
   );
 };
+
+MyAccount.getLayout = getPrivateLayout
 
 export default MyAccount;

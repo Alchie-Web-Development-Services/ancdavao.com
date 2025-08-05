@@ -4,7 +4,7 @@ import useFetchJson from "@/hooks/useFetchJson";
 import FAQItem, { FAQItemProps } from "../FAQItem";
 
 const FAQSection: React.FC = () => {
-  const { data, loading } = useFetchJson<any>("/data/faqs.json");
+  const { data, loading } = useFetchJson<{ [key: string]: FAQItemProps[] }>("/data/faqs.json");
 
   const [activeCategory, setActiveCategory] = useState("General Questions");
 

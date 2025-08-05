@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { urlFor } from "../../lib/sanity";
 import { Event } from "@/generated/graphql";
+import { PortableTextBlock } from "@portabletext/react";
 
 interface EventSectionProps {
   event: Event | null;
@@ -61,7 +62,7 @@ const EventSection: React.FC<EventSectionProps> = ({ event }) => {
                 {event.title}
               </h3>
               <p className="text-neutral-600 mb-6">
-                {event.descriptionRaw ? (event.descriptionRaw[0] as any)?.children[0]?.text : "No description provided."}
+                {event.descriptionRaw ? (event.descriptionRaw[0] as PortableTextBlock)?.children[0]?.text : "No description provided."}
               </p>
               <Link
                 href={`/events/${event.slug?.current}`}

@@ -12,7 +12,7 @@ vi.mock("../../lib/sanity", () => ({
 // Mock the Testimonial component
 vi.mock("../Testimonial", () => ({
   __esModule: true,
-  default: ({ testimonial }: { testimonial: any }) => (
+  default: ({ testimonial }: { testimonial: Testimonial }) => (
     <div data-testid="testimonial">
       <div>{testimonial.contentRaw?.[0]?.children?.[0]?.text || testimonial.quote}</div>
       <p>{testimonial.author}</p>
