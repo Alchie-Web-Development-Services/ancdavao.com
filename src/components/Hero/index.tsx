@@ -7,10 +7,10 @@ const Hero: React.FC = () => {
       className="relative bg-cover bg-center text-white py-40 px-4"
       style={{
         backgroundImage:
-          "url('https://cdn.ancdavao.com/placeholder1.jpg?random')",
+          "url('https://cdn.ancdavao.com/hero1-min.jpg')",
       }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative container mx-auto text-center z-10">
         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
           Nourishing Hope, <br /> One Child at a Time

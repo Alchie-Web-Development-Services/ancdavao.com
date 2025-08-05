@@ -1,42 +1,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
-const galleryItems = [
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Food",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Income",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Education",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Blood",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Water",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Food",
-  },
-];
+import { urlFor } from "@/lib/sanity";
+import { MomentsOfHope } from "@/generated/graphql";
 
 const categories = ["All", "Food", "Income", "Education", "Blood", "Water"];
 
-const GallerySection: React.FC = () => {
+interface GallerySectionProps {
+  momentsOfHope: MomentsOfHope[];
+}
+
+const GallerySection: React.FC<GallerySectionProps> = ({ momentsOfHope }) => {
   const [filter, setFilter] = useState("All");
 
-  const filteredItems =
-    filter === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === filter);
+
 
   return (
     <section className="py-20 bg-white">
@@ -68,11 +44,11 @@ const GallerySection: React.FC = () => {
           ))}
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {filteredItems.map((item, index) => (
-            <div key={index} className="overflow-hidden rounded-lg shadow-md">
+          {momentsOfHope.filter((m) => m.image).map((moment) => (
+            <div key={moment._id} className="overflow-hidden rounded-lg shadow-md">
               <Image
-                src={item.src}
-                alt={`Gallery item ${index + 1}`}
+                src={urlFor(moment.image).url()}
+                alt={`Moment of hope ${moment._id}`}
                 width={800}
                 height={600}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"

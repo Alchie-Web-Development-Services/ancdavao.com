@@ -9,7 +9,6 @@ import CTASection from "@/components/CTASection";
 import DonationFAQSection from "@/components/DonationFAQSection";
 import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
-import MomentsOfHopeSection from "@/components/MomentsOfHopeSection";
 import SEO from "@/components/SEO";
 import { client } from "@/lib/sanity";
 import { HOME_PAGE_QUERY } from "@/graphql/homePage";
@@ -38,11 +37,10 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events, momen
         <ImpactSection />
         <CausesSection causes={causes} />
         <EventSection event={events[0] as Event} />
-        <GallerySection />
+        <GallerySection momentsOfHope={momentsOfHope} />
         <CTASection />
         <DonationFAQSection />
         <VolunteersSection volunteers={volunteers} />
-        <MomentsOfHopeSection momentsOfHope={momentsOfHope} />
         <BlogSection articles={articles} />
       </main>
     </div>

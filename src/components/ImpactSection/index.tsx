@@ -77,7 +77,7 @@ const ImpactSection: React.FC = () => {
           </div>
           <div>
             <Image
-              src="https://cdn.ancdavao.com/placeholder1.jpg"
+              src="https://cdn.ancdavao.com/image1-min.jpg"
               alt="Happy recipients"
               width={800}
               height={600}

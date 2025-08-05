@@ -5,11 +5,11 @@ import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import MyAccountHeader from '@/components/MyAccountHeader';
 import MyAccountSidebar from '@/components/MyAccountSidebar';
-import PledgeContent from '@/components/PledgeContent';
 import Loading from '@/components/Loading';
 import { getUserProfile } from '@/services/userService';
 import { getPrivateLayout } from '@/components/PrivateLayout';
 import { NextPageWithLayout } from 'pages/_app';
+import SponsorshipsContent from '@/components/SponsorshipsContent';
 
 interface UserProfile {
   uid: string;
@@ -25,7 +25,7 @@ interface UserProfile {
   onboarded?: boolean;
 }
 
-const MyPledgePage: NextPageWithLayout = () => {
+const MySponsorships: NextPageWithLayout = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -66,13 +66,13 @@ const MyPledgePage: NextPageWithLayout = () => {
 
       <div className="container mx-auto px-4 py-8">
         <MyAccountSidebar fullName={fullName} email={userProfile.email}>
-          <PledgeContent />
+          <SponsorshipsContent />
         </MyAccountSidebar>
       </div>
     </div>
   );
 };
 
-MyPledgePage.getLayout = getPrivateLayout;
+MySponsorships.getLayout = getPrivateLayout;
 
-export default MyPledgePage;
+export default MySponsorships;
