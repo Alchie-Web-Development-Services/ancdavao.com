@@ -21,22 +21,13 @@ const Programs: React.FC<ProgramsProps> = ({ programs }) => {
         keywords="ANC Davao programs, feeding program, education support, youth development, healthcare initiative, community development, volunteer program, social impact"
       />
       <PageHeader
-        title="Our Programs"
-        subtitle="Discover how we're making a difference in the lives of children and communities in Davao"
+        title="Transforming Lives Through Purposeful Programs"
+        subtitle="From feeding and education to spiritual growth and community empowerment, our diverse programs are thoughtfully designed to meet the unique needs of the communities we serve—creating lasting impact, one life at a time."
         backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Impactful Programs
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We run a variety of programs designed to address the diverse needs
-              of the communities we serve.
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => (

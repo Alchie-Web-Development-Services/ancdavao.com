@@ -7,5 +7,8 @@ export const MOMENTS_OF_HOPE_FIELDS = gql`
     title
     date
     link
+    image {
+      ...ImageFields
+    }
   }
 `;

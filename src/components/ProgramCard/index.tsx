@@ -3,13 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import { ProgramService } from "@/generated/graphql";
+import { PortableText } from "@portabletext/react";
 
 interface ProgramCardProps {
   program: ProgramService;
 }
 
 const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
-  const imgSrc = program.mainImage ? urlFor(program.mainImage).url() : "https://via.placeholder.com/800x600?text=No+Image";
+  const imgSrc = program.mainImage ? urlFor(program.mainImage).url() : "https://cdn.ancdavao.com/placeholder1.jpg";
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100">
@@ -24,10 +25,9 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
         <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
           {program.title}
         </h3>
-        <p className="text-gray-600 mb-6">
-          {/* Assuming descriptionRaw is a portable text field, you might need a component to render it */}
-          {program.descriptionRaw ? "Description available" : "No description provided."}
-        </p>
+        <div className="text-gray-600 mb-6">
+          <PortableText value={program.descriptionRaw} />
+        </div>
 
         {/* You might want to add dynamic stats here if your Sanity schema supports it */}
         <div className="mt-6 text-center">

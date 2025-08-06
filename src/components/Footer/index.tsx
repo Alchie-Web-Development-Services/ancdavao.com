@@ -47,10 +47,10 @@ const Footer: React.FC = () => {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm grid grid-cols-2">
+            <ul className="text-sm grid grid-cols-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-neutral-400 hover:text-white">
+                  <Link href={link.href} className="text-neutral-400 hover:text-white py-1 block">
                     {link.name}
                   </Link>
                 </li>

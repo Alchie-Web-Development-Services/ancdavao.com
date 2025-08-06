@@ -13,7 +13,7 @@ const PrivacyPolicy: React.FC = () => {
       <PageHeader
         title="Privacy Policy"
         subtitle="Your privacy is important to us."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg=privacy"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">

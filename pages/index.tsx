@@ -5,7 +5,6 @@ import ImpactSection from "@/components/ImpactSection";
 import EventSection from "@/components/EventSection";
 import GallerySection from "@/components/GallerySection";
 import CTASection from "@/components/CTASection";
-import DonationFAQSection from "@/components/DonationFAQSection";
 import VolunteersSection from "@/components/VolunteersSection";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
@@ -37,7 +36,6 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, events, momentsOfHope
         <EventSection event={events[0] as Event} />
         <GallerySection momentsOfHope={momentsOfHope} />
         <CTASection />
-        <DonationFAQSection />
         <VolunteersSection volunteers={volunteers} />
         <BlogSection articles={articles} />
       </main>
