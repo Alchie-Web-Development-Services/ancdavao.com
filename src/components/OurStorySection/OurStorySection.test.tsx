@@ -13,7 +13,10 @@ describe("OurStorySection", () => {
       screen.getByRole("link", { name: "Read More About Our History" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Discover Our Centers" }),
+      screen.getByRole("link", { name: "Our Centers" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Our Partners" }),
     ).toBeInTheDocument();
   });
 });
