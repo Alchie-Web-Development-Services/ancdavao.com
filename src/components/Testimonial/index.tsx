@@ -1,18 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import { Testimonial as TestimonialType } from "@/generated/graphql";
+import { PortableText } from '@portabletext/react'
+import { urlFor } from "@/lib/sanity";
 
 interface TestimonialProps {
-  quote: string;
-  author: string;
-  role?: string;
-  avatar?: string;
+  testimonial: TestimonialType;
 }
 
 const Testimonial: React.FC<TestimonialProps> = ({
-  quote,
-  author,
-  role,
-  avatar,
+  testimonial,
 }) => {
   return (
     <div className="bg-white p-8 rounded-lg shadow-md">
@@ -27,23 +24,25 @@ const Testimonial: React.FC<TestimonialProps> = ({
         </svg>
       </div>
       <blockquote className="mb-6">
-        <p className="text-lg text-gray-700">&quot;{quote}&quot;</p>
+        <div className="text-lg text-gray-700">
+          <PortableText value={testimonial.contentRaw} />
+        </div>
       </blockquote>
       <div className="flex items-center">
-        {avatar && (
+        {testimonial.authorImage && (
           <div className="mr-4">
             <Image
               className="h-12 w-12 rounded-full"
-              src={avatar}
-              alt={author}
+              src={urlFor(testimonial.authorImage).url()}
+              alt={testimonial.author}
               width={100}
               height={100}
             />
           </div>
         )}
         <div>
-          <p className="font-medium text-gray-900">{author}</p>
-          {role && <p className="text-sm text-gray-500">{role}</p>}
+          <p className="font-medium text-gray-900">{testimonial.author}</p>
+          {testimonial.authorRole && <p className="text-sm text-gray-500">{testimonial.authorRole}</p>}
         </div>
       </div>
     </div>

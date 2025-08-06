@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# ANCDavao Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the Next.js application for the Archdiocesan Nourishment Center (ANC) Davao website. It is built to provide a robust and scalable platform for managing content, engaging with the community, and facilitating various organizational activities.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Next.js**: A React framework for building performant and scalable web applications.
+*   **React**: A JavaScript library for building user interfaces.
+*   **Firebase**: Utilized for authentication (Email/Password, Google Sign-In) and potentially other backend services.
+*   **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+*   **TypeScript**: For type-safe and maintainable code.
+*   **Vitest**: A fast and modern testing framework.
+*   **ESLint**: For maintaining code quality and consistency.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+First, install the dependencies:
 
-```js
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then, run the development server:
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+yarn dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+*   `yarn dev`: Runs the app in development mode.
+*   `yarn build`: Builds the application for production.
+*   `yarn start`: Starts the production server.
+*   `yarn lint`: Runs ESLint to check for code quality issues.
+*   `yarn test`: Runs tests using Vitest.
+*   `yarn coverage`: Runs tests and generates a code coverage report.
+
+## Project Structure
+
+*   `pages/`: Contains the Next.js pages (routes) of the application, including:
+    *   `pages/auth/`: Authentication-related pages (login, register).
+    *   `pages/my/`: User-specific pages (e.g., account dashboard).
+*   `public/`: Stores static assets like images, favicons, and data files.
+*   `src/components/`: Houses reusable React components, including:
+    *   `AuthForm/`: (Deprecated) Old authentication form.
+    *   `AuthStatus/`: (Deprecated) Old authentication status display.
+    *   `LoginForm/`: Component for user login.
+    *   `RegisterForm/`: Component for user registration.
+    *   `GoogleSignInButton/`: Reusable component for Google authentication.
+    *   Other UI components (Header, Footer, SEO, etc.).
+*   `src/constants/`: Defines application-wide constants.
+*   `src/context/`: Manages global state using React Context API, including `AuthContext` for authentication state.
+*   `src/hooks/`: Contains custom React hooks.
+*   `src/lib/`: Utility functions and Firebase initialization (`firebase.ts`).
+*   `src/services/`: Integrates with external services.
+*   `src/styles/`: Global stylesheets.
+
+## Deployment
+
+This project is configured for deployment with Firebase Hosting, leveraging Firebase Authentication for user management.

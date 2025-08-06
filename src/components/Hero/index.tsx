@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Head from "next/head";
+
+const backgroundImages = [
+  "https://cdn.ancdavao.com/hero/hero1-min.jpg",
+  "https://cdn.ancdavao.com/hero/hero2-min.jpg",
+  "https://cdn.ancdavao.com/hero/hero3-min.jpg",
+  "https://cdn.ancdavao.com/hero/hero4-min.jpg",
+  "https://cdn.ancdavao.com/hero/hero5-min.jpg",
+  "https://cdn.ancdavao.com/hero/hero6-min.jpg",
+  "https://cdn.ancdavao.com/hero/hero7-min.jpg",
+];
 
 const Hero: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % backgroundImages.length
+      );
+    }, 10000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
+    <>
+    <Head>
+      {backgroundImages.map((image) => (
+        <link key={image} rel="preload" href={image} as="image" />
+      ))}
+    </Head>
     <section
-      className="relative bg-cover bg-center text-white py-40 px-4"
+      className="relative bg-cover bg-center text-white py-40 px-4 transition-all duration-1000 ease-in-out"
       style={{
-        backgroundImage:
-          "url('https://cdn.ancdavao.com/placeholder1.jpg?random')",
+        backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
       }}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="relative container mx-auto text-center z-10">
         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
           Nourishing Hope, <br /> One Child at a Time
@@ -36,6 +64,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

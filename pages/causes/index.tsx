@@ -1,52 +1,21 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
-import Link from "next/link";
-import Image from "next/image";
 import SEO from "@/components/SEO";
+import CauseCard from "@/components/CauseCard";
+import { client } from "@//lib/sanity";
+import { AllCausesQuery } from "@//generated/graphql";
+import { ALL_CAUSES_QUERY } from "@//graphql/allCauses";
 
-const Causes: React.FC = () => {
-  const mockCauses = [
-    {
-      id: 1,
-      title: "Education for All",
-      description:
-        "Providing access to quality education for underprivileged children.",
-      raised: 75000,
-      goal: 100000,
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-    {
-      id: 2,
-      title: "Healthcare Access",
-      description: "Ensuring basic healthcare services are available to all.",
-      raised: 50000,
-      goal: 80000,
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-    {
-      id: 3,
-      title: "Food Security",
-      description: "Working towards a future where no one goes hungry.",
-      raised: 90000,
-      goal: 120000,
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-    {
-      id: 4,
-      title: "Clean Water Initiative",
-      description:
-        "Providing clean and safe drinking water to rural communities.",
-      raised: 60000,
-      goal: 75000,
-      image: "https://cdn.ancdavao.com/placeholder1.jpg",
-    },
-  ];
+interface CausesProps {
+  causes: AllCausesQuery['allCause'];
+}
 
+const Causes: React.FC<CausesProps> = ({ causes }) => {
   return (
     <div className="min-h-screen">
       <SEO
         title="Causes"
-        description="Explore the various causes ANC Davao supports, including education, healthcare, food security, and clean water initiatives. Find a cause to support and make a difference."
+        description="Explore the various causes ANC Davao supports, including education, healthcare, food security, and clean water initiatives. Find a cause to support and make a lasting impact."
         keywords="ANC Davao causes, education, healthcare, food security, clean water, initiatives, support, donate"
       />
       <PageHeader
@@ -61,47 +30,8 @@ const Causes: React.FC = () => {
             Our Impactful Causes
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mockCauses.map((cause) => (
-              <div
-                key={cause.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <Image
-                  src={cause.image}
-                  alt={cause.title}
-                  width={800}
-                  height={600}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-neutral-800 mb-2">
-                    {cause.title}
-                  </h3>
-                  <p className="text-neutral-600 text-sm mb-4">
-                    {cause.description}
-                  </p>
-                  <div className="mb-4">
-                    <div className="flex justify-between text-sm font-medium text-neutral-700 mb-1">
-                      <span>Raised: ${cause.raised.toLocaleString()}</span>
-                      <span>Goal: ${cause.goal.toLocaleString()}</span>
-                    </div>
-                    <div className="w-full bg-neutral-200 rounded-full h-2.5">
-                      <div
-                        className="bg-primary-600 h-2.5 rounded-full"
-                        style={{
-                          width: `${(cause.raised / cause.goal) * 100}%`,
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                  <Link
-                    href={`/causes/${cause.id}`}
-                    className="w-full block text-center bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 transition-colors duration-300"
-                  >
-                    Donate Now
-                  </Link>
-                </div>
-              </div>
+            {causes.map((cause) => (
+              <CauseCard key={cause._id} cause={cause} />
             ))}
           </div>
         </div>
@@ -109,5 +39,15 @@ const Causes: React.FC = () => {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const result = await client.request<AllCausesQuery>(ALL_CAUSES_QUERY);
+
+  return {
+    props: {
+      causes: result.allCause,
+    },
+  };
+}
 
 export default Causes;

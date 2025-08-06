@@ -9,6 +9,9 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import SEO from "@/components/SEO";
+import ContactInfoCard from "@/components/ContactInfoCard";
+import BusinessHours from "@/components/BusinessHours";
+import SocialMediaLinks from "@/components/SocialMediaLinks";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -128,16 +131,7 @@ const Contact: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {contactInfo.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-8 text-center"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-50 flex items-center justify-center">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </div>
+              <ContactInfoCard key={index} {...item} />
             ))}
           </div>
 
@@ -264,42 +258,16 @@ const Contact: React.FC = () => {
                 </div>
 
                 {/* Business Hours */}
-                <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-                  <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
-                  <ul className="space-y-2">
-                    {[
-                      { day: "Monday - Friday", hours: "8:00 AM - 5:00 PM" },
-                      { day: "Saturday", hours: "9:00 AM - 2:00 PM" },
-                      { day: "Sunday", hours: "Closed" },
-                    ].map((item, index) => (
-                      <li key={index} className="flex justify-between">
-                        <span className="text-gray-700">{item.day}</span>
-                        <span className="font-medium">{item.hours}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <BusinessHours
+                  hours={[
+                    { day: "Monday - Friday", hours: "8:00 AM - 5:00 PM" },
+                    { day: "Saturday", hours: "9:00 AM - 2:00 PM" },
+                    { day: "Sunday", hours: "Closed" },
+                  ]}
+                />
 
                 {/* Social Media */}
-                <div className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-xl font-semibold mb-4">
-                    Connect With Us
-                  </h3>
-                  <div className="flex space-x-4">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center hover:bg-primary-200 transition-colors"
-                        aria-label={social.name}
-                      >
-                        {social.icon}
-                      </a>
-                    ))}
-                  </div>
-                </div>
+                <SocialMediaLinks socialLinks={socialLinks} />
               </div>
             </div>
           </div>

@@ -8,6 +8,9 @@ import {
   FaBullhorn,
 } from "react-icons/fa";
 import SEO from "@/components/SEO";
+import GetInvolvedOptionCard from "@/components/GetInvolvedOptionCard";
+import VolunteerRoleCard from "@/components/VolunteerRoleCard";
+import CorporatePartnershipCard from "@/components/CorporatePartnershipCard";
 
 const GetInvolved: React.FC = () => {
   const involvementOptions = [
@@ -126,48 +129,7 @@ const GetInvolved: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {involvementOptions.map((option) => (
-              <div
-                key={option.id}
-                className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex justify-center">{option.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
-                  {option.title}
-                </h3>
-                <p className="text-gray-600 mb-4 text-center">
-                  {option.description}
-                </p>
-
-                <ul className="mb-6 space-y-2">
-                  {option.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg
-                        className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="text-gray-600">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="text-center mt-auto">
-                  <Link
-                    href={option.link}
-                    className="inline-flex items-center justify-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors w-full"
-                  >
-                    {option.linkText}
-                  </Link>
-                </div>
-              </div>
+              <GetInvolvedOptionCard key={option.id} {...option} />
             ))}
           </div>
 
@@ -185,37 +147,7 @@ const GetInvolved: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {volunteerRoles.map((role) => (
-                <div
-                  key={role.id}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
-                >
-                  <h3 className="text-xl font-semibold text-primary-700 mb-2">
-                    {role.title}
-                  </h3>
-                  <p className="text-sm text-primary-600 font-medium mb-3">
-                    {role.timeCommitment}
-                  </p>
-                  <p className="text-gray-600 mb-4">{role.description}</p>
-                  <Link
-                    href="/volunteer/apply"
-                    className="text-primary-600 hover:text-primary-800 font-medium text-sm inline-flex items-center"
-                  >
-                    Learn more
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </Link>
-                </div>
+                <VolunteerRoleCard key={role.id} {...role} />
               ))}
             </div>
 
@@ -261,12 +193,7 @@ const GetInvolved: React.FC = () => {
                     "Maximize your impact with corporate matching gift programs.",
                 },
               ].map((item, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                  <h3 className="text-xl font-semibold text-primary-700 mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
+                <CorporatePartnershipCard key={index} {...item} />
               ))}
             </div>
 

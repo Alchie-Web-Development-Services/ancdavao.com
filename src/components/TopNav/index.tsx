@@ -1,35 +1,40 @@
 import React from "react";
+import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 
 const TopNav: React.FC = () => {
   return (
-    <div className="bg-red-700 text-white text-sm py-2">
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex space-x-4">
-          <div className="flex items-center">
-            <i className="fas fa-map-marker-alt mr-1"></i>
-            <span>California, TX 70240</span>
-          </div>
-          <div className="flex items-center">
-            <i className="fas fa-envelope mr-1"></i>
-            <span>Info@Gmail.Com</span>
-          </div>
-          <div className="flex items-center">
-            <i className="fas fa-phone-alt mr-1"></i>
-            <span>+123 456 7890</span>
-          </div>
+    <div className="bg-primary-700 text-white">
+      <div className="container mx-auto px-4 h-12 flex justify-between items-center text-sm">
+        <div className="flex items-center space-x-6">
+          <a href="#" className="hover:text-primary-200">
+            Pag-asa St, Brgy. 24-C, Fatima, Davao City
+          </a>
+          <a
+            href="mailto:info@ancdavao.com"
+            className="hover:text-primary-200"
+          >
+            info@ancdavao.com
+          </a>
+          <a href="tel:+1234567890" className="hover:text-primary-200">
+            +63 (82) 285-1524
+          </a>
         </div>
-        <div className="flex space-x-3">
-          <a href="#" className="hover:text-gray-300" aria-label="facebook">
-            <i className="fab fa-facebook-f"></i>
+        <div className="flex items-center space-x-4">
+          <a
+            href="https://www.facebook.com/archdiocesannourishmentcenter/"
+            className="hover:text-primary-200"
+            target="_blank"
+            aria-label="Facebook"
+          >
+            <FaFacebook />
           </a>
-          <a href="#" className="hover:text-gray-300" aria-label="twitter">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" className="hover:text-gray-300" aria-label="dribbble">
-            <i className="fab fa-dribbble"></i>
-          </a>
-          <a href="#" className="hover:text-gray-300" aria-label="pinterest">
-            <i className="fab fa-pinterest"></i>
+          <a
+            href="https://www.linkedin.com/company/archdiocesan-nourishment-center/"
+            className="hover:text-primary-200"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn />
           </a>
         </div>
       </div>

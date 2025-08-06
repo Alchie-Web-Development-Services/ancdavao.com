@@ -41,18 +41,18 @@ describe("SEO", () => {
   it("renders default meta tags when no props are provided", () => {
     render(<SEO />);
 
-    expect(document.title).toBe("ANC Davao - Advancing the Kingdom of God");
+    expect(document.title).toBe("ANC Davao - Serving Christ through Charity and Mission");
     expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
       "content",
-      "Advancing the Kingdom of God through discipleship, community, and service in Davao City and beyond.",
+      "A Catholic mission initiative in Davao City committed to serving the poor, promoting human dignity, and living out the Gospel through love, service, and community outreach.",
     );
     expect(document.querySelector('meta[name="keywords"]')).toHaveAttribute(
       "content",
-      "ANC Davao, church, Davao, Christian, discipleship, community, service, kingdom of God",
+      "ANC Davao, Catholic mission, Davao charity, Roman Catholic, discipleship, corporal works of mercy, community service, Gospel values, social outreach, ACLAIM, Archdiocese of Davao",
     );
     expect(document.querySelector('meta[property="og:title"]')).toHaveAttribute(
       "content",
-      "ANC Davao - Advancing the Kingdom of God",
+      "ANC Davao - Serving Christ through Charity and Mission",
     );
     expect(document.querySelector('meta[property="og:url"]')).toHaveAttribute(
       "content",

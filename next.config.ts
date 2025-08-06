@@ -8,11 +8,19 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
         hostname: "source.unsplash.com",
       },
       {
         protocol: "https",
         hostname: "picsum.photos",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.ancdavao.com",
       },
     ],
     unoptimized: true,

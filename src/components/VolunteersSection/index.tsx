@@ -1,73 +1,12 @@
 import React from "react";
-import Image from "next/image";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { Volunteer } from "@/generated/graphql";
+import VolunteerCard from "../VolunteerCard";
 
-const VolunteerCard: React.FC<{
-  imgSrc: string;
-  name: string;
-  title: string;
-  description: string;
-}> = ({ imgSrc, name, title, description }) => {
-  return (
-    <div className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-      <Image
-        src={imgSrc}
-        alt={name}
-        width={128}
-        height={128}
-        className="w-32 h-32 rounded-full mx-auto mb-4"
-      />
-      <h3 className="text-xl font-bold text-neutral-800">{name}</h3>
-      <p className="text-primary-600 font-semibold mb-2">{title}</p>
-      <p className="text-neutral-600 text-sm mb-4">{description}</p>
-      <div className="flex justify-center space-x-3">
-        <a href="#" className="text-primary-600 hover:text-primary-700">
-          <FaFacebookF />
-        </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
-          <FaTwitter />
-        </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
-          <FaInstagram />
-        </a>
-        <a href="#" className="text-primary-600 hover:text-primary-700">
-          <FaLinkedinIn />
-        </a>
-      </div>
-    </div>
-  );
-};
+interface VolunteersSectionProps {
+  volunteers: Volunteer[];
+}
 
-const VolunteersSection: React.FC = () => {
-  const volunteers = [
-    {
-      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
-      name: "Dunald Minia",
-      title: "The Organizer",
-      description:
-        "Committed amending smallness in sir an smiling. Turned favour man two but lovers. Suffer should if waited common person little oh. He in just mr door body held john down he. So journey greatly or garrets. ",
-    },
-    {
-      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
-      name: "John Doe",
-      title: "Lead Volunteer",
-      description:
-        "Committed amending smallness in sir an smiling. Turned favour man two but lovers. Suffer should if waited common person little oh. He in just mr door body held john down he. So journey greatly or garrets. ",
-    },
-    {
-      imgSrc: "https://cdn.ancdavao.com/placeholder1.jpg",
-      name: "Jane Smith",
-      title: "Event Coordinator",
-      description:
-        "Committed amending smallness in sir an smiling. Turned favour man two but lovers. Suffer should if waited common person little oh. He in just mr door body held john down he. So journey greatly or garrets. ",
-    },
-  ];
-
+const VolunteersSection: React.FC<VolunteersSectionProps> = ({ volunteers }) => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -89,8 +28,8 @@ const VolunteersSection: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {volunteers.map((volunteer, index) => (
-            <VolunteerCard key={index} {...volunteer} />
+          {volunteers.map((volunteer) => (
+            <VolunteerCard key={volunteer._id} volunteer={volunteer} />
           ))}
         </div>
       </div>

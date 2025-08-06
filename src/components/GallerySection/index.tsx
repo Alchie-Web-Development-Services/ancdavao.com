@@ -1,42 +1,13 @@
-import React, { useState } from "react";
 import Image from "next/image";
+import { urlFor } from "@/lib/sanity";
+import { MomentsOfHope } from "@/generated/graphql";
+import Link from "next/link";
 
-const galleryItems = [
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Food",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Income",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Education",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Blood",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Water",
-  },
-  {
-    src: "https://cdn.ancdavao.com/placeholder1.jpg",
-    category: "Food",
-  },
-];
+interface GallerySectionProps {
+  momentsOfHope: MomentsOfHope[];
+}
 
-const categories = ["All", "Food", "Income", "Education", "Blood", "Water"];
-
-const GallerySection: React.FC = () => {
-  const [filter, setFilter] = useState("All");
-
-  const filteredItems =
-    filter === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === filter);
+const GallerySection: React.FC<GallerySectionProps> = ({ momentsOfHope }) => {
 
   return (
     <section className="py-20 bg-white">
@@ -52,32 +23,17 @@ const GallerySection: React.FC = () => {
             service, and shared humanity at ANC Davao.
           </p>
         </div>
-        <div className="flex justify-center space-x-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-full font-semibold transition-colors duration-300 ${
-                filter === category
-                  ? "bg-primary-600 text-white"
-                  : "bg-white text-neutral-700 hover:bg-primary-50"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {filteredItems.map((item, index) => (
-            <div key={index} className="overflow-hidden rounded-lg shadow-md">
+          {momentsOfHope.filter((m) => m.image).map((moment) => (
+            <Link href={moment.link} key={moment._id} className="overflow-hidden rounded-lg shadow-md" target="_blank" rel="noopener noreferrer">
               <Image
-                src={item.src}
-                alt={`Gallery item ${index + 1}`}
+                src={urlFor(moment.image).url()}
+                alt={moment.title}
                 width={800}
                 height={600}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

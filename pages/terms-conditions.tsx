@@ -13,7 +13,7 @@ const TermsConditions: React.FC = () => {
       <PageHeader
         title="Terms and Conditions"
         subtitle="Please read carefully before using our services."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg=terms"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">

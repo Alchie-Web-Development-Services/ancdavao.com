@@ -5,16 +5,16 @@ import { FaBook, FaHeartbeat, FaChurch, FaChild } from "react-icons/fa";
 const MissionSection: React.FC = () => {
   const missions = [
     {
-      icon: <FaBook size={40} />,
-      title: "Education",
-      description:
-        "We believe that education is a powerful path out of poverty. ANC supports children and families through values-based learning, skills development, and access to school resources—empowering them to build a brighter, self-sustaining future.",
-    },
-    {
       icon: <FaChild size={40} />,
       title: "Rice for Life",
       description:
         "Through our flagship feeding program, we provide regular nutritious meals to undernourished children and vulnerable communities. Every meal is a step toward health, stability, and a chance to grow with dignity.",
+    },
+    {
+      icon: <FaBook size={40} />,
+      title: "Education",
+      description:
+        "We believe that education is a powerful path out of poverty. ANC supports children and families through values-based learning, skills development, and access to school resources—empowering them to build a brighter, self-sustaining future.",
     },
     {
       icon: <FaHeartbeat size={40} />,

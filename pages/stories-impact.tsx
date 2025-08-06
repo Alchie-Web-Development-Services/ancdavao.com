@@ -109,9 +109,7 @@ const StoriesImpact: React.FC = () => {
             {testimonials.map((testimonial) => (
               <Testimonial
                 key={testimonial.id}
-                quote={testimonial.quote}
-                author={testimonial.author}
-                role={testimonial.role}
+                testimonial={testimonial}
               />
             ))}
           </div>

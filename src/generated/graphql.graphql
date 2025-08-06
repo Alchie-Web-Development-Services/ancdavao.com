@@ -1,0 +1,1767 @@
+schema {
+  query: RootQuery
+}
+
+"""Field references one or more document in another dataset"""
+directive @crossDatasetReference(
+  """Dataset name"""
+  dataset: String!
+
+  """Strings of the target types names enabled for this reference"""
+  typeNames: [String!]!
+) on FIELD_DEFINITION | OBJECT
+
+"""Field is a "raw" JSON alias for a different field"""
+directive @jsonAlias(
+  """Source field name"""
+  for: String!
+) on FIELD_DEFINITION
+
+"""Field references one or more documents"""
+directive @reference on FIELD_DEFINITION
+
+type Article implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  abstract: String
+  author: Author
+  bodyRaw: JSON
+  categories: [String]
+  mainImage: Image
+  publishedAt: DateTime
+  slug: Slug
+  title: String
+}
+
+input ArticleFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  abstract: StringFilter
+  author: AuthorFilter
+  mainImage: ImageFilter
+  publishedAt: DatetimeFilter
+  slug: SlugFilter
+  title: StringFilter
+}
+
+input ArticleSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  abstract: SortOrder
+  mainImage: ImageSorting
+  publishedAt: SortOrder
+  slug: SlugSorting
+  title: SortOrder
+}
+
+type Author implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  address: String
+  bioRaw: JSON
+  birthdate: Date
+  email: String
+  firstName: String
+  gender: String
+  lastName: String
+  phone: String
+  photo: Image
+  socialMedia: SocialMedia
+}
+
+input AuthorFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  address: StringFilter
+  birthdate: DateFilter
+  email: StringFilter
+  firstName: StringFilter
+  gender: StringFilter
+  lastName: StringFilter
+  phone: StringFilter
+  photo: ImageFilter
+  socialMedia: SocialMediaFilter
+}
+
+input AuthorSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  address: SortOrder
+  birthdate: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  lastName: SortOrder
+  phone: SortOrder
+  photo: ImageSorting
+  socialMedia: SocialMediaSorting
+}
+
+type Beneficiary implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  address: String
+  bioRaw: JSON
+  birthdate: Date
+  dateAdded: DateTime
+  email: String
+  firstName: String
+  gender: String
+  lastName: String
+  nickname: String
+  parent: Parent
+  phone: String
+  photo: Image
+  programs: [ProgramService]
+  pseudoName: String
+  status: String
+  weightUponAdmission: Float
+}
+
+input BeneficiaryFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  address: StringFilter
+  birthdate: DateFilter
+  dateAdded: DatetimeFilter
+  email: StringFilter
+  firstName: StringFilter
+  gender: StringFilter
+  lastName: StringFilter
+  nickname: StringFilter
+  parent: ParentFilter
+  phone: StringFilter
+  photo: ImageFilter
+  pseudoName: StringFilter
+  status: StringFilter
+  weightUponAdmission: FloatFilter
+}
+
+input BeneficiarySorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  address: SortOrder
+  birthdate: SortOrder
+  dateAdded: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  lastName: SortOrder
+  nickname: SortOrder
+  phone: SortOrder
+  photo: ImageSorting
+  pseudoName: SortOrder
+  status: SortOrder
+  weightUponAdmission: SortOrder
+}
+
+type Block {
+  _key: String
+  _type: String
+  children: [Span]
+  level: Float
+  listItem: String
+  style: String
+}
+
+input BooleanFilter {
+  """Checks if the value is equal to the given input."""
+  eq: Boolean
+
+  """Checks if the value is defined."""
+  is_defined: Boolean
+
+  """Checks if the value is not equal to the given input."""
+  neq: Boolean
+}
+
+type Cause implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  descriptionRaw: JSON
+  endDate: DateTime
+  goalAmount: Float
+  mainImage: Image
+  raised: Float
+  slug: Slug
+  startDate: DateTime
+  title: String
+}
+
+input CauseFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  endDate: DatetimeFilter
+  goalAmount: FloatFilter
+  mainImage: ImageFilter
+  raised: FloatFilter
+  slug: SlugFilter
+  startDate: DatetimeFilter
+  title: StringFilter
+}
+
+input CauseSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  endDate: SortOrder
+  goalAmount: SortOrder
+  mainImage: ImageSorting
+  raised: SortOrder
+  slug: SlugSorting
+  startDate: SortOrder
+  title: SortOrder
+}
+
+type Center implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  address: String
+  descriptionRaw: JSON
+  email: String
+  name: String
+  phone: String
+  teamMembers: [TeamMember]
+  volunteers: [Volunteer]
+}
+
+input CenterFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  address: StringFilter
+  email: StringFilter
+  name: StringFilter
+  phone: StringFilter
+}
+
+input CenterSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  address: SortOrder
+  email: SortOrder
+  name: SortOrder
+  phone: SortOrder
+}
+
+type CrossDatasetReference {
+  _dataset: String
+  _key: String
+  _projectId: String
+  _ref: String
+  _type: String
+  _weak: Boolean
+}
+
+input CrossDatasetReferenceFilter {
+  _dataset: StringFilter
+  _key: StringFilter
+  _projectId: StringFilter
+  _ref: StringFilter
+  _type: StringFilter
+  _weak: BooleanFilter
+}
+
+input CrossDatasetReferenceSorting {
+  _dataset: SortOrder
+  _key: SortOrder
+  _projectId: SortOrder
+  _ref: SortOrder
+  _type: SortOrder
+  _weak: SortOrder
+}
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+input DateFilter {
+  """Checks if the value is equal to the given input."""
+  eq: Date
+
+  """Checks if the value is greater than the given input."""
+  gt: Date
+
+  """Checks if the value is greater than or equal to the given input."""
+  gte: Date
+
+  """Checks if the value is defined."""
+  is_defined: Boolean
+
+  """Checks if the value is lesser than the given input."""
+  lt: Date
+
+  """Checks if the value is lesser than or equal to the given input."""
+  lte: Date
+
+  """Checks if the value is not equal to the given input."""
+  neq: Date
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input DatetimeFilter {
+  """Checks if the value is equal to the given input."""
+  eq: DateTime
+
+  """Checks if the value is greater than the given input."""
+  gt: DateTime
+
+  """Checks if the value is greater than or equal to the given input."""
+  gte: DateTime
+
+  """Checks if the value is defined."""
+  is_defined: Boolean
+
+  """Checks if the value is lesser than the given input."""
+  lt: DateTime
+
+  """Checks if the value is lesser than or equal to the given input."""
+  lte: DateTime
+
+  """Checks if the value is not equal to the given input."""
+  neq: DateTime
+}
+
+"""A Sanity document"""
+interface Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+}
+
+input DocumentFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+}
+
+input DocumentSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+}
+
+type Event implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  descriptionRaw: JSON
+  endDate: DateTime
+  location: String
+  mainImage: Image
+  slug: Slug
+  startDate: DateTime
+  title: String
+}
+
+input EventFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  endDate: DatetimeFilter
+  location: StringFilter
+  mainImage: ImageFilter
+  slug: SlugFilter
+  startDate: DatetimeFilter
+  title: StringFilter
+}
+
+input EventSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  endDate: SortOrder
+  location: SortOrder
+  mainImage: ImageSorting
+  slug: SlugSorting
+  startDate: SortOrder
+  title: SortOrder
+}
+
+type File {
+  _key: String
+  _type: String
+  asset: SanityFileAsset
+  media: GlobalDocumentReference
+}
+
+input FileFilter {
+  _key: StringFilter
+  _type: StringFilter
+  asset: SanityFileAssetFilter
+  media: GlobalDocumentReferenceFilter
+}
+
+input FileSorting {
+  _key: SortOrder
+  _type: SortOrder
+  media: GlobalDocumentReferenceSorting
+}
+
+input FloatFilter {
+  """Checks if the value is equal to the given input."""
+  eq: Float
+
+  """Checks if the value is greater than the given input."""
+  gt: Float
+
+  """Checks if the value is greater than or equal to the given input."""
+  gte: Float
+
+  """Checks if the value is defined."""
+  is_defined: Boolean
+
+  """Checks if the value is lesser than the given input."""
+  lt: Float
+
+  """Checks if the value is lesser than or equal to the given input."""
+  lte: Float
+
+  """Checks if the value is not equal to the given input."""
+  neq: Float
+}
+
+type Geopoint {
+  _key: String
+  _type: String
+  alt: Float
+  lat: Float
+  lng: Float
+}
+
+input GeopointFilter {
+  _key: StringFilter
+  _type: StringFilter
+  alt: FloatFilter
+  lat: FloatFilter
+  lng: FloatFilter
+}
+
+input GeopointSorting {
+  _key: SortOrder
+  _type: SortOrder
+  alt: SortOrder
+  lat: SortOrder
+  lng: SortOrder
+}
+
+type GlobalDocumentReference {
+  _key: String
+  _ref: String
+  _type: String
+  _weak: Boolean
+}
+
+input GlobalDocumentReferenceFilter {
+  _key: StringFilter
+  _ref: StringFilter
+  _type: StringFilter
+  _weak: BooleanFilter
+}
+
+input GlobalDocumentReferenceSorting {
+  _key: SortOrder
+  _ref: SortOrder
+  _type: SortOrder
+  _weak: SortOrder
+}
+
+input IDFilter {
+  """Checks if the value is equal to the given input."""
+  eq: ID
+  in: [ID!]
+
+  """Checks if the value matches the given word/words."""
+  matches: ID
+
+  """Checks if the value is not equal to the given input."""
+  neq: ID
+  nin: [ID!]
+}
+
+type Image {
+  _key: String
+  _type: String
+  asset: SanityImageAsset
+  crop: SanityImageCrop
+  hotspot: SanityImageHotspot
+  media: GlobalDocumentReference
+}
+
+input ImageFilter {
+  _key: StringFilter
+  _type: StringFilter
+  asset: SanityImageAssetFilter
+  crop: SanityImageCropFilter
+  hotspot: SanityImageHotspotFilter
+  media: GlobalDocumentReferenceFilter
+}
+
+input ImageSorting {
+  _key: SortOrder
+  _type: SortOrder
+  crop: SanityImageCropSorting
+  hotspot: SanityImageHotspotSorting
+  media: GlobalDocumentReferenceSorting
+}
+
+input IntFilter {
+  """Checks if the value is equal to the given input."""
+  eq: Int
+
+  """Checks if the value is greater than the given input."""
+  gt: Int
+
+  """Checks if the value is greater than or equal to the given input."""
+  gte: Int
+
+  """Checks if the value is defined."""
+  is_defined: Boolean
+
+  """Checks if the value is lesser than the given input."""
+  lt: Int
+
+  """Checks if the value is lesser than or equal to the given input."""
+  lte: Int
+
+  """Checks if the value is not equal to the given input."""
+  neq: Int
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type MomentsOfHope implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  date: DateTime
+  descriptionRaw: JSON
+  image: Image
+  link: String
+  title: String
+}
+
+input MomentsOfHopeFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  date: DatetimeFilter
+  image: ImageFilter
+  link: StringFilter
+  title: StringFilter
+}
+
+input MomentsOfHopeSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  date: SortOrder
+  image: ImageSorting
+  link: SortOrder
+  title: SortOrder
+}
+
+type Parent implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  address: String
+  bioRaw: JSON
+  birthdate: Date
+  children: [Beneficiary]
+  email: String
+  firstName: String
+  gender: String
+  lastName: String
+  occupation: String
+  phone: String
+  photo: Image
+  socialMedia: SocialMedia
+}
+
+input ParentFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  address: StringFilter
+  birthdate: DateFilter
+  email: StringFilter
+  firstName: StringFilter
+  gender: StringFilter
+  lastName: StringFilter
+  occupation: StringFilter
+  phone: StringFilter
+  photo: ImageFilter
+  socialMedia: SocialMediaFilter
+}
+
+input ParentSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  address: SortOrder
+  birthdate: SortOrder
+  email: SortOrder
+  firstName: SortOrder
+  gender: SortOrder
+  lastName: SortOrder
+  occupation: SortOrder
+  phone: SortOrder
+  photo: ImageSorting
+  socialMedia: SocialMediaSorting
+}
+
+type Partner implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  address: String
+  contactEmail: String
+  contactPerson: String
+  contactPhone: String
+  descriptionRaw: JSON
+  logo: Image
+  name: String
+  socialMedia: SocialMedia
+  website: String
+}
+
+input PartnerFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  address: StringFilter
+  contactEmail: StringFilter
+  contactPerson: StringFilter
+  contactPhone: StringFilter
+  logo: ImageFilter
+  name: StringFilter
+  socialMedia: SocialMediaFilter
+  website: StringFilter
+}
+
+input PartnerSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  address: SortOrder
+  contactEmail: SortOrder
+  contactPerson: SortOrder
+  contactPhone: SortOrder
+  logo: ImageSorting
+  name: SortOrder
+  socialMedia: SocialMediaSorting
+  website: SortOrder
+}
+
+type ProgramService implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  category: String
+  descriptionRaw: JSON
+  endDate: DateTime
+  mainImage: Image
+  slug: Slug
+  startDate: DateTime
+  title: String
+}
+
+input ProgramServiceFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  category: StringFilter
+  endDate: DatetimeFilter
+  mainImage: ImageFilter
+  slug: SlugFilter
+  startDate: DatetimeFilter
+  title: StringFilter
+}
+
+input ProgramServiceSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  category: SortOrder
+  endDate: SortOrder
+  mainImage: ImageSorting
+  slug: SlugSorting
+  startDate: SortOrder
+  title: SortOrder
+}
+
+type RootQuery {
+  Article(
+    """Article document ID"""
+    id: ID!
+  ): Article
+  Author(
+    """Author document ID"""
+    id: ID!
+  ): Author
+  Beneficiary(
+    """Beneficiary document ID"""
+    id: ID!
+  ): Beneficiary
+  Cause(
+    """Cause document ID"""
+    id: ID!
+  ): Cause
+  Center(
+    """Center document ID"""
+    id: ID!
+  ): Center
+  Document(
+    """Document document ID"""
+    id: ID!
+  ): Document
+  Event(
+    """Event document ID"""
+    id: ID!
+  ): Event
+  MomentsOfHope(
+    """MomentsOfHope document ID"""
+    id: ID!
+  ): MomentsOfHope
+  Parent(
+    """Parent document ID"""
+    id: ID!
+  ): Parent
+  Partner(
+    """Partner document ID"""
+    id: ID!
+  ): Partner
+  ProgramService(
+    """ProgramService document ID"""
+    id: ID!
+  ): ProgramService
+  SanityFileAsset(
+    """SanityFileAsset document ID"""
+    id: ID!
+  ): SanityFileAsset
+  SanityImageAsset(
+    """SanityImageAsset document ID"""
+    id: ID!
+  ): SanityImageAsset
+  TeamMember(
+    """TeamMember document ID"""
+    id: ID!
+  ): TeamMember
+  Testimonial(
+    """Testimonial document ID"""
+    id: ID!
+  ): Testimonial
+  Volunteer(
+    """Volunteer document ID"""
+    id: ID!
+  ): Volunteer
+  allArticle(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [ArticleSorting!]
+    where: ArticleFilter
+  ): [Article!]!
+  allAuthor(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [AuthorSorting!]
+    where: AuthorFilter
+  ): [Author!]!
+  allBeneficiary(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [BeneficiarySorting!]
+    where: BeneficiaryFilter
+  ): [Beneficiary!]!
+  allCause(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [CauseSorting!]
+    where: CauseFilter
+  ): [Cause!]!
+  allCenter(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [CenterSorting!]
+    where: CenterFilter
+  ): [Center!]!
+  allDocument(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [DocumentSorting!]
+    where: DocumentFilter
+  ): [Document!]!
+  allEvent(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [EventSorting!]
+    where: EventFilter
+  ): [Event!]!
+  allMomentsOfHope(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [MomentsOfHopeSorting!]
+    where: MomentsOfHopeFilter
+  ): [MomentsOfHope!]!
+  allParent(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [ParentSorting!]
+    where: ParentFilter
+  ): [Parent!]!
+  allPartner(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [PartnerSorting!]
+    where: PartnerFilter
+  ): [Partner!]!
+  allProgramService(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [ProgramServiceSorting!]
+    where: ProgramServiceFilter
+  ): [ProgramService!]!
+  allSanityFileAsset(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [SanityFileAssetSorting!]
+    where: SanityFileAssetFilter
+  ): [SanityFileAsset!]!
+  allSanityImageAsset(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [SanityImageAssetSorting!]
+    where: SanityImageAssetFilter
+  ): [SanityImageAsset!]!
+  allTeamMember(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [TeamMemberSorting!]
+    where: TeamMemberFilter
+  ): [TeamMember!]!
+  allTestimonial(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [TestimonialSorting!]
+    where: TestimonialFilter
+  ): [Testimonial!]!
+  allVolunteer(
+    """Max documents to return"""
+    limit: Int
+
+    """Offset at which to start returning documents from"""
+    offset: Int
+    sort: [VolunteerSorting!]
+    where: VolunteerFilter
+  ): [Volunteer!]!
+}
+
+type SanityAssetSourceData {
+  _key: String
+  _type: String
+
+  """
+  The unique ID for the asset within the originating source so you can programatically find back to it
+  """
+  id: String
+
+  """A canonical name for the source this asset is originating from"""
+  name: String
+
+  """
+  A URL to find more information about this asset in the originating source
+  """
+  url: String
+}
+
+input SanityAssetSourceDataFilter {
+  _key: StringFilter
+  _type: StringFilter
+  id: StringFilter
+  name: StringFilter
+  url: StringFilter
+}
+
+input SanityAssetSourceDataSorting {
+  _key: SortOrder
+  _type: SortOrder
+  id: SortOrder
+  name: SortOrder
+  url: SortOrder
+}
+
+type SanityFileAsset implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  altText: String
+  assetId: String
+  description: String
+  extension: String
+  label: String
+  mimeType: String
+  originalFilename: String
+  path: String
+  sha1hash: String
+  size: Float
+  source: SanityAssetSourceData
+  title: String
+  uploadId: String
+  url: String
+}
+
+input SanityFileAssetFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  altText: StringFilter
+  assetId: StringFilter
+  description: StringFilter
+  extension: StringFilter
+  label: StringFilter
+  mimeType: StringFilter
+  originalFilename: StringFilter
+  path: StringFilter
+  sha1hash: StringFilter
+  size: FloatFilter
+  source: SanityAssetSourceDataFilter
+  title: StringFilter
+  uploadId: StringFilter
+  url: StringFilter
+}
+
+input SanityFileAssetSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  altText: SortOrder
+  assetId: SortOrder
+  description: SortOrder
+  extension: SortOrder
+  label: SortOrder
+  mimeType: SortOrder
+  originalFilename: SortOrder
+  path: SortOrder
+  sha1hash: SortOrder
+  size: SortOrder
+  source: SanityAssetSourceDataSorting
+  title: SortOrder
+  uploadId: SortOrder
+  url: SortOrder
+}
+
+type SanityImageAsset implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  altText: String
+  assetId: String
+  description: String
+  extension: String
+  label: String
+  metadata: SanityImageMetadata
+  mimeType: String
+  originalFilename: String
+  path: String
+  sha1hash: String
+  size: Float
+  source: SanityAssetSourceData
+  title: String
+  uploadId: String
+  url: String
+}
+
+input SanityImageAssetFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  altText: StringFilter
+  assetId: StringFilter
+  description: StringFilter
+  extension: StringFilter
+  label: StringFilter
+  metadata: SanityImageMetadataFilter
+  mimeType: StringFilter
+  originalFilename: StringFilter
+  path: StringFilter
+  sha1hash: StringFilter
+  size: FloatFilter
+  source: SanityAssetSourceDataFilter
+  title: StringFilter
+  uploadId: StringFilter
+  url: StringFilter
+}
+
+input SanityImageAssetSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  altText: SortOrder
+  assetId: SortOrder
+  description: SortOrder
+  extension: SortOrder
+  label: SortOrder
+  metadata: SanityImageMetadataSorting
+  mimeType: SortOrder
+  originalFilename: SortOrder
+  path: SortOrder
+  sha1hash: SortOrder
+  size: SortOrder
+  source: SanityAssetSourceDataSorting
+  title: SortOrder
+  uploadId: SortOrder
+  url: SortOrder
+}
+
+type SanityImageCrop {
+  _key: String
+  _type: String
+  bottom: Float
+  left: Float
+  right: Float
+  top: Float
+}
+
+input SanityImageCropFilter {
+  _key: StringFilter
+  _type: StringFilter
+  bottom: FloatFilter
+  left: FloatFilter
+  right: FloatFilter
+  top: FloatFilter
+}
+
+input SanityImageCropSorting {
+  _key: SortOrder
+  _type: SortOrder
+  bottom: SortOrder
+  left: SortOrder
+  right: SortOrder
+  top: SortOrder
+}
+
+type SanityImageDimensions {
+  _key: String
+  _type: String
+  aspectRatio: Float
+  height: Float
+  width: Float
+}
+
+input SanityImageDimensionsFilter {
+  _key: StringFilter
+  _type: StringFilter
+  aspectRatio: FloatFilter
+  height: FloatFilter
+  width: FloatFilter
+}
+
+input SanityImageDimensionsSorting {
+  _key: SortOrder
+  _type: SortOrder
+  aspectRatio: SortOrder
+  height: SortOrder
+  width: SortOrder
+}
+
+type SanityImageHotspot {
+  _key: String
+  _type: String
+  height: Float
+  width: Float
+  x: Float
+  y: Float
+}
+
+input SanityImageHotspotFilter {
+  _key: StringFilter
+  _type: StringFilter
+  height: FloatFilter
+  width: FloatFilter
+  x: FloatFilter
+  y: FloatFilter
+}
+
+input SanityImageHotspotSorting {
+  _key: SortOrder
+  _type: SortOrder
+  height: SortOrder
+  width: SortOrder
+  x: SortOrder
+  y: SortOrder
+}
+
+type SanityImageMetadata {
+  _key: String
+  _type: String
+  blurHash: String
+  dimensions: SanityImageDimensions
+  hasAlpha: Boolean
+  isOpaque: Boolean
+  location: Geopoint
+  lqip: String
+  palette: SanityImagePalette
+}
+
+input SanityImageMetadataFilter {
+  _key: StringFilter
+  _type: StringFilter
+  blurHash: StringFilter
+  dimensions: SanityImageDimensionsFilter
+  hasAlpha: BooleanFilter
+  isOpaque: BooleanFilter
+  location: GeopointFilter
+  lqip: StringFilter
+  palette: SanityImagePaletteFilter
+}
+
+input SanityImageMetadataSorting {
+  _key: SortOrder
+  _type: SortOrder
+  blurHash: SortOrder
+  dimensions: SanityImageDimensionsSorting
+  hasAlpha: SortOrder
+  isOpaque: SortOrder
+  location: GeopointSorting
+  lqip: SortOrder
+  palette: SanityImagePaletteSorting
+}
+
+type SanityImagePalette {
+  _key: String
+  _type: String
+  darkMuted: SanityImagePaletteSwatch
+  darkVibrant: SanityImagePaletteSwatch
+  dominant: SanityImagePaletteSwatch
+  lightMuted: SanityImagePaletteSwatch
+  lightVibrant: SanityImagePaletteSwatch
+  muted: SanityImagePaletteSwatch
+  vibrant: SanityImagePaletteSwatch
+}
+
+input SanityImagePaletteFilter {
+  _key: StringFilter
+  _type: StringFilter
+  darkMuted: SanityImagePaletteSwatchFilter
+  darkVibrant: SanityImagePaletteSwatchFilter
+  dominant: SanityImagePaletteSwatchFilter
+  lightMuted: SanityImagePaletteSwatchFilter
+  lightVibrant: SanityImagePaletteSwatchFilter
+  muted: SanityImagePaletteSwatchFilter
+  vibrant: SanityImagePaletteSwatchFilter
+}
+
+input SanityImagePaletteSorting {
+  _key: SortOrder
+  _type: SortOrder
+  darkMuted: SanityImagePaletteSwatchSorting
+  darkVibrant: SanityImagePaletteSwatchSorting
+  dominant: SanityImagePaletteSwatchSorting
+  lightMuted: SanityImagePaletteSwatchSorting
+  lightVibrant: SanityImagePaletteSwatchSorting
+  muted: SanityImagePaletteSwatchSorting
+  vibrant: SanityImagePaletteSwatchSorting
+}
+
+type SanityImagePaletteSwatch {
+  _key: String
+  _type: String
+  background: String
+  foreground: String
+  population: Float
+  title: String
+}
+
+input SanityImagePaletteSwatchFilter {
+  _key: StringFilter
+  _type: StringFilter
+  background: StringFilter
+  foreground: StringFilter
+  population: FloatFilter
+  title: StringFilter
+}
+
+input SanityImagePaletteSwatchSorting {
+  _key: SortOrder
+  _type: SortOrder
+  background: SortOrder
+  foreground: SortOrder
+  population: SortOrder
+  title: SortOrder
+}
+
+input Sanity_DocumentFilter {
+  """All documents that are drafts."""
+  is_draft: Boolean
+
+  """All documents referencing the given document ID."""
+  references: ID
+}
+
+type Slug {
+  _key: String
+  _type: String
+  current: String
+  source: String
+}
+
+input SlugFilter {
+  _key: StringFilter
+  _type: StringFilter
+  current: StringFilter
+  source: StringFilter
+}
+
+input SlugSorting {
+  _key: SortOrder
+  _type: SortOrder
+  current: SortOrder
+  source: SortOrder
+}
+
+type SocialMedia {
+  _key: String
+  _type: String
+  facebook: String
+  instagram: String
+  linkedin: String
+  twitter: String
+}
+
+input SocialMediaFilter {
+  _key: StringFilter
+  _type: StringFilter
+  facebook: StringFilter
+  instagram: StringFilter
+  linkedin: StringFilter
+  twitter: StringFilter
+}
+
+input SocialMediaSorting {
+  _key: SortOrder
+  _type: SortOrder
+  facebook: SortOrder
+  instagram: SortOrder
+  linkedin: SortOrder
+  twitter: SortOrder
+}
+
+enum SortOrder {
+  """Sorts on the value in ascending order."""
+  ASC
+
+  """Sorts on the value in descending order."""
+  DESC
+}
+
+type Span {
+  _key: String
+  _type: String
+  marks: [String]
+  text: String
+}
+
+input StringFilter {
+  """Checks if the value is equal to the given input."""
+  eq: String
+  in: [String!]
+
+  """Checks if the value is defined."""
+  is_defined: Boolean
+
+  """Checks if the value matches the given word/words."""
+  matches: String
+
+  """Checks if the value is not equal to the given input."""
+  neq: String
+  nin: [String!]
+}
+
+type TeamMember implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  bioRaw: JSON
+  email: String
+  name: String
+  photo: Image
+  role: String
+  socialMedia: SocialMedia
+}
+
+input TeamMemberFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  email: StringFilter
+  name: StringFilter
+  photo: ImageFilter
+  role: StringFilter
+  socialMedia: SocialMediaFilter
+}
+
+input TeamMemberSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  email: SortOrder
+  name: SortOrder
+  photo: ImageSorting
+  role: SortOrder
+  socialMedia: SocialMediaSorting
+}
+
+type Testimonial implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  author: String
+  authorImage: Image
+  authorRole: String
+  contentRaw: JSON
+  date: DateTime
+}
+
+input TestimonialFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  author: StringFilter
+  authorImage: ImageFilter
+  authorRole: StringFilter
+  date: DatetimeFilter
+}
+
+input TestimonialSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  author: SortOrder
+  authorImage: ImageSorting
+  authorRole: SortOrder
+  date: SortOrder
+}
+
+type Volunteer implements Document {
+  """Date the document was created"""
+  _createdAt: DateTime
+
+  """Document ID"""
+  _id: ID
+  _key: String
+
+  """Current document revision"""
+  _rev: String
+
+  """Document type"""
+  _type: String
+
+  """Date the document was last modified"""
+  _updatedAt: DateTime
+  bioRaw: JSON
+  email: String
+  joinedAt: DateTime
+  name: String
+  phone: String
+  photo: Image
+  position: String
+  socialMedia: SocialMedia
+}
+
+input VolunteerFilter {
+  """Apply filters on document level"""
+  _: Sanity_DocumentFilter
+  _createdAt: DatetimeFilter
+  _id: IDFilter
+  _key: StringFilter
+  _rev: StringFilter
+  _type: StringFilter
+  _updatedAt: DatetimeFilter
+  email: StringFilter
+  joinedAt: DatetimeFilter
+  name: StringFilter
+  phone: StringFilter
+  photo: ImageFilter
+  position: StringFilter
+  socialMedia: SocialMediaFilter
+}
+
+input VolunteerSorting {
+  _createdAt: SortOrder
+  _id: SortOrder
+  _key: SortOrder
+  _rev: SortOrder
+  _type: SortOrder
+  _updatedAt: SortOrder
+  email: SortOrder
+  joinedAt: SortOrder
+  name: SortOrder
+  phone: SortOrder
+  photo: ImageSorting
+  position: SortOrder
+  socialMedia: SocialMediaSorting
+}
