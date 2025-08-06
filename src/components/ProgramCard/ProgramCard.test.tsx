@@ -45,7 +45,7 @@ describe("ProgramCard", () => {
     render(<ProgramCard program={mockProgram} />);
 
     expect(screen.getByText("Test Program")).toBeInTheDocument();
-    expect(screen.getByText("Description available")).toBeInTheDocument();
+    expect(screen.getByText("This is a test description.")).toBeInTheDocument();
     expect(screen.getByRole("img", { name: "Test Program" })).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "Learn more" }),
