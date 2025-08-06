@@ -34,18 +34,19 @@ const MapAndHoursSection: React.FC = () => {
       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
         <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
         <ul className="space-y-2">
-          {[{
-            day: "Monday - Friday",
-            hours: "8:00 AM - 5:00 PM"
-          },
-          {
-            day: "Saturday",
-            hours: "9:00 AM - 2:00 PM"
-          },
-          {
-            day: "Sunday",
-            hours: "Closed"
-          },
+          {[
+            {
+              day: "Monday - Friday",
+              hours: "8:00 AM - 5:00 PM",
+            },
+            {
+              day: "Saturday",
+              hours: "9:00 AM - 2:00 PM",
+            },
+            {
+              day: "Sunday",
+              hours: "Closed",
+            },
           ].map((item, index) => (
             <li key={index} className="flex justify-between">
               <span className="text-gray-700">{item.day}</span>
@@ -57,9 +58,7 @@ const MapAndHoursSection: React.FC = () => {
 
       {/* Social Media */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-semibold mb-4">
-          Connect With Us
-        </h3>
+        <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
         <div className="flex space-x-4">
           {socialLinks.map((social, index) => (
             <a

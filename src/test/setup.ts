@@ -11,7 +11,8 @@ vi.mock("@/lib/sanity", () => ({
   urlFor: vi.fn((source) => {
     // Return a simple string for the URL in tests
     return {
-      url: () => `http://localhost/test-image/${source._ref || 'placeholder'}.jpg`,
+      url: () =>
+        `http://localhost/test-image/${source._ref || "placeholder"}.jpg`,
     };
   }),
   client: {}, // Mock client if it's imported elsewhere

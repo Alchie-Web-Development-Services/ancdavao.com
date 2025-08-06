@@ -9,15 +9,17 @@ describe("TeamMember", () => {
       {
         _key: "abc",
         _type: "block",
-        children: [{
-          _key: "def",
-          _type: "span",
-          marks: [],
-          text: "Passionate about open source and clean code."
-        }],
+        children: [
+          {
+            _key: "def",
+            _type: "span",
+            marks: [],
+            text: "Passionate about open source and clean code.",
+          },
+        ],
         markDefs: [],
-        style: "normal"
-      }
+        style: "normal",
+      },
     ],
     photo: {
       _type: "image",
@@ -42,7 +44,9 @@ describe("TeamMember", () => {
 
     expect(screen.getByText(mockMember.name)).toBeInTheDocument();
     expect(screen.getByText(mockMember.role)).toBeInTheDocument();
-    expect(screen.getByText(mockMember.bioRaw[0].children[0].text)).toBeInTheDocument();
+    expect(
+      screen.getByText(mockMember.bioRaw[0].children[0].text),
+    ).toBeInTheDocument();
   });
 
   it("renders social media links if provided", () => {

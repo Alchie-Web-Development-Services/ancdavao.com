@@ -21,14 +21,24 @@ vi.mock("next/router", () => ({
 vi.mock("@/components/GoogleSignInButton", () => ({
   __esModule: true,
   default: ({ onError }: { onError: (message: string) => void }) => (
-    <button onClick={() => onError("Google error")} data-testid="google-signin-button">Google Sign In</button>
+    <button
+      onClick={() => onError("Google error")}
+      data-testid="google-signin-button"
+    >
+      Google Sign In
+    </button>
   ),
 }));
 
 vi.mock("@/components/FacebookSignInButton", () => ({
   __esModule: true,
   default: ({ onError }: { onError: (message: string) => void }) => (
-    <button onClick={() => onError("Facebook error")} data-testid="facebook-signin-button">Facebook Sign In</button>
+    <button
+      onClick={() => onError("Facebook error")}
+      data-testid="facebook-signin-button"
+    >
+      Facebook Sign In
+    </button>
   ),
 }));
 
@@ -57,12 +67,20 @@ describe("LoginForm", () => {
 
     render(<LoginForm />);
 
-    fireEvent.change(screen.getByLabelText(/Email Address/i), { target: { value: "test@example.com" } });
-    fireEvent.change(screen.getByLabelText(/Password/i), { target: { value: "password123" } });
+    fireEvent.change(screen.getByLabelText(/Email Address/i), {
+      target: { value: "test@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText(/Password/i), {
+      target: { value: "password123" },
+    });
     fireEvent.click(screen.getByRole("button", { name: "Login" }));
 
     await waitFor(() => {
-      expect(signInWithEmailAndPassword).toHaveBeenCalledWith(expect.any(Object), "test@example.com", "password123");
+      expect(signInWithEmailAndPassword).toHaveBeenCalledWith(
+        expect.any(Object),
+        "test@example.com",
+        "password123",
+      );
       expect(mockPush).toHaveBeenCalledWith("/my/account");
       expect(screen.queryByText(/Error/i)).not.toBeInTheDocument();
     });
@@ -70,12 +88,18 @@ describe("LoginForm", () => {
 
   it("displays error message on failed login", async () => {
     const errorMessage = "Invalid credentials";
-    (signInWithEmailAndPassword as vi.Mock).mockRejectedValueOnce(new Error(errorMessage));
+    (signInWithEmailAndPassword as vi.Mock).mockRejectedValueOnce(
+      new Error(errorMessage),
+    );
 
     render(<LoginForm />);
 
-    fireEvent.change(screen.getByLabelText(/Email Address/i), { target: { value: "test@example.com" } });
-    fireEvent.change(screen.getByLabelText(/Password/i), { target: { value: "wrongpassword" } });
+    fireEvent.change(screen.getByLabelText(/Email Address/i), {
+      target: { value: "test@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText(/Password/i), {
+      target: { value: "wrongpassword" },
+    });
     fireEvent.click(screen.getByRole("button", { name: "Login" }));
 
     await waitFor(() => {

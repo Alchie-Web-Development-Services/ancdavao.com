@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { TESTIMONIAL_FIELDS, IMAGE_FIELDS } from './fragments/index';
+import { gql } from "graphql-request";
+import { TESTIMONIAL_FIELDS, IMAGE_FIELDS } from "./fragments/index";
 
 export const ALL_TESTIMONIALS_QUERY = gql`
   ${TESTIMONIAL_FIELDS}

@@ -13,7 +13,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({ articles }) => {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-neutral-800">Recent Blog</h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-          Discover stories of hope, transformation, and compassion from the heart of Davao. Stay updated with our latest community programs, volunteer experiences, and insights on how ANC continues to nourish lives—physically, emotionally, and spiritually.
+            Discover stories of hope, transformation, and compassion from the
+            heart of Davao. Stay updated with our latest community programs,
+            volunteer experiences, and insights on how ANC continues to nourish
+            lives—physically, emotionally, and spiritually.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

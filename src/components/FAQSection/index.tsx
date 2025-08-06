@@ -4,7 +4,9 @@ import useFetchJson from "@/hooks/useFetchJson";
 import FAQItem, { FAQItemProps } from "../FAQItem";
 
 const FAQSection: React.FC = () => {
-  const { data, loading } = useFetchJson<{ [key: string]: FAQItemProps[] }>("/data/faqs.json");
+  const { data, loading } = useFetchJson<{ [key: string]: FAQItemProps[] }>(
+    "/data/faqs.json",
+  );
 
   const [activeCategory, setActiveCategory] = useState("General Questions");
 
@@ -72,13 +74,14 @@ const FAQSection: React.FC = () => {
                 </h3>
               </div>
               <div className="divide-y divide-gray-200">
-                {currentCategory && currentCategory.map((faq: FAQItemProps, index: number) => (
-                  <FAQItem
-                    key={index}
-                    question={faq.question}
-                    answer={faq.answer}
-                  />
-                ))}
+                {currentCategory &&
+                  currentCategory.map((faq: FAQItemProps, index: number) => (
+                    <FAQItem
+                      key={index}
+                      question={faq.question}
+                      answer={faq.answer}
+                    />
+                  ))}
               </div>
             </div>
 
@@ -86,8 +89,8 @@ const FAQSection: React.FC = () => {
             <div className="mt-8 p-6 bg-blue-50 rounded-lg">
               <h3 className="text-lg font-semibold mb-2">Need more help?</h3>
               <p className="text-gray-600 mb-4">
-                If you couldn&apos;t find the answer to your question, feel
-                free to reach out to our support team.
+                If you couldn&apos;t find the answer to your question, feel free
+                to reach out to our support team.
               </p>
               <Link
                 href="/contact-us"

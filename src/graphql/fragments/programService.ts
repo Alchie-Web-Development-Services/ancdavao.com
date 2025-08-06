@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const PROGRAM_SERVICE_FIELDS = gql`
   fragment ProgramServiceFields on ProgramService {

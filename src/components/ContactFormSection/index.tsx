@@ -156,9 +156,7 @@ const ContactFormSection: React.FC = () => {
           disabled={formStatus.status === "submitting"}
           className="w-full bg-primary-600 text-white py-3 px-6 rounded-md hover:bg-primary-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
         >
-          {formStatus.status === "submitting"
-            ? "Sending..."
-            : "Send Message"}
+          {formStatus.status === "submitting" ? "Sending..." : "Send Message"}
         </button>
       </form>
     </div>

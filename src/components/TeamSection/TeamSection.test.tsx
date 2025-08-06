@@ -28,8 +28,12 @@ vi.mock("../TeamMember", () => ({
       <p>{member.bioRaw?.[0]?.children?.[0]?.text || ""}</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={member.photo?.asset?.url} alt={member.name || "Team member"} />
-      {member.socialMedia?.twitter && <a href={member.socialMedia.twitter}>Twitter</a>}
-      {member.socialMedia?.linkedin && <a href={member.socialMedia.linkedin}>LinkedIn</a>}
+      {member.socialMedia?.twitter && (
+        <a href={member.socialMedia.twitter}>Twitter</a>
+      )}
+      {member.socialMedia?.linkedin && (
+        <a href={member.socialMedia.linkedin}>LinkedIn</a>
+      )}
       {member.email && <a href={`mailto:${member.email}`}>Email</a>}
     </div>
   ),
@@ -43,7 +47,7 @@ describe("TeamSection", () => {
         _type: "teamMember",
         name: "John Doe",
         role: "Founder",
-                bioRaw: [
+        bioRaw: [
           {
             _key: "abc",
             _type: "block",
@@ -112,12 +116,27 @@ describe("TeamSection", () => {
     expect(screen.getByText("Jane Smith")).toBeInTheDocument();
     expect(screen.getByText("Bio for John Doe.")).toBeInTheDocument();
     expect(screen.getByText("Bio for Jane Smith.")).toBeInTheDocument();
-    expect(screen.getByAltText("John Doe")).toHaveAttribute("src", "https://cdn.sanity.io/images/tuggecli/production/john.jpg");
-    expect(screen.getByAltText("Jane Smith")).toHaveAttribute("src", "https://cdn.sanity.io/images/tuggecli/production/jane.jpg");
+    expect(screen.getByAltText("John Doe")).toHaveAttribute(
+      "src",
+      "https://cdn.sanity.io/images/tuggecli/production/john.jpg",
+    );
+    expect(screen.getByAltText("Jane Smith")).toHaveAttribute(
+      "src",
+      "https://cdn.sanity.io/images/tuggecli/production/jane.jpg",
+    );
     expect(screen.getByText("Founder")).toBeInTheDocument();
     expect(screen.getByText("Developer")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Twitter" })).toHaveAttribute("href", "https://twitter.com/johndoe");
-    expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute("href", "https://linkedin.com/in/johndoe");
-    expect(screen.getByRole("link", { name: "Email" })).toHaveAttribute("href", "mailto:john@example.com");
+    expect(screen.getByRole("link", { name: "Twitter" })).toHaveAttribute(
+      "href",
+      "https://twitter.com/johndoe",
+    );
+    expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
+      "href",
+      "https://linkedin.com/in/johndoe",
+    );
+    expect(screen.getByRole("link", { name: "Email" })).toHaveAttribute(
+      "href",
+      "mailto:john@example.com",
+    );
   });
 });

@@ -9,10 +9,7 @@ const TopNav: React.FC = () => {
           <a href="#" className="hover:text-primary-200">
             Pag-asa St, Brgy. 24-C, Fatima, Davao City
           </a>
-          <a
-            href="mailto:info@ancdavao.com"
-            className="hover:text-primary-200"
-          >
+          <a href="mailto:info@ancdavao.com" className="hover:text-primary-200">
             info@ancdavao.com
           </a>
           <a href="tel:+1234567890" className="hover:text-primary-200">

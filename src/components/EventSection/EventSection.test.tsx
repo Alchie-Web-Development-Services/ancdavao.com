@@ -19,7 +19,7 @@ vi.mock("next/image", () => ({
 }));
 
 // Mock PortableText
-vi.mock('@portabletext/react', () => ({
+vi.mock("@portabletext/react", () => ({
   PortableText: ({ value }: { value: PortableTextBlock[] }) => {
     if (!value) return null;
     return value[0]?.children[0]?.text || "";
@@ -66,9 +66,15 @@ describe("EventSection", () => {
 
     expect(screen.getByText("Upcoming Event")).toBeInTheDocument();
     expect(screen.getByText("Paid Hill Fine Ten Now Love")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Learn More" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Learn More" }),
+    ).toBeInTheDocument();
     expect(screen.getByText("October 12, 2018")).toBeInTheDocument();
     expect(screen.getByText("King Street, Melbourne")).toBeInTheDocument();
-    expect(screen.getByText("An an valley indeed so no wonder future nature vanity. Debating all she mistaken indulged believed provided declared.")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "An an valley indeed so no wonder future nature vanity. Debating all she mistaken indulged believed provided declared.",
+      ),
+    ).toBeInTheDocument();
   });
 });

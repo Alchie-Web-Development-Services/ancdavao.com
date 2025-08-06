@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { Event } from "@/generated/graphql";
-import { PortableText } from '@portabletext/react'
+import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/lib/sanity";
 
 interface EventCardProps {
@@ -11,17 +11,23 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
-  const imgSrc = event.mainImage ? urlFor(event.mainImage).url() : "https://cdn.ancdavao.com/placeholder1.jpg";
-  const startDate = event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }) : "";
-  const endDate = event.endDate ? new Date(event.endDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }) : "";
+  const imgSrc = event.mainImage
+    ? urlFor(event.mainImage).url()
+    : "https://cdn.ancdavao.com/placeholder1.jpg";
+  const startDate = event.startDate
+    ? new Date(event.startDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
+  const endDate = event.endDate
+    ? new Date(event.endDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -37,11 +43,15 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           {event.title}
         </h3>
         <div className="text-neutral-600 text-sm mb-4">
-          {event.descriptionRaw ? <PortableText value={event.descriptionRaw} /> : "No description provided."}
+          {event.descriptionRaw ? (
+            <PortableText value={event.descriptionRaw} />
+          ) : (
+            "No description provided."
+          )}
         </div>
         <div className="flex items-center text-neutral-600 text-sm mb-2">
-          <FaCalendarAlt className="mr-2 text-primary-600" />{" "}
-          {startDate} {endDate && `- ${endDate}`}
+          <FaCalendarAlt className="mr-2 text-primary-600" /> {startDate}{" "}
+          {endDate && `- ${endDate}`}
         </div>
         {event.location && (
           <div className="flex items-center text-neutral-600 text-sm mb-4">

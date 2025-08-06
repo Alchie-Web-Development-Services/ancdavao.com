@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { EVENT_FIELDS } from './fragments/index';
+import { gql } from "graphql-request";
+import { EVENT_FIELDS } from "./fragments/index";
 
 export const EVENT_BY_ID_QUERY = gql`
   ${EVENT_FIELDS}

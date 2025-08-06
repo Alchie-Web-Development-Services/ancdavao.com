@@ -6,8 +6,17 @@ describe("OurStorySection", () => {
     render(<OurStorySection />);
 
     expect(screen.getByText("Our Story")).toBeInTheDocument();
-    expect(screen.getByText(/The Archdiocesan Nourishment Center/i)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Read More About Our History" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Discover Our Centers" })).toBeInTheDocument();
+    expect(
+      screen.getByText(/The Archdiocesan Nourishment Center/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Read More About Our History" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Our Centers" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Our Partners" }),
+    ).toBeInTheDocument();
   });
 });

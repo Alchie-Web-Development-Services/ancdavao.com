@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const SANITY_FILE_ASSET_FIELDS = gql`
   fragment SanityFileAssetFields on SanityFileAsset {

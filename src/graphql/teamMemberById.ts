@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { TEAM_MEMBER_FIELDS } from './fragments/index';
+import { gql } from "graphql-request";
+import { TEAM_MEMBER_FIELDS } from "./fragments/index";
 
 export const TEAM_MEMBER_BY_ID_QUERY = gql`
   ${TEAM_MEMBER_FIELDS}

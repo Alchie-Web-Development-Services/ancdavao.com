@@ -7,7 +7,7 @@ import { AllCausesQuery } from "@//generated/graphql";
 import { ALL_CAUSES_QUERY } from "@//graphql/allCauses";
 
 interface CausesProps {
-  causes: AllCausesQuery['allCause'];
+  causes: AllCausesQuery["allCause"];
 }
 
 const Causes: React.FC<CausesProps> = ({ causes }) => {

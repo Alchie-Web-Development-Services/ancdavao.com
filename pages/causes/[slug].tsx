@@ -7,10 +7,7 @@ import SEO from "@/components/SEO";
 import { PortableText } from "@portabletext/react";
 import { client, urlFor } from "@//lib/sanity";
 
-import {
-  AllCausesQuery,
-  Cause,
-} from "@//generated/graphql";
+import { AllCausesQuery, Cause } from "@//generated/graphql";
 import { ALL_CAUSES_QUERY } from "@//graphql/allCauses";
 import { CAUSE_BY_SLUG_QUERY } from "@//graphql/causeBySlug";
 
@@ -19,7 +16,6 @@ interface CauseDetailProps {
 }
 
 const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
-
   if (!cause) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -34,7 +30,9 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
     <div className="min-h-screen">
       <SEO
         title={cause.title || ""}
-        description={cause.descriptionRaw ? cause.descriptionRaw[0].children[0].text : ""}
+        description={
+          cause.descriptionRaw ? cause.descriptionRaw[0].children[0].text : ""
+        }
         keywords={`${cause.title?.toLowerCase() || ""}, ${cause.descriptionRaw ? cause.descriptionRaw[0].children[0].text.toLowerCase().split(" ").slice(0, 5).join(", ") : ""}, ANC Davao cause, donation, charity`}
         ogImage={cause.mainImage ? urlFor(cause.mainImage).url() : ""}
       />
@@ -95,7 +93,6 @@ const CauseDetail: React.FC<CauseDetailProps> = ({ cause }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
   const result = await client.request<AllCausesQuery>(ALL_CAUSES_QUERY);
   const paths = result.allCause.map((cause) => ({
     params: { slug: cause.slug?.current || "" },
@@ -107,7 +104,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<CauseDetailProps> = async ({
   params,
 }) => {
-
   const result = await client.request<AllCausesQuery>(CAUSE_BY_SLUG_QUERY, {
     slug: params?.slug,
   });

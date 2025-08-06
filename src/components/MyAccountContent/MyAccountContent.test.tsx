@@ -17,10 +17,7 @@ describe("MyAccountContent", () => {
 
   it("renders personal information correctly", () => {
     render(
-      <MyAccountContent
-        userProfile={mockUserProfile}
-        fullName="John Doe"
-      />,
+      <MyAccountContent userProfile={mockUserProfile} fullName="John Doe" />,
     );
 
     expect(screen.getByText("Personal information")).toBeInTheDocument();
@@ -40,10 +37,7 @@ describe("MyAccountContent", () => {
     };
 
     render(
-      <MyAccountContent
-        userProfile={incompleteProfile}
-        fullName="Test User"
-      />,
+      <MyAccountContent userProfile={incompleteProfile} fullName="Test User" />,
     );
 
     expect(screen.getAllByText("N/A").length).toBeGreaterThan(0);

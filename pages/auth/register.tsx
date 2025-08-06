@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import RegisterForm from '@/components/RegisterForm';
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
+import RegisterForm from "@/components/RegisterForm";
 
-import { useAuth } from '@/context/AuthContext';
-import Loading from '@/components/Loading';
+import { useAuth } from "@/context/AuthContext";
+import Loading from "@/components/Loading";
 
 const RegisterPage: React.FC = () => {
   const { user, loading } = useAuth();
@@ -11,7 +11,7 @@ const RegisterPage: React.FC = () => {
 
   useEffect(() => {
     if (!loading && user) {
-      router.push('/my/account');
+      router.push("/my/account");
     }
   }, [user, loading, router]);
 

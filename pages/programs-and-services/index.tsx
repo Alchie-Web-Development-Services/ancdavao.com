@@ -9,7 +9,7 @@ import { AllProgramServicesQuery } from "@//generated/graphql";
 import { ALL_PROGRAM_SERVICES_QUERY } from "@//graphql/allProgramServices";
 
 interface ProgramsProps {
-  programs: AllProgramServicesQuery['allProgramService'];
+  programs: AllProgramServicesQuery["allProgramService"];
 }
 
 const Programs: React.FC<ProgramsProps> = ({ programs }) => {
@@ -28,7 +28,6 @@ const Programs: React.FC<ProgramsProps> = ({ programs }) => {
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => (
               <ProgramCard key={program._id} program={program} />
@@ -45,7 +44,9 @@ const Programs: React.FC<ProgramsProps> = ({ programs }) => {
 };
 
 export async function getStaticProps() {
-  const result = await client.request<AllProgramServicesQuery>(ALL_PROGRAM_SERVICES_QUERY);
+  const result = await client.request<AllProgramServicesQuery>(
+    ALL_PROGRAM_SERVICES_QUERY,
+  );
 
   return {
     props: {

@@ -1,8 +1,8 @@
-import React from 'react';
-import { FaGoogle } from 'react-icons/fa';
-import { useRouter } from 'next/router';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import React from "react";
+import { FaGoogle } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 interface GoogleSignInButtonProps {
   onError: (_message: string) => void;
@@ -15,7 +15,7 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onError }) => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push('/my/account');
+      router.push("/my/account");
     } catch (err: unknown) {
       onError((err as Error).message);
     }

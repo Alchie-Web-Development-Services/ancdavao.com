@@ -8,9 +8,7 @@ interface TeamMemberProps {
   member: TeamMemberType;
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({
-  member,
-}) => {
+const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
       <div className="h-48 overflow-hidden">
@@ -25,9 +23,15 @@ const TeamMember: React.FC<TeamMemberProps> = ({
         )}
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+        <h3 className="text-xl font-semibold text-gray-900 mb-1">
+          {member.name}
+        </h3>
         <p className="text-primary-600 font-medium mb-4">{member.role}</p>
-        <p className="text-gray-600 mb-4">{member.bioRaw ? (member.bioRaw[0] as PortableTextBlock)?.children[0]?.text : ""}</p>
+        <p className="text-gray-600 mb-4">
+          {member.bioRaw
+            ? (member.bioRaw[0] as PortableTextBlock)?.children[0]?.text
+            : ""}
+        </p>
 
         {(member.socialMedia?.twitter || member.socialMedia?.linkedin) && (
           <div className="flex space-x-4">

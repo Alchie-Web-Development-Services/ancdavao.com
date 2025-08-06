@@ -7,7 +7,11 @@ describe("CallToActionSection", () => {
 
     expect(screen.getByText("Join Our Mission")).toBeInTheDocument();
     expect(screen.getByText(/Be part of our journey/i)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Donate Now" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Volunteer With Us" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Donate Now" }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Volunteer With Us" }),
+    ).toBeInTheDocument();
   });
 });

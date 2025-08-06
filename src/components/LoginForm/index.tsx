@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
-import GoogleSignInButton from '@/components/GoogleSignInButton';
-import FacebookSignInButton from '@/components/FacebookSignInButton';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import GoogleSignInButton from "@/components/GoogleSignInButton";
+import FacebookSignInButton from "@/components/FacebookSignInButton";
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
@@ -16,7 +16,7 @@ const LoginForm: React.FC = () => {
     try {
       setError(null);
       await signInWithEmailAndPassword(auth, email, password);
-      router.push('/my/account');
+      router.push("/my/account");
     } catch (err: unknown) {
       setError((err as Error).message);
     }
@@ -24,11 +24,20 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto p-8 bg-white rounded-xl shadow-lg min-w-96">
-      <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Welcome Back!</h2>
-      <p className="text-center text-gray-600 mb-8">Login to your account to continue</p>
-      {error && <p className="text-red-500 text-center mb-4 text-sm">{error}</p>}
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
+        Welcome Back!
+      </h2>
+      <p className="text-center text-gray-600 mb-8">
+        Login to your account to continue
+      </p>
+      {error && (
+        <p className="text-red-500 text-center mb-4 text-sm">{error}</p>
+      )}
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">
+        <label
+          className="block text-gray-700 text-sm font-semibold mb-2"
+          htmlFor="email"
+        >
           Email Address
         </label>
         <input
@@ -41,7 +50,10 @@ const LoginForm: React.FC = () => {
         />
       </div>
       <div className="mb-6">
-        <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">
+        <label
+          className="block text-gray-700 text-sm font-semibold mb-2"
+          htmlFor="password"
+        >
           Password
         </label>
         <input
@@ -60,13 +72,19 @@ const LoginForm: React.FC = () => {
             id="rememberMe"
             className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
           />
-          <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-900">
+          <label
+            htmlFor="rememberMe"
+            className="ml-2 block text-sm text-gray-900"
+          >
             Remember me
           </label>
         </div>
-        <Link href="/auth/forgot-password/" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Forgot your password?
-          </Link>
+        <Link
+          href="/auth/forgot-password/"
+          className="font-medium text-indigo-600 hover:text-indigo-500"
+        >
+          Forgot your password?
+        </Link>
       </div>
       <button
         onClick={handleLogin}
@@ -75,7 +93,9 @@ const LoginForm: React.FC = () => {
         Login
       </button>
       <div className="relative flex items-center justify-center my-6">
-        <span className="absolute bg-white px-3 text-sm text-gray-500">Or continue with</span>
+        <span className="absolute bg-white px-3 text-sm text-gray-500">
+          Or continue with
+        </span>
         <div className="w-full border-t border-gray-300"></div>
       </div>
       <GoogleSignInButton onError={setError} />
@@ -83,7 +103,7 @@ const LoginForm: React.FC = () => {
       <p className="text-center text-gray-600 text-sm mt-6">
         Don&apos;t have an account?{" "}
         <a
-          onClick={() => router.push('/auth/register')}
+          onClick={() => router.push("/auth/register")}
           className="text-orange-600 hover:text-orange-700 font-medium cursor-pointer"
         >
           Register

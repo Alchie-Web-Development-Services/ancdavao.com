@@ -1,16 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import { Testimonial as TestimonialType } from "@/generated/graphql";
-import { PortableText } from '@portabletext/react'
+import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/lib/sanity";
 
 interface TestimonialProps {
   testimonial: TestimonialType;
 }
 
-const Testimonial: React.FC<TestimonialProps> = ({
-  testimonial,
-}) => {
+const Testimonial: React.FC<TestimonialProps> = ({ testimonial }) => {
   return (
     <div className="bg-white p-8 rounded-lg shadow-md">
       <div className="mb-6">
@@ -42,7 +40,9 @@ const Testimonial: React.FC<TestimonialProps> = ({
         )}
         <div>
           <p className="font-medium text-gray-900">{testimonial.author}</p>
-          {testimonial.authorRole && <p className="text-sm text-gray-500">{testimonial.authorRole}</p>}
+          {testimonial.authorRole && (
+            <p className="text-sm text-gray-500">{testimonial.authorRole}</p>
+          )}
         </div>
       </div>
     </div>

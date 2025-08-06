@@ -7,7 +7,9 @@ describe("MyAccountHeader", () => {
     render(<MyAccountHeader onLogout={mockOnLogout} />);
 
     expect(screen.getByText("My Account")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Sign out" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Sign out" }),
+    ).toBeInTheDocument();
   });
 
   it("calls onLogout when sign out button is clicked", () => {

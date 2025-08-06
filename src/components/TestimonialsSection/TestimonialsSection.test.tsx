@@ -14,11 +14,16 @@ vi.mock("../Testimonial", () => ({
   __esModule: true,
   default: ({ testimonial }: { testimonial: Testimonial }) => (
     <div data-testid="testimonial">
-      <div>{testimonial.contentRaw?.[0]?.children?.[0]?.text || testimonial.quote}</div>
+      <div>
+        {testimonial.contentRaw?.[0]?.children?.[0]?.text || testimonial.quote}
+      </div>
       <p>{testimonial.author}</p>
       <p>{testimonial.authorRole}</p>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={testimonial.authorImage?.asset?.url} alt={testimonial.author || "Test image"} />
+      <img
+        src={testimonial.authorImage?.asset?.url}
+        alt={testimonial.author || "Test image"}
+      />
     </div>
   ),
 }));
@@ -91,14 +96,24 @@ describe("TestimonialsSection", () => {
     render(<TestimonialsSection testimonials={mockTestimonials} />);
 
     expect(screen.getByText("What People Say")).toBeInTheDocument();
-    expect(screen.getByText("This is a great quote from Testimonial 1.")).toBeInTheDocument();
+    expect(
+      screen.getByText("This is a great quote from Testimonial 1."),
+    ).toBeInTheDocument();
     expect(screen.getByText("Author One")).toBeInTheDocument();
     expect(screen.getByText("Role One")).toBeInTheDocument();
-    expect(screen.getByAltText("Author One")).toHaveAttribute("src", "https://cdn.sanity.io/images/tuggecli/production/avatar1.jpg");
+    expect(screen.getByAltText("Author One")).toHaveAttribute(
+      "src",
+      "https://cdn.sanity.io/images/tuggecli/production/avatar1.jpg",
+    );
 
-    expect(screen.getByText("Another inspiring quote from Testimonial 2.")).toBeInTheDocument();
+    expect(
+      screen.getByText("Another inspiring quote from Testimonial 2."),
+    ).toBeInTheDocument();
     expect(screen.getByText("Author Two")).toBeInTheDocument();
     expect(screen.getByText("Role Two")).toBeInTheDocument();
-    expect(screen.getByAltText("Author Two")).toHaveAttribute("src", "https://cdn.sanity.io/images/tuggecli/production/avatar2.jpg");
+    expect(screen.getByAltText("Author Two")).toHaveAttribute(
+      "src",
+      "https://cdn.sanity.io/images/tuggecli/production/avatar2.jpg",
+    );
   });
 });

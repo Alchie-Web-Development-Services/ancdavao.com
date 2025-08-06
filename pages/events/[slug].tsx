@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { client, urlFor } from "@//lib/sanity";
 import { AllEventsQuery, Event } from "@//generated/graphql";
 import Image from "next/image";
-import { PortableText, PortableTextBlock } from '@portabletext/react'
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 import SEO from "@/components/SEO";
 import { ALL_EVENTS_QUERY } from "@//graphql/allEvents";
 import { EVENT_BY_SLUG_QUERY } from "@//graphql/eventBySlug";
@@ -17,22 +17,30 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
     return <div className="text-center py-10">Event not found.</div>;
   }
 
-  const startDate = event.startDate ? new Date(event.startDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }) : "";
-  const endDate = event.endDate ? new Date(event.endDate).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }) : "";
+  const startDate = event.startDate
+    ? new Date(event.startDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
+  const endDate = event.endDate
+    ? new Date(event.endDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
 
   return (
     <div className="min-h-screen bg-neutral-100">
       <SEO
         title={event.title || "Event Detail"}
-        description={event.descriptionRaw ? (event.descriptionRaw[0] as PortableTextBlock)?.children[0]?.text : "Details about a specific event hosted by ANC Davao."}
+        description={
+          event.descriptionRaw
+            ? (event.descriptionRaw[0] as PortableTextBlock)?.children[0]?.text
+            : "Details about a specific event hosted by ANC Davao."
+        }
         keywords={`${event.title}, ANC Davao, event, community, support`}
       />
       <div className="relative h-96 w-full">
@@ -58,7 +66,11 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
             About This Event
           </h2>
           <div className="prose max-w-none text-neutral-700 leading-relaxed">
-            {event.descriptionRaw ? <PortableText value={event.descriptionRaw} /> : <p>No detailed description available for this event.</p>}
+            {event.descriptionRaw ? (
+              <PortableText value={event.descriptionRaw} />
+            ) : (
+              <p>No detailed description available for this event.</p>
+            )}
           </div>
         </div>
 
@@ -68,8 +80,8 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
               Event Details
             </h3>
             <p className="text-neutral-700 mb-2">
-              <span className="font-semibold">Date:</span>{" "}
-              {startDate} {endDate && `- ${endDate}`}
+              <span className="font-semibold">Date:</span> {startDate}{" "}
+              {endDate && `- ${endDate}`}
             </p>
             <p className="text-neutral-700">
               <span className="font-semibold">Location:</span>{" "}
@@ -89,7 +101,7 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const result = await client.request<AllEventsQuery>(ALL_EVENTS_QUERY);
   const paths = result.allEvent.map((event) => ({
-    params: { slug: event.slug?.current || '' },
+    params: { slug: event.slug?.current || "" },
   }));
 
   return {
@@ -98,9 +110,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<EventDetailProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<EventDetailProps> = async ({
+  params,
+}) => {
   const slug = params?.slug as string;
-  const result = await client.request<AllEventsQuery>(EVENT_BY_SLUG_QUERY, { slug });
+  const result = await client.request<AllEventsQuery>(EVENT_BY_SLUG_QUERY, {
+    slug,
+  });
 
   return {
     props: {

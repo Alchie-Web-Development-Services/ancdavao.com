@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const AuthPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/auth/login');
+    router.push("/auth/login");
   }, [router]);
 
   return null;

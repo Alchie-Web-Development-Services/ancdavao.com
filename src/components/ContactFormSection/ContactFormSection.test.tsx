@@ -22,7 +22,9 @@ describe("ContactFormSection", () => {
     expect(screen.getByLabelText(/Email Address/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Subject/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Your Message/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Send Message" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Send Message" }),
+    ).toBeInTheDocument();
 
     // Fill out the form
     fireEvent.change(screen.getByLabelText(/Full Name/i), {
@@ -46,7 +48,11 @@ describe("ContactFormSection", () => {
 
     // Check for success message after submission
     await waitFor(() => {
-      expect(screen.getByText("Thank you for your message! We will get back to you soon.")).toBeInTheDocument();
+      expect(
+        screen.getByText(
+          "Thank you for your message! We will get back to you soon.",
+        ),
+      ).toBeInTheDocument();
     });
 
     // Check if form is reset

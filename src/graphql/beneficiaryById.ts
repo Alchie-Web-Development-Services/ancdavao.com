@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { BENEFICIARY_FIELDS } from './fragments/index';
+import { gql } from "graphql-request";
+import { BENEFICIARY_FIELDS } from "./fragments/index";
 
 export const BENEFICIARY_BY_ID_QUERY = gql`
   ${BENEFICIARY_FIELDS}

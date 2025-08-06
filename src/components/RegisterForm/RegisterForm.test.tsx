@@ -21,14 +21,24 @@ vi.mock("next/router", () => ({
 vi.mock("@/components/GoogleSignInButton", () => ({
   __esModule: true,
   default: ({ onError }: { onError: (message: string) => void }) => (
-    <button onClick={() => onError("Google error")} data-testid="google-signin-button">Google Sign In</button>
+    <button
+      onClick={() => onError("Google error")}
+      data-testid="google-signin-button"
+    >
+      Google Sign In
+    </button>
   ),
 }));
 
 vi.mock("@/components/FacebookSignInButton", () => ({
   __esModule: true,
   default: ({ onError }: { onError: (message: string) => void }) => (
-    <button onClick={() => onError("Facebook error")} data-testid="facebook-signin-button">Facebook Sign In</button>
+    <button
+      onClick={() => onError("Facebook error")}
+      data-testid="facebook-signin-button"
+    >
+      Facebook Sign In
+    </button>
   ),
 }));
 
@@ -47,7 +57,9 @@ describe("RegisterForm", () => {
     expect(screen.getByText("Create an Account")).toBeInTheDocument();
     expect(screen.getByLabelText(/Email Address/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Register" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Register" }),
+    ).toBeInTheDocument();
     expect(screen.getByText("Login")).toBeInTheDocument();
   });
 
@@ -56,12 +68,20 @@ describe("RegisterForm", () => {
 
     render(<RegisterForm />);
 
-    fireEvent.change(screen.getByLabelText(/Email Address/i), { target: { value: "test@example.com" } });
-    fireEvent.change(screen.getByLabelText(/Password/i), { target: { value: "password123" } });
+    fireEvent.change(screen.getByLabelText(/Email Address/i), {
+      target: { value: "test@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText(/Password/i), {
+      target: { value: "password123" },
+    });
     fireEvent.click(screen.getByRole("button", { name: "Register" }));
 
     await waitFor(() => {
-      expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(expect.any(Object), "test@example.com", "password123");
+      expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(
+        expect.any(Object),
+        "test@example.com",
+        "password123",
+      );
       expect(mockPush).toHaveBeenCalledWith("/my/account");
       expect(screen.queryByText(/Error/i)).not.toBeInTheDocument();
     });
@@ -69,12 +89,18 @@ describe("RegisterForm", () => {
 
   it("displays error message on failed registration", async () => {
     const errorMessage = "Email already in use";
-    (createUserWithEmailAndPassword as vi.Mock).mockRejectedValueOnce(new Error(errorMessage));
+    (createUserWithEmailAndPassword as vi.Mock).mockRejectedValueOnce(
+      new Error(errorMessage),
+    );
 
     render(<RegisterForm />);
 
-    fireEvent.change(screen.getByLabelText(/Email Address/i), { target: { value: "test@example.com" } });
-    fireEvent.change(screen.getByLabelText(/Password/i), { target: { value: "password123" } });
+    fireEvent.change(screen.getByLabelText(/Email Address/i), {
+      target: { value: "test@example.com" },
+    });
+    fireEvent.change(screen.getByLabelText(/Password/i), {
+      target: { value: "password123" },
+    });
     fireEvent.click(screen.getByRole("button", { name: "Register" }));
 
     await waitFor(() => {

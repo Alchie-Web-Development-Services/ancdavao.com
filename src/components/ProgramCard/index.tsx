@@ -10,7 +10,9 @@ interface ProgramCardProps {
 }
 
 const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
-  const imgSrc = program.mainImage ? urlFor(program.mainImage).url() : "https://cdn.ancdavao.com/placeholder1.jpg";
+  const imgSrc = program.mainImage
+    ? urlFor(program.mainImage).url()
+    : "https://cdn.ancdavao.com/placeholder1.jpg";
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100">

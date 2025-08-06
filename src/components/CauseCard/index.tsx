@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PortableText } from '@portabletext/react';
+import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/lib/sanity";
 import { Cause } from "@/generated/graphql";
 
@@ -27,7 +27,11 @@ const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
           {cause.title}
         </h3>
         <div className="text-neutral-600 text-sm mb-4">
-          {cause.descriptionRaw ? <PortableText value={cause.descriptionRaw} /> : "No description provided."}
+          {cause.descriptionRaw ? (
+            <PortableText value={cause.descriptionRaw} />
+          ) : (
+            "No description provided."
+          )}
         </div>
         <div className="mb-4">
           <div className="flex justify-between text-sm font-medium text-neutral-700 mb-1">

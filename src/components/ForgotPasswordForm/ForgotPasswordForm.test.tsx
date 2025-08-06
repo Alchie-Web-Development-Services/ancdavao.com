@@ -52,7 +52,9 @@ describe("ForgotPasswordForm", () => {
 
     expect(screen.getByText("Forgot Password")).toBeInTheDocument();
     expect(screen.getByPlaceholderText("Email address")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Reset Password" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Reset Password" }),
+    ).toBeInTheDocument();
 
     fireEvent.change(screen.getByPlaceholderText("Email address"), {
       target: { value: "test@example.com" },
@@ -63,8 +65,12 @@ describe("ForgotPasswordForm", () => {
 
     await waitFor(() => {
       expect(mockResetPassword).toHaveBeenCalledWith("test@example.com");
-      expect(toast.success).toHaveBeenCalledWith("Password reset email sent! Check your inbox.");
-      expect(screen.getByRole("button", { name: "Reset Password" })).toBeEnabled();
+      expect(toast.success).toHaveBeenCalledWith(
+        "Password reset email sent! Check your inbox.",
+      );
+      expect(
+        screen.getByRole("button", { name: "Reset Password" }),
+      ).toBeEnabled();
     });
   });
 
@@ -82,10 +88,9 @@ describe("ForgotPasswordForm", () => {
     await waitFor(() => {
       expect(mockResetPassword).toHaveBeenCalledWith("test@example.com");
       expect(toast.error).toHaveBeenCalledWith(errorMessage);
-      expect(screen.getByRole("button", { name: "Reset Password" })).toBeEnabled();
+      expect(
+        screen.getByRole("button", { name: "Reset Password" }),
+      ).toBeEnabled();
     });
   });
-
-  
 });
-

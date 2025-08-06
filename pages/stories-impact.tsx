@@ -107,10 +107,7 @@ const StoriesImpact: React.FC = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Testimonials</h2>
           <div className="max-w-3xl mx-auto">
             {testimonials.map((testimonial) => (
-              <Testimonial
-                key={testimonial.id}
-                testimonial={testimonial}
-              />
+              <Testimonial key={testimonial.id} testimonial={testimonial} />
             ))}
           </div>
         </div>

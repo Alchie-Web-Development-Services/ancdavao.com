@@ -8,7 +8,6 @@ interface GallerySectionProps {
 }
 
 const GallerySection: React.FC<GallerySectionProps> = ({ momentsOfHope }) => {
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -24,17 +23,25 @@ const GallerySection: React.FC<GallerySectionProps> = ({ momentsOfHope }) => {
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {momentsOfHope.filter((m) => m.image).map((moment) => (
-            <Link href={moment.link} key={moment._id} className="overflow-hidden rounded-lg shadow-md" target="_blank" rel="noopener noreferrer">
-              <Image
-                src={urlFor(moment.image).url()}
-                alt={moment.title}
-                width={800}
-                height={600}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </Link>
-          ))}
+          {momentsOfHope
+            .filter((m) => m.image)
+            .map((moment) => (
+              <Link
+                href={moment.link}
+                key={moment._id}
+                className="overflow-hidden rounded-lg shadow-md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={urlFor(moment.image).url()}
+                  alt={moment.title}
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </Link>
+            ))}
         </div>
       </div>
     </section>

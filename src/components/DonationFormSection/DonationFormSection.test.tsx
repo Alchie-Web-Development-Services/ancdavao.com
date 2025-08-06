@@ -6,7 +6,9 @@ describe("DonationFormSection", () => {
     render(<DonationFormSection />);
 
     // Check for donation type buttons
-    expect(screen.getByRole("button", { name: "One-time" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "One-time" }),
+    ).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Monthly" })).toBeInTheDocument();
 
     // Check for preset amounts
@@ -27,7 +29,9 @@ describe("DonationFormSection", () => {
     expect(screen.getByPlaceholderText("Phone Number")).toBeInTheDocument();
 
     // Check for donate button
-    expect(screen.getByRole("button", { name: "Donate Now" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Donate Now" }),
+    ).toBeInTheDocument();
   });
 
   it("allows selecting donation type and amount", () => {
@@ -35,7 +39,9 @@ describe("DonationFormSection", () => {
 
     // Select monthly donation
     fireEvent.click(screen.getByRole("button", { name: "Monthly" }));
-    expect(screen.getByRole("button", { name: "Monthly" })).toHaveClass("bg-white");
+    expect(screen.getByRole("button", { name: "Monthly" })).toHaveClass(
+      "bg-white",
+    );
 
     // Select a preset amount
     fireEvent.click(screen.getByText("₱2,000"));
@@ -52,10 +58,14 @@ describe("DonationFormSection", () => {
     render(<DonationFormSection />);
 
     fireEvent.click(screen.getByText("GCash"));
-    expect(screen.getByText("GCash").closest(".p-4")).toHaveClass("bg-primary-50");
+    expect(screen.getByText("GCash").closest(".p-4")).toHaveClass(
+      "bg-primary-50",
+    );
 
     fireEvent.click(screen.getByText("Bank Transfer"));
-    expect(screen.getByText("Bank Transfer").closest(".p-4")).toHaveClass("bg-primary-50");
+    expect(screen.getByText("Bank Transfer").closest(".p-4")).toHaveClass(
+      "bg-primary-50",
+    );
   });
 
   it("allows entering donor information", () => {
@@ -69,11 +79,15 @@ describe("DonationFormSection", () => {
     fireEvent.change(screen.getByPlaceholderText("Email"), {
       target: { value: "jane.doe@example.com" },
     });
-    expect(screen.getByPlaceholderText("Email")).toHaveValue("jane.doe@example.com");
+    expect(screen.getByPlaceholderText("Email")).toHaveValue(
+      "jane.doe@example.com",
+    );
 
     fireEvent.change(screen.getByPlaceholderText("Phone Number"), {
       target: { value: "1234567890" },
     });
-    expect(screen.getByPlaceholderText("Phone Number")).toHaveValue("1234567890");
+    expect(screen.getByPlaceholderText("Phone Number")).toHaveValue(
+      "1234567890",
+    );
   });
 });

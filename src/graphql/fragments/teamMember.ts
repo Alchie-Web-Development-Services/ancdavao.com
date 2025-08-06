@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const TEAM_MEMBER_FIELDS = gql`
   fragment TeamMemberFields on TeamMember {

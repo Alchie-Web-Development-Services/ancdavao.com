@@ -7,7 +7,7 @@ import { ALL_ARTICLES_QUERY } from "@//graphql/allArticles";
 import BlogCard from "@/components/BlogCard";
 
 interface BlogProps {
-  articles: AllArticlesQuery['allArticle'];
+  articles: AllArticlesQuery["allArticle"];
 }
 
 const Blog: React.FC<BlogProps> = ({ articles }) => {

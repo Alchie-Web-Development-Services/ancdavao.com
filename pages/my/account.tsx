@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '@/context/AuthContext';
-import { auth } from '@/lib/firebase';
-import { signOut } from 'firebase/auth';
-import { useRouter } from 'next/router';
-import MyAccountHeader from '@/components/MyAccountHeader';
-import MyAccountSidebar from '@/components/MyAccountSidebar';
-import MyAccountContent from '@/components/MyAccountContent';
-import Loading from '@/components/Loading';
-import { getUserProfile } from '@/services/userService';
-import { getPrivateLayout } from '@/components/PrivateLayout';
-import { NextPageWithLayout } from 'pages/_app';
+import React, { useEffect, useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { auth } from "@/lib/firebase";
+import { signOut } from "firebase/auth";
+import { useRouter } from "next/router";
+import MyAccountHeader from "@/components/MyAccountHeader";
+import MyAccountSidebar from "@/components/MyAccountSidebar";
+import MyAccountContent from "@/components/MyAccountContent";
+import Loading from "@/components/Loading";
+import { getUserProfile } from "@/services/userService";
+import { getPrivateLayout } from "@/components/PrivateLayout";
+import { NextPageWithLayout } from "pages/_app";
 
 interface UserProfile {
   uid: string;
@@ -38,7 +38,7 @@ const MyAccount: NextPageWithLayout = () => {
       };
       fetchProfile();
     } else if (!loading && !user) {
-      router.push('/auth/login');
+      router.push("/auth/login");
     }
   }, [user, loading, router]);
 
@@ -49,16 +49,17 @@ const MyAccount: NextPageWithLayout = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      router.push('/auth/login');
+      router.push("/auth/login");
     } catch (error) {
       console.error("Error logging out:", error);
       alert("Failed to log out.");
     }
   };
 
-  const fullName = userProfile.firstName && userProfile.lastName 
-    ? `${userProfile.firstName} ${userProfile.lastName}` 
-    : userProfile.displayName || 'User Name';
+  const fullName =
+    userProfile.firstName && userProfile.lastName
+      ? `${userProfile.firstName} ${userProfile.lastName}`
+      : userProfile.displayName || "User Name";
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -73,6 +74,6 @@ const MyAccount: NextPageWithLayout = () => {
   );
 };
 
-MyAccount.getLayout = getPrivateLayout
+MyAccount.getLayout = getPrivateLayout;
 
 export default MyAccount;

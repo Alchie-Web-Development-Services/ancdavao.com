@@ -1,8 +1,8 @@
 ## Gemini Added Memories
+
 - Always use yarn for package management.
 - Always run `yarn lint` before running `yarn test`. then fix any linting errors.
 - Always run `yarn test` before running `yarn build`. then fix any test errors.
-
 
 ## Standard Instructions for Interacting with Gemini
 
