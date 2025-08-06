@@ -11,9 +11,7 @@ const CorporatePartnershipCard: React.FC<CorporatePartnershipCardProps> = ({
 }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm">
-      <h3 className="text-xl font-semibold text-primary-700 mb-3">
-        {title}
-      </h3>
+      <h3 className="text-xl font-semibold text-primary-700 mb-3">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   );

@@ -19,10 +19,10 @@ const SEO: React.FC<SEOProps> = ({
 }) => {
   const router = useRouter();
   const defaultTitle = "ANC Davao - Serving Christ through Charity and Mission";
-const defaultDescription =
-  "A Catholic mission initiative in Davao City committed to serving the poor, promoting human dignity, and living out the Gospel through love, service, and community outreach.";
-const defaultKeywords =
-  "ANC Davao, Catholic mission, Davao charity, Roman Catholic, discipleship, corporal works of mercy, community service, Gospel values, social outreach, ACLAIM, Archdiocese of Davao";
+  const defaultDescription =
+    "A Catholic mission initiative in Davao City committed to serving the poor, promoting human dignity, and living out the Gospel through love, service, and community outreach.";
+  const defaultKeywords =
+    "ANC Davao, Catholic mission, Davao charity, Roman Catholic, discipleship, corporal works of mercy, community service, Gospel values, social outreach, ACLAIM, Archdiocese of Davao";
   const defaultOgImage = "/images/logo.png"; // Assuming your logo is in public/images
   const defaultOgUrl = `https://ancdavao.com${router.asPath}`; // Replace with your actual domain
 

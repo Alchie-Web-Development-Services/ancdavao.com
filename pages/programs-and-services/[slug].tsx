@@ -6,16 +6,18 @@ import Link from "next/link";
 import SEO from "@/components/SEO";
 
 import { client, urlFor } from "@/lib/sanity";
-import { PortableText } from '@portabletext/react';
+import { PortableText } from "@portabletext/react";
 import { AllProgramServicesQuery, ProgramService } from "@/generated/graphql";
-import { ALL_PROGRAM_SERVICES_QUERY, PROGRAM_SERVICE_BY_SLUG_QUERY } from "@/graphql/allProgramServices";
+import {
+  ALL_PROGRAM_SERVICES_QUERY,
+  PROGRAM_SERVICE_BY_SLUG_QUERY,
+} from "@/graphql/allProgramServices";
 
 interface ProgramDetailProps {
   program: ProgramService;
 }
 
 const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
-
   if (!program) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -27,15 +29,19 @@ const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={program.title || ''}
+        title={program.title || ""}
         description={program.descriptionRaw ? "Description available" : ""}
-        keywords={`${program.title?.toLowerCase() || ''}, ${program.descriptionRaw ? 'description available' : ''}, ANC Davao program, charity, community development`}
-        ogImage={program.mainImage ? urlFor(program.mainImage).url() : undefined}
+        keywords={`${program.title?.toLowerCase() || ""}, ${program.descriptionRaw ? "description available" : ""}, ANC Davao program, charity, community development`}
+        ogImage={
+          program.mainImage ? urlFor(program.mainImage).url() : undefined
+        }
       />
       <PageHeader
-        title={program.title || ''}
+        title={program.title || ""}
         subtitle="Learn more about this program and its impact."
-        backgroundImage={program.mainImage ? urlFor(program.mainImage).url() : undefined}
+        backgroundImage={
+          program.mainImage ? urlFor(program.mainImage).url() : undefined
+        }
       />
 
       <section className="py-16 bg-white">
@@ -53,7 +59,11 @@ const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
               {program.title}
             </h2>
             <div className="prose prose-primary max-w-none text-gray-700 mb-8">
-              {program.descriptionRaw ? <PortableText value={program.descriptionRaw} /> : "No description provided."}
+              {program.descriptionRaw ? (
+                <PortableText value={program.descriptionRaw} />
+              ) : (
+                "No description provided."
+              )}
             </div>
 
             <div className="mt-8 text-center">
@@ -72,17 +82,24 @@ const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const result = await client.request<AllProgramServicesQuery>(ALL_PROGRAM_SERVICES_QUERY);
+  const result = await client.request<AllProgramServicesQuery>(
+    ALL_PROGRAM_SERVICES_QUERY,
+  );
   const paths = result.allProgramService.map((program) => ({
-    params: { slug: program.slug?.current || '' },
+    params: { slug: program.slug?.current || "" },
   }));
 
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<ProgramDetailProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ProgramDetailProps> = async ({
+  params,
+}) => {
   const slug = params?.slug as string;
-  const result = await client.request<AllProgramServicesQuery>(PROGRAM_SERVICE_BY_SLUG_QUERY, { slug });
+  const result = await client.request<AllProgramServicesQuery>(
+    PROGRAM_SERVICE_BY_SLUG_QUERY,
+    { slug },
+  );
   const program = result.allProgramService[0];
 
   if (!program) {

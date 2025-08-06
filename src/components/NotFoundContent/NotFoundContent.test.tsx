@@ -7,7 +7,11 @@ describe("NotFoundContent", () => {
 
     expect(screen.getByText("404")).toBeInTheDocument();
     expect(screen.getByText("Page Not Found")).toBeInTheDocument();
-    expect(screen.getByText(/The page you're looking for doesn't exist/i)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Return Home" })).toBeInTheDocument();
+    expect(
+      screen.getByText(/The page you're looking for doesn't exist/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Return Home" }),
+    ).toBeInTheDocument();
   });
 });

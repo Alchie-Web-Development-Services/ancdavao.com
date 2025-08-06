@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { PARTNER_FIELDS } from './fragments/index';
+import { gql } from "graphql-request";
+import { PARTNER_FIELDS } from "./fragments/index";
 
 export const ALL_PARTNERS_QUERY = gql`
   ${PARTNER_FIELDS}

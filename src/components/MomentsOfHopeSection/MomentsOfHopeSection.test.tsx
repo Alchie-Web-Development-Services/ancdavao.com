@@ -27,8 +27,12 @@ describe("MomentsOfHopeSection", () => {
 
     mockMoments.forEach((moment, index) => {
       expect(screen.getByText(moment.title)).toBeInTheDocument();
-      expect(screen.getByText(new Date(moment.date).toLocaleDateString())).toBeInTheDocument();
-                  expect(screen.getAllByRole("link", { name: "Learn More" })[index]).toHaveAttribute("href", moment.link);
+      expect(
+        screen.getByText(new Date(moment.date).toLocaleDateString()),
+      ).toBeInTheDocument();
+      expect(
+        screen.getAllByRole("link", { name: "Learn More" })[index],
+      ).toHaveAttribute("href", moment.link);
     });
   });
 
@@ -42,6 +46,8 @@ describe("MomentsOfHopeSection", () => {
       },
     ];
     render(<MomentsOfHopeSection momentsOfHope={momentsWithoutLink} />);
-    expect(screen.queryByRole("link", { name: "Learn More" })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("link", { name: "Learn More" }),
+    ).not.toBeInTheDocument();
   });
 });

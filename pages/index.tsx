@@ -14,14 +14,19 @@ import { HomePageCompiledResults } from "@/types/homepage";
 import { Event } from "@/generated/graphql";
 
 interface HomeProps {
-  articles: HomePageCompiledResults['allArticle'];
-  volunteers: HomePageCompiledResults['allVolunteer'];
-  causes: HomePageCompiledResults['allCause'];
-  events: HomePageCompiledResults['allEvent'];
-  momentsOfHope: HomePageCompiledResults['allMomentsOfHope'];
+  articles: HomePageCompiledResults["allArticle"];
+  volunteers: HomePageCompiledResults["allVolunteer"];
+  causes: HomePageCompiledResults["allCause"];
+  events: HomePageCompiledResults["allEvent"];
+  momentsOfHope: HomePageCompiledResults["allMomentsOfHope"];
 }
 
-const Home: React.FC<HomeProps> = ({ articles, volunteers, events, momentsOfHope }) => {
+const Home: React.FC<HomeProps> = ({
+  articles,
+  volunteers,
+  events,
+  momentsOfHope,
+}) => {
   return (
     <div className="bg-white">
       <SEO
@@ -44,7 +49,8 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, events, momentsOfHope
 };
 
 export async function getStaticProps() {
-  const homePageData = await client.request<HomePageCompiledResults>(HOME_PAGE_QUERY);
+  const homePageData =
+    await client.request<HomePageCompiledResults>(HOME_PAGE_QUERY);
 
   return {
     props: {

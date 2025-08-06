@@ -8,18 +8,22 @@ describe("EventCard", () => {
       _type: "event",
       title: "Test Event Title",
       slug: { current: "test-event-title" },
-      descriptionRaw: [{
-        _key: "abc",
-        _type: "block",
-        children: [{
-          _key: "def",
-          _type: "span",
-          marks: [],
-          text: "This is a test description."
-        }],
-        markDefs: [],
-        style: "normal"
-      }],
+      descriptionRaw: [
+        {
+          _key: "abc",
+          _type: "block",
+          children: [
+            {
+              _key: "def",
+              _type: "span",
+              marks: [],
+              text: "This is a test description.",
+            },
+          ],
+          markDefs: [],
+          style: "normal",
+        },
+      ],
       mainImage: {
         _type: "image",
         asset: {
@@ -37,7 +41,9 @@ describe("EventCard", () => {
     expect(screen.getByText(mockEvent.title)).toBeInTheDocument();
     expect(screen.getByText("This is a test description.")).toBeInTheDocument();
     expect(screen.getByAltText(mockEvent.title)).toBeInTheDocument();
-    expect(screen.getByText("January 1, 2025 - January 2, 2025")).toBeInTheDocument();
+    expect(
+      screen.getByText("January 1, 2025 - January 2, 2025"),
+    ).toBeInTheDocument();
     expect(screen.getByText(mockEvent.location)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Learn More" })).toHaveAttribute(
       "href",

@@ -15,9 +15,7 @@ const VolunteerRoleCard: React.FC<VolunteerRoleCardProps> = ({
 }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-      <h3 className="text-xl font-semibold text-primary-700 mb-2">
-        {title}
-      </h3>
+      <h3 className="text-xl font-semibold text-primary-700 mb-2">{title}</h3>
       <p className="text-sm text-primary-600 font-medium mb-3">
         {timeCommitment}
       </p>

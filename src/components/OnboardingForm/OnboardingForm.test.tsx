@@ -61,7 +61,9 @@ describe("OnboardingForm", () => {
     expect(screen.getByLabelText(/City/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Country/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Postal Code/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Complete Profile" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Complete Profile" }),
+    ).toBeInTheDocument();
   });
 
   it("pre-fills form with existing user profile data", async () => {
@@ -91,8 +93,12 @@ describe("OnboardingForm", () => {
   it("handles form submission and updates user profile", async () => {
     render(<OnboardingForm />);
 
-    fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: "John" } });
-    fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: "Smith" } });
+    fireEvent.change(screen.getByLabelText(/First Name/i), {
+      target: { value: "John" },
+    });
+    fireEvent.change(screen.getByLabelText(/Last Name/i), {
+      target: { value: "Smith" },
+    });
 
     fireEvent.click(screen.getByRole("button", { name: "Complete Profile" }));
 

@@ -37,13 +37,13 @@ const MissionVisionSection: React.FC = () => {
               </h3>
               <p className="text-gray-600 mb-2">
                 We envision a nourishment center of children from the
-                peripheries that is God-centered, service oriented and
-                community based.
+                peripheries that is God-centered, service oriented and community
+                based.
               </p>
               <p className="text-gray-600">
-                We also envision the children/beneficiaries of the
-                Archdiocesan Nourishment Center to become successful members
-                of society, actively contributing to nation-building.
+                We also envision the children/beneficiaries of the Archdiocesan
+                Nourishment Center to become successful members of society,
+                actively contributing to nation-building.
               </p>
             </div>
 

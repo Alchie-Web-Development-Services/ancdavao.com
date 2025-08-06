@@ -11,7 +11,8 @@
     "test": "vitest run",
     "coverage": "vitest run --coverage",
     "generate-types": "dotenv -e .env cross-env graphql-codegen --config codegen.ts",
-    "run-all": "yarn generate-types && yarn lint && yarn test && yarn build"
+    "run-all": "yarn generate-types && yarn format && yarn lint && yarn test && yarn build",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@apollo/client": "^3.13.9",

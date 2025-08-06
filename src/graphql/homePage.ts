@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 import {
   ARTICLE_FIELDS,
   AUTHOR_FIELDS,
@@ -7,7 +7,7 @@ import {
   CAUSE_FIELDS,
   EVENT_FIELDS,
   MOMENTS_OF_HOPE_FIELDS,
-} from './fragments/index';
+} from "./fragments/index";
 
 export const HOME_PAGE_QUERY = gql`
   ${ARTICLE_FIELDS}

@@ -6,7 +6,9 @@ interface VolunteersSectionProps {
   volunteers: Volunteer[];
 }
 
-const VolunteersSection: React.FC<VolunteersSectionProps> = ({ volunteers }) => {
+const VolunteersSection: React.FC<VolunteersSectionProps> = ({
+  volunteers,
+}) => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">

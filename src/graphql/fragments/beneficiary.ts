@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request';
+import { gql } from "graphql-request";
 
 export const BENEFICIARY_FIELDS = gql`
   fragment BeneficiaryFields on Beneficiary {

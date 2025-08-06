@@ -46,9 +46,12 @@ describe("ProgramCard", () => {
 
     expect(screen.getByText("Test Program")).toBeInTheDocument();
     expect(screen.getByText("This is a test description.")).toBeInTheDocument();
-    expect(screen.getByRole("img", { name: "Test Program" })).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Learn more" }),
-    ).toHaveAttribute("href", "/programs-and-services/test-program");
+      screen.getByRole("img", { name: "Test Program" }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Learn more" })).toHaveAttribute(
+      "href",
+      "/programs-and-services/test-program",
+    );
   });
 });

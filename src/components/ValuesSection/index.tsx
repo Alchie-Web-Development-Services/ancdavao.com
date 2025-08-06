@@ -33,19 +33,17 @@ const ValuesSection: React.FC = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Our Values
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Values</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          The core principles that shape our mission and actions at Archdiocesan Nourishment Center — compassion, service, integrity, and faith — guide every step we take in uplifting lives and building a more caring community.
+            The core principles that shape our mission and actions at
+            Archdiocesan Nourishment Center — compassion, service, integrity,
+            and faith — guide every step we take in uplifting lives and building
+            a more caring community.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <div
-              key={index}
-              className="text-center p-6 bg-gray-50 rounded-lg"
-            >
+            <div key={index} className="text-center p-6 bg-gray-50 rounded-lg">
               <div className="flex justify-center">{value.icon}</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {value.title}

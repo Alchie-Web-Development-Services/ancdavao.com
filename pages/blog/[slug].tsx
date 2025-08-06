@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { client } from "@//lib/sanity";
 import { AllArticlesQuery, Article } from "@//generated/graphql";
 import Image from "next/image";
-import { PortableText } from '@portabletext/react'
+import { PortableText } from "@portabletext/react";
 import SEO from "@/components/SEO";
 import { ALL_ARTICLES_QUERY } from "@//graphql/allArticles";
 import { ARTICLE_BY_SLUG_QUERY } from "@//graphql/articleBySlug";
@@ -18,11 +18,13 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article }) => {
     return <div className="text-center py-10">Article not found.</div>;
   }
 
-  const publishedDate = article.publishedAt ? new Date(article.publishedAt).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }) : "N/A";
+  const publishedDate = article.publishedAt
+    ? new Date(article.publishedAt).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "N/A";
 
   return (
     <div className="min-h-screen bg-neutral-100">
@@ -54,10 +56,15 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article }) => {
             {article.title}
           </h2>
           <p className="text-neutral-600 text-sm mb-4">
-            By {article.author?.firstName} {article.author?.lastName} on {publishedDate}
+            By {article.author?.firstName} {article.author?.lastName} on{" "}
+            {publishedDate}
           </p>
           <div className="prose max-w-none text-neutral-700 leading-relaxed">
-            {article.bodyRaw ? <PortableText value={article.bodyRaw} /> : <p>No content available for this article.</p>}
+            {article.bodyRaw ? (
+              <PortableText value={article.bodyRaw} />
+            ) : (
+              <p>No content available for this article.</p>
+            )}
           </div>
         </div>
       </div>
@@ -68,7 +75,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const result = await client.request<AllArticlesQuery>(ALL_ARTICLES_QUERY);
   const paths = result.allArticle.map((article) => ({
-    params: { slug: article.slug?.current || '' },
+    params: { slug: article.slug?.current || "" },
   }));
 
   return {
@@ -77,9 +84,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<ArticleDetailProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ArticleDetailProps> = async ({
+  params,
+}) => {
   const slug = params?.slug as string;
-  const result = await client.request<AllArticlesQuery>(ARTICLE_BY_SLUG_QUERY, { slug });
+  const result = await client.request<AllArticlesQuery>(ARTICLE_BY_SLUG_QUERY, {
+    slug,
+  });
 
   return {
     props: {

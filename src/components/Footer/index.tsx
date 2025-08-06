@@ -50,7 +50,10 @@ const Footer: React.FC = () => {
             <ul className="text-sm grid grid-cols-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-neutral-400 hover:text-white py-1 block">
+                  <Link
+                    href={link.href}
+                    className="text-neutral-400 hover:text-white py-1 block"
+                  >
                     {link.name}
                   </Link>
                 </li>

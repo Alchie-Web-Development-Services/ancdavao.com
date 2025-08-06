@@ -1,49 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useAuth } from '@/context/AuthContext';
-import { updateUserProfile, getUserProfile } from '@/services/userService';
-import { useMy } from '@/context/MyContext';
-
-
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useAuth } from "@/context/AuthContext";
+import { updateUserProfile, getUserProfile } from "@/services/userService";
+import { useMy } from "@/context/MyContext";
 
 const OnboardingForm: React.FC = () => {
   const { user, loading } = useAuth();
   const { onboarded } = useMy();
   const router = useRouter();
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [postalCode, setPostalCode] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-
     if (onboarded) {
-            router.push('/my/account');
-          }
+      router.push("/my/account");
+    }
 
     if (!loading && user) {
       const fetchUserProfile = async () => {
         const profile = await getUserProfile(user.uid);
         if (profile) {
-          setFirstName(profile.firstName || '');
-          setLastName(profile.lastName || '');
-          setPhoneNumber(profile.phoneNumber || '');
-          setAddress(profile.address || '');
-          setCity(profile.city || '');
-          setCountry(profile.country || '');
-          setPostalCode(profile.postalCode || '');
+          setFirstName(profile.firstName || "");
+          setLastName(profile.lastName || "");
+          setPhoneNumber(profile.phoneNumber || "");
+          setAddress(profile.address || "");
+          setCity(profile.city || "");
+          setCountry(profile.country || "");
+          setPostalCode(profile.postalCode || "");
           if (profile.onboarded) {
-            router.push('/my/account');
+            router.push("/my/account");
           }
         }
       };
       fetchUserProfile();
     } else if (!loading && !user) {
-      router.push('/auth/login');
+      router.push("/auth/login");
     }
   }, [user, loading, router, onboarded]);
 
@@ -63,7 +60,7 @@ const OnboardingForm: React.FC = () => {
         postalCode,
         onboarded: true,
       });
-      router.push('/my/account');
+      router.push("/my/account");
     } catch (error) {
       console.error("Error updating profile:", error);
       alert("Failed to update profile.");
@@ -85,7 +82,9 @@ const OnboardingForm: React.FC = () => {
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
         <div className="rounded-md shadow-sm -space-y-px">
           <div>
-            <label htmlFor="first-name" className="sr-only">First Name</label>
+            <label htmlFor="first-name" className="sr-only">
+              First Name
+            </label>
             <input
               id="first-name"
               name="firstName"
@@ -99,7 +98,9 @@ const OnboardingForm: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="last-name" className="sr-only">Last Name</label>
+            <label htmlFor="last-name" className="sr-only">
+              Last Name
+            </label>
             <input
               id="last-name"
               name="lastName"
@@ -113,7 +114,9 @@ const OnboardingForm: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="phone-number" className="sr-only">Phone Number</label>
+            <label htmlFor="phone-number" className="sr-only">
+              Phone Number
+            </label>
             <input
               id="phone-number"
               name="phoneNumber"
@@ -126,7 +129,9 @@ const OnboardingForm: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="address" className="sr-only">Address</label>
+            <label htmlFor="address" className="sr-only">
+              Address
+            </label>
             <input
               id="address"
               name="address"
@@ -139,7 +144,9 @@ const OnboardingForm: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="city" className="sr-only">City</label>
+            <label htmlFor="city" className="sr-only">
+              City
+            </label>
             <input
               id="city"
               name="city"
@@ -152,7 +159,9 @@ const OnboardingForm: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="country" className="sr-only">Country</label>
+            <label htmlFor="country" className="sr-only">
+              Country
+            </label>
             <input
               id="country"
               name="country"
@@ -165,7 +174,9 @@ const OnboardingForm: React.FC = () => {
             />
           </div>
           <div>
-            <label htmlFor="postal-code" className="sr-only">Postal Code</label>
+            <label htmlFor="postal-code" className="sr-only">
+              Postal Code
+            </label>
             <input
               id="postal-code"
               name="postalCode"
@@ -185,7 +196,7 @@ const OnboardingForm: React.FC = () => {
             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             disabled={isSaving}
           >
-            {isSaving ? 'Saving...' : 'Complete Profile'}
+            {isSaving ? "Saving..." : "Complete Profile"}
           </button>
         </div>
       </form>

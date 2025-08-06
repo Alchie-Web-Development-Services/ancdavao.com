@@ -62,7 +62,9 @@ const NewsletterForm: React.FC = () => {
         </button>
       </form>
       {message && (
-        <p className={`mt-2 text-sm ${isError ? "text-red-500" : "text-green-500"}`}>
+        <p
+          className={`mt-2 text-sm ${isError ? "text-red-500" : "text-green-500"}`}
+        >
           {message}
         </p>
       )}

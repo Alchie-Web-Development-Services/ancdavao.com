@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 // Mock firebase auth functions
 vi.mock("firebase/auth", async (importOriginal) => {
-  const actual = await importOriginal() as object;
+  const actual = (await importOriginal()) as object;
   return {
     ...actual,
     FacebookAuthProvider: vi.fn(() => ({})),
@@ -31,9 +31,13 @@ describe("FacebookSignInButton", () => {
 
     render(<FacebookSignInButton onError={mockOnError} />);
 
-    expect(screen.getByRole("button", { name: /Sign in with Facebook/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Sign in with Facebook/i }),
+    ).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: /Sign in with Facebook/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /Sign in with Facebook/i }),
+    );
 
     await waitFor(() => {
       expect(signInWithPopup).toHaveBeenCalled();
@@ -51,7 +55,9 @@ describe("FacebookSignInButton", () => {
 
     render(<FacebookSignInButton onError={mockOnError} />);
 
-    fireEvent.click(screen.getByRole("button", { name: /Sign in with Facebook/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /Sign in with Facebook/i }),
+    );
 
     await waitFor(() => {
       expect(signInWithPopup).toHaveBeenCalled();

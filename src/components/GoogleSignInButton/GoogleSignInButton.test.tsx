@@ -31,9 +31,13 @@ describe("GoogleSignInButton", () => {
 
     render(<GoogleSignInButton onError={mockOnError} />);
 
-    expect(screen.getByRole("button", { name: /Sign in with Google/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Sign in with Google/i }),
+    ).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: /Sign in with Google/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /Sign in with Google/i }),
+    );
 
     await waitFor(() => {
       expect(signInWithPopup).toHaveBeenCalled();
@@ -51,7 +55,9 @@ describe("GoogleSignInButton", () => {
 
     render(<GoogleSignInButton onError={mockOnError} />);
 
-    fireEvent.click(screen.getByRole("button", { name: /Sign in with Google/i }));
+    fireEvent.click(
+      screen.getByRole("button", { name: /Sign in with Google/i }),
+    );
 
     await waitFor(() => {
       expect(signInWithPopup).toHaveBeenCalled();

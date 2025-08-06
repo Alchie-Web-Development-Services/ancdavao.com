@@ -6,7 +6,9 @@ interface TestimonialsSectionProps {
   testimonials: TestimonialType[];
 }
 
-const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testimonials }) => {
+const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
+  testimonials,
+}) => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -20,10 +22,7 @@ const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testimonials 
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {testimonials.map((testimonial) => (
-            <Testimonial
-              key={testimonial._id}
-              testimonial={testimonial}
-            />
+            <Testimonial key={testimonial._id} testimonial={testimonial} />
           ))}
         </div>
       </div>

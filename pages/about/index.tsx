@@ -9,13 +9,16 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import CallToActionSection from "@/components/CallToActionSection";
 import { GetStaticProps } from "next";
 import { client } from "@//lib/sanity";
-import { AllTeamMembersQuery, AllTestimonialsQuery } from "@//generated/graphql";
+import {
+  AllTeamMembersQuery,
+  AllTestimonialsQuery,
+} from "@//generated/graphql";
 import { ALL_TEAM_MEMBERS_QUERY } from "@//graphql/allTeamMembers";
 import { ALL_TESTIMONIALS_QUERY } from "@//graphql/allTestimonials";
 
 interface AboutProps {
-  teamMembers: AllTeamMembersQuery['allTeamMember'];
-  testimonials: AllTestimonialsQuery['allTestimonial'];
+  teamMembers: AllTeamMembersQuery["allTeamMember"];
+  testimonials: AllTestimonialsQuery["allTestimonial"];
 }
 
 const About: React.FC<AboutProps> = ({ teamMembers, testimonials }) => {
@@ -43,8 +46,12 @@ const About: React.FC<AboutProps> = ({ teamMembers, testimonials }) => {
 };
 
 export const getStaticProps: GetStaticProps<AboutProps> = async () => {
-  const teamMembersResult = await client.request<AllTeamMembersQuery>(ALL_TEAM_MEMBERS_QUERY);
-  const testimonialsResult = await client.request<AllTestimonialsQuery>(ALL_TESTIMONIALS_QUERY);
+  const teamMembersResult = await client.request<AllTeamMembersQuery>(
+    ALL_TEAM_MEMBERS_QUERY,
+  );
+  const testimonialsResult = await client.request<AllTestimonialsQuery>(
+    ALL_TESTIMONIALS_QUERY,
+  );
 
   return {
     props: {

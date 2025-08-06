@@ -3,7 +3,7 @@ import { HomePageCompiledResults } from "@/types/homepage";
 import CauseCard from "../CauseCard";
 
 interface CausesSectionProps {
-  causes: HomePageCompiledResults['allCause'];
+  causes: HomePageCompiledResults["allCause"];
 }
 
 const CausesSection: React.FC<CausesSectionProps> = ({ causes }) => {
@@ -15,7 +15,10 @@ const CausesSection: React.FC<CausesSectionProps> = ({ causes }) => {
             Popular Causes
           </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto mt-4">
-          Support the heart of our mission through our most impactful causes—feeding hungry children, providing access to education, ensuring healthcare for the underserved, and nurturing spiritual growth. Your help brings dignity, hope, and lasting change.
+            Support the heart of our mission through our most impactful
+            causes—feeding hungry children, providing access to education,
+            ensuring healthcare for the underserved, and nurturing spiritual
+            growth. Your help brings dignity, hope, and lasting change.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

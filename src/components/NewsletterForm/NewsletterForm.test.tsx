@@ -8,14 +8,18 @@ describe("NewsletterForm", () => {
 
     expect(screen.getByText("Newsletter")).toBeInTheDocument();
     expect(
-      screen.getByText("Subscribe to our newsletter to get the latest updates.")
+      screen.getByText(
+        "Subscribe to our newsletter to get the latest updates.",
+      ),
     ).toBeInTheDocument();
     expect(screen.getByPlaceholderText("Your email")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Subscribe" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Subscribe" }),
+    ).toBeInTheDocument();
   });
 
   it("handles successful subscription", async () => {
-    vi.spyOn(global, 'fetch').mockResolvedValueOnce({
+    vi.spyOn(global, "fetch").mockResolvedValueOnce({
       ok: true,
       json: () => Promise.resolve({ message: "Subscription successful!" }),
     } as Response);
@@ -39,7 +43,7 @@ describe("NewsletterForm", () => {
   });
 
   it("handles failed subscription", async () => {
-    vi.spyOn(global, 'fetch').mockResolvedValueOnce({
+    vi.spyOn(global, "fetch").mockResolvedValueOnce({
       ok: false,
       json: () => Promise.resolve({ message: "Subscription failed." }),
     } as Response);

@@ -1,21 +1,23 @@
-import React from 'react';
-import { useRouter } from 'next/router';
-import { FacebookAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
-import { FaFacebook } from 'react-icons/fa';
+import React from "react";
+import { useRouter } from "next/router";
+import { FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { FaFacebook } from "react-icons/fa";
 
 interface FacebookSignInButtonProps {
   onError: (_message: string) => void;
 }
 
-const FacebookSignInButton: React.FC<FacebookSignInButtonProps> = ({ onError }) => {
+const FacebookSignInButton: React.FC<FacebookSignInButtonProps> = ({
+  onError,
+}) => {
   const router = useRouter();
 
   const handleFacebookLogin = async () => {
     try {
       const provider = new FacebookAuthProvider();
       await signInWithPopup(auth, provider);
-      router.push('/my/account');
+      router.push("/my/account");
     } catch (err: unknown) {
       onError((err as Error).message);
     }

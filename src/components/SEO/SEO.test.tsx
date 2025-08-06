@@ -41,7 +41,9 @@ describe("SEO", () => {
   it("renders default meta tags when no props are provided", () => {
     render(<SEO />);
 
-    expect(document.title).toBe("ANC Davao - Serving Christ through Charity and Mission");
+    expect(document.title).toBe(
+      "ANC Davao - Serving Christ through Charity and Mission",
+    );
     expect(document.querySelector('meta[name="description"]')).toHaveAttribute(
       "content",
       "A Catholic mission initiative in Davao City committed to serving the poor, promoting human dignity, and living out the Gospel through love, service, and community outreach.",

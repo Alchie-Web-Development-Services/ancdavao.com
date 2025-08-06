@@ -13,14 +13,14 @@ describe("FAQItem", () => {
 
     // Answer should be hidden initially
     const answerContainer = screen.getByText(answer).parentElement;
-    expect(answerContainer).toHaveClass('hidden');
+    expect(answerContainer).toHaveClass("hidden");
 
     // Click question to show answer
     fireEvent.click(screen.getByText(question));
-    expect(answerContainer).toHaveClass('block');
+    expect(answerContainer).toHaveClass("block");
 
     // Click question again to hide answer
     fireEvent.click(screen.getByText(question));
-    expect(answerContainer).toHaveClass('hidden');
+    expect(answerContainer).toHaveClass("hidden");
   });
 });

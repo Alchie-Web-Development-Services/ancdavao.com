@@ -7,7 +7,7 @@ import { ALL_EVENTS_QUERY } from "@//graphql/allEvents";
 import EventCard from "@/components/EventCard";
 
 interface EventsProps {
-  events: AllEventsQuery['allEvent'];
+  events: AllEventsQuery["allEvent"];
 }
 
 const Events: React.FC<EventsProps> = ({ events }) => {

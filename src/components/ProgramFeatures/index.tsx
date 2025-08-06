@@ -9,28 +9,29 @@ const ProgramFeatures: React.FC = () => {
             Why Our Programs Matter
           </h2>
           <p className="text-xl text-gray-600">
-            Our programs are designed to create sustainable change and break
-            the cycle of poverty through education, nutrition, and community
+            Our programs are designed to create sustainable change and break the
+            cycle of poverty through education, nutrition, and community
             development.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[{
-            title: "Holistic Approach",
-            description:
-              "We address the root causes of poverty through comprehensive programs that support the whole child and their community.",
-          },
-          {
-            title: "Proven Impact",
-            description:
-              "Our evidence-based programs have demonstrated measurable success in improving lives and communities.",
-          },
-          {
-            title: "Community-Led",
-            description:
-              "We work closely with local communities to ensure our programs are culturally appropriate and sustainable.",
-          },
+          {[
+            {
+              title: "Holistic Approach",
+              description:
+                "We address the root causes of poverty through comprehensive programs that support the whole child and their community.",
+            },
+            {
+              title: "Proven Impact",
+              description:
+                "Our evidence-based programs have demonstrated measurable success in improving lives and communities.",
+            },
+            {
+              title: "Community-Led",
+              description:
+                "We work closely with local communities to ensure our programs are culturally appropriate and sustainable.",
+            },
           ].map((feature, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">

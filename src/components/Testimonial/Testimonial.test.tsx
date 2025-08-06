@@ -36,16 +36,16 @@ describe("Testimonial", () => {
     expect(screen.getByText("This is a great quote.")).toBeInTheDocument();
     expect(screen.getByText(mockTestimonial.author)).toBeInTheDocument();
     expect(screen.getByText(mockTestimonial.authorRole)).toBeInTheDocument();
-    expect(
-      screen.getByAltText(mockTestimonial.author),
-    ).toBeInTheDocument();
+    expect(screen.getByAltText(mockTestimonial.author)).toBeInTheDocument();
   });
 
   it("renders without role and avatar if not provided", () => {
     render(<Testimonial testimonial={mockTestimonialWithoutRoleAndAvatar} />);
 
     expect(screen.getByText("This is a great quote.")).toBeInTheDocument();
-    expect(screen.getByText(mockTestimonialWithoutRoleAndAvatar.author)).toBeInTheDocument();
+    expect(
+      screen.getByText(mockTestimonialWithoutRoleAndAvatar.author),
+    ).toBeInTheDocument();
     expect(
       screen.queryByAltText(mockTestimonialWithoutRoleAndAvatar.authorName),
     ).not.toBeInTheDocument();

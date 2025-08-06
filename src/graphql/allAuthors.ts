@@ -1,5 +1,5 @@
-import { gql } from 'graphql-request';
-import { AUTHOR_FIELDS } from './fragments/index';
+import { gql } from "graphql-request";
+import { AUTHOR_FIELDS } from "./fragments/index";
 
 export const ALL_AUTHORS_QUERY = gql`
   ${AUTHOR_FIELDS}

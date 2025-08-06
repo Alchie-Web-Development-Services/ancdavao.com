@@ -8,7 +8,7 @@ import { ALL_MOMENTS_OF_HOPE_QUERY } from "@//graphql/allMomentsOfHope";
 import { AllMomentsOfHopeQuery } from "@//generated/graphql";
 
 interface MomentsOfHopeProps {
-  momentsOfHope: AllMomentsOfHopeQuery['allMomentsOfHope'];
+  momentsOfHope: AllMomentsOfHopeQuery["allMomentsOfHope"];
 }
 
 const MomentsOfHope: React.FC<MomentsOfHopeProps> = ({ momentsOfHope }) => {
@@ -31,7 +31,9 @@ const MomentsOfHope: React.FC<MomentsOfHopeProps> = ({ momentsOfHope }) => {
 };
 
 export const getStaticProps: GetStaticProps<MomentsOfHopeProps> = async () => {
-  const result = await client.request<AllMomentsOfHopeQuery>(ALL_MOMENTS_OF_HOPE_QUERY);
+  const result = await client.request<AllMomentsOfHopeQuery>(
+    ALL_MOMENTS_OF_HOPE_QUERY,
+  );
 
   return {
     props: {
