@@ -20,7 +20,7 @@ const GetInvolvedOptionCard: React.FC<GetInvolvedOptionCardProps> = ({
   highlights,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300 flex flex-col">
       <div className="flex justify-center">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
         {title}

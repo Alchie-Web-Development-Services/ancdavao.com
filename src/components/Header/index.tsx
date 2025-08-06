@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const router = useRouter();
   const { user } = useAuth();
 
-  const authLinkHref = user ? "/my/account" : "/auth";
+  const authLinkHref = user ? "/my/account" : "/get-involved/";
   const authLinkText = user ? "My Account" : "Join the Mission";
 
   return (
