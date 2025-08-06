@@ -1,6 +1,7 @@
 import React from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface MyAccountSidebarProps {
   fullName: string;
@@ -13,6 +14,16 @@ const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
   email,
   children,
 }) => {
+  const router = useRouter();
+
+  const links = [
+    { href: "/my/account", label: "Personal information" },
+    { href: "/my/account/edit", label: "Edit Personal Information" },
+    { href: "/my/pledge", label: "Pledge" },
+    { href: "/my/sponsorships", label: "Sponsorships" },
+    { href: "/my/donation-history", label: "Donation History" },
+  ];
+
   return (
     <div className="flex flex-col md:flex-row">
       <aside className="md:w-96 bg-white rounded-lg shadow-md p-6 md:mr-4 mb-4 md:mb-0">
@@ -30,38 +41,20 @@ const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
 
         <nav>
           <ul>
-            <li className="mb-2">
-              <Link
-                href="/my/account"
-                className="block py-2 px-4 rounded-md text-primary-700 bg-primary-50 font-medium"
-              >
-                Personal information
-              </Link>
-            </li>
-            <li className="mb-2">
-              <Link
-                href="/my/pledge"
-                className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50"
-              >
-                Pledge
-              </Link>
-            </li>
-            <li className="mb-2">
-              <Link
-                href="/my/sponsorships"
-                className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50"
-              >
-                Sponsorships
-              </Link>
-            </li>
-            <li className="mb-2">
-              <Link
-                href="/my/donation-history"
-                className="block py-2 px-4 rounded-md text-gray-700 hover:bg-gray-50"
-              >
-                Donation History
-              </Link>
-            </li>
+            {links.map((link) => (
+              <li key={link.href} className="mb-2">
+                <Link
+                  href={link.href}
+                  className={`block py-2 px-4 rounded-md ${
+                    router.pathname === link.href
+                      ? "text-primary-700 bg-primary-50 font-medium"
+                      : "text-gray-700 hover:bg-gray-50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </aside>

@@ -1,5 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import MyAccountSidebar from "./index";
+import { vi } from "vitest";
+
+// Mock next/router
+vi.mock("next/router", () => ({
+  useRouter: () => ({
+    pathname: "/my/account", // Mock the current pathname
+  }),
+}));
 
 describe("MyAccountSidebar", () => {
   it("renders the sidebar with user info and navigation links", () => {

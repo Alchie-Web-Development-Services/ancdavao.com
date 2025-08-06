@@ -6,7 +6,7 @@ interface ContactInfoCardProps {
   description: string;
 }
 
-const ContactInfoCard: React.FC<ContactInfoCardProps> = ({
+export const ContactInfoCard: React.FC<ContactInfoCardProps> = ({
   icon,
   title,
   description,
@@ -21,5 +21,3 @@ const ContactInfoCard: React.FC<ContactInfoCardProps> = ({
     </div>
   );
 };
-
-export default ContactInfoCard;
