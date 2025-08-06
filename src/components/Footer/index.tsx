@@ -2,6 +2,19 @@ import React from "react";
 import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../Logo";
+import NewsletterForm from "../NewsletterForm";
+
+const quickLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Programs", href: "/programs-and-services" },
+  { name: "Events", href: "/events" },
+  { name: "Moments of Hope", href: "/moments-of-hope" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact-us" },
+  { name: "FAQ", href: "/faq" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms & Conditions", href: "/terms-conditions" },
+];
 
 const Footer: React.FC = () => {
   return (
@@ -35,83 +48,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm grid grid-cols-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/programs-and-services"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Programs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/causes"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Causes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/events"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/moments-of-hope"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Moments of Hope
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact-us"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-neutral-400 hover:text-white">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy-policy"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms-conditions"
-                  className="text-neutral-400 hover:text-white"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-neutral-400 hover:text-white">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -122,25 +65,7 @@ const Footer: React.FC = () => {
               <li>+63 (82) 285-1524</li>
             </ul>
           </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
-            <p className="text-neutral-400 text-sm mb-4">
-              Subscribe to our newsletter to get the latest updates.
-            </p>
-            <form className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full px-4 py-2 rounded-l-md text-neutral-800"
-              />
-              <button
-                type="submit"
-                className="bg-primary-600 text-white px-4 py-2 rounded-r-md hover:bg-primary-700"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
+          <NewsletterForm />
         </div>
       </div>
       <div className="bg-neutral-900 py-4">

@@ -2,7 +2,6 @@ import React from "react";
 import Hero from "@/components/Hero";
 import MissionSection from "@/components/MissionSection";
 import ImpactSection from "@/components/ImpactSection";
-import CausesSection from "@/components/CausesSection";
 import EventSection from "@/components/EventSection";
 import GallerySection from "@/components/GallerySection";
 import CTASection from "@/components/CTASection";
@@ -23,7 +22,7 @@ interface HomeProps {
   momentsOfHope: HomePageCompiledResults['allMomentsOfHope'];
 }
 
-const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events, momentsOfHope }) => {
+const Home: React.FC<HomeProps> = ({ articles, volunteers, events, momentsOfHope }) => {
   return (
     <div className="bg-white">
       <SEO
@@ -35,7 +34,6 @@ const Home: React.FC<HomeProps> = ({ articles, volunteers, causes, events, momen
         <Hero />
         <MissionSection />
         <ImpactSection />
-        <CausesSection causes={causes} />
         <EventSection event={events[0] as Event} />
         <GallerySection momentsOfHope={momentsOfHope} />
         <CTASection />

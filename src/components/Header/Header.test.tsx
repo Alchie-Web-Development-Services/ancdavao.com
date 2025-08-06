@@ -43,7 +43,7 @@ describe("Header", () => {
     expect(screen.getByText("Home")).toBeInTheDocument();
     expect(screen.getByText("About")).toBeInTheDocument();
     expect(screen.getByText("Events")).toBeInTheDocument();
-    expect(screen.getByText("Causes")).toBeInTheDocument();
+    
     expect(screen.getByText("Blog")).toBeInTheDocument();
     expect(screen.getByText("Contact")).toBeInTheDocument();
     expect(screen.getByText("Join the Mission")).toBeInTheDocument();
