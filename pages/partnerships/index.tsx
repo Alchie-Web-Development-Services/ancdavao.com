@@ -7,26 +7,20 @@ const Partnerships: React.FC = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Partnerships"
+        title="Our Valued Partners"
         description="Learn about ANC Davao's partnerships and how you can collaborate with us to make a difference."
         keywords="ANC Davao, partnerships, collaboration, corporate social responsibility, CSR, community development, Davao"
       />
       <PageHeader
-        title="Partnerships"
-        subtitle="Collaborate with us to make a greater impact"
-        backgroundImage="https://cdn.ancdavao.com/placeholder2.jpg"
+        title="Our Valued Partners"
+        subtitle="We believe in the power of collaboration to achieve our mission. Our partnerships enable us to expand our reach and enhance our programs."
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       {/* Add your partnerships content here */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Our Valued Partners
-          </h2>
-          <p className="text-lg text-center text-gray-700 mb-12">
-            We believe in the power of collaboration to achieve our mission. Our
-            partnerships enable us to expand our reach and enhance our programs.
-          </p>
+          
           {/* You can add partner logos, testimonials, or case studies here */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md text-center">

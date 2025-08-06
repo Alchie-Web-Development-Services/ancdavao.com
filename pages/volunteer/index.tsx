@@ -12,22 +12,15 @@ const Volunteer: React.FC = () => {
         keywords="ANC Davao, volunteer, volunteer opportunities, community service, give back, Davao"
       />
       <PageHeader
-        title="Volunteer with Us"
-        subtitle="Make a difference with your time and skills"
-        backgroundImage="https://cdn.ancdavao.com/placeholder3.jpg"
+        title="Volunteer Opportunities"
+        subtitle="We have various opportunities for individuals and groups to get involved and support our programs. Your contribution, big or small, makes a significant impact."
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       {/* Add your volunteer content here */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Volunteer Opportunities
-          </h2>
-          <p className="text-lg text-center text-gray-700 mb-12">
-            We have various opportunities for individuals and groups to get
-            involved and support our programs. Your contribution, big or small,
-            makes a significant impact.
-          </p>
+          
           {/* You can add descriptions of volunteer roles, a call to action for signing up, etc. */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md text-center">

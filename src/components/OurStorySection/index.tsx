@@ -29,22 +29,28 @@ const OurStorySection: React.FC = () => {
               hope.
             </p>
             <div className="flex gap-4 justify-center mt-8 items-center">
-              <p className="text-center">
+         
                 <Link
                   href="/history"
                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
                 >
                   Read More About Our History
                 </Link>
-              </p>
-              <p className="text-center">
+
                 <Link
                   href="/our-centers"
                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
                 >
-                  Discover Our Centers
+                  Our Centers
                 </Link>
-              </p>
+
+                <Link
+                  href="/partnerships"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+                >
+                  Our Partners
+                </Link>
+             
             </div>
           </div>
         </div>
