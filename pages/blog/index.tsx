@@ -1,9 +1,9 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
-import { client } from "@//lib/sanity";
-import { AllArticlesQuery } from "@//generated/graphql";
-import { ALL_ARTICLES_QUERY } from "@//graphql/allArticles";
+import { client } from "@/lib/sanity";
+import { AllArticlesQuery } from "@/generated/graphql";
+import { ALL_ARTICLES_QUERY } from "@/graphql/allArticles";
 import BlogCard from "@/components/BlogCard";
 
 interface BlogProps {

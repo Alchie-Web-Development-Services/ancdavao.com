@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Inject .env
         run: echo "${{ secrets.ENV }}" > .env
@@ -36,3 +36,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AWDS_ANCDAVAO_COM }}
           projectId: awds-ancdavao-com
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks

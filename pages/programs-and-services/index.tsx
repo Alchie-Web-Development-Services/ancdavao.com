@@ -4,26 +4,26 @@ import SEO from "@/components/SEO";
 import ProgramCard from "@/components/ProgramCard";
 import ProgramsCallToAction from "@/components/ProgramsCallToAction";
 import ProgramFeatures from "@/components/ProgramFeatures";
-import { client } from "@//lib/sanity";
-import { AllProgramServicesQuery } from "@//generated/graphql";
-import { ALL_PROGRAM_SERVICES_QUERY } from "@//graphql/allProgramServices";
+import { client } from "@/lib/sanity";
+import { AllProgramServicesQuery, ProgramService } from "@/generated/graphql";
+import { ALL_PROGRAM_SERVICES_QUERY } from "@/graphql/allProgramServices";
 
 interface ProgramsProps {
-  programs: AllProgramServicesQuery["allProgramService"];
+  programs: ProgramService[];
 }
 
 const Programs: React.FC<ProgramsProps> = ({ programs }) => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Programs"
+        title="Programs and Services"
         description="Explore ANC Davao's impactful programs, including feeding, education, youth development, healthcare, and community development initiatives. Learn how we make a difference."
         keywords="ANC Davao programs, feeding program, education support, youth development, healthcare initiative, community development, volunteer program, social impact"
       />
       <PageHeader
         title="Transforming Lives Through Purposeful Programs"
         subtitle="From feeding and education to spiritual growth and community empowerment, our diverse programs are thoughtfully designed to meet the unique needs of the communities we serve—creating lasting impact, one life at a time."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <section className="py-16 bg-white">

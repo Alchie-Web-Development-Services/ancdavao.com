@@ -12,6 +12,7 @@ import {
   ALL_PROGRAM_SERVICES_QUERY,
   PROGRAM_SERVICE_BY_SLUG_QUERY,
 } from "@/graphql/allProgramServices";
+import ProgramsCallToAction from "@/components/ProgramsCallToAction";
 
 interface ProgramDetailProps {
   program: ProgramService;
@@ -38,10 +39,10 @@ const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
       />
       <PageHeader
         title={program.title || ""}
-        subtitle="Learn more about this program and its impact."
-        backgroundImage={
-          program.mainImage ? urlFor(program.mainImage).url() : undefined
+        subtitle={
+          program.subTitle || "Learn more about this program and its impact."
         }
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <section className="py-16 bg-white">
@@ -77,6 +78,8 @@ const ProgramDetail: React.FC<ProgramDetailProps> = ({ program }) => {
           </div>
         </div>
       </section>
+
+      <ProgramsCallToAction />
     </div>
   );
 };

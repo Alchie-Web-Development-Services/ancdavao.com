@@ -14,7 +14,7 @@ const Volunteer: React.FC = () => {
       <PageHeader
         title="Volunteer Opportunities"
         subtitle="We have various opportunities for individuals and groups to get involved and support our programs. Your contribution, big or small, makes a significant impact."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       {/* Add your volunteer content here */}

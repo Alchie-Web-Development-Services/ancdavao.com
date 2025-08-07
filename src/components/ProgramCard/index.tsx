@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import { ProgramService } from "@/generated/graphql";
-import { PortableText } from "@portabletext/react";
 
 interface ProgramCardProps {
   program: ProgramService;
@@ -27,9 +26,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program }) => {
         <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
           {program.title}
         </h3>
-        <div className="text-gray-600 mb-6">
-          <PortableText value={program.descriptionRaw} />
-        </div>
+        <div className="text-gray-600 mb-6">{program.abstract}</div>
 
         {/* You might want to add dynamic stats here if your Sanity schema supports it */}
         <div className="mt-6 text-center">

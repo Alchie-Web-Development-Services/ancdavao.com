@@ -5,11 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import SEO from "@/components/SEO";
 import { PortableText } from "@portabletext/react";
-import { client, urlFor } from "@//lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 
-import { AllCausesQuery, Cause } from "@//generated/graphql";
-import { ALL_CAUSES_QUERY } from "@//graphql/allCauses";
-import { CAUSE_BY_SLUG_QUERY } from "@//graphql/causeBySlug";
+import { AllCausesQuery, Cause } from "@/generated/graphql";
+import { ALL_CAUSES_QUERY } from "@/graphql/allCauses";
+import { CAUSE_BY_SLUG_QUERY } from "@/graphql/causeBySlug";
 
 interface CauseDetailProps {
   cause: Cause;

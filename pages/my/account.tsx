@@ -10,20 +10,7 @@ import Loading from "@/components/Loading";
 import { getUserProfile } from "@/services/userService";
 import { getPrivateLayout } from "@/components/PrivateLayout";
 import { NextPageWithLayout } from "pages/_app";
-
-interface UserProfile {
-  uid: string;
-  email: string;
-  displayName?: string;
-  firstName?: string;
-  lastName?: string;
-  phoneNumber?: string;
-  address?: string;
-  city?: string;
-  country?: string;
-  postalCode?: string;
-  onboarded?: boolean;
-}
+import { UserProfile } from "@/types/user"; // Import UserProfile from types
 
 const MyAccount: NextPageWithLayout = () => {
   const { user, loading } = useAuth();

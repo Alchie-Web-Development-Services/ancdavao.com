@@ -5,7 +5,7 @@ export const ALL_PROGRAM_SERVICES_QUERY = gql`
   ${PROGRAM_SERVICE_FIELDS}
   ${IMAGE_FIELDS}
   query AllProgramServices {
-    allProgramService {
+    allProgramService(sort: { order: ASC }) {
       ...ProgramServiceFields
     }
   }
