@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import { PledgeForm } from "./PledgeForm";
 import { vi } from "vitest";
 import * as pledgeService from "@/services/pledgeService";
@@ -61,7 +61,9 @@ describe("PledgeForm", () => {
       target: { value: "2025-03-15" },
     });
 
-    fireEvent.click(screen.getByRole("button", { name: /Save Pledge/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /Save Pledge/i }));
+    });
 
     expect(pledgeService.createPledge).toHaveBeenCalledWith("test-uid", {
       amount: 500,
@@ -78,7 +80,9 @@ describe("PledgeForm", () => {
       target: { value: 1500 },
     });
 
-    fireEvent.click(screen.getByRole("button", { name: /Save Pledge/i }));
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /Save Pledge/i }));
+    });
 
     expect(pledgeService.updatePledge).toHaveBeenCalledWith(mockPledge.uid, {
       ...mockPledge,

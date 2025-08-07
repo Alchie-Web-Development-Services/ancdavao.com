@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Pledge } from "@/types/pledge";
 import { useAuth } from "@/context/AuthContext";
 import { createPledge, updatePledge } from "@/services/pledgeService";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface PledgeFormProps {
   pledge: Pledge | null;
@@ -35,14 +37,14 @@ export const PledgeForm: React.FC<PledgeFormProps> = ({ pledge }) => {
     try {
       if (pledge) {
         await updatePledge(user.uid, pledgeData);
-        alert("Pledge updated successfully!");
+        toast.success("Pledge updated successfully!");
       } else {
         await createPledge(user.uid, pledgeData);
-        alert("Pledge created successfully!");
+        toast.success("Pledge created successfully!");
       }
     } catch (error) {
       console.error("Error saving pledge:", error);
-      alert("Failed to save pledge.");
+      toast.error("Failed to save pledge.");
     }
   };
 
@@ -108,6 +110,7 @@ export const PledgeForm: React.FC<PledgeFormProps> = ({ pledge }) => {
       >
         Save Pledge
       </button>
+      <ToastContainer />
     </form>
   );
 };

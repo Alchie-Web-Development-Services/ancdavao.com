@@ -19,9 +19,13 @@ vi.mock("@/lib/sanity", () => ({
   SANITY_GRAPHQL_URL: "http://localhost/graphql", // Mock the URL
 }));
 
+// Mock window.alert
+const alertMock = vi.spyOn(window, 'alert').mockImplementation(() => {});
+
 // Clean up after each test file
 afterEach(() => {
   cleanup();
+  alertMock.mockClear();
 });
 
 // Optional: if you have a server to close or other global setup/teardown

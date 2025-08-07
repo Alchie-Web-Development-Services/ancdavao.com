@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import MyAccountEditContent from "./index";
 import { vi } from "vitest";
 import * as userService from "@/services/userService";
@@ -57,7 +57,9 @@ describe("MyAccountEditContent", () => {
     render(<MyAccountEditContent userProfile={mockUserProfile} />);
 
     const saveButton = screen.getByRole("button", { name: /Save Changes/i });
-    fireEvent.click(saveButton);
+    await act(async () => {
+      fireEvent.click(saveButton);
+    });
 
     expect(userService.updateUserProfile).toHaveBeenCalledWith(
       mockUserProfile.uid,

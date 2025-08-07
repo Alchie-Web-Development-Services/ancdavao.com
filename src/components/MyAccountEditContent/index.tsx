@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { UserProfile } from "@/types/user";
 import { updateUserProfile } from "@/services/userService";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface MyAccountEditContentProps {
   userProfile: UserProfile;
@@ -45,10 +47,10 @@ const MyAccountEditContent: React.FC<MyAccountEditContentProps> = ({
     e.preventDefault();
     try {
       await updateUserProfile(userProfile.uid, formData);
-      alert("Profile updated successfully!");
+      toast.success("Profile updated successfully!");
     } catch (error) {
       console.error("Error updating profile:", error);
-      alert("Failed to update profile.");
+      toast.error("Failed to update profile.");
     }
   };
 
@@ -177,6 +179,7 @@ const MyAccountEditContent: React.FC<MyAccountEditContentProps> = ({
           Save Changes
         </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
