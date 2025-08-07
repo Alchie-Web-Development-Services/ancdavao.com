@@ -3,9 +3,9 @@ import { GetStaticProps } from "next";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import MomentsOfHopeSection from "@/components/MomentsOfHopeSection";
-import { client } from "@//lib/sanity";
-import { ALL_MOMENTS_OF_HOPE_QUERY } from "@//graphql/allMomentsOfHope";
-import { AllMomentsOfHopeQuery } from "@//generated/graphql";
+import { client } from "@/lib/sanity";
+import { ALL_MOMENTS_OF_HOPE_QUERY } from "@/graphql/allMomentsOfHope";
+import { AllMomentsOfHopeQuery } from "@/generated/graphql";
 
 interface MomentsOfHopeProps {
   momentsOfHope: AllMomentsOfHopeQuery["allMomentsOfHope"];
@@ -22,7 +22,7 @@ const MomentsOfHope: React.FC<MomentsOfHopeProps> = ({ momentsOfHope }) => {
       <PageHeader
         title="Moments of Hope"
         subtitle="Inspiring stories of transformation and impact"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <MomentsOfHopeSection momentsOfHope={momentsOfHope} />

@@ -14,6 +14,7 @@ describe("ProgramCard", () => {
     const mockProgram = {
       _id: "1",
       title: "Test Program",
+      abstract: "This is a test description.",
       descriptionRaw: [
         {
           _key: "abc",

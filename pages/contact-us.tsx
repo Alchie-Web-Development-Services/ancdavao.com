@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
       <PageHeader
         title="Contact Us"
         subtitle="We'd love to hear from you. Get in touch with us today!"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       {/* Contact Information */}

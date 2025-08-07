@@ -14,7 +14,7 @@ const Partnerships: React.FC = () => {
       <PageHeader
         title="Our Valued Partners"
         subtitle="We believe in the power of collaboration to achieve our mission. Our partnerships enable us to expand our reach and enhance our programs."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       {/* Add your partnerships content here */}

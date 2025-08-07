@@ -14,7 +14,7 @@ const Donate: React.FC = () => {
       <PageHeader
         title="Donate"
         subtitle="Support our mission to transform lives in Davao"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <DonationFormSection />

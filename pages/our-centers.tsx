@@ -65,7 +65,7 @@ const OurCenters: React.FC = () => {
       <PageHeader
         title="Our Centers"
         subtitle="Find out where we operate and how we serve the community."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <section className="py-16 bg-white">
