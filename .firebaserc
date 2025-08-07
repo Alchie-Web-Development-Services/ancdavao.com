@@ -1,18 +1,5 @@
 {
   "projects": {
     "default": "awds-ancdavao-com"
-  },
-  "targets": {
-    "awds-ancdavao-com": {
-      "hosting": {
-        "frontend": [
-          "awds-ancdavao-com"
-        ],
-        "api": [
-          "api-ancdavao-com"
-        ]
-      }
-    }
-  },
-  "etags": {}
+  }
 }
