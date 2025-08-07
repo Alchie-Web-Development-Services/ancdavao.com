@@ -23,7 +23,7 @@
     ]
   },
   {
-    "target": "functions",
+    "target": "api",
     "source": "functions",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
