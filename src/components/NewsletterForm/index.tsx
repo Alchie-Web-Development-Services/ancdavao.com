@@ -13,7 +13,7 @@ const NewsletterForm: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/subscribe", {
+      const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
