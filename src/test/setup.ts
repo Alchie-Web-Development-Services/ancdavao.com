@@ -20,7 +20,7 @@ vi.mock("@/lib/sanity", () => ({
 }));
 
 // Mock window.alert
-const alertMock = vi.spyOn(window, 'alert').mockImplementation(() => {});
+const alertMock = vi.spyOn(window, "alert").mockImplementation(() => {});
 
 // Clean up after each test file
 afterEach(() => {

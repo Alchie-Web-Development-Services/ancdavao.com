@@ -35,10 +35,12 @@ export const PledgeContent: React.FC<PledgeContentProps> = ({ pledge }) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">My Pledge</h1>
-      <PledgeForm pledge={pledge} />
-      <PledgeSummary mockPledgeData={mockPledgeData} />
+      <div className="grid grid-cols-2 gap-4">
+        <PledgeForm pledge={pledge} />
+        <PledgeSummary mockPledgeData={mockPledgeData} />
+      </div>
     </div>
   );
 };

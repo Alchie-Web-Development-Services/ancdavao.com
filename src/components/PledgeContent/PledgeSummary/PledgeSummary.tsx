@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import PledgeProgressBar from "@/components/PledgeProgressBar";
 import Badge from "@/components/Badge";
+import { PledgeStatus } from "./PledgeStatus";
 
 interface PledgeSummaryProps {
   mockPledgeData: {
@@ -29,48 +29,15 @@ interface PledgeSummaryProps {
 export const PledgeSummary: React.FC<PledgeSummaryProps> = ({
   mockPledgeData,
 }) => {
-  const daysLeft =
-    mockPledgeData.timeframe -
-    Math.floor(mockPledgeData.progress * mockPledgeData.timeframe);
   const urgentDeadline = new Date(
     mockPledgeData.urgent.deadline,
   ).toLocaleDateString();
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
-        <div className="mb-2 text-lg font-semibold">
-          {mockPledgeData.currency}
-          {mockPledgeData.amount} pledged in {mockPledgeData.timeframe} days
-        </div>
-        <div className="mb-2 text-sm text-gray-600">
-          You have fulfilled {mockPledgeData.currency}
-          {mockPledgeData.fulfilled} so far.
-        </div>
-        <PledgeProgressBar progress={mockPledgeData.progress} />
-        <div className="text-xs text-gray-500 mb-2">
-          {Math.round(mockPledgeData.progress * 100)}% complete — {daysLeft}{" "}
-          days left
-        </div>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-          Donate Now
-        </button>
-        <div className="mt-4">
-          <span className="font-semibold">Reminders:</span>
-          <ul className="list-disc ml-6 text-sm">
-            {mockPledgeData.reminders.map((r, i) => (
-              <li
-                key={i}
-                className={r.sent ? "text-green-600" : "text-gray-700"}
-              >
-                Day {r.day}: {r.sent ? "Sent" : "Scheduled"}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <PledgeStatus mockPledgeData={mockPledgeData} />
 
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
+      <div className="bg-white rounded-lg shadow p-4">
         <div className="flex items-center mb-2">
           <span className="font-semibold mr-2">Level:</span>
           <span className="bg-gray-100 px-2 py-1 rounded text-sm font-medium">
@@ -88,7 +55,7 @@ export const PledgeSummary: React.FC<PledgeSummaryProps> = ({
         {/* TODO: Add leaderboard integration */}
       </div>
 
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
+      <div className="bg-white rounded-lg shadow p-4">
         <div className="font-semibold mb-1">Urgency</div>
         <div className="mb-2 text-sm">
           <span className="font-bold">
@@ -107,7 +74,7 @@ export const PledgeSummary: React.FC<PledgeSummaryProps> = ({
         {/* TODO: Add countdown timer and milestones */}
       </div>
 
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
+      <div className="bg-white rounded-lg shadow p-4">
         <div className="font-semibold mb-1">Your Impact</div>
         <div className="text-sm mb-2">
           You have helped feed{" "}
@@ -123,21 +90,7 @@ export const PledgeSummary: React.FC<PledgeSummaryProps> = ({
         {/* TODO: Show more detailed impact stats and stories */}
       </div>
 
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
-        <div className="font-semibold mb-1">Auto-Pay & Subscription</div>
-        <div className="flex items-center mb-2">
-          <input
-            type="checkbox"
-            checked={mockPledgeData.autoPay}
-            readOnly
-            className="mr-2"
-          />
-          <span className="text-sm">Enable auto-pay for monthly giving</span>
-        </div>
-        {/* TODO: Integrate with payment provider */}
-      </div>
-
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
+      <div className="bg-white rounded-lg shadow p-4">
         <div className="font-semibold mb-1">Trust & Transparency</div>
         <ul className="list-disc ml-6 text-sm">
           <li>

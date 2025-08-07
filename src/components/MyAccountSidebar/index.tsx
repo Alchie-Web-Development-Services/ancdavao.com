@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 interface MyAccountSidebarProps {
   fullName: string;
   email: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
@@ -19,8 +19,8 @@ const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
   const links = [
     { href: "/my/account", label: "Personal information" },
     { href: "/my/account/edit", label: "Edit Personal Information" },
-    { href: "/my/pledge", label: "Pledge" },
-    { href: "/my/sponsorships", label: "Sponsorships" },
+    { href: "/my/pledge", label: "My Pledge" },
+    { href: "/my/feeding-sponsorships", label: "Feeding Sponsorships" },
     { href: "/my/donation-history", label: "Donation History" },
   ];
 

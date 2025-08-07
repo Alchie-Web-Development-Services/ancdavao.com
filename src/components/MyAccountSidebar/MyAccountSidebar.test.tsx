@@ -20,12 +20,12 @@ describe("MyAccountSidebar", () => {
     expect(
       screen.getByRole("link", { name: "Personal information" }),
     ).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Pledge" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "My Pledge" })).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: "Donation History" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: "Sponsorships" }),
+      screen.getByRole("link", { name: "Feeding Sponsorships" }),
     ).toBeInTheDocument();
   });
 });
