@@ -33,8 +33,8 @@ const MissionSection: React.FC = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="hidden lg:block">
             <Image
               src="https://cdn.ancdavao.com/placeholder1.jpg"
               alt="Volunteers working"
@@ -54,7 +54,7 @@ const MissionSection: React.FC = () => {
               programs serve the body, mind, and spirit—nurturing dignity and
               hope in every life we touch.
             </p>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid xl:grid-cols-2 gap-8">
               {missions.map((mission, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="text-primary-600 bg-primary-50 p-4 rounded-full">
