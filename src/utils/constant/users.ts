@@ -1,0 +1,1 @@
+export const USER_ACCOUNTS_ENABLED = process.env.NEXT_PUBLIC_USER_ACCOUNT_ENABLED === 'true';

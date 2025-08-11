@@ -14,7 +14,7 @@ const FAQ: React.FC = () => {
       <PageHeader
         title="Frequently Asked Questions"
         subtitle="Find answers to common questions about ANC Davao"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <FAQSection />

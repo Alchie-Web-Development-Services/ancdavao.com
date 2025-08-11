@@ -5,14 +5,16 @@ export const PROGRAM_SERVICE_FIELDS = gql`
     _id
     _type
     title
+    subTitle
     slug {
       current
     }
-    category
-    startDate
-    endDate
+    abstract
     descriptionRaw
     mainImage {
+      ...ImageFields
+    }
+    gallery {
       ...ImageFields
     }
   }

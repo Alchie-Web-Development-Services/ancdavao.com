@@ -10,7 +10,9 @@ interface SocialMediaLinksProps {
   socialLinks: SocialLink[];
 }
 
-const SocialMediaLinks: React.FC<SocialMediaLinksProps> = ({ socialLinks }) => {
+export const SocialMediaLinks: React.FC<SocialMediaLinksProps> = ({
+  socialLinks,
+}) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
@@ -31,5 +33,3 @@ const SocialMediaLinks: React.FC<SocialMediaLinksProps> = ({ socialLinks }) => {
     </div>
   );
 };
-
-export default SocialMediaLinks;

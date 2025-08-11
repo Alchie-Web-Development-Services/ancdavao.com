@@ -813,12 +813,13 @@ export type ProgramService = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  category?: Maybe<Scalars["String"]["output"]>;
+  abstract?: Maybe<Scalars["String"]["output"]>;
   descriptionRaw?: Maybe<Scalars["JSON"]["output"]>;
-  endDate?: Maybe<Scalars["DateTime"]["output"]>;
+  gallery?: Maybe<Array<Maybe<Image>>>;
   mainImage?: Maybe<Image>;
+  order?: Maybe<Scalars["Float"]["output"]>;
   slug?: Maybe<Slug>;
-  startDate?: Maybe<Scalars["DateTime"]["output"]>;
+  subTitle?: Maybe<Scalars["String"]["output"]>;
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -831,11 +832,11 @@ export type ProgramServiceFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  category?: InputMaybe<StringFilter>;
-  endDate?: InputMaybe<DatetimeFilter>;
+  abstract?: InputMaybe<StringFilter>;
   mainImage?: InputMaybe<ImageFilter>;
+  order?: InputMaybe<FloatFilter>;
   slug?: InputMaybe<SlugFilter>;
-  startDate?: InputMaybe<DatetimeFilter>;
+  subTitle?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -846,11 +847,11 @@ export type ProgramServiceSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  category?: InputMaybe<SortOrder>;
-  endDate?: InputMaybe<SortOrder>;
+  abstract?: InputMaybe<SortOrder>;
   mainImage?: InputMaybe<ImageSorting>;
+  order?: InputMaybe<SortOrder>;
   slug?: InputMaybe<SlugSorting>;
-  startDate?: InputMaybe<SortOrder>;
+  subTitle?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -1819,14 +1820,16 @@ export type AllProgramServicesQuery = {
     _id?: string | null;
     _type?: string | null;
     title?: string | null;
-    category?: string | null;
-    startDate?: any | null;
-    endDate?: any | null;
+    subTitle?: string | null;
+    abstract?: string | null;
     descriptionRaw?: any | null;
     slug?: { current?: string | null } | null;
     mainImage?: {
       asset?: { _id?: string | null; url?: string | null } | null;
     } | null;
+    gallery?: Array<{
+      asset?: { _id?: string | null; url?: string | null } | null;
+    } | null> | null;
   }>;
 };
 
@@ -1839,14 +1842,16 @@ export type ProgramServiceBySlugQuery = {
     _id?: string | null;
     _type?: string | null;
     title?: string | null;
-    category?: string | null;
-    startDate?: any | null;
-    endDate?: any | null;
+    subTitle?: string | null;
+    abstract?: string | null;
     descriptionRaw?: any | null;
     slug?: { current?: string | null } | null;
     mainImage?: {
       asset?: { _id?: string | null; url?: string | null } | null;
     } | null;
+    gallery?: Array<{
+      asset?: { _id?: string | null; url?: string | null } | null;
+    } | null> | null;
   }>;
 };
 
@@ -2317,14 +2322,16 @@ export type ProgramServiceFieldsFragment = {
   _id?: string | null;
   _type?: string | null;
   title?: string | null;
-  category?: string | null;
-  startDate?: any | null;
-  endDate?: any | null;
+  subTitle?: string | null;
+  abstract?: string | null;
   descriptionRaw?: any | null;
   slug?: { current?: string | null } | null;
   mainImage?: {
     asset?: { _id?: string | null; url?: string | null } | null;
   } | null;
+  gallery?: Array<{
+    asset?: { _id?: string | null; url?: string | null } | null;
+  } | null> | null;
 };
 
 export type SanityFileAssetFieldsFragment = {
@@ -2519,14 +2526,16 @@ export type ProgramServiceByIdQuery = {
     _id?: string | null;
     _type?: string | null;
     title?: string | null;
-    category?: string | null;
-    startDate?: any | null;
-    endDate?: any | null;
+    subTitle?: string | null;
+    abstract?: string | null;
     descriptionRaw?: any | null;
     slug?: { current?: string | null } | null;
     mainImage?: {
       asset?: { _id?: string | null; url?: string | null } | null;
     } | null;
+    gallery?: Array<{
+      asset?: { _id?: string | null; url?: string | null } | null;
+    } | null> | null;
   } | null;
 };
 

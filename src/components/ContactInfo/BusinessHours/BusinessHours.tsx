@@ -4,7 +4,7 @@ interface BusinessHoursProps {
   hours: { day: string; hours: string }[];
 }
 
-const BusinessHours: React.FC<BusinessHoursProps> = ({ hours }) => {
+export const BusinessHours: React.FC<BusinessHoursProps> = ({ hours }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-8">
       <h3 className="text-xl font-semibold mb-4">Office Hours</h3>
@@ -19,5 +19,3 @@ const BusinessHours: React.FC<BusinessHoursProps> = ({ hours }) => {
     </div>
   );
 };
-
-export default BusinessHours;

@@ -55,7 +55,7 @@ const StoriesImpact: React.FC = () => {
       <PageHeader
         title="Stories & Impact"
         subtitle="Discover the difference we're making in Davao"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <ImpactStats stats={impactStats} className="bg-primary-700 text-white" />

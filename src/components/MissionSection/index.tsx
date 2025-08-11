@@ -54,7 +54,7 @@ const MissionSection: React.FC = () => {
               programs serve the body, mind, and spirit—nurturing dignity and
               hope in every life we touch.
             </p>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {missions.map((mission, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="text-primary-600 bg-primary-50 p-4 rounded-full">

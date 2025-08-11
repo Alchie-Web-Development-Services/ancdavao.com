@@ -1,12 +1,12 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { client, urlFor } from "@//lib/sanity";
-import { AllEventsQuery, Event } from "@//generated/graphql";
+import { client, urlFor } from "@/lib/sanity";
+import { AllEventsQuery, Event } from "@/generated/graphql";
 import Image from "next/image";
 import { PortableText, PortableTextBlock } from "@portabletext/react";
 import SEO from "@/components/SEO";
-import { ALL_EVENTS_QUERY } from "@//graphql/allEvents";
-import { EVENT_BY_SLUG_QUERY } from "@//graphql/eventBySlug";
+import { ALL_EVENTS_QUERY } from "@/graphql/allEvents";
+import { EVENT_BY_SLUG_QUERY } from "@/graphql/eventBySlug";
 
 interface EventDetailProps {
   event: Event;

@@ -8,11 +8,13 @@ describe("GallerySection", () => {
         _id: "1",
         image: { _type: "image", asset: { _ref: "image-abc" } },
         link: "/test-link-1",
+        title: "Test Image 1",
       },
       {
         _id: "2",
         image: { _type: "image", asset: { _ref: "image-def" } },
         link: "/test-link-2",
+        title: "Test Image 2",
       },
     ];
     render(<GallerySection momentsOfHope={mockMomentsOfHope} />);
