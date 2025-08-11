@@ -1,46 +1,23 @@
 import React from "react";
-import { PledgeSummary } from "./PledgeSummary";
 import { Pledge } from "@/types/pledge";
-import { PledgeForm } from "./PledgeForm";
+import { PledgeStatus } from "./PledgeStatus";
+import Link from "next/link";
 
 interface PledgeContentProps {
   pledge: Pledge | null;
 }
 
 export const PledgeContent: React.FC<PledgeContentProps> = ({ pledge }) => {
-  // Mock data for demonstration (can be removed once real data is fully integrated)
-  const mockPledgeData = {
-    amount: 1000,
-    currency: "₱",
-    timeframe: 30, // days
-    fulfilled: 200,
-    reminders: [
-      { day: 1, sent: true },
-      { day: 3, sent: false },
-      { day: 7, sent: false },
-    ],
-    level: "Bronze",
-    badges: ["First Donation Made"],
-    progress: 0.2, // 20%
-    autoPay: false,
-    impact: {
-      kidsFed: 1,
-      weeks: 1,
-    },
-    urgent: {
-      percentFunded: 85,
-      amountNeeded: 5000,
-      deadline: "2025-08-12",
-    },
-  };
 
   return (
-    <div className="mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">My Pledge</h1>
-      <div className="grid grid-cols-2 gap-4">
-        <PledgeForm pledge={pledge} />
-        <PledgeSummary mockPledgeData={mockPledgeData} />
+    <main className="md:col-span-3 bg-white rounded-lg shadow-md p-8 relative">
+      
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+        My {new Date().getFullYear()} Pledge <Link href="/my/pledge/edit" className="underline absolute right-8 text-sm">Edit</Link>
+      </h2>
+      <div className="grid grid-cols-1 gap-4">
+        <PledgeStatus pledge={pledge} />
       </div>
-    </div>
+    </main>
   );
 };

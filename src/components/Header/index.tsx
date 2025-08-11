@@ -6,6 +6,7 @@ import Logo from "../Logo";
 import TopNav from "../TopNav";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useAuth } from "@/context/AuthContext";
+import { USER_ACCOUNTS_ENABLED } from "@/utils/constant/users";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -20,8 +21,8 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const { user } = useAuth();
-
-  const authLinkHref = user ? "/my/account" : "/auth/login/";
+  
+  const authLinkHref = user ? "/my/account" : USER_ACCOUNTS_ENABLED ? "/auth/login/" : "/get-involved/";
   const authLinkText = user ? "My Account" : "Join the Mission";
 
   return (

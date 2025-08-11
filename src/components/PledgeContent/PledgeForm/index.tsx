@@ -12,14 +12,10 @@ interface PledgeFormProps {
 export const PledgeForm: React.FC<PledgeFormProps> = ({ pledge }) => {
   const { user } = useAuth();
   const [amount, setAmount] = useState(pledge?.amount || 0);
-  const [frequency, setFrequency] = useState(pledge?.frequency || "monthly");
-  const [startDate, setStartDate] = useState(pledge?.startDate || "");
 
   useEffect(() => {
     if (pledge) {
       setAmount(pledge.amount);
-      setFrequency(pledge.frequency);
-      setStartDate(pledge.startDate);
     }
   }, [pledge]);
 
@@ -28,10 +24,9 @@ export const PledgeForm: React.FC<PledgeFormProps> = ({ pledge }) => {
     if (!user) return;
 
     const pledgeData: Pledge = {
-      uid: user.uid,
       amount,
-      frequency,
-      startDate,
+      fulfilled: 0,
+      year: new Date().getFullYear(),
     };
 
     try {
@@ -67,41 +62,8 @@ export const PledgeForm: React.FC<PledgeFormProps> = ({ pledge }) => {
             required
           />
         </div>
-        <div className="mb-4">
-          <label
-            htmlFor="frequency"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Frequency
-          </label>
-          <select
-            id="frequency"
-            value={frequency}
-            onChange={(e) => setFrequency(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm px-3 py-2"
-            required
-          >
-            <option value="monthly">Monthly</option>
-            <option value="quarterly">Quarterly</option>
-            <option value="annually">Annually</option>
-          </select>
-        </div>
-        <div className="mb-4 md:col-span-2">
-          <label
-            htmlFor="startDate"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Start Date
-          </label>
-          <input
-            type="date"
-            id="startDate"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm px-3 py-2"
-            required
-          />
-        </div>
+        
+        
       </div>
       <button
         type="submit"
