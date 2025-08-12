@@ -1,13 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
 import { Volunteer } from "@/generated/graphql";
-import { PortableText } from "@portabletext/react";
 import { urlFor } from "../../lib/sanity";
 
 const VolunteerCard: React.FC<{
@@ -28,47 +21,6 @@ const VolunteerCard: React.FC<{
       <p className="text-primary-600 font-semibold mb-2">
         {volunteer.position}
       </p>
-      <div className="text-neutral-600 text-sm mb-4">
-        <PortableText value={volunteer.bioRaw} />
-      </div>
-      <div className="flex justify-center space-x-3">
-        {volunteer.socialMedia?.facebook && (
-          <a
-            href={volunteer.socialMedia.facebook}
-            className="text-primary-600 hover:text-primary-700"
-            aria-label="Facebook"
-          >
-            <FaFacebookF />
-          </a>
-        )}
-        {volunteer.socialMedia?.twitter && (
-          <a
-            href={volunteer.socialMedia.twitter}
-            className="text-primary-600 hover:text-primary-700"
-            aria-label="Twitter"
-          >
-            <FaTwitter />
-          </a>
-        )}
-        {volunteer.socialMedia?.instagram && (
-          <a
-            href={volunteer.socialMedia.instagram}
-            className="text-primary-600 hover:text-primary-700"
-            aria-label="Instagram"
-          >
-            <FaInstagram />
-          </a>
-        )}
-        {volunteer.socialMedia?.linkedin && (
-          <a
-            href={volunteer.socialMedia.linkedin}
-            className="text-primary-600 hover:text-primary-700"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn />
-          </a>
-        )}
-      </div>
     </div>
   );
 };
