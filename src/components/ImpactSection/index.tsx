@@ -34,9 +34,9 @@ const ImpactSection: React.FC = () => {
   return (
     <section className="py-20 bg-neutral-50">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold text-neutral-800 mb-4">
+            <h2 className="text-4xl font-bold text-neutral-800 mb-4 max-w-[90%]">
               Together, We Are Changing Lives in Davao City
             </h2>
             <p className="text-neutral-600 mb-8">
@@ -75,7 +75,14 @@ const ImpactSection: React.FC = () => {
               ))}
             </div>
           </div>
-          <div>
+          <div className="hidden lg:flex flex-col gap-6">
+            <Image
+              src="https://cdn.ancdavao.com/image1-min.jpg"
+              alt="Happy recipients"
+              width={800}
+              height={600}
+              className="rounded-lg shadow-lg"
+            />
             <Image
               src="https://cdn.ancdavao.com/image1-min.jpg"
               alt="Happy recipients"

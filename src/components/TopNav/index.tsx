@@ -3,7 +3,7 @@ import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 
 const TopNav: React.FC = () => {
   return (
-    <div className="bg-primary-700 text-white">
+    <div className="bg-primary-700 text-white hidden md:block">
       <div className="container mx-auto px-4 h-12 flex justify-between items-center text-sm">
         <div className="flex items-center space-x-6">
           <a href="#" className="hover:text-primary-200">
