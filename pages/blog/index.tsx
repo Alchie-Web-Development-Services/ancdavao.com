@@ -21,7 +21,7 @@ const Blog: React.FC<BlogProps> = ({ articles }) => {
       <PageHeader
         title="Our Blog"
         subtitle="Stay updated with our latest news, stories, and insights."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">

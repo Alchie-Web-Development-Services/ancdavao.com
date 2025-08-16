@@ -13,7 +13,7 @@ const TopNav: React.FC = () => {
             info@ancdavao.com
           </a>
           <a href="tel:+1234567890" className="hover:text-primary-200">
-            +63 (82) 285-1524
+            +63 (082) 285-1524
           </a>
         </div>
         <div className="flex items-center space-x-4">
