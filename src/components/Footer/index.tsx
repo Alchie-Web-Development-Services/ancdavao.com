@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-neutral-400">
               <li>Pag-asa St, Brgy. 24-C, Fatima, Davao City</li>
               <li>info@ancdavao.com</li>
-              <li>+63 (82) 285-1524</li>
+              <li>+63 (082) 285-1524</li>
             </ul>
           </div>
           <NewsletterForm />

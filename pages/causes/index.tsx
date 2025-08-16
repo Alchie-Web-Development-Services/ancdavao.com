@@ -21,7 +21,7 @@ const Causes: React.FC<CausesProps> = ({ causes }) => {
       <PageHeader
         title="Our Causes"
         subtitle="Support a cause that matters to you and make a lasting impact."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">

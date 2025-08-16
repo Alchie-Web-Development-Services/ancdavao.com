@@ -7,7 +7,7 @@ const CTASection: React.FC = () => {
       className="relative bg-cover bg-center text-white py-24 px-4"
       style={{
         backgroundImage:
-          "url('https://cdn.ancdavao.com/placeholder1.jpg?random')",
+          "url('https://cdn.ancdavao.com/gp-1.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-black opacity-60"></div>

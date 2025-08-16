@@ -21,7 +21,7 @@ const Events: React.FC<EventsProps> = ({ events }) => {
       <PageHeader
         title="Our Events"
         subtitle="Join us in our upcoming events and make a difference!"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg?random"
+        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
       />
 
       <section className="py-16 bg-white">
