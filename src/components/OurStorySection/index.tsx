@@ -9,7 +9,7 @@ const OurStorySection: React.FC = () => {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
           <div className="prose prose-lg text-gray-600 max-w-none">
             <p className="mb-6">
-              The Archdiocesan Nourishment Center (ANC) was established in 2015
+              The Archdiocesan Nourishment Center (ANC) was established in 2014
               as a response to the growing hunger and poverty in Davao City. As
               a project of ACLAIM of The Roman Catholic Bishop of Davao, Inc.,
               ANC began with a simple mission: to provide daily meals to

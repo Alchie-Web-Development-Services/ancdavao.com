@@ -27,7 +27,7 @@ const ImpactSection: React.FC = () => {
       description:
         "Education breaks the cycle of poverty. By sponsoring a student, you provide more than tuition—you give them hope, dignity, and the chance to dream.",
       tagline: "Empower the next generation.",
-      link: "/programs-and-services/education",
+      link: "/programs-and-services/educational-assistance",
     },
   ];
 
