@@ -76,20 +76,21 @@ const ImpactSection: React.FC = () => {
             </div>
           </div>
           <div className="hidden lg:flex flex-col gap-6">
-            <Image
-              src="https://cdn.ancdavao.com/image1-min.jpg"
+          <Image
+              src="https://cdn.ancdavao.com/group-pic-2-min.png"
               alt="Happy recipients"
               width={800}
               height={600}
               className="rounded-lg shadow-lg"
             />
             <Image
-              src="https://cdn.ancdavao.com/image1-min.jpg"
+              src="https://cdn.ancdavao.com/gp-2.jpg"
               alt="Happy recipients"
               width={800}
               height={600}
               className="rounded-lg shadow-lg"
             />
+            
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const WriteCheck: React.FC = () => {
           Write a Check / Deposit to our Bank Account
         </h2>
 
-        <p className="mb-2"><strong>BDO NETWORK BANK</strong> (formerly One Network Bank)</p>
+        <p className="mb-2"><strong>BDO NETWORK BANK</strong></p>
         <p className="mb-2">Account Name: <strong>Archdiocesan Nourishment Center</strong></p>
         <p className="mb-2">Account Number: <strong>04102-00000-48</strong></p>
         <p className="mb-2">Branch: <strong>HCDC - Davao</strong></p>

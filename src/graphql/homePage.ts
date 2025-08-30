@@ -21,7 +21,7 @@ export const HOME_PAGE_QUERY = gql`
     allArticle {
       ...ArticleFields
     }
-    allVolunteer {
+    allVolunteer (sort: { name: ASC }) {
       ...VolunteerFields
       position
       bioRaw
