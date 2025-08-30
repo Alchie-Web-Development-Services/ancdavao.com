@@ -3,6 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { getUserProfile, createUserProfile } from "@/services/userService";
 import { useRouter } from "next/router";
+import Loading from "@/components/Loading";
 
 interface MyContextType {
   loading: boolean;
@@ -46,7 +47,7 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <MyContext.Provider value={{ loading, onboarded }}>
-      {children}
+      {loading ? <Loading /> : children}
     </MyContext.Provider>
   );
 };

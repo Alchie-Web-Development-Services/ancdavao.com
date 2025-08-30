@@ -2,24 +2,21 @@ import React from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useAuth } from "@/context/AuthContext";
 
 interface MyAccountSidebarProps {
-  fullName: string;
-  email: string;
   children?: React.ReactNode;
 }
 
 const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
-  fullName,
-  email,
   children,
 }) => {
   const router = useRouter();
+  const { userProfile } = useAuth();
 
   const links = [
-    { href: "/my/account", label: "Personal information" },
-    // { href: "/my/account/edit", label: "Edit Personal Information" },
-    { href: "/my/pledge", label: "My Pledge" },
+    { href: "/my/account", label: "Personal Information" },
+    { href: "/my/pledges", label: "My Pledges" },
     { href: "/my/feeding-sponsorships", label: "Feeding Sponsorships" },
     { href: "/my/donation-history", label: "Donation History" },
   ];
@@ -32,9 +29,9 @@ const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
             <FaRegUserCircle />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">{fullName}</h2>
+            <h2 className="text-lg font-semibold text-gray-800">{userProfile?.firstName} {userProfile?.lastName}</h2>
             <p className="text-sm text-gray-600" data-testid="sidebar-email">
-              {email}
+              {userProfile?.email}
             </p>
           </div>
         </div>

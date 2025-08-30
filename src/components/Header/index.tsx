@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -12,12 +12,11 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Events", href: "/events" },
-  // { name: "Causes", href: "/causes" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact-us" },
 ];
 
-const Header: React.FC = () => {
+const Header = forwardRef<HTMLDivElement>((_, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const { user } = useAuth();
@@ -28,6 +27,7 @@ const Header: React.FC = () => {
   return (
     <header
       className={`w-full sticky top-0 z-50 transition-all duration-300 shadow-lg`}
+      ref={ref}
     >
       <TopNav />
 
@@ -98,6 +98,8 @@ const Header: React.FC = () => {
       )}
     </header>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

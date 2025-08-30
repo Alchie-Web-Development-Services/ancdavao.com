@@ -1,11 +1,10 @@
 import React from "react";
 import MyAccountHeader from "@/components/MyAccountHeader";
 import MyAccountSidebar from "@/components/MyAccountSidebar";
+import MyAccountContent from "@/components/MyAccountContent";
 import { getPrivateLayout } from "@/components/PrivateLayout";
-import { NextPageWithLayout } from "pages/_app";
-import SponsorshipsContent from "@/components/SponsorshipsContent";
 
-const MySponsorships: NextPageWithLayout = () => {
+const MyAccount = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -13,13 +12,13 @@ const MySponsorships: NextPageWithLayout = () => {
 
       <div className="container mx-auto px-4 py-8">
         <MyAccountSidebar>
-          <SponsorshipsContent />
+          <MyAccountContent />
         </MyAccountSidebar>
       </div>
     </div>
   );
 };
 
-MySponsorships.getLayout = getPrivateLayout;
+MyAccount.getLayout = getPrivateLayout;
 
-export default MySponsorships;
+export default MyAccount;
