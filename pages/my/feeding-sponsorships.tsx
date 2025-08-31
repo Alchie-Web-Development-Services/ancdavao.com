@@ -6,7 +6,6 @@ import { NextPageWithLayout } from "pages/_app";
 import SponsorshipsContent from "@/components/SponsorshipsContent";
 
 const MySponsorships: NextPageWithLayout = () => {
-
   return (
     <div className="min-h-screen bg-gray-100">
       <MyAccountHeader />

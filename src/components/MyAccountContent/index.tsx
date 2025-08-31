@@ -10,14 +10,18 @@ import {
 } from "react-icons/fa";
 
 const MyAccountContent = () => {
-
   const { userProfile } = useMy();
 
   return (
     <main className="md:col-span-3 bg-white rounded-lg shadow-md p-8 relative">
-      
       <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        Personal information <Link href="/my/account/edit" className="underline absolute right-8 text-sm">Edit</Link>
+        Personal information{" "}
+        <Link
+          href="/my/account/edit"
+          className="underline absolute right-8 text-sm"
+        >
+          Edit
+        </Link>
       </h2>
       <p className="text-gray-600 mb-8">
         Manage your personal information, including phone numbers and email
@@ -31,7 +35,9 @@ const MyAccountContent = () => {
             <h3 className="font-semibold text-gray-800">Name</h3>
             <FaRegUserCircle className="text-gray-500" />
           </div>
-          <p className="text-gray-700">{userProfile?.firstName} {userProfile?.lastName}</p>
+          <p className="text-gray-700">
+            {userProfile?.firstName} {userProfile?.lastName}
+          </p>
         </div>
 
         {/* Phone Number */}
@@ -78,7 +84,6 @@ const MyAccountContent = () => {
           </div>
           <p className="text-gray-700">{userProfile?.postalCode || "N/A"}</p>
         </div>
-
       </div>
     </main>
   );

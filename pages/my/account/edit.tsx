@@ -6,7 +6,6 @@ import { NextPageWithLayout } from "pages/_app";
 import MyAccountEditContent from "@/components/MyAccountEditContent"; // This component will be created next
 
 const MyAccountEdit: NextPageWithLayout = () => {
-
   return (
     <div className="min-h-screen bg-gray-100">
       <MyAccountHeader />{" "}

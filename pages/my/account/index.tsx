@@ -5,7 +5,6 @@ import MyAccountContent from "@/components/MyAccountContent";
 import { getPrivateLayout } from "@/components/PrivateLayout";
 
 const MyAccount = () => {
-
   return (
     <div className="min-h-screen bg-gray-100">
       <MyAccountHeader />

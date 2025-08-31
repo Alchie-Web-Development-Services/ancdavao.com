@@ -6,7 +6,6 @@ import { NextPageWithLayout } from "pages/_app";
 import DonationHistoryContent from "@/components/DonationHistoryContent";
 
 const MyDonationHistory: NextPageWithLayout = () => {
-
   return (
     <div className="min-h-screen bg-gray-100">
       <MyAccountHeader />

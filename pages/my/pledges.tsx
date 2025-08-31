@@ -6,7 +6,6 @@ import { getPrivateLayout } from "@/components/PrivateLayout";
 import { NextPageWithLayout } from "pages/_app";
 
 const MyPledgesPage: NextPageWithLayout = () => {
-
   return (
     <div className="min-h-screen bg-gray-100">
       <MyAccountHeader />
@@ -15,7 +14,7 @@ const MyPledgesPage: NextPageWithLayout = () => {
         <MyAccountSidebar>
           <PledgeContent />
         </MyAccountSidebar>
-      </div>  
+      </div>
     </div>
   );
 };

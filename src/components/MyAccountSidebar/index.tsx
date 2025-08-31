@@ -8,9 +8,7 @@ interface MyAccountSidebarProps {
   children?: React.ReactNode;
 }
 
-const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
-  children,
-}) => {
+const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({ children }) => {
   const router = useRouter();
   const { userProfile } = useMy();
 
@@ -29,7 +27,9 @@ const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({
             <FaRegUserCircle />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">{userProfile?.firstName} {userProfile?.lastName}</h2>
+            <h2 className="text-lg font-semibold text-gray-800">
+              {userProfile?.firstName} {userProfile?.lastName}
+            </h2>
             <p className="text-sm text-gray-600" data-testid="sidebar-email">
               {userProfile?.email}
             </p>

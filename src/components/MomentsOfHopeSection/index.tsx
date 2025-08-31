@@ -19,25 +19,33 @@ const MomentsOfHopeSection: React.FC<MomentsOfHopeSectionProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {momentsOfHope.map((moment) => (
             <div key={moment._id}>
-<Image src={moment.image ? urlFor(moment.image).url() : ""} alt={moment.title || "Moment of Hope"} width={800} height={600} className="w-full h-48 object-cover" />
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-semibold text-neutral-800 mb-2">
-                {moment.title}
-              </h3>
-              <p className="text-neutral-600 text-sm mb-4">
-                {moment.date ? new Date(moment.date).toLocaleDateString() : ""}
-              </p>
-              {moment.link && (
-                <a
-                  href={moment.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-600 hover:underline"
-                >
-                  Learn More
-                </a>
-              )}
-            </div>
+              <Image
+                src={moment.image ? urlFor(moment.image).url() : ""}
+                alt={moment.title || "Moment of Hope"}
+                width={800}
+                height={600}
+                className="w-full h-48 object-cover"
+              />
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-xl font-semibold text-neutral-800 mb-2">
+                  {moment.title}
+                </h3>
+                <p className="text-neutral-600 text-sm mb-4">
+                  {moment.date
+                    ? new Date(moment.date).toLocaleDateString()
+                    : ""}
+                </p>
+                {moment.link && (
+                  <a
+                    href={moment.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-600 hover:underline"
+                  >
+                    Learn More
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>

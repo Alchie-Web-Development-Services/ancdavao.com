@@ -62,8 +62,6 @@ export const PledgeForm: React.FC<PledgeFormProps> = ({ pledge }) => {
             required
           />
         </div>
-        
-        
       </div>
       <button
         type="submit"

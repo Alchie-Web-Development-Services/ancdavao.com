@@ -7,13 +7,13 @@
  */
 export function formatCurrency(
   value: number | string,
-  locale: string = 'en-US',
-  fractionDigits?: number
+  locale: string = "en-US",
+  fractionDigits?: number,
 ): string {
-  if (value === null || value === undefined || isNaN(Number(value))) return '';
+  if (value === null || value === undefined || isNaN(Number(value))) return "";
 
   const options: Intl.NumberFormatOptions = {};
-  if (typeof fractionDigits === 'number') {
+  if (typeof fractionDigits === "number") {
     options.minimumFractionDigits = fractionDigits;
     options.maximumFractionDigits = fractionDigits;
   }

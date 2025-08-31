@@ -25,7 +25,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member }) => {
         <h3 className="text-xl font-semibold text-gray-900 mb-1">
           {member.name}
         </h3>
-        <p className="text-primary-600 font-medium mb-4">{member.role}</p>        
+        <p className="text-primary-600 font-medium mb-4">{member.role}</p>
       </div>
     </div>
   );

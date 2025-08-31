@@ -16,7 +16,7 @@ const quickLinks = [
   { name: "Terms & Conditions", href: "/terms-conditions" },
 ];
 
-const Footer= forwardRef<HTMLDivElement>((_, ref) => {
+const Footer = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <footer className="bg-neutral-800 text-white" ref={ref}>
       <div className="container mx-auto px-4 py-16">

@@ -25,22 +25,32 @@ const Partnerships: React.FC = () => {
           {/* You can add partner logos, testimonials, or case studies here */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {partners.map((partner) => (
-                <div key={partner.id} className="bg-white p-6 rounded-lg shadow-md text-center">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={150}
-                    height={150}
-                    className="mx-auto mb-4"
-                  />
-                  <div>
+              <div
+                key={partner.id}
+                className="bg-white p-6 rounded-lg shadow-md text-center"
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={150}
+                  height={150}
+                  className="mx-auto mb-4"
+                />
+                <div>
                   <h3 className="text-xl font-semibold mb-2">{partner.name}</h3>
-                  <p className="text-gray-600">
-                      {partner.description}
+                  <p className="text-gray-600">{partner.description}</p>
+                  <p className="mt-4">
+                    <a
+                      href={partner.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      Visit Website
+                    </a>
                   </p>
-                  <p className="mt-4"><a href={partner.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">Visit Website</a></p>
-                  </div>
                 </div>
+              </div>
             ))}
           </div>
         </div>

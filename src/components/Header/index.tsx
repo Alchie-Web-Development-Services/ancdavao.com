@@ -20,8 +20,12 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const { user } = useAuth();
-  
-  const authLinkHref = user ? "/my/account" : USER_ACCOUNTS_ENABLED ? "/auth/login/" : "/get-involved/";
+
+  const authLinkHref = user
+    ? "/my/account"
+    : USER_ACCOUNTS_ENABLED
+      ? "/auth/login/"
+      : "/get-involved/";
   const authLinkText = user ? "My Account" : "Join the Mission";
 
   return (

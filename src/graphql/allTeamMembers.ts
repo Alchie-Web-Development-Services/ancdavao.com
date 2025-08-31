@@ -5,7 +5,7 @@ export const ALL_TEAM_MEMBERS_QUERY = gql`
   ${TEAM_MEMBER_FIELDS}
   ${IMAGE_FIELDS}
   query AllTeamMembers {
-    allTeamMember (sort: { order: ASC }) {
+    allTeamMember(sort: { order: ASC }) {
       ...TeamMemberFields
     }
   }

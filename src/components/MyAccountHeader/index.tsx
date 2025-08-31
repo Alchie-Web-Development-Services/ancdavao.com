@@ -4,7 +4,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 const MyAccountHeader = () => {
-
   const router = useRouter();
 
   const handleLogout = async () => {
