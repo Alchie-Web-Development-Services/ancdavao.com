@@ -1,4 +1,4 @@
-import { useAuth } from "@/context/AuthContext";
+import { useMy } from "@/context/MyContext";
 import Link from "next/link";
 import React from "react";
 import {
@@ -11,8 +11,7 @@ import {
 
 const MyAccountContent = () => {
 
-  const { userProfile } = useAuth();
-
+  const { userProfile } = useMy();
 
   return (
     <main className="md:col-span-3 bg-white rounded-lg shadow-md p-8 relative">
@@ -80,14 +79,6 @@ const MyAccountContent = () => {
           <p className="text-gray-700">{userProfile?.postalCode || "N/A"}</p>
         </div>
 
-        {/* Contactable at */}
-        <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="font-semibold text-gray-800">Contactable at</h3>
-            <FaRegEnvelope className="text-gray-500" />
-          </div>
-          <p className="text-gray-700">{userProfile?.email}</p>
-        </div>
       </div>
     </main>
   );

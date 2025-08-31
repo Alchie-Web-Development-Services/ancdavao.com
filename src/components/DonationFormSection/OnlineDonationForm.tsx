@@ -1,3 +1,4 @@
+import { presetAmounts } from "@/utils/constant/donation";
 import { slugify } from "@/utils/helper/slugify";
 import React, { useState } from "react";
 
@@ -10,8 +11,6 @@ const OnlineDonationForm: React.FC = () => {
     email: "",
     phone: "",
   });
-
-  const presetAmounts = [500, 1000, 1500, 2000, 2500, 3000, 4000, 5000];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -133,7 +132,7 @@ const OnlineDonationForm: React.FC = () => {
             ${isDisabled ? "bg-primary-600/60 cursor-not-allowed" : "bg-primary-600 hover:bg-primary-700"}`}
             disabled={isDisabled}
           >
-            Donate Now
+            Donate Now {amount ? `(₱${amount.toLocaleString()})` : ""}
           </button>
         </form>
       </div>

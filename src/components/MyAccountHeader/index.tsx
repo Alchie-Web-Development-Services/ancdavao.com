@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
-const MyAccountHeader= () => {
+const MyAccountHeader = () => {
 
   const router = useRouter();
 
