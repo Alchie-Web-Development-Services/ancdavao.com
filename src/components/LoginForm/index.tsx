@@ -23,7 +23,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-8 bg-white rounded-xl shadow-lg min-w-96">
+    <div className="max-w-md mx-auto p-8 bg-white rounded-xl shadow-lg min-w-96 w-full">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">
         Welcome Back!
       </h2>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import Logo from "../Logo";
@@ -16,9 +16,9 @@ const quickLinks = [
   { name: "Terms & Conditions", href: "/terms-conditions" },
 ];
 
-const Footer: React.FC = () => {
+const Footer = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <footer className="bg-neutral-800 text-white">
+    <footer className="bg-neutral-800 text-white" ref={ref}>
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
@@ -90,6 +90,8 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

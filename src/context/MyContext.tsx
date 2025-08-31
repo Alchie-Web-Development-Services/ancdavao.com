@@ -3,10 +3,13 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { getUserProfile, createUserProfile } from "@/services/userService";
 import { useRouter } from "next/router";
+import Loading from "@/components/Loading";
+import { UserProfile } from "@/types/user";
 
 interface MyContextType {
   loading: boolean;
   onboarded: boolean;
+  userProfile: UserProfile | null;
 }
 
 const MyContext = createContext<MyContextType | undefined>(undefined);
@@ -16,6 +19,7 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const [onboarded, setOnboarded] = useState(false);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -23,6 +27,7 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({
       if (currentUser) {
         const userProfile = await getUserProfile(currentUser.uid);
         if (userProfile) {
+          setUserProfile(userProfile);
           setOnboarded(userProfile.onboarded || false);
           if (!userProfile.onboarded && router.pathname !== "/my/onboarding") {
             router.push("/my/onboarding");
@@ -45,8 +50,8 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [router]);
 
   return (
-    <MyContext.Provider value={{ loading, onboarded }}>
-      {children}
+    <MyContext.Provider value={{ loading, onboarded, userProfile }}>
+      {loading ? <Loading /> : children}
     </MyContext.Provider>
   );
 };

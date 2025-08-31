@@ -5,6 +5,7 @@ import { client } from "@/lib/sanity";
 import { AllEventsQuery } from "@/generated/graphql";
 import { ALL_EVENTS_QUERY } from "@/graphql/allEvents";
 import EventCard from "@/components/EventCard";
+import CTASection from "@/components/CTASection";
 
 interface EventsProps {
   events: AllEventsQuery["allEvent"];
@@ -12,7 +13,7 @@ interface EventsProps {
 
 const Events: React.FC<EventsProps> = ({ events }) => {
   return (
-    <div className="min-h-screen">
+    <div>
       <SEO
         title="Events"
         description="Discover upcoming events hosted by ANC Davao, including charity galas, community drives, and medical missions. Join us and make a difference!"
@@ -21,7 +22,7 @@ const Events: React.FC<EventsProps> = ({ events }) => {
       <PageHeader
         title="Our Events"
         subtitle="Join us in our upcoming events and make a difference!"
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <section className="py-16 bg-white">
@@ -36,6 +37,7 @@ const Events: React.FC<EventsProps> = ({ events }) => {
           </div>
         </div>
       </section>
+      <CTASection />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import DonationFormSection from "@/components/DonationFormSection";
+import CTASection from "@/components/CTASection";
 
 const Donate: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const Donate: React.FC = () => {
       />
 
       <DonationFormSection />
+      <CTASection />
     </div>
   );
 };

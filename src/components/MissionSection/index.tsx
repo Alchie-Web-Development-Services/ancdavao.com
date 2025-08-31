@@ -36,7 +36,7 @@ const MissionSection: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="hidden lg:block">
             <Image
-              src="https://cdn.ancdavao.com/gp-1.jpg"
+              src="https://cdn.ancdavao.com/image1-min.jpg"
               alt="Volunteers working"
               width={800}
               height={600}
