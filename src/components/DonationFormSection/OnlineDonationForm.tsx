@@ -41,7 +41,7 @@ const OnlineDonationForm: React.FC = () => {
                 amount,
             ),
             payer_email: formData.email,
-            description: `Online Donation of ${formData.fullName} ${formData.email} ${formData.phone} - ${amount}`,
+            description: `Online Donation of ${formData.fullName} - (₱${amount.toLocaleString()})`,
             amount: amount,
             customer: {
               given_names: formData.fullName,
