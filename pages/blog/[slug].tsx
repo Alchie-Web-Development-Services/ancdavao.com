@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import { ALL_ARTICLES_QUERY } from "@/graphql/allArticles";
 import { ARTICLE_BY_SLUG_QUERY } from "@/graphql/articleBySlug";
 import { urlFor } from "@/lib/sanity";
+import CTASection from "@/components/CTASection";
 
 interface ArticleDetailProps {
   article: Article;
@@ -68,6 +69,7 @@ const ArticleDetail: React.FC<ArticleDetailProps> = ({ article }) => {
           </div>
         </div>
       </div>
+      <CTASection />
     </div>
   );
 };

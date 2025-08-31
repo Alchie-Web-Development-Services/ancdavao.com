@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import EventSection from "./index";
 import { vi } from "vitest";
+import { PortableTextBlock } from "@portabletext/react";
 
 // Mock urlFor from sanity.ts
 vi.mock("../../lib/sanity", () => ({

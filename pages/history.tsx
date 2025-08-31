@@ -1,10 +1,11 @@
 import React from "react";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
+import CTASection from "@/components/CTASection";
 
 const History: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div>
       <SEO
         title="Our History"
         description="Learn about the history and journey of ANC Davao, from its humble beginnings to its current impact."
@@ -56,6 +57,8 @@ const History: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <CTASection />
     </div>
   );
 };

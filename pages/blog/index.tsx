@@ -5,6 +5,7 @@ import { client } from "@/lib/sanity";
 import { AllArticlesQuery } from "@/generated/graphql";
 import { ALL_ARTICLES_QUERY } from "@/graphql/allArticles";
 import BlogCard from "@/components/BlogCard";
+import CTASection from "@/components/CTASection";
 
 interface BlogProps {
   articles: AllArticlesQuery["allArticle"];
@@ -21,7 +22,7 @@ const Blog: React.FC<BlogProps> = ({ articles }) => {
       <PageHeader
         title="Our Blog"
         subtitle="Stay updated with our latest news, stories, and insights."
-        backgroundImage="https://cdn.ancdavao.com/placeholder1.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       <section className="py-16 bg-white">
@@ -36,6 +37,7 @@ const Blog: React.FC<BlogProps> = ({ articles }) => {
           </div>
         </div>
       </section>
+      <CTASection />
     </div>
   );
 };

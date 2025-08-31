@@ -1,5 +1,7 @@
 import React from "react";
 import { MomentsOfHope } from "@/generated/graphql";
+import Image from "next/image";
+import { urlFor } from "@/lib/sanity";
 
 interface MomentsOfHopeSectionProps {
   momentsOfHope: MomentsOfHope[];
@@ -16,7 +18,9 @@ const MomentsOfHopeSection: React.FC<MomentsOfHopeSectionProps> = ({
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {momentsOfHope.map((moment) => (
-            <div key={moment._id} className="bg-white rounded-lg shadow-md p-6">
+            <div key={moment._id}>
+<Image src={moment.image ? urlFor(moment.image).url() : ""} alt={moment.title || "Moment of Hope"} width={800} height={600} className="w-full h-48 object-cover" />
+            <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-xl font-semibold text-neutral-800 mb-2">
                 {moment.title}
               </h3>
@@ -33,6 +37,7 @@ const MomentsOfHopeSection: React.FC<MomentsOfHopeSectionProps> = ({
                   Learn More
                 </a>
               )}
+            </div>
             </div>
           ))}
         </div>
