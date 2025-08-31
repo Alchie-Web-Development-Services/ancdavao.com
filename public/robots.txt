@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ancdavao.com
+
+# Sitemaps
+Sitemap: https://ancdavao.com/sitemap.xml
