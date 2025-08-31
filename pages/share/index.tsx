@@ -2,6 +2,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader";
 import SEO from "@/components/SEO";
 import CallToActionSection from "@/components/CallToActionSection";
+import CTASection from "@/components/CTASection";
 
 const Share: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const Share: React.FC = () => {
       <PageHeader
         title="Share Our Mission"
         subtitle="Help us spread the word and reach more hearts"
-        backgroundImage="https://cdn.ancdavao.com/placeholder4.jpg"
+        backgroundImage="https://cdn.ancdavao.com/page-header.jpg"
       />
 
       {/* Add your share content here */}
@@ -53,6 +54,7 @@ const Share: React.FC = () => {
       </section>
 
       <CallToActionSection />
+      <CTASection />
     </div>
   );
 };

@@ -14,6 +14,7 @@ const quickLinks = [
   { name: "FAQ", href: "/faq" },
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms & Conditions", href: "/terms-conditions" },
+  { name: "Share Our Mission", href: "/share" },
 ];
 
 const Footer = forwardRef<HTMLDivElement>((_, ref) => {
