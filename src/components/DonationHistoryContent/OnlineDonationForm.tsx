@@ -1,5 +1,6 @@
 import { useMy } from "@/context/MyContext";
 import { presetAmounts } from "@/utils/constant/donation";
+import { SITE_URL } from "@/utils/constant/general";
 import React, { useState } from "react";
 
 const OnlineDonationForm: React.FC = () => {
@@ -30,6 +31,8 @@ const OnlineDonationForm: React.FC = () => {
               email: userProfile?.email,
               mobile_number: userProfile?.phoneNumber,
             },
+            success_redirect_url: `${SITE_URL}/my/donations`,
+            failure_redirect_url: `${SITE_URL}/my/donations`,
           }),
         },
       );

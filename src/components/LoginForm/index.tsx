@@ -17,8 +17,8 @@ const LoginForm: React.FC = () => {
       setError(null);
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/my/account");
-    } catch (err: unknown) {
-      setError((err as Error).message);
+    } catch {
+      setError("Unable to login. Please try again.");
     }
   };
 

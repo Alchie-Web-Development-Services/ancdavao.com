@@ -1,10 +1,10 @@
 import React from "react";
 
 type LoadingProps = {
-    className?: string;
-}
+  className?: string;
+};
 
-const Loading = ({className}: LoadingProps) => {
+const Loading = ({ className }: LoadingProps) => {
   return (
     <div
       className={`flex items-center justify-center min-h-screen ${className}`}

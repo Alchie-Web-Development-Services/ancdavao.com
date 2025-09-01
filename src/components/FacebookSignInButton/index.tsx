@@ -15,11 +15,12 @@ const FacebookSignInButton: React.FC<FacebookSignInButtonProps> = ({
 
   const handleFacebookLogin = async () => {
     try {
+      onError("");
       const provider = new FacebookAuthProvider();
       await signInWithPopup(auth, provider);
       router.push("/my/account");
-    } catch (err: unknown) {
-      onError((err as Error).message);
+    } catch {
+      onError("Unable to login. Please try again.");
     }
   };
 
