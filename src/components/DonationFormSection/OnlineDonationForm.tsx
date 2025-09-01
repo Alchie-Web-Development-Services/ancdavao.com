@@ -1,4 +1,5 @@
 import { presetAmounts } from "@/utils/constant/donation";
+import { SITE_URL } from "@/utils/constant/general";
 import { slugify } from "@/utils/helper/slugify";
 import React, { useState } from "react";
 
@@ -48,6 +49,8 @@ const OnlineDonationForm: React.FC = () => {
               email: formData.email,
               mobile_number: formData.phone,
             },
+            success_redirect_url: `${SITE_URL}/donate/thank-you`,
+            failure_redirect_url: `${SITE_URL}/donate`,
           }),
         },
       );

@@ -13,7 +13,7 @@ export default function Document() {
         <Script src="https://elfsightcdn.com/platform.js"
         strategy="afterInteractive"
         ></Script>
-        <div className="elfsight-app-42e337d2-942a-4a49-a1e1-0897682d1bd3" data-elfsight-app-lazy></div>
+        <div className="elfsight-app-42e337d2-942a-4a49-a1e1-0897682d1bd3 hidden" data-elfsight-app-lazy></div>
         {GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />}
         {GOOGLE_TAG_MANAGER_ID && <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID} />}
       </body>

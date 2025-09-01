@@ -42,6 +42,10 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({
             router.push("/my/onboarding");
           }
         }
+      } else {
+        setUserProfile(null);
+        setOnboarded(false);
+        router.push("/auth/login");
       }
       setLoading(false);
     });

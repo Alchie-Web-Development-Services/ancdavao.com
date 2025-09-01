@@ -16,7 +16,7 @@ const CTASection: React.FC = () => {
         </h2>
         <p className="text-lg mb-6 text-white">
           From daily feeding programs to scholarships and medical missions, ANC
-          has reached over <strong>20,000 lives</strong> in Davao City with
+          has reached over <strong>2,000 lives</strong> in Davao City with
           compassion and care.
           <br />
           <strong>Be part of a mission that transforms communities.</strong>

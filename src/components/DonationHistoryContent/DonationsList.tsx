@@ -3,6 +3,7 @@ import { getInvoicesByUid } from "@/services/invoiceService";
 import { Invoice } from "@/types/invoice";
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading";
+import { PaymentCard } from "./PaymentCard";
 
 export const DonationsList = () => {
 
@@ -21,17 +22,16 @@ export const DonationsList = () => {
     }, [user]);
 
     if(loading) return <Loading className="!min-h-fit" />;
-console.log(invoices)
+
     return (
         <div>
         {invoices.length === 0 ? (
+          <div className="bg-white rounded-lg shadow p-4 mb-6">
           <p>No invoices found.</p>
+          </div>
         ) : (
           invoices.map((invoice) => (
-            <div key={invoice.id} className="bg-white rounded-lg shadow p-4 mb-6">
-              <p><strong>Date:</strong> {new Date(invoice.updated).toLocaleDateString()}</p>
-              <p><strong>Amount:</strong> ₱{invoice.amount.toLocaleString()}</p>
-            </div>
+            <PaymentCard key={invoice.id} invoice={invoice} />
           ))
         )}
       </div>

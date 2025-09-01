@@ -13,11 +13,12 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onError }) => {
 
   const handleGoogleLogin = async () => {
     try {
+      onError("");
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
       router.push("/my/account");
-    } catch (err: unknown) {
-      onError((err as Error).message);
+    } catch {
+      onError("Unable to login. Please try again.");
     }
   };
 
