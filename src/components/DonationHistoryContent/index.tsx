@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import OnlineDonationForm from "./OnlineDonationForm";
 import { DonationsList } from "./DonationsList";
 
-
 const DonationHistoryContent = () => {
   const [show, setShow] = useState(false);
 

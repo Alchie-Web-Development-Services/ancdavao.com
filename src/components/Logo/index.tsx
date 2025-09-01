@@ -10,7 +10,11 @@ const Logo: React.FC<{ version: "v1" | "v2" }> = ({ version }) => {
         alt="ANC Davao Logo"
         width={332}
         height={53}
-        className={version === "v1" ? "w-[332px] h-[53px]" : "w-full h-full object-contain"}
+        className={
+          version === "v1"
+            ? "w-[332px] h-[53px]"
+            : "w-full h-full object-contain"
+        }
       />
       <span className="text-2xl font-bold text-neutral-800 sr-only">
         Archdiocesan Nourishment Center
