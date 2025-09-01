@@ -7,8 +7,6 @@ import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "@/context/AuthContext";
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
-import { GOOGLE_ANALYTICS_ID, GOOGLE_TAG_MANAGER_ID } from "@/utils/constant/general";
 
 // Support for per-page layout
 export type NextPageWithLayout = NextPage & {
@@ -30,8 +28,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <SEO />
         <Header />
         {getLayout(<Component {...pageProps} />)}
-        {GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />}
-        {GOOGLE_TAG_MANAGER_ID && <GoogleTagManager gtmId={GOOGLE_TAG_MANAGER_ID} />}
         <Footer />
       </AuthProvider>
     </QueryClientProvider>
