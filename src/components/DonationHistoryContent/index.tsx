@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import OnlineDonationForm from "./OnlineDonationForm";
+import { DonationsList } from "./DonationsList";
+
 
 const DonationHistoryContent = () => {
   const [show, setShow] = useState(false);
+
+
 
   return (
     <div className="mx-auto p-6">
@@ -16,9 +20,7 @@ const DonationHistoryContent = () => {
         </button>
       </div>
       {show && <OnlineDonationForm />}
-      <div className="bg-white rounded-lg shadow p-4 mb-6">
-        <p>This is where your donation history will be displayed.</p>
-      </div>
+      <DonationsList />
     </div>
   );
 };
