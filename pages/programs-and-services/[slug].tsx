@@ -14,7 +14,7 @@ import {
 } from "@/graphql/allProgramServices";
 import ProgramsCallToAction from "@/components/ProgramsCallToAction";
 
-interface ProgramDetailProps {
+export interface ProgramDetailProps {
   program: ProgramService;
 }
 

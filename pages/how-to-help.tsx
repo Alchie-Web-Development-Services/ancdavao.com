@@ -1,2 +1,1 @@
-import GetInvolved from "./get-involved";
-export default GetInvolved;
+export { default } from "./get-involved";
