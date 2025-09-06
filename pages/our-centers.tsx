@@ -26,7 +26,7 @@ const mockCenters: Center[] = [
       "Our main hub for operations, daily feeding programs, and administrative services. This center also houses our chapel and clinic.",
     image: "https://cdn.ancdavao.com/placeholder1.jpg",
     contact: {
-      phone: "+63 82 123 4567",
+      phone: "+63 (82) 285-1524",
       email: "info@ancdavao.com",
     },
     hours: [
@@ -37,19 +37,70 @@ const mockCenters: Center[] = [
   },
   {
     id: 2,
-    name: "Community Outreach Center - Agdao",
-    location: "Agdao Public Market Area, Davao City",
+    name: "Pope Francis House of Mercy - Bucana",
+    location: "Bucana, Barangay 40-D, Davao City",
     description:
-      "A satellite center focused on community outreach, health education, and distribution of relief goods in the Agdao district.",
+      "A satellite center focused on feeding programs, health education, and distribution of relief goods in the Bucana.",
     image: "https://cdn.ancdavao.com/placeholder1.jpg",
     contact: {
-      phone: "+63 82 987 6543",
-      email: "agdao@ancdavao.com",
+      phone: "+63 (82) 285-1524",
+      email: "bucana@ancdavao.com",
     },
     hours: [
-      "Monday, Wednesday, Friday: 9:00 AM - 4:00 PM",
-      "Tuesday, Thursday: Closed",
-      "Saturday, Sunday: Closed",
+      "Monday - Friday: 8:00 AM - 5:00 PM",
+      "Saturday: 9:00 AM - 1:00 PM (Feeding Program)",
+      "Sunday: Closed",
+    ],
+  },
+  {
+    id: 3,
+    name: "Dumpsite Center",
+    location: "Magtuod, Maa, Davao City",
+    description:
+      "A satellite center focused on feeding programs, health education, and distribution of relief goods in the Magtuod, Maa, Davao City.",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
+    contact: {
+      phone: "+63 (82) 285-1524",
+      email: "dumpsite@ancdavao.com",
+    },
+    hours: [
+      "Monday - Friday: 8:00 AM - 5:00 PM",
+      "Saturday: 9:00 AM - 1:00 PM (Feeding Program)",
+      "Sunday: Closed",
+    ],
+  },
+  {
+    id: 4,
+    name: "Bankerohan Center",
+    location: "Bankerohan, Davao City",
+    description:
+      "A satellite center focused on feeding programs, health education, and distribution of relief goods in the Bankerohan, Davao City.",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
+    contact: {
+      phone: "+63 (82) 285-1524",
+      email: "bankerohan@ancdavao.com",
+    },
+    hours: [
+      "Monday - Friday: 8:00 AM - 5:00 PM",
+      "Saturday: 9:00 AM - 1:00 PM (Feeding Program)",
+      "Sunday: Closed",
+    ],
+  },
+  {
+    id: 5,
+    name: "Puan Center",
+    location: "Puan, Davao City",
+    description:
+      "A satellite center focused on feeding programs, health education, and distribution of relief goods in the Puan, Davao City.",
+    image: "https://cdn.ancdavao.com/placeholder1.jpg",
+    contact: {
+      phone: "+63 (82) 285-1524",
+      email: "puan@ancdavao.com",
+    },
+    hours: [
+      "Monday - Friday: 8:00 AM - 5:00 PM",
+      "Saturday: 9:00 AM - 1:00 PM (Feeding Program)",
+      "Sunday: Closed",
     ],
   },
 ];
