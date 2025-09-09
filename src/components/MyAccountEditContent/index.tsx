@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { updateUserProfile } from "@/services/userService";
+import { updateUserProfile } from "@/services/firebase/userService";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useMy } from "@/context/MyContext";

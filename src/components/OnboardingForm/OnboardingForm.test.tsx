@@ -3,7 +3,7 @@ import OnboardingForm from "./index";
 import { vi } from "vitest";
 import { useAuth } from "@/context/AuthContext";
 import { useMy } from "@/context/MyContext";
-import { updateUserProfile, getUserProfile } from "@/services/userService";
+import { updateUserProfile, getUserProfile } from "@/services/firebase/userService";
 
 // Mock hooks and services
 vi.mock("@/context/AuthContext", () => ({

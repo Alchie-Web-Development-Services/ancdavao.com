@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ContactForm } from "./ContactForm";
 import { vi } from "vitest";
-import * as contactService from "@/services/contactService";
+import * as contactService from "@/services/firebase/contactService";
 
 // Mock the contactService module
 vi.mock("@/services/contactService", () => ({

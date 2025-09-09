@@ -7,7 +7,7 @@ type LoadingProps = {
 const Loading = ({ className }: LoadingProps) => {
   return (
     <div
-      className={`flex items-center justify-center min-h-screen ${className}`}
+      className={`flex items-center justify-center ${className} md:min-h-[calc(100vh-738px)]`}
       role="status"
     >
       <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>

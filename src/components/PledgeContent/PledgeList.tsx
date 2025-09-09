@@ -1,20 +1,20 @@
 import { useAuth } from "@/context/AuthContext";
-import { getInvoicesByUid } from "@/services/firebase/invoiceService";
-import { Invoice } from "@/types/invoice";
+import { getPledgesByUid } from "@/services/firebase/pledgeService";
+import { Pledge } from "@/types/pledge";
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading";
-import { PaymentCard } from "./PaymentCard";
+import { PledgeCard } from "./PledgeCard";
 
-export const DonationsList = () => {
+export const PledgeList = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
-  const [invoices, setInvoices] = useState<Invoice[]>([]);
+  const [pledges, setPledges] = useState<Pledge[]>([]);
 
   useEffect(() => {
     const fetchInvoices = async () => {
       setLoading(true);
-      const invoices = await getInvoicesByUid(user?.uid || "");
-      setInvoices(invoices);
+      const pledges = await getPledgesByUid(user?.uid || "");
+      setPledges(pledges);
       setLoading(false);
     };
     fetchInvoices();
@@ -24,13 +24,13 @@ export const DonationsList = () => {
 
   return (
     <div>
-      {invoices.length === 0 ? (
+      {pledges.length === 0 ? (
         <div className="bg-white rounded-lg shadow p-4 mb-6">
-          <p>No donations found.</p>
+          <p>No pledges found.</p>
         </div>
       ) : (
-        invoices.map((invoice) => (
-          <PaymentCard key={invoice.id} invoice={invoice} />
+        pledges.map((pledge) => (
+          <PledgeCard key={pledge.id} pledge={pledge} />
         ))
       )}
     </div>

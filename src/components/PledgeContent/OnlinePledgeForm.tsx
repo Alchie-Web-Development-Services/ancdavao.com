@@ -1,25 +1,51 @@
 import { useMy } from "@/context/MyContext";
-import { createPaymentLink } from "@/services/api/paymentLinkService";
 import { presetAmounts } from "@/utils/constant/donation";
+import { SITE_URL } from "@/utils/constant/general";
 import React, { useState } from "react";
 
-const OnlineDonationForm: React.FC = () => {
+const OnlinePledgeForm: React.FC = () => {
   const { userProfile } = useMy();
 
   const [loading, setLoading] = useState(false);
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<number | "">("");
   const [checked, setChecked] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       setLoading(true);
-      if (!userProfile) {
-        throw new Error("User profile not found");
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/generate-subscription-link`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            external_id: userProfile?.uid,
+            payer_email: userProfile?.email,
+            description: `Online Donation of ${userProfile?.firstName} ${userProfile?.lastName} - (₱${amount.toLocaleString()})`,
+            amount: amount,
+            customer: {
+              given_names: userProfile?.firstName,
+              family_name: userProfile?.lastName,
+              email: userProfile?.email,
+              mobile_number: userProfile?.phoneNumber,
+            },
+            success_redirect_url: `${SITE_URL}/my/donations`,
+            failure_redirect_url: `${SITE_URL}/my/donations`,
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to create subscription");
       }
-      const data = await createPaymentLink(userProfile, amount);
+
       // Redirect customer to Xendit checkout page
-      window.location.href = data.invoice.invoice_url;
+      window.location.href = data.subscription.invoice_url;
     } catch (err: unknown) {
       console.error("Checkout error:", (err as Error).message);
       alert("Payment link creation failed.");
@@ -32,7 +58,7 @@ const OnlineDonationForm: React.FC = () => {
 
   return (
     <div className="mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200 w-full mb-6">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Make a Donation</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Make a Pledge</h2>
 
       <form onSubmit={handleSubmit}>
         {/* Donation Amount */}
@@ -53,7 +79,8 @@ const OnlineDonationForm: React.FC = () => {
         </div>
         <div className="text-sm text-gray-600 mb-8">
           <input type="checkbox" className="mr-2" checked={checked} onChange={() => setChecked(!checked)} disabled={loading || !amount} />
-          By clicking the button below, you authorize us and our payment partner (Xendit) to charge your selected payment method for the donation amount you selected above on a one-time basis only. Payments already made are non-refundable.
+          By clicking the button below, you authorize us and our payment partner (Xendit) to automatically charge your selected payment method for the pledge amount you selected above on a recurring monthly basis. 
+          Your pledge will renew until you cancel. You may cancel anytime before the next billing date to stop future charges. Payments already made are non-refundable.
         </div>
         <button
           type="submit"
@@ -61,11 +88,11 @@ const OnlineDonationForm: React.FC = () => {
             ${isDisabled ? "bg-primary-600/60 cursor-not-allowed" : "bg-primary-600 hover:bg-primary-700"}`}
           disabled={isDisabled}
         >
-          Donate Now {amount ? `(₱${amount.toLocaleString()})` : ""}
+          Pledge Now {amount ? `(₱${amount.toLocaleString()})` : ""}
         </button>
       </form>
     </div>
   );
 };
 
-export default OnlineDonationForm;
+export default OnlinePledgeForm;

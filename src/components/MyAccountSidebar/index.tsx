@@ -14,9 +14,9 @@ const MyAccountSidebar: React.FC<MyAccountSidebarProps> = ({ children }) => {
 
   const links = [
     { href: "/my/account", label: "Personal Information" },
-    //{ href: "/my/pledges", label: "Pledges" },
     //{ href: "/my/feeding-sponsorships", label: "Feeding Sponsorships" },
     { href: "/my/donations", label: "Donations" },
+    //{ href: "/my/pledges", label: "Pledges" },
   ];
 
   return (

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, act } from "@testing-library/react";
 import MyAccountEditContent from "./index";
 import { vi } from "vitest";
-import * as userService from "@/services/userService";
+import * as userService from "@/services/firebase/userService";
 
 // Mock the userService module
 vi.mock("@/services/userService", () => ({
