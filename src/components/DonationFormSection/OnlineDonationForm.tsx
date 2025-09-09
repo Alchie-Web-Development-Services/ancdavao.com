@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 const OnlineDonationForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const [checked, setChecked] = useState(false);
   const [amount, setAmount] = useState<number | "">("");
   const [formData, setFormData] = useState({
     fullName: "",
@@ -83,7 +84,7 @@ const OnlineDonationForm: React.FC = () => {
     );
   };
 
-  const isDisabled = !isFormComplete() || loading;
+  const isDisabled = !isFormComplete() || loading || !checked;
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 border border-gray-200 w-full">
@@ -140,7 +141,10 @@ const OnlineDonationForm: React.FC = () => {
             required
           />
         </div>
-
+        <div className="text-sm text-gray-600 mb-8">
+          <input type="checkbox" className="mr-2" checked={checked} onChange={() => setChecked(!checked)} disabled={loading || !amount} />
+          By clicking the button below, you authorize us and our payment partner (Xendit) to charge your selected payment method for the donation amount you selected above on a one-time basis only. Payments already made are non-refundable.
+        </div>
         <button
           type="submit"
           className={`w-full py-3 px-6 rounded-md text-white transition-colors 
