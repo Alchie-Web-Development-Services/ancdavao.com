@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
-import { getUserProfile, createUserProfile } from "@/services/userService";
+import { getUserProfile, createUserProfile } from "@/services/firebase/userService";
 import { useRouter } from "next/router";
 import Loading from "@/components/Loading";
 import { UserProfile } from "@/types/user";
@@ -29,17 +29,18 @@ export const MyProvider: React.FC<{ children: React.ReactNode }> = ({
         if (userProfile) {
           setUserProfile(userProfile);
           setOnboarded(userProfile.onboarded || false);
-          if (!userProfile.onboarded && router.pathname !== "/my/onboarding") {
-            router.push("/my/onboarding");
+          if (!userProfile.onboarded && !router.pathname.startsWith("/my/onboarding")) {
+            router.push(`/my/onboarding/step${userProfile.onboardingStep || 1}`);
           }
         } else {
           // Create a basic profile if it doesn't exist
           await createUserProfile(currentUser.uid, {
             email: currentUser.email || "",
             onboarded: false,
+            onboardingStep: 1,
           });
-          if (router.pathname !== "/my/onboarding") {
-            router.push("/my/onboarding");
+          if (!router.pathname.startsWith("/my/onboarding")) {
+            router.push(`/my/onboarding`);
           }
         }
       } else {

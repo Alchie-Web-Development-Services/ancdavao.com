@@ -26,7 +26,7 @@ const MyAccountHeader = () => {
         >
           Sign out
         </button>
-      </div>
+      </div>      
     </header>
   );
 };

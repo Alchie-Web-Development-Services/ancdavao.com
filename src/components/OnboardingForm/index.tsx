@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
-import { updateUserProfile, getUserProfile } from "@/services/userService";
+import { updateUserProfile, getUserProfile } from "@/services/firebase/userService";
 import { useMy } from "@/context/MyContext";
+import { countries } from "@/utils/constant/countries";
 
 const OnboardingForm: React.FC = () => {
   const { user, loading } = useAuth();
@@ -16,6 +17,7 @@ const OnboardingForm: React.FC = () => {
   const [country, setCountry] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+  const isDisabled = !firstName || !lastName || !phoneNumber || loading;
 
   useEffect(() => {
     if (onboarded) {
@@ -31,7 +33,7 @@ const OnboardingForm: React.FC = () => {
           setPhoneNumber(profile.phoneNumber || "");
           setAddress(profile.address || "");
           setCity(profile.city || "");
-          setCountry(profile.country || "");
+          setCountry(profile.country || "PH");
           setPostalCode(profile.postalCode || "");
           if (profile.onboarded) {
             router.push("/my/account");
@@ -47,6 +49,7 @@ const OnboardingForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) return;
+    if (isDisabled) return;
 
     setIsSaving(true);
     try {
@@ -58,9 +61,10 @@ const OnboardingForm: React.FC = () => {
         city,
         country,
         postalCode,
-        onboarded: true,
+        onboarded: false,
+        onboardingStep: 1,
       });
-      router.push("/my/account");
+      router.push("/my/onboarding/step2");
     } catch (error) {
       console.error("Error updating profile:", error);
       alert("Failed to update profile.");
@@ -123,7 +127,7 @@ const OnboardingForm: React.FC = () => {
               type="tel"
               autoComplete="tel"
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-              placeholder="Phone Number (Optional)"
+              placeholder="Phone Number"
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
             />
@@ -162,16 +166,21 @@ const OnboardingForm: React.FC = () => {
             <label htmlFor="country" className="sr-only">
               Country
             </label>
-            <input
+            <select
               id="country"
               name="country"
-              type="text"
               autoComplete="country-name"
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-              placeholder="Country (Optional)"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-            />
+            >
+              <option value="">Select a country</option>
+              {countries.map((c) => (
+                <option key={c.code} value={c.code} selected={c.code === country}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div>
             <label htmlFor="postal-code" className="sr-only">
@@ -193,8 +202,8 @@ const OnboardingForm: React.FC = () => {
         <div>
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-            disabled={isSaving}
+            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm disabled:opacity-50 disabled:cursor-not-allowed font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            disabled={isDisabled || isSaving}
           >
             {isSaving ? "Saving..." : "Complete Profile"}
           </button>

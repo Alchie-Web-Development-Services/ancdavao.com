@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createContactMessage } from "@/services/contactService";
+import { createContactMessage } from "@/services/firebase/contactService";
 
 export const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
