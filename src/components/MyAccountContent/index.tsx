@@ -8,9 +8,12 @@ import {
   FaLanguage,
   FaRegEnvelope,
 } from "react-icons/fa";
+import { countries } from "@/utils/constant/countries";
 
 const MyAccountContent = () => {
   const { userProfile } = useMy();
+
+  const country = countries.find((c) => c.code === userProfile?.country);
 
   return (
     <main className="md:col-span-3 bg-white rounded-lg shadow-md p-8 relative">
@@ -73,7 +76,7 @@ const MyAccountContent = () => {
             <h3 className="font-semibold text-gray-800">Country</h3>
             <FaGlobe className="text-gray-500" />
           </div>
-          <p className="text-gray-700">{userProfile?.country || "N/A"}</p>
+          <p className="text-gray-700">{country?.name || "N/A"}</p>
         </div>
 
         {/* Postal Code */}

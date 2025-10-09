@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
-import { updateUserProfile, getUserProfile } from "@/services/firebase/userService";
+import {
+  updateUserProfile,
+  getUserProfile,
+} from "@/services/firebase/userService";
 import { useMy } from "@/context/MyContext";
 import { countries } from "@/utils/constant/countries";
 
 const OnboardingForm: React.FC = () => {
   const { user, loading } = useAuth();
+  console.log(user);
   const { onboarded } = useMy();
   const router = useRouter();
   const [firstName, setFirstName] = useState("");
@@ -17,7 +21,15 @@ const OnboardingForm: React.FC = () => {
   const [country, setCountry] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [isSaving, setIsSaving] = useState(false);
-  const isDisabled = !firstName || !lastName || !phoneNumber || loading;
+  const isDisabled =
+    !firstName ||
+    !lastName ||
+    !phoneNumber ||
+    !address ||
+    !city ||
+    !country ||
+    !postalCode ||
+    loading;
 
   useEffect(() => {
     if (onboarded) {
@@ -142,7 +154,7 @@ const OnboardingForm: React.FC = () => {
               type="text"
               autoComplete="street-address"
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-              placeholder="Address (Optional)"
+              placeholder="Address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
@@ -157,7 +169,7 @@ const OnboardingForm: React.FC = () => {
               type="text"
               autoComplete="address-level2"
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-              placeholder="City (Optional)"
+              placeholder="City"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
@@ -176,7 +188,11 @@ const OnboardingForm: React.FC = () => {
             >
               <option value="">Select a country</option>
               {countries.map((c) => (
-                <option key={c.code} value={c.code} selected={c.code === country}>
+                <option
+                  key={c.code}
+                  value={c.code}
+                  selected={c.code === country}
+                >
                   {c.name}
                 </option>
               ))}
@@ -192,7 +208,7 @@ const OnboardingForm: React.FC = () => {
               type="text"
               autoComplete="postal-code"
               className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
-              placeholder="Postal Code (Optional)"
+              placeholder="Postal Code"
               value={postalCode}
               onChange={(e) => setPostalCode(e.target.value)}
             />
