@@ -15,6 +15,7 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onError }) => {
     try {
       onError("");
       const provider = new GoogleAuthProvider();
+      provider.addScope('email');
       await signInWithPopup(auth, provider);
       router.push("/my/account");
     } catch {

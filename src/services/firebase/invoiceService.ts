@@ -17,3 +17,19 @@ export const getInvoicesByUid = async (uid: string): Promise<Invoice[]> => {
   });
   return invoices;
 };
+
+export const getInvoicesByEmail = async (email: string): Promise<Invoice[]> => {
+  const invoicesRef = collection(db, "invoices");
+  const q = query(
+    invoicesRef,
+    where("payer_email", "==", email),
+    orderBy("paid_at", "desc"),
+  );
+  const snapshot = await getDocs(q);
+  const invoices: Invoice[] = snapshot.docs.map((d) => {
+    const data = d.data() as Invoice;
+    // Ensure the returned object contains the Firestore doc id
+    return { ...data, id: d.id };
+  });
+  return invoices;
+};
