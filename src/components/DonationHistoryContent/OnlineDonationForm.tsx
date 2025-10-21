@@ -8,7 +8,7 @@ const OnlineDonationForm: React.FC = () => {
 
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState<number>(0);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
