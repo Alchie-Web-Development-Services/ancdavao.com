@@ -1,5 +1,5 @@
 import { useAuth } from "@/context/AuthContext";
-import { getInvoicesByUid } from "@/services/firebase/invoiceService";
+import { getInvoicesByEmail } from "@/services/firebase/invoiceService";
 import { Invoice } from "@/types/invoice";
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading";
@@ -13,7 +13,7 @@ export const DonationsList = () => {
   useEffect(() => {
     const fetchInvoices = async () => {
       setLoading(true);
-      const invoices = await getInvoicesByUid(user?.uid || "");
+      const invoices = await getInvoicesByEmail(user?.email || "");
       setInvoices(invoices);
       setLoading(false);
     };
