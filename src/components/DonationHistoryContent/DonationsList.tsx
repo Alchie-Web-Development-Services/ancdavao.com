@@ -1,24 +1,24 @@
-import { useAuth } from "@/context/AuthContext";
 import { getInvoicesByEmail } from "@/services/firebase/invoiceService";
 import { Invoice } from "@/types/invoice";
 import React, { useEffect, useState } from "react";
 import Loading from "../Loading";
 import { PaymentCard } from "./PaymentCard";
+import { useMy } from "@/context/MyContext";
 
 export const DonationsList = () => {
-  const { user } = useAuth();
+  const { userProfile } = useMy();
   const [loading, setLoading] = useState(true);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
 
   useEffect(() => {
     const fetchInvoices = async () => {
       setLoading(true);
-      const invoices = await getInvoicesByEmail(user?.email || "");
+      const invoices = await getInvoicesByEmail(userProfile?.email || "");
       setInvoices(invoices);
       setLoading(false);
     };
     fetchInvoices();
-  }, [user]);
+  }, []);
 
   if (loading) return <Loading className="!min-h-fit" />;
 
