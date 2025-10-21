@@ -10,9 +10,9 @@ import { countries } from "@/utils/constant/countries";
 
 const OnboardingForm: React.FC = () => {
   const { user, loading } = useAuth();
-  console.log(user);
   const { onboarded } = useMy();
   const router = useRouter();
+  const [email, setEmail] = useState(user?.email || "");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -24,6 +24,7 @@ const OnboardingForm: React.FC = () => {
   const isDisabled =
     !firstName ||
     !lastName ||
+    !email ||
     !phoneNumber ||
     !address ||
     !city ||
@@ -41,6 +42,7 @@ const OnboardingForm: React.FC = () => {
         const profile = await getUserProfile(user.uid);
         if (profile) {
           setFirstName(profile.firstName || "");
+          setEmail(profile.email || "");
           setLastName(profile.lastName || "");
           setPhoneNumber(profile.phoneNumber || "");
           setAddress(profile.address || "");
@@ -68,6 +70,7 @@ const OnboardingForm: React.FC = () => {
       await updateUserProfile(user.uid, {
         firstName,
         lastName,
+        email,
         phoneNumber,
         address,
         city,
@@ -127,6 +130,22 @@ const OnboardingForm: React.FC = () => {
               placeholder="Last Name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+           <div>
+            <label htmlFor="email" className="sr-only">
+              Email Address
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
