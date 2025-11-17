@@ -31,4 +31,12 @@ export const partners = [
     logo: "https://cdn.ancdavao.com/partners/dasia_logo.png",
     url: "http://www.dasia-security.com/",
   },
+  {
+    id: "rmc",
+    name: "Rizal Memorial Colleges Inc.",
+    description:
+      "Rizal Memorial Colleges (RMC) is a private Davao-based institution offering affordable, values-driven education from basic education to college, graduate studies, and technical-vocational programs.",
+    logo: "https://cdn.ancdavao.com/partners/rmc-logo.png",
+    url: "https://rmc.edu.ph/",
+  },
 ];
