@@ -29,7 +29,7 @@ export const partners = [
     description:
       "Davao Security and Investigation Agency, Inc. (DASIA) is a licensed security services provider based in Davao City, Philippines. ",
     logo: "https://cdn.ancdavao.com/partners/dasia_logo.png",
-    url: "http://www.dasia-security.com/",
+    url: "https://www.dasia-security.com/",
   },
   {
     id: "rmc",
@@ -38,5 +38,20 @@ export const partners = [
       "Rizal Memorial Colleges (RMC) is a private Davao-based institution offering affordable, values-driven education from basic education to college, graduate studies, and technical-vocational programs.",
     logo: "https://cdn.ancdavao.com/partners/rmc-logo.png",
     url: "https://rmc.edu.ph/",
+  },
+  {
+    id: "pda-davao",
+    name: "Philippine Dental Association - Davao Chapter",
+    description:
+      "The Philippine Dental Association (PDA) is the national professional organization of Filipino dentists, dedicated to advancing dental education, promoting high standards of practice and ethics, unifying practitioners across the country, and improving the oral health and welfare of the Filipino people.",
+    logo: "https://cdn.ancdavao.com/partners/pda-logo.png",
+    url: "https://pda.com.ph/",
+  },
+  {
+    id: "dayaw",
+    name: "Dayaw",
+    description: "",
+    logo: "https://cdn.ancdavao.com/partners/dayaw-logo.jpg",
+    url: "https://www.facebook.com/dayaostudycenter",
   },
 ];
