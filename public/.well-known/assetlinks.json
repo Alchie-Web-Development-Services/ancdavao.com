@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ancdavao.anc_davao_app",
+      "sha256_cert_fingerprints": [
+        "1B:83:66:16:FB:22:20:EB:CF:3E:C3:77:27:E9:BC:07:E9:D0:E3:6D:9E:C0:93:5D:16:D8:80:0E:5A:34:D2:41"
+      ]
+    }
+  }
+]
